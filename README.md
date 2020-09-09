@@ -1,6 +1,7 @@
 # ProjetoIntegrador
 
 Situação problema
+
 Uma empresa que efetua assistência técnica em veículos automotivos, deseja informatizar sua
 rotina de trabalho. Desta forma é necessário a cada novo cliente que traz um veículo, abrir
 uma ordem de serviço, onde os dados do veículo e cliente devem estar relacionados. Todos
@@ -23,6 +24,7 @@ intervalo de datas.
 
 
 Atividades
+
  Fazer a análise de requisitos da situação problema.
 
  Fazer a análise do sistema da situação problema apresentando a arquitetura das
@@ -42,16 +44,24 @@ problema apresentado na situação problema.
 
 
 Estará sobre avaliação:
+
  Capacidade de análise e domínio da linguagem UML;
+
  Criatividade na solução do problema;
+
  Trabalho em equipe;
+
  Domínio da linguagem de programação;
+
  Número de requisitos levantados e implementados;
+
  Qualidade da documentação;
+
  Apresentação do produto final.
 
 
 Observações:
+
 O trabalho deve ser executado em duplas e construído em linguagem Java.
 As documentações fazem parte do projeto e portanto devem integrar a entrega de deve ser
 realizada por email (profheitor@gmail.com).
