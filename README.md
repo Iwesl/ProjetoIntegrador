@@ -24,14 +24,20 @@ intervalo de datas.
 
 Atividades
  Fazer a análise de requisitos da situação problema.
+
  Fazer a análise do sistema da situação problema apresentando a arquitetura das
 classes para o referido sistema.
+
  Realizar a modelagem conceitual, física e lógica do Banco de dados.
+
  Construir um aplicativo desktop para a situação problema de acordo com a análise
 realizada na situação problema apresentada.
+
  Construir um aplicativo de celular que permita ao cliente realizar as consultas do
 problema apresentado na situação problema.
+
  Fazer o plano de testes dos sistemas.
+
  Criar os casos de testes, baseados nos casos de uso analisados.
 
 
