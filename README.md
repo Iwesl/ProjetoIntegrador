@@ -1,6 +1,6 @@
 # ProjetoIntegrador
 
-Situação problema
+<b>Situação do problema</b>
 
 Uma empresa que efetua assistência técnica em veículos automotivos, deseja informatizar sua
 rotina de trabalho. Desta forma é necessário a cada novo cliente que traz um veículo, abrir
@@ -23,44 +23,44 @@ consultar o histórico dos serviços realizados, tendo como chave de pesquisa a 
 intervalo de datas.
 
 *****************************************************************************************
-Atividades
+<b>Atividades</b>
 
- Fazer a análise de requisitos da situação problema.
+- Fazer a análise de requisitos da situação problema.
 
- Fazer a análise do sistema da situação problema apresentando a arquitetura das
+- Fazer a análise do sistema da situação problema apresentando a arquitetura das
 classes para o referido sistema.
 
- Realizar a modelagem conceitual, física e lógica do Banco de dados.
+- Realizar a modelagem conceitual, física e lógica do Banco de dados.
 
- Construir um aplicativo desktop para a situação problema de acordo com a análise
+- Construir um aplicativo desktop para a situação problema de acordo com a análise
 realizada na situação problema apresentada.
 
- Construir um aplicativo de celular que permita ao cliente realizar as consultas do
+- Construir um aplicativo de celular que permita ao cliente realizar as consultas do
 problema apresentado na situação problema.
 
- Fazer o plano de testes dos sistemas.
+- Fazer o plano de testes dos sistemas.
 
- Criar os casos de testes, baseados nos casos de uso analisados.
-
-*****************************************************************************************
-Estará sobre avaliação:
-
- Capacidade de análise e domínio da linguagem UML;
-
- Criatividade na solução do problema;
-
- Trabalho em equipe;
-
- Domínio da linguagem de programação;
-
- Número de requisitos levantados e implementados;
-
- Qualidade da documentação;
-
- Apresentação do produto final.
+- Criar os casos de testes, baseados nos casos de uso analisados.
 
 *****************************************************************************************
-Observações:
+<b>Estará sobre avaliação:</b>
+
+- Capacidade de análise e domínio da linguagem UML;
+
+- Criatividade na solução do problema;
+
+- Trabalho em equipe;
+
+- Domínio da linguagem de programação;
+
+- Número de requisitos levantados e implementados;
+
+- Qualidade da documentação;
+
+- Apresentação do produto final.
+
+*****************************************************************************************
+<b>Observações:</b>
 
 O trabalho deve ser executado em duplas e construído em linguagem Java.
 As documentações fazem parte do projeto e portanto devem integrar a entrega de deve ser
