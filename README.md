@@ -22,7 +22,7 @@ O cliente pode acompanhar o andamento da execução do serviço em seu veículo,
 consultar o histórico dos serviços realizados, tendo como chave de pesquisa a Placa e o
 intervalo de datas.
 
-
+*****************************************************************************************
 Atividades
 
  Fazer a análise de requisitos da situação problema.
@@ -42,7 +42,7 @@ problema apresentado na situação problema.
 
  Criar os casos de testes, baseados nos casos de uso analisados.
 
-
+*****************************************************************************************
 Estará sobre avaliação:
 
  Capacidade de análise e domínio da linguagem UML;
@@ -59,7 +59,7 @@ Estará sobre avaliação:
 
  Apresentação do produto final.
 
-
+*****************************************************************************************
 Observações:
 
 O trabalho deve ser executado em duplas e construído em linguagem Java.
