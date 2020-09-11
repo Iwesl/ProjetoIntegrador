@@ -35,6 +35,14 @@
             <Property name="text" type="java.lang.String" value="Servi&#xe7;os"/>
           </Properties>
           <SubComponents>
+            <MenuItem class="javax.swing.JMenuItem" name="mnNovaOS">
+              <Properties>
+                <Property name="text" type="java.lang.String" value="Abrir Nova OS"/>
+              </Properties>
+              <Events>
+                <EventHandler event="actionPerformed" listener="java.awt.event.ActionListener" parameters="java.awt.event.ActionEvent" handler="mnNovaOSActionPerformed"/>
+              </Events>
+            </MenuItem>
             <MenuItem class="javax.swing.JMenuItem" name="mnServicos">
               <Properties>
                 <Property name="text" type="java.lang.String" value="Servi&#xe7;os"/>

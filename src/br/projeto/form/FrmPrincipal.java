@@ -34,6 +34,7 @@ public class FrmPrincipal extends javax.swing.JFrame {
         mnCliente = new javax.swing.JMenuItem();
         mnUsuario = new javax.swing.JMenuItem();
         jMenu2 = new javax.swing.JMenu();
+        mnNovaOS = new javax.swing.JMenuItem();
         mnServicos = new javax.swing.JMenuItem();
         mnStatus = new javax.swing.JMenuItem();
 
@@ -68,6 +69,14 @@ public class FrmPrincipal extends javax.swing.JFrame {
         jMenuBar1.add(jMenu1);
 
         jMenu2.setText("Serviços");
+
+        mnNovaOS.setText("Abrir Nova OS");
+        mnNovaOS.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                mnNovaOSActionPerformed(evt);
+            }
+        });
+        jMenu2.add(mnNovaOS);
 
         mnServicos.setText("Serviços");
         mnServicos.addActionListener(new java.awt.event.ActionListener() {
@@ -128,6 +137,11 @@ public class FrmPrincipal extends javax.swing.JFrame {
         frmClientes.setVisible(true);
     }//GEN-LAST:event_mnClienteActionPerformed
 
+    private void mnNovaOSActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_mnNovaOSActionPerformed
+        FrmOS frmOs = new FrmOS();
+        frmOs.setVisible(true);
+    }//GEN-LAST:event_mnNovaOSActionPerformed
+
     /**
      * @param args the command line arguments
      */
@@ -169,6 +183,7 @@ public class FrmPrincipal extends javax.swing.JFrame {
     private javax.swing.JMenu jMenu2;
     private javax.swing.JMenuBar jMenuBar1;
     private javax.swing.JMenuItem mnCliente;
+    private javax.swing.JMenuItem mnNovaOS;
     private javax.swing.JMenuItem mnServicos;
     private javax.swing.JMenuItem mnStatus;
     private javax.swing.JMenuItem mnUsuario;
