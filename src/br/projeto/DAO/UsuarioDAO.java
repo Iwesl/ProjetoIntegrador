@@ -18,7 +18,7 @@ public class UsuarioDAO {
 
     public void inserir(Usuario user) {
 
-        String sql = "INSERT INTO usuarios(login,senha) VALUES(?,?)";
+        String sql = "INSERT INTO usuarios(login,cpf,senha) VALUES(?,?,?)";
 
         try {
             //Cria uma conexão com o banco
@@ -27,10 +27,12 @@ public class UsuarioDAO {
             //Cria um PreparedStatment, classe usada para executar a query
             pstm = conn.prepareStatement(sql);
             //pstm.setInt(1, user.getId());
-            //Adiciona o valor do primeiro parâmetro da sql
-            pstm.setString(1, user.getNome());
-            //Adicionar o valor do segundo parâmetro da sql
-            pstm.setString(2, user.getPassword());
+
+            pstm.setString(1, user.getNome_usuario());
+
+            pstm.setString(2, user.getCpf_usuario());
+            
+            pstm.setString(3, user.getPassword_usuario());
             //Adiciona o valor do terceiro parâmetro da sql
 
             //Executa a sql para inserção dos dados
@@ -84,7 +86,7 @@ public class UsuarioDAO {
             String sqlNome = "SELECT login FROM usuarios WHERE login = ?";
             conn = C.createConnectionToMySQL();
             pstm = conn.prepareStatement(sqlNome);
-            pstm.setString(1, user.getNome());
+            pstm.setString(1, user.getNome_usuario());
             rs = pstm.executeQuery();
             if (rs.next()) {
                 resultadoNome = true;
@@ -121,8 +123,8 @@ public class UsuarioDAO {
 
         try {
 
-            String sqlSenha = "SELECT login, senha FROM usuarios WHERE login = '"
-                              + user.getNome() + "' AND senha = '" + user.getPassword() +"'";
+            String sqlSenha = "SELECT cpf, senha FROM usuarios WHERE cpf = '"
+                              + user.getCpf_usuario() + "' AND senha = '" + user.getPassword_usuario() +"'";
             conn = C.createConnectionToMySQL();
             //pstm.setString(1, user.getPassword());
             pstm = conn.prepareStatement(sqlSenha);

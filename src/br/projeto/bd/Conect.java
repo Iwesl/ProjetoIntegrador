@@ -8,7 +8,7 @@ import java.sql.Connection;
 /**
  *
  *  *
- *  * @author Igor - Davi *
+ *  * @author Igor
  *
  */
 public class Conect {

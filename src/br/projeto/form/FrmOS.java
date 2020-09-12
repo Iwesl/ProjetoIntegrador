@@ -55,7 +55,7 @@ public class FrmOS extends javax.swing.JFrame {
         jScrollPane1 = new javax.swing.JScrollPane();
         jTable1 = new javax.swing.JTable();
         jLabel6 = new javax.swing.JLabel();
-        frmFuncionario1 = new javax.swing.JComboBox<>();
+        frmAtendente = new javax.swing.JComboBox<>();
         jPanel1 = new javax.swing.JPanel();
         frmTotalPecas = new javax.swing.JFormattedTextField();
         jLabel2 = new javax.swing.JLabel();
@@ -182,11 +182,11 @@ public class FrmOS extends javax.swing.JFrame {
         jScrollPane1.setViewportView(jTable1);
 
         jLabel6.setFont(new java.awt.Font("Tahoma", 0, 12)); // NOI18N
-        jLabel6.setText("Funcionário");
+        jLabel6.setText("Atendente");
 
-        frmFuncionario1.setEditable(true);
-        frmFuncionario1.setFont(new java.awt.Font("Tahoma", 0, 12)); // NOI18N
-        frmFuncionario1.setModel(new javax.swing.DefaultComboBoxModel<>(new String[] { "Item 1", "Item 2", "Item 3", "Item 4" }));
+        frmAtendente.setEditable(true);
+        frmAtendente.setFont(new java.awt.Font("Tahoma", 0, 12)); // NOI18N
+        frmAtendente.setModel(new javax.swing.DefaultComboBoxModel<>(new String[] { "Item 1", "Item 2", "Item 3", "Item 4" }));
 
         jPanel1.setBackground(new java.awt.Color(255, 255, 204));
         jPanel1.setBorder(javax.swing.BorderFactory.createEtchedBorder());
@@ -302,7 +302,7 @@ public class FrmOS extends javax.swing.JFrame {
                                 .addGap(18, 18, 18)
                                 .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
                                     .addComponent(jPanel1, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                                    .addComponent(frmFuncionario1, 0, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                                    .addComponent(frmAtendente, 0, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
                                     .addComponent(jLabel6)))
                             .addGroup(layout.createSequentialGroup()
                                 .addComponent(jLabel10)
@@ -393,7 +393,7 @@ public class FrmOS extends javax.swing.JFrame {
                         .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
                         .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
                             .addComponent(frmPecas, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                            .addComponent(frmFuncionario1, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)))
+                            .addComponent(frmAtendente, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)))
                     .addGroup(layout.createSequentialGroup()
                         .addComponent(jLabel13)
                         .addGap(27, 27, 27)))
@@ -504,10 +504,10 @@ public class FrmOS extends javax.swing.JFrame {
     private javax.swing.JButton Fechar;
     private javax.swing.JButton LimparCampos;
     private javax.swing.JButton Pesquisar;
+    private javax.swing.JComboBox<String> frmAtendente;
     private javax.swing.JFormattedTextField frmCPFcliente;
     private javax.swing.JFormattedTextField frmCel1;
     private javax.swing.JFormattedTextField frmCel2;
-    private javax.swing.JComboBox<String> frmFuncionario1;
     private javax.swing.JFormattedTextField frmNomeCliente;
     private javax.swing.JTextArea frmObs;
     private javax.swing.JTextArea frmObs1;

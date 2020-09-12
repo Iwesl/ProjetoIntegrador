@@ -7,12 +7,12 @@ import br.projeto.data.Contato;
 
 /**
  *  
- *  @author Heitor 
+ *  @author Igor
  * 
  */
 public class ClienteDAO {
 
-	public void Incluir(Cliente Cli) {
+	public void cadastrar(Cliente Cli) {
 
 	}
 
@@ -20,11 +20,11 @@ public class ClienteDAO {
 
 	}
 
-	public void Alterar(Cliente Cli) {
+	public void alterar(Cliente Cli) {
 
 	}
 
-	public List<Contato> getClientes() {
+	public List<Cliente> getClientes() {
 		return null;
 	}
 

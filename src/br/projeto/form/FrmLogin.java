@@ -37,7 +37,7 @@ public class FrmLogin extends javax.swing.JFrame {
 
         confirma = new javax.swing.JButton();
         fechar = new javax.swing.JButton();
-        novo = new javax.swing.JButton();
+        CadastrarUsuario = new javax.swing.JButton();
         jLabel1 = new javax.swing.JLabel();
         jLabel2 = new javax.swing.JLabel();
         Campo1 = new javax.swing.JTextField();
@@ -62,15 +62,15 @@ public class FrmLogin extends javax.swing.JFrame {
             }
         });
 
-        novo.setForeground(new java.awt.Color(0, 102, 0));
-        novo.setText("Cadastrar");
-        novo.addActionListener(new java.awt.event.ActionListener() {
+        CadastrarUsuario.setForeground(new java.awt.Color(0, 102, 0));
+        CadastrarUsuario.setText("Cadastrar");
+        CadastrarUsuario.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
-                novoActionPerformed(evt);
+                CadastrarUsuarioActionPerformed(evt);
             }
         });
 
-        jLabel1.setText("Usuário:");
+        jLabel1.setText("CPF:");
 
         jLabel2.setText("Senha:");
 
@@ -88,22 +88,21 @@ public class FrmLogin extends javax.swing.JFrame {
                         .addGap(27, 27, 27)
                         .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                             .addGroup(layout.createSequentialGroup()
-                                .addComponent(novo)
+                                .addComponent(CadastrarUsuario)
                                 .addGap(77, 77, 77)
                                 .addComponent(fechar))
-                            .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING, false)
-                                .addGroup(javax.swing.GroupLayout.Alignment.LEADING, layout.createSequentialGroup()
+                            .addGroup(layout.createSequentialGroup()
+                                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                                     .addComponent(jLabel2)
-                                    .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
-                                    .addComponent(Campo2))
-                                .addGroup(javax.swing.GroupLayout.Alignment.LEADING, layout.createSequentialGroup()
-                                    .addComponent(jLabel1)
-                                    .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                                    .addComponent(Campo1, javax.swing.GroupLayout.PREFERRED_SIZE, 186, javax.swing.GroupLayout.PREFERRED_SIZE)))))
+                                    .addComponent(jLabel1))
+                                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
+                                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING)
+                                    .addComponent(Campo1, javax.swing.GroupLayout.Alignment.LEADING, javax.swing.GroupLayout.PREFERRED_SIZE, 169, javax.swing.GroupLayout.PREFERRED_SIZE)
+                                    .addComponent(Campo2, javax.swing.GroupLayout.Alignment.LEADING, javax.swing.GroupLayout.PREFERRED_SIZE, 169, javax.swing.GroupLayout.PREFERRED_SIZE)))))
                     .addGroup(layout.createSequentialGroup()
                         .addGap(112, 112, 112)
                         .addComponent(confirma)))
-                .addContainerGap(37, Short.MAX_VALUE))
+                .addContainerGap(44, Short.MAX_VALUE))
         );
         layout.setVerticalGroup(
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
@@ -121,7 +120,7 @@ public class FrmLogin extends javax.swing.JFrame {
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 25, Short.MAX_VALUE)
                 .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                     .addComponent(fechar)
-                    .addComponent(novo))
+                    .addComponent(CadastrarUsuario))
                 .addGap(24, 24, 24))
         );
 
@@ -129,11 +128,11 @@ public class FrmLogin extends javax.swing.JFrame {
         setLocationRelativeTo(null);
     }// </editor-fold>//GEN-END:initComponents
 
-    private void novoActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_novoActionPerformed
+    private void CadastrarUsuarioActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_CadastrarUsuarioActionPerformed
         FrmUsuarios frmUsuario = new FrmUsuarios();
         frmUsuario.setVisible(true);
         this.dispose();
-    }//GEN-LAST:event_novoActionPerformed
+    }//GEN-LAST:event_CadastrarUsuarioActionPerformed
 
     private void fecharActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_fecharActionPerformed
         this.dispose();
@@ -149,16 +148,16 @@ public class FrmLogin extends javax.swing.JFrame {
             JOptionPane.showMessageDialog(null, "Preencha os campos.");
         } else {
             try {
-                Usuario.setNome(Campo1.getText());
+                Usuario.setCpf_usuario(Campo1.getText());
 
-                if (Usr.verificaNome(Usuario)) {
+                if (Usr.verificaSenha(Usuario)) {
 
-                    Usuario.setPassword(Campo2.getText());
+                    Usuario.setPassword_usuario(Campo2.getText());
                     Usr.verificaSenha(Usuario);
                     
                     
                     if (Usr.verificaLogin()) {
-                        JOptionPane.showMessageDialog(null, "Bem vindo! " + Usuario.getNome());
+                        JOptionPane.showMessageDialog(null, "Bem vindo! " + Usuario.getNome_usuario());
                         P.setVisible(true);
                         this.dispose();
                     } else {
@@ -214,13 +213,13 @@ public class FrmLogin extends javax.swing.JFrame {
 
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
+    private javax.swing.JButton CadastrarUsuario;
     private javax.swing.JTextField Campo1;
     private javax.swing.JPasswordField Campo2;
     private javax.swing.JButton confirma;
     private javax.swing.JButton fechar;
     private javax.swing.JLabel jLabel1;
     private javax.swing.JLabel jLabel2;
-    private javax.swing.JButton novo;
     // End of variables declaration//GEN-END:variables
 
 }

@@ -2,7 +2,7 @@ package br.projeto.DAO;
 
 import br.projeto.data.OS;
 
-public class OSDAO {
+public class ServicoDAO {
 
 	public void incluir(OS os) {
 
@@ -22,10 +22,6 @@ public class OSDAO {
 
 	public OS consultaOSNom(String Nome_Cli) {
 		return null;
-	}
-
-	public void consultaOSNS(String NS_eq) {
-
 	}
 
 }

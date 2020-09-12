@@ -4,238 +4,116 @@ import java.util.Date;
 
 public class Cliente {
 
-	private int Id;
+	private int Id_cliente;
 
-	private String Nome;
+	private String Nome_cliente;
 
-	private String cpf;
+	private String cpf_cliente;
 
-	private String Rg;
+	private String Celular1_cliente;
 
-	private String Telefone;
+	private String Celular2_cliente;
 
-	private String Celular;
+	private String Endereco_cliente;
 
-	private String Email;
+	private Date DataEntrada_cliente;
 
-	private String Logradouro;
+    /**
+     * @return the Id_cliente
+     */
+    public int getId_cliente() {
+        return Id_cliente;
+    }
 
-	private String Num;
+    /**
+     * @param Id_cliente the Id_cliente to set
+     */
+    public void setId_cliente(int Id_cliente) {
+        this.Id_cliente = Id_cliente;
+    }
 
-	private String Bairro;
+    /**
+     * @return the Nome_cliente
+     */
+    public String getNome_cliente() {
+        return Nome_cliente;
+    }
 
-	private String Cidade;
+    /**
+     * @param Nome_cliente the Nome_cliente to set
+     */
+    public void setNome_cliente(String Nome_cliente) {
+        this.Nome_cliente = Nome_cliente;
+    }
 
-	private String Estado;
+    /**
+     * @return the cpf_cliente
+     */
+    public String getCpf_cliente() {
+        return cpf_cliente;
+    }
 
-	private Date DataNasc;
+    /**
+     * @param cpf_cliente the cpf_cliente to set
+     */
+    public void setCpf_cliente(String cpf_cliente) {
+        this.cpf_cliente = cpf_cliente;
+    }
 
-	/**
-	 *  @return the Nome 
-	 * 
-	 */
-	public String getNome() {
-		return null;
-	}
+    /**
+     * @return the Celular1_cliente
+     */
+    public String getCelular1_cliente() {
+        return Celular1_cliente;
+    }
 
-	/**
-	 *  @param Nome the Nome to set 
-	 * 
-	 */
-	public void setNome(String Nome) {
+    /**
+     * @param Celular1_cliente the Celular1_cliente to set
+     */
+    public void setCelular1_cliente(String Celular1_cliente) {
+        this.Celular1_cliente = Celular1_cliente;
+    }
 
-	}
+    /**
+     * @return the Celular2_cliente
+     */
+    public String getCelular2_cliente() {
+        return Celular2_cliente;
+    }
 
-	/**
-	 *  @return the cpf 
-	 * 
-	 */
-	public String getCpf() {
-		return null;
-	}
+    /**
+     * @param Celular2_cliente the Celular2_cliente to set
+     */
+    public void setCelular2_cliente(String Celular2_cliente) {
+        this.Celular2_cliente = Celular2_cliente;
+    }
 
-	/**
-	 *  @param cpf the cpf to set 
-	 * 
-	 */
-	public void setCpf(String cpf) {
+    /**
+     * @return the Endereco_cliente
+     */
+    public String getEndereco_cliente() {
+        return Endereco_cliente;
+    }
 
-	}
+    /**
+     * @param Endereco_cliente the Endereco_cliente to set
+     */
+    public void setEndereco_cliente(String Endereco_cliente) {
+        this.Endereco_cliente = Endereco_cliente;
+    }
 
-	/**
-	 *  @return the Rg 
-	 * 
-	 */
-	public String getRg() {
-		return null;
-	}
+    /**
+     * @return the DataEntrada_cliente
+     */
+    public Date getDataEntrada_cliente() {
+        return DataEntrada_cliente;
+    }
 
-	/**
-	 *  @param Rg the Rg to set 
-	 * 
-	 */
-	public void setRg(String Rg) {
-
-	}
-
-	/**
-	 *  @return the Telefone 
-	 * 
-	 */
-	public String getTelefone() {
-		return null;
-	}
-
-	/**
-	 *  @param Telefone the Telefone to set 
-	 * 
-	 */
-	public void setTelefone(String Telefone) {
-
-	}
-
-	/**
-	 *  @return the Celular 
-	 * 
-	 */
-	public String getCelular() {
-		return null;
-	}
-
-	/**
-	 *  @param Celular the Celular to set 
-	 * 
-	 */
-	public void setCelular(String Celular) {
-
-	}
-
-	/**
-	 *  @return the Email 
-	 * 
-	 */
-	public String getEmail() {
-		return null;
-	}
-
-	/**
-	 *  @param Email the Email to set 
-	 * 
-	 */
-	public void setEmail(String Email) {
-
-	}
-
-	/**
-	 *  @return the Logradouro 
-	 * 
-	 */
-	public String getLogradouro() {
-		return null;
-	}
-
-	/**
-	 *  @param Logradouro the Logradouro to set 
-	 * 
-	 */
-	public void setLogradouro(String Logradouro) {
-
-	}
-
-	/**
-	 *  @return the Num 
-	 * 
-	 */
-	public String getNum() {
-		return null;
-	}
-
-	/**
-	 *  @param Num the Num to set 
-	 * 
-	 */
-	public void setNum(String Num) {
-
-	}
-
-	/**
-	 *  @return the Bairro 
-	 * 
-	 */
-	public String getBairro() {
-		return null;
-	}
-
-	/**
-	 *  @param Bairro the Bairro to set 
-	 * 
-	 */
-	public void setBairro(String Bairro) {
-
-	}
-
-	/**
-	 *  @return the Cidade 
-	 * 
-	 */
-	public String getCidade() {
-		return null;
-	}
-
-	/**
-	 *  @param Cidade the Cidade to set 
-	 * 
-	 */
-	public void setCidade(String Cidade) {
-
-	}
-
-	/**
-	 *  @return the Estado 
-	 * 
-	 */
-	public String getEstado() {
-		return null;
-	}
-
-	/**
-	 *  @param Estado the Estado to set 
-	 * 
-	 */
-	public void setEstado(String Estado) {
-
-	}
-
-	/**
-	 *  @return the Id 
-	 * 
-	 */
-	public int getId() {
-		return 0;
-	}
-
-	/**
-	 *  @param Id the Id to set 
-	 * 
-	 */
-	public void setId(int Id) {
-
-	}
-
-	/**
-	 *  @return the DataNasc 
-	 * 
-	 */
-	public Date getDataNasc() {
-		return null;
-	}
-
-	/**
-	 *  @param DataNasc the DataNasc to set 
-	 * 
-	 */
-	public void setDataNasc(Date DataNasc) {
-
-	}
+    /**
+     * @param DataEntrada_cliente the DataEntrada_cliente to set
+     */
+    public void setDataEntrada_cliente(Date DataEntrada_cliente) {
+        this.DataEntrada_cliente = DataEntrada_cliente;
+    }
 
 }

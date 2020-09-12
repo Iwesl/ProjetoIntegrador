@@ -30,15 +30,13 @@ public class FrmClientes extends javax.swing.JFrame {
         jLabel2 = new javax.swing.JLabel();
         frmCPF = new javax.swing.JTextField();
         jLabel3 = new javax.swing.JLabel();
-        frmVeiculo = new javax.swing.JTextField();
         jLabel4 = new javax.swing.JLabel();
         fmrCel1 = new javax.swing.JTextField();
         jLabel5 = new javax.swing.JLabel();
         frmCel2 = new javax.swing.JTextField();
-        AbrirOS = new javax.swing.JButton();
         Alterar = new javax.swing.JButton();
         Pesquisar = new javax.swing.JButton();
-        Excluir = new javax.swing.JButton();
+        Remover = new javax.swing.JButton();
         Fechar = new javax.swing.JButton();
         Cadastrar = new javax.swing.JButton();
         LimparCampos = new javax.swing.JButton();
@@ -46,6 +44,7 @@ public class FrmClientes extends javax.swing.JFrame {
         fmrEndereco = new javax.swing.JTextField();
         frmEntrada = new javax.swing.JTextField();
         jLabel7 = new javax.swing.JLabel();
+        jComboBox1 = new javax.swing.JComboBox<>();
 
         setDefaultCloseOperation(javax.swing.WindowConstants.DISPOSE_ON_CLOSE);
         setResizable(false);
@@ -60,13 +59,11 @@ public class FrmClientes extends javax.swing.JFrame {
 
         jLabel5.setText("Celular 2");
 
-        AbrirOS.setText("Abrir OS");
-
         Alterar.setText("Alterar");
 
         Pesquisar.setText("Pesquisar");
 
-        Excluir.setText("Excluir");
+        Remover.setText("Remover");
 
         Fechar.setText("Fechar");
         Fechar.addActionListener(new java.awt.event.ActionListener() {
@@ -75,6 +72,8 @@ public class FrmClientes extends javax.swing.JFrame {
             }
         });
 
+        Cadastrar.setFont(new java.awt.Font("Tahoma", 1, 11)); // NOI18N
+        Cadastrar.setForeground(new java.awt.Color(0, 102, 0));
         Cadastrar.setText("Cadastrar");
         Cadastrar.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
@@ -100,6 +99,8 @@ public class FrmClientes extends javax.swing.JFrame {
         });
 
         jLabel7.setText("Data de Entrada");
+
+        jComboBox1.setModel(new javax.swing.DefaultComboBoxModel<>(new String[] { "Item 1", "Item 2", "Item 3", "Item 4" }));
 
         javax.swing.GroupLayout layout = new javax.swing.GroupLayout(getContentPane());
         getContentPane().setLayout(layout);
@@ -134,23 +135,21 @@ public class FrmClientes extends javax.swing.JFrame {
                         .addComponent(jLabel3)
                         .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
                     .addGroup(layout.createSequentialGroup()
-                        .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING, false)
-                            .addComponent(frmVeiculo, javax.swing.GroupLayout.Alignment.LEADING)
-                            .addGroup(javax.swing.GroupLayout.Alignment.LEADING, layout.createSequentialGroup()
-                                .addComponent(Cadastrar)
-                                .addGap(18, 18, 18)
-                                .addComponent(AbrirOS)
-                                .addGap(18, 18, 18)
-                                .addComponent(Alterar)
-                                .addGap(18, 18, 18)
-                                .addComponent(Pesquisar)))
+                        .addComponent(Cadastrar)
                         .addGap(18, 18, 18)
-                        .addComponent(Excluir)
+                        .addComponent(Remover)
+                        .addGap(18, 18, 18)
+                        .addComponent(Alterar)
+                        .addGap(18, 18, 18)
+                        .addComponent(Pesquisar)
                         .addGap(18, 18, 18)
                         .addComponent(LimparCampos)
-                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 89, Short.MAX_VALUE)
                         .addComponent(Fechar)
-                        .addContainerGap())))
+                        .addContainerGap())
+                    .addGroup(layout.createSequentialGroup()
+                        .addComponent(jComboBox1, javax.swing.GroupLayout.PREFERRED_SIZE, 352, javax.swing.GroupLayout.PREFERRED_SIZE)
+                        .addGap(0, 0, Short.MAX_VALUE))))
         );
         layout.setVerticalGroup(
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
@@ -186,14 +185,13 @@ public class FrmClientes extends javax.swing.JFrame {
                 .addGap(18, 18, 18)
                 .addComponent(jLabel3)
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                .addComponent(frmVeiculo, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addComponent(jComboBox1, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 41, Short.MAX_VALUE)
                 .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
                     .addComponent(Fechar)
-                    .addComponent(Excluir)
+                    .addComponent(Remover)
                     .addComponent(Pesquisar)
                     .addComponent(Alterar)
-                    .addComponent(AbrirOS)
                     .addComponent(Cadastrar)
                     .addComponent(LimparCampos))
                 .addContainerGap())
@@ -207,7 +205,7 @@ public class FrmClientes extends javax.swing.JFrame {
     }//GEN-LAST:event_FecharActionPerformed
 
     private void CadastrarActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_CadastrarActionPerformed
-
+        
     }//GEN-LAST:event_CadastrarActionPerformed
 
     private void LimparCamposActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_LimparCamposActionPerformed
@@ -255,20 +253,19 @@ public class FrmClientes extends javax.swing.JFrame {
     }
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
-    private javax.swing.JButton AbrirOS;
     private javax.swing.JButton Alterar;
     private javax.swing.JButton Cadastrar;
-    private javax.swing.JButton Excluir;
     private javax.swing.JButton Fechar;
     private javax.swing.JButton LimparCampos;
     private javax.swing.JButton Pesquisar;
+    private javax.swing.JButton Remover;
     private javax.swing.JTextField fmrCel1;
     private javax.swing.JTextField fmrEndereco;
     private javax.swing.JTextField frmCPF;
     private javax.swing.JTextField frmCel2;
     private javax.swing.JTextField frmEntrada;
     private javax.swing.JTextField frmNome;
-    private javax.swing.JTextField frmVeiculo;
+    private javax.swing.JComboBox<String> jComboBox1;
     private javax.swing.JLabel jLabel1;
     private javax.swing.JLabel jLabel2;
     private javax.swing.JLabel jLabel3;
