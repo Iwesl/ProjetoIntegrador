@@ -27,54 +27,57 @@ public class FrmPecas extends javax.swing.JFrame {
     // <editor-fold defaultstate="collapsed" desc="Generated Code">//GEN-BEGIN:initComponents
     private void initComponents() {
 
-        txtCodigo = new javax.swing.JTextField();
-        jLabel1 = new javax.swing.JLabel();
-        Incluir = new javax.swing.JButton();
-        Excluir = new javax.swing.JButton();
+        jLabel2 = new javax.swing.JLabel();
+        fmrPeca = new javax.swing.JTextField();
+        fmrQuantidade = new javax.swing.JTextField();
+        jLabel3 = new javax.swing.JLabel();
+        fmrValor = new javax.swing.JTextField();
+        jLabel4 = new javax.swing.JLabel();
+        AbrirOS = new javax.swing.JButton();
         Alterar = new javax.swing.JButton();
-        Novo2 = new javax.swing.JButton();
-        Fechar = new javax.swing.JButton();
         Pesquisar = new javax.swing.JButton();
+        Excluir = new javax.swing.JButton();
+        Fechar = new javax.swing.JButton();
+        Cadastrar = new javax.swing.JButton();
+        LimparCampos = new javax.swing.JButton();
 
         setDefaultCloseOperation(javax.swing.WindowConstants.DISPOSE_ON_CLOSE);
         setResizable(false);
 
-        jLabel1.setText("Código:");
+        jLabel2.setText("Peça");
 
-        Incluir.setText("Incluir");
-        Incluir.setActionCommand("incluir");
-        Incluir.addActionListener(new java.awt.event.ActionListener() {
-            public void actionPerformed(java.awt.event.ActionEvent evt) {
-                IncluirActionPerformed(evt);
-            }
-        });
+        jLabel3.setText("Quantidade");
+
+        jLabel4.setText("Valor");
+
+        AbrirOS.setText("Abrir OS");
+
+        Alterar.setText("Alterar");
+
+        Pesquisar.setText("Pesquisar");
 
         Excluir.setText("Excluir");
 
-        Alterar.setText("Alterar");
-        Alterar.setActionCommand("incluir");
-        Alterar.addActionListener(new java.awt.event.ActionListener() {
-            public void actionPerformed(java.awt.event.ActionEvent evt) {
-                AlterarActionPerformed(evt);
-            }
-        });
-
-        Novo2.setText("Novo");
-        Novo2.addActionListener(new java.awt.event.ActionListener() {
-            public void actionPerformed(java.awt.event.ActionEvent evt) {
-                Novo2ActionPerformed(evt);
-            }
-        });
-
         Fechar.setText("Fechar");
-        Fechar.setActionCommand("incluir");
         Fechar.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 FecharActionPerformed(evt);
             }
         });
 
-        Pesquisar.setText("Pesquisar");
+        Cadastrar.setText("Cadastrar");
+        Cadastrar.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                CadastrarActionPerformed(evt);
+            }
+        });
+
+        LimparCampos.setText("Limpar Campos");
+        LimparCampos.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                LimparCamposActionPerformed(evt);
+            }
+        });
 
         javax.swing.GroupLayout layout = new javax.swing.GroupLayout(getContentPane());
         getContentPane().setLayout(layout);
@@ -85,19 +88,26 @@ public class FrmPecas extends javax.swing.JFrame {
                 .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                     .addGroup(layout.createSequentialGroup()
                         .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                            .addComponent(jLabel1)
-                            .addComponent(txtCodigo, javax.swing.GroupLayout.PREFERRED_SIZE, 88, javax.swing.GroupLayout.PREFERRED_SIZE))
+                            .addComponent(jLabel2)
+                            .addComponent(fmrPeca, javax.swing.GroupLayout.PREFERRED_SIZE, 300, javax.swing.GroupLayout.PREFERRED_SIZE)
+                            .addComponent(jLabel3)
+                            .addComponent(jLabel4)
+                            .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING, false)
+                                .addComponent(fmrValor, javax.swing.GroupLayout.Alignment.LEADING, javax.swing.GroupLayout.DEFAULT_SIZE, 136, Short.MAX_VALUE)
+                                .addComponent(fmrQuantidade, javax.swing.GroupLayout.Alignment.LEADING)))
                         .addGap(0, 0, Short.MAX_VALUE))
-                    .addGroup(layout.createSequentialGroup()
-                        .addComponent(Novo2)
+                    .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, layout.createSequentialGroup()
+                        .addComponent(Cadastrar)
                         .addGap(18, 18, 18)
-                        .addComponent(Incluir)
+                        .addComponent(AbrirOS)
                         .addGap(18, 18, 18)
                         .addComponent(Alterar)
                         .addGap(18, 18, 18)
                         .addComponent(Pesquisar)
                         .addGap(18, 18, 18)
                         .addComponent(Excluir)
+                        .addGap(18, 18, 18)
+                        .addComponent(LimparCampos)
                         .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
                         .addComponent(Fechar)))
                 .addContainerGap())
@@ -105,18 +115,27 @@ public class FrmPecas extends javax.swing.JFrame {
         layout.setVerticalGroup(
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, layout.createSequentialGroup()
-                .addGap(19, 19, 19)
-                .addComponent(jLabel1)
-                .addGap(7, 7, 7)
-                .addComponent(txtCodigo, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 75, Short.MAX_VALUE)
+                .addContainerGap()
+                .addComponent(jLabel2)
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                .addComponent(fmrPeca, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addGap(18, 18, 18)
+                .addComponent(jLabel3)
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                .addComponent(fmrQuantidade, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addGap(18, 18, 18)
+                .addComponent(jLabel4)
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                .addComponent(fmrValor, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 133, Short.MAX_VALUE)
                 .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
-                    .addComponent(Incluir)
-                    .addComponent(Alterar)
                     .addComponent(Fechar)
                     .addComponent(Excluir)
-                    .addComponent(Novo2)
-                    .addComponent(Pesquisar))
+                    .addComponent(Pesquisar)
+                    .addComponent(Alterar)
+                    .addComponent(AbrirOS)
+                    .addComponent(Cadastrar)
+                    .addComponent(LimparCampos))
                 .addContainerGap())
         );
 
@@ -124,21 +143,17 @@ public class FrmPecas extends javax.swing.JFrame {
         setLocationRelativeTo(null);
     }// </editor-fold>//GEN-END:initComponents
 
-    private void IncluirActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_IncluirActionPerformed
-        // TODO add your handling code here:
-    }//GEN-LAST:event_IncluirActionPerformed
-
-    private void AlterarActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_AlterarActionPerformed
-        // TODO add your handling code here:
-    }//GEN-LAST:event_AlterarActionPerformed
-
-    private void Novo2ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_Novo2ActionPerformed
-
-    }//GEN-LAST:event_Novo2ActionPerformed
-
     private void FecharActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_FecharActionPerformed
         this.dispose();
     }//GEN-LAST:event_FecharActionPerformed
+
+    private void CadastrarActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_CadastrarActionPerformed
+
+    }//GEN-LAST:event_CadastrarActionPerformed
+
+    private void LimparCamposActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_LimparCamposActionPerformed
+        // TODO add your handling code here:
+    }//GEN-LAST:event_LimparCamposActionPerformed
 
     /**
      * @param args the command line arguments
@@ -177,13 +192,18 @@ public class FrmPecas extends javax.swing.JFrame {
     }
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
+    private javax.swing.JButton AbrirOS;
     private javax.swing.JButton Alterar;
+    private javax.swing.JButton Cadastrar;
     private javax.swing.JButton Excluir;
     private javax.swing.JButton Fechar;
-    private javax.swing.JButton Incluir;
-    private javax.swing.JButton Novo2;
+    private javax.swing.JButton LimparCampos;
     private javax.swing.JButton Pesquisar;
-    private javax.swing.JLabel jLabel1;
-    private javax.swing.JTextField txtCodigo;
+    private javax.swing.JTextField fmrPeca;
+    private javax.swing.JTextField fmrQuantidade;
+    private javax.swing.JTextField fmrValor;
+    private javax.swing.JLabel jLabel2;
+    private javax.swing.JLabel jLabel3;
+    private javax.swing.JLabel jLabel4;
     // End of variables declaration//GEN-END:variables
 }

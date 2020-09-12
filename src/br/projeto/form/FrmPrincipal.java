@@ -118,8 +118,7 @@ public class FrmPrincipal extends javax.swing.JFrame {
     }//GEN-LAST:event_formWindowClosing
 
     private void mnStatusActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_mnStatusActionPerformed
-        FrmStatus frmStatus = new FrmStatus();
-        frmStatus.setVisible(true);
+
     }//GEN-LAST:event_mnStatusActionPerformed
 
     private void mnServicosActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_mnServicosActionPerformed
@@ -133,7 +132,7 @@ public class FrmPrincipal extends javax.swing.JFrame {
     }//GEN-LAST:event_mnUsuarioActionPerformed
 
     private void mnClienteActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_mnClienteActionPerformed
-        FrmClientes frmClientes = new FrmClientes();
+        FrmPesquisar frmClientes = new FrmPesquisar();
         frmClientes.setVisible(true);
     }//GEN-LAST:event_mnClienteActionPerformed
 

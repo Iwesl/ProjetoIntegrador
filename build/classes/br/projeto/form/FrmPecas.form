@@ -27,23 +27,31 @@
           <Group type="102" attributes="0">
               <EmptySpace max="-2" attributes="0"/>
               <Group type="103" groupAlignment="0" attributes="0">
-                  <Group type="102" alignment="0" attributes="0">
+                  <Group type="102" attributes="0">
                       <Group type="103" groupAlignment="0" attributes="0">
-                          <Component id="jLabel1" alignment="0" min="-2" max="-2" attributes="0"/>
-                          <Component id="txtCodigo" alignment="0" min="-2" pref="88" max="-2" attributes="0"/>
+                          <Component id="jLabel2" min="-2" max="-2" attributes="0"/>
+                          <Component id="fmrPeca" min="-2" pref="300" max="-2" attributes="0"/>
+                          <Component id="jLabel3" alignment="0" min="-2" max="-2" attributes="0"/>
+                          <Component id="jLabel4" alignment="0" min="-2" max="-2" attributes="0"/>
+                          <Group type="103" alignment="0" groupAlignment="1" max="-2" attributes="0">
+                              <Component id="fmrValor" alignment="0" pref="136" max="32767" attributes="0"/>
+                              <Component id="fmrQuantidade" alignment="0" max="32767" attributes="0"/>
+                          </Group>
                       </Group>
                       <EmptySpace min="0" pref="0" max="32767" attributes="0"/>
                   </Group>
-                  <Group type="102" alignment="0" attributes="0">
-                      <Component id="Novo2" min="-2" max="-2" attributes="0"/>
+                  <Group type="102" alignment="1" attributes="0">
+                      <Component id="Cadastrar" min="-2" max="-2" attributes="0"/>
                       <EmptySpace type="separate" max="-2" attributes="0"/>
-                      <Component id="Incluir" min="-2" max="-2" attributes="0"/>
+                      <Component id="AbrirOS" min="-2" max="-2" attributes="0"/>
                       <EmptySpace type="separate" max="-2" attributes="0"/>
                       <Component id="Alterar" min="-2" max="-2" attributes="0"/>
                       <EmptySpace type="separate" max="-2" attributes="0"/>
                       <Component id="Pesquisar" min="-2" max="-2" attributes="0"/>
                       <EmptySpace type="separate" max="-2" attributes="0"/>
                       <Component id="Excluir" min="-2" max="-2" attributes="0"/>
+                      <EmptySpace type="separate" max="-2" attributes="0"/>
+                      <Component id="LimparCampos" min="-2" max="-2" attributes="0"/>
                       <EmptySpace max="32767" attributes="0"/>
                       <Component id="Fechar" min="-2" max="-2" attributes="0"/>
                   </Group>
@@ -55,18 +63,27 @@
     <DimensionLayout dim="1">
       <Group type="103" groupAlignment="0" attributes="0">
           <Group type="102" alignment="1" attributes="0">
-              <EmptySpace min="-2" pref="19" max="-2" attributes="0"/>
-              <Component id="jLabel1" min="-2" max="-2" attributes="0"/>
-              <EmptySpace min="-2" pref="7" max="-2" attributes="0"/>
-              <Component id="txtCodigo" min="-2" max="-2" attributes="0"/>
-              <EmptySpace pref="75" max="32767" attributes="0"/>
+              <EmptySpace max="-2" attributes="0"/>
+              <Component id="jLabel2" min="-2" max="-2" attributes="0"/>
+              <EmptySpace max="-2" attributes="0"/>
+              <Component id="fmrPeca" min="-2" max="-2" attributes="0"/>
+              <EmptySpace type="separate" max="-2" attributes="0"/>
+              <Component id="jLabel3" min="-2" max="-2" attributes="0"/>
+              <EmptySpace max="-2" attributes="0"/>
+              <Component id="fmrQuantidade" min="-2" max="-2" attributes="0"/>
+              <EmptySpace type="separate" max="-2" attributes="0"/>
+              <Component id="jLabel4" min="-2" max="-2" attributes="0"/>
+              <EmptySpace max="-2" attributes="0"/>
+              <Component id="fmrValor" min="-2" max="-2" attributes="0"/>
+              <EmptySpace pref="133" max="32767" attributes="0"/>
               <Group type="103" groupAlignment="3" attributes="0">
-                  <Component id="Incluir" alignment="3" min="-2" max="-2" attributes="0"/>
-                  <Component id="Alterar" alignment="3" min="-2" max="-2" attributes="0"/>
                   <Component id="Fechar" alignment="3" min="-2" max="-2" attributes="0"/>
                   <Component id="Excluir" alignment="3" min="-2" max="-2" attributes="0"/>
-                  <Component id="Novo2" alignment="3" min="-2" max="-2" attributes="0"/>
                   <Component id="Pesquisar" alignment="3" min="-2" max="-2" attributes="0"/>
+                  <Component id="Alterar" alignment="3" min="-2" max="-2" attributes="0"/>
+                  <Component id="AbrirOS" alignment="3" min="-2" max="-2" attributes="0"/>
+                  <Component id="Cadastrar" alignment="3" min="-2" max="-2" attributes="0"/>
+                  <Component id="LimparCampos" alignment="3" min="-2" max="-2" attributes="0"/>
               </Group>
               <EmptySpace max="-2" attributes="0"/>
           </Group>
@@ -74,57 +91,70 @@
     </DimensionLayout>
   </Layout>
   <SubComponents>
-    <Component class="javax.swing.JTextField" name="txtCodigo">
-    </Component>
-    <Component class="javax.swing.JLabel" name="jLabel1">
+    <Component class="javax.swing.JLabel" name="jLabel2">
       <Properties>
-        <Property name="text" type="java.lang.String" value="C&#xf3;digo:"/>
+        <Property name="text" type="java.lang.String" value="Pe&#xe7;a"/>
       </Properties>
     </Component>
-    <Component class="javax.swing.JButton" name="Incluir">
+    <Component class="javax.swing.JTextField" name="fmrPeca">
+    </Component>
+    <Component class="javax.swing.JTextField" name="fmrQuantidade">
+    </Component>
+    <Component class="javax.swing.JLabel" name="jLabel3">
       <Properties>
-        <Property name="text" type="java.lang.String" value="Incluir"/>
-        <Property name="actionCommand" type="java.lang.String" value="incluir"/>
+        <Property name="text" type="java.lang.String" value="Quantidade"/>
       </Properties>
-      <Events>
-        <EventHandler event="actionPerformed" listener="java.awt.event.ActionListener" parameters="java.awt.event.ActionEvent" handler="IncluirActionPerformed"/>
-      </Events>
+    </Component>
+    <Component class="javax.swing.JTextField" name="fmrValor">
+    </Component>
+    <Component class="javax.swing.JLabel" name="jLabel4">
+      <Properties>
+        <Property name="text" type="java.lang.String" value="Valor"/>
+      </Properties>
+    </Component>
+    <Component class="javax.swing.JButton" name="AbrirOS">
+      <Properties>
+        <Property name="text" type="java.lang.String" value="Abrir OS"/>
+      </Properties>
+    </Component>
+    <Component class="javax.swing.JButton" name="Alterar">
+      <Properties>
+        <Property name="text" type="java.lang.String" value="Alterar"/>
+      </Properties>
+    </Component>
+    <Component class="javax.swing.JButton" name="Pesquisar">
+      <Properties>
+        <Property name="text" type="java.lang.String" value="Pesquisar"/>
+      </Properties>
     </Component>
     <Component class="javax.swing.JButton" name="Excluir">
       <Properties>
         <Property name="text" type="java.lang.String" value="Excluir"/>
       </Properties>
     </Component>
-    <Component class="javax.swing.JButton" name="Alterar">
-      <Properties>
-        <Property name="text" type="java.lang.String" value="Alterar"/>
-        <Property name="actionCommand" type="java.lang.String" value="incluir"/>
-      </Properties>
-      <Events>
-        <EventHandler event="actionPerformed" listener="java.awt.event.ActionListener" parameters="java.awt.event.ActionEvent" handler="AlterarActionPerformed"/>
-      </Events>
-    </Component>
-    <Component class="javax.swing.JButton" name="Novo2">
-      <Properties>
-        <Property name="text" type="java.lang.String" value="Novo"/>
-      </Properties>
-      <Events>
-        <EventHandler event="actionPerformed" listener="java.awt.event.ActionListener" parameters="java.awt.event.ActionEvent" handler="Novo2ActionPerformed"/>
-      </Events>
-    </Component>
     <Component class="javax.swing.JButton" name="Fechar">
       <Properties>
         <Property name="text" type="java.lang.String" value="Fechar"/>
-        <Property name="actionCommand" type="java.lang.String" value="incluir"/>
       </Properties>
       <Events>
         <EventHandler event="actionPerformed" listener="java.awt.event.ActionListener" parameters="java.awt.event.ActionEvent" handler="FecharActionPerformed"/>
       </Events>
     </Component>
-    <Component class="javax.swing.JButton" name="Pesquisar">
+    <Component class="javax.swing.JButton" name="Cadastrar">
       <Properties>
-        <Property name="text" type="java.lang.String" value="Pesquisar"/>
+        <Property name="text" type="java.lang.String" value="Cadastrar"/>
       </Properties>
+      <Events>
+        <EventHandler event="actionPerformed" listener="java.awt.event.ActionListener" parameters="java.awt.event.ActionEvent" handler="CadastrarActionPerformed"/>
+      </Events>
+    </Component>
+    <Component class="javax.swing.JButton" name="LimparCampos">
+      <Properties>
+        <Property name="text" type="java.lang.String" value="Limpar Campos"/>
+      </Properties>
+      <Events>
+        <EventHandler event="actionPerformed" listener="java.awt.event.ActionListener" parameters="java.awt.event.ActionEvent" handler="LimparCamposActionPerformed"/>
+      </Events>
     </Component>
   </SubComponents>
 </Form>

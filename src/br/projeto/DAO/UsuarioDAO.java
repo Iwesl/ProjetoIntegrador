@@ -4,12 +4,12 @@ import java.sql.Connection;
 import java.sql.PreparedStatement;
 import java.sql.ResultSet;
 import br.projeto.bd.Conect;
-import br.projeto.form.Login;
+import br.projeto.form.FrmLogin;
 import br.projeto.data.Usuario;
 
 public class UsuarioDAO {
 
-    Login login = new Login();
+    FrmLogin login = new FrmLogin();
     private final Conect C = new Conect();
     private Connection conn = null;
     private PreparedStatement pstm = null;
