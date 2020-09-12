@@ -32,6 +32,8 @@ public class FrmPrincipal extends javax.swing.JFrame {
         jMenuBar1 = new javax.swing.JMenuBar();
         jMenu1 = new javax.swing.JMenu();
         mnCliente = new javax.swing.JMenuItem();
+        jMenuItem1 = new javax.swing.JMenuItem();
+        jMenuItem2 = new javax.swing.JMenuItem();
         mnUsuario = new javax.swing.JMenuItem();
         jMenu2 = new javax.swing.JMenu();
         mnNovaOS = new javax.swing.JMenuItem();
@@ -57,6 +59,22 @@ public class FrmPrincipal extends javax.swing.JFrame {
             }
         });
         jMenu1.add(mnCliente);
+
+        jMenuItem1.setText("Veículo");
+        jMenuItem1.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                jMenuItem1ActionPerformed(evt);
+            }
+        });
+        jMenu1.add(jMenuItem1);
+
+        jMenuItem2.setText("Peças");
+        jMenuItem2.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                jMenuItem2ActionPerformed(evt);
+            }
+        });
+        jMenu1.add(jMenuItem2);
 
         mnUsuario.setText("Usuario");
         mnUsuario.addActionListener(new java.awt.event.ActionListener() {
@@ -86,7 +104,7 @@ public class FrmPrincipal extends javax.swing.JFrame {
         });
         jMenu2.add(mnServicos);
 
-        mnStatus.setText("Status da OS");
+        mnStatus.setText("Pesquisar");
         mnStatus.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 mnStatusActionPerformed(evt);
@@ -118,7 +136,8 @@ public class FrmPrincipal extends javax.swing.JFrame {
     }//GEN-LAST:event_formWindowClosing
 
     private void mnStatusActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_mnStatusActionPerformed
-
+        FrmPesquisar frmPesquisar = new FrmPesquisar();
+        frmPesquisar.setVisible(true);
     }//GEN-LAST:event_mnStatusActionPerformed
 
     private void mnServicosActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_mnServicosActionPerformed
@@ -140,6 +159,16 @@ public class FrmPrincipal extends javax.swing.JFrame {
         FrmOS frmOs = new FrmOS();
         frmOs.setVisible(true);
     }//GEN-LAST:event_mnNovaOSActionPerformed
+
+    private void jMenuItem1ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jMenuItem1ActionPerformed
+        FrmVeiculos frmVeiculos = new FrmVeiculos();
+        frmVeiculos.setVisible(true);
+    }//GEN-LAST:event_jMenuItem1ActionPerformed
+
+    private void jMenuItem2ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jMenuItem2ActionPerformed
+        FrmPecas frmPecas = new FrmPecas();
+        frmPecas.setVisible(true);
+    }//GEN-LAST:event_jMenuItem2ActionPerformed
 
     /**
      * @param args the command line arguments
@@ -181,6 +210,8 @@ public class FrmPrincipal extends javax.swing.JFrame {
     private javax.swing.JMenu jMenu1;
     private javax.swing.JMenu jMenu2;
     private javax.swing.JMenuBar jMenuBar1;
+    private javax.swing.JMenuItem jMenuItem1;
+    private javax.swing.JMenuItem jMenuItem2;
     private javax.swing.JMenuItem mnCliente;
     private javax.swing.JMenuItem mnNovaOS;
     private javax.swing.JMenuItem mnServicos;
