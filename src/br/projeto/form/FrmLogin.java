@@ -24,7 +24,6 @@ public class FrmLogin extends javax.swing.JFrame {
      */
     public FrmLogin() throws HeadlessException {
         initComponents();
-
     }
 
     /**
@@ -159,8 +158,8 @@ public class FrmLogin extends javax.swing.JFrame {
                         JOptionPane.showMessageDialog(this, "Bem vindo! " + Usuario.getNome_usuario(),"Login",JOptionPane.INFORMATION_MESSAGE);
 
                         
-                        this.dispose();
-                        P.
+                       this.dispose();
+                       P.setVisible(true);
                         
                     } else {
                         resultado = false;

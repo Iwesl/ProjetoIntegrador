@@ -8,10 +8,10 @@ package br.projeto.form;
 import br.projeto.data.Usuario;
 import java.awt.event.WindowFocusListener;
 import javax.swing.JOptionPane;
-
+ 
 /**
  *
- * @author Igor - Davi *
+ * @author Igor
  */
 public class FrmPrincipal extends javax.swing.JFrame {
 
@@ -19,11 +19,11 @@ public class FrmPrincipal extends javax.swing.JFrame {
      * Creates new form FrmPrincipal
      */
     public FrmPrincipal() {
-        this.setVisible(false);
+
         initComponents();
-        
         FrmLogin frmLogin = new FrmLogin();
         frmLogin.setVisible(true);
+        
         
     }
 
@@ -125,7 +125,7 @@ public class FrmPrincipal extends javax.swing.JFrame {
         jMenu3.setText("Logado como "+getNomeUsr());
         jMenu3.setEnabled(false);
         jMenu3.setHorizontalAlignment(javax.swing.SwingConstants.RIGHT);
-        jMenu3.setLabel("Usuário");
+        jMenu3.setLabel("");
         jMenuBar1.add(jMenu3);
 
         setJMenuBar(jMenuBar1);
