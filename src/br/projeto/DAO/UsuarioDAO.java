@@ -31,7 +31,7 @@ public class UsuarioDAO {
 
             pstm.setString(1, user.getNome_usuario());
 
-            pstm.setInt(2, Integer.parseInt(user.getCpf_usuario()));
+            pstm.setLong(2, user.getCpf_usuario());
             
             pstm.setString(3, user.getPassword_usuario());
             //Adiciona o valor do terceiro parâmetro da sql
@@ -87,7 +87,7 @@ public class UsuarioDAO {
             String sqlNome = "SELECT cpf_usuarios FROM usuarios WHERE cpf_usuarios = ?";
             conn = C.createConnectionToMySQL();
             pstm = conn.prepareStatement(sqlNome);
-            pstm.setLong(1, (user.getCpf_usuario()));
+            pstm.setLong(1, user.getCpf_usuario());
             rs = pstm.executeQuery();
             if (rs.next()) {
                 resultadoNome = true;
@@ -117,9 +117,7 @@ public class UsuarioDAO {
         return resultadoNome;
 
     }
-    public String verificaNome() {
-        Usuario user = new Usuario();
-        
+    public String verificaNome(Usuario user) {
         ResultSet rs;
 
         try {
@@ -129,7 +127,7 @@ public class UsuarioDAO {
             pstm = conn.prepareStatement(sqlNome);
             rs = pstm.executeQuery();
             if (rs.next()) {
-                user.setNome_usuario(rs.getString(sqlNome));
+                user.setNome_usuario(rs.getString("login_usuarios"));
             }
 
         } catch (Exception e) {

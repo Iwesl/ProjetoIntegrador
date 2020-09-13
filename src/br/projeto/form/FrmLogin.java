@@ -153,12 +153,15 @@ public class FrmLogin extends javax.swing.JFrame {
                 if (Usr.verificaCpf(Usuario)) {
                     Usuario.setPassword_usuario(Campo2.getText().trim());
                     Usr.verificaSenha(Usuario);
-                    Usr.verificaNome();
+                    Usr.verificaNome(Usuario);
                     if (Usr.verificaLogin()) {
                         resultado = true;
-                        JOptionPane.showMessageDialog(this, "Bem vindo! " + Usuario.getNome_usuario(),"Login",JOptionPane.OK_OPTION);
-                        P.setVisible(true);
+                        JOptionPane.showMessageDialog(this, "Bem vindo! " + Usuario.getNome_usuario(),"Login",JOptionPane.INFORMATION_MESSAGE);
+
+                        
                         this.dispose();
+                        P.
+                        
                     } else {
                         resultado = false;
                         
