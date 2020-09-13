@@ -6,6 +6,7 @@ import java.sql.ResultSet;
 import br.projeto.bd.Conect;
 import br.projeto.form.FrmLogin;
 import br.projeto.data.Usuario;
+import javax.swing.JOptionPane;
 
 public class UsuarioDAO {
 
@@ -18,7 +19,7 @@ public class UsuarioDAO {
 
     public void inserir(Usuario user) {
 
-        String sql = "INSERT INTO usuarios(login,cpf,senha) VALUES(?,?,?)";
+        String sql = "INSERT INTO usuarios(login_usuarios,cpf_usuarios,senha_usuarios) VALUES(?,?,?)";
 
         try {
             //Cria uma conexão com o banco
@@ -30,7 +31,7 @@ public class UsuarioDAO {
 
             pstm.setString(1, user.getNome_usuario());
 
-            pstm.setString(2, user.getCpf_usuario());
+            pstm.setInt(2, Integer.parseInt(user.getCpf_usuario()));
             
             pstm.setString(3, user.getPassword_usuario());
             //Adiciona o valor do terceiro parâmetro da sql
@@ -76,22 +77,22 @@ public class UsuarioDAO {
         return null;
     }
 
-    public boolean verificaNome(Usuario user) {
+    public boolean verificaCpf(Usuario user) {
 
         
         ResultSet rs;
 
         try {
 
-            String sqlNome = "SELECT login FROM usuarios WHERE login = ?";
+            String sqlNome = "SELECT cpf_usuarios FROM usuarios WHERE cpf_usuarios = ?";
             conn = C.createConnectionToMySQL();
             pstm = conn.prepareStatement(sqlNome);
-            pstm.setString(1, user.getNome_usuario());
+            pstm.setLong(1, (user.getCpf_usuario()));
             rs = pstm.executeQuery();
             if (rs.next()) {
                 resultadoNome = true;
             } else {
-                
+                JOptionPane.showMessageDialog(null, "Falha no login!\nEste usuário não existe!","Login",JOptionPane.WARNING_MESSAGE);
                 System.out.println("ERRO! \nEste usuário não existe!\n");
                 resultadoNome = false;
             }
@@ -116,6 +117,41 @@ public class UsuarioDAO {
         return resultadoNome;
 
     }
+    public String verificaNome() {
+        Usuario user = new Usuario();
+        
+        ResultSet rs;
+
+        try {
+
+            String sqlNome = "SELECT login_usuarios FROM usuarios WHERE cpf_usuarios = '"+user.getCpf_usuario()+"'";
+            conn = C.createConnectionToMySQL();
+            pstm = conn.prepareStatement(sqlNome);
+            rs = pstm.executeQuery();
+            if (rs.next()) {
+                user.setNome_usuario(rs.getString(sqlNome));
+            }
+
+        } catch (Exception e) {
+            e.printStackTrace();
+
+        } finally {
+            try {
+                if (pstm != null) {
+                    pstm.close();
+                }
+                if (conn != null) {
+                    conn.close();
+                }
+
+            } catch (Exception e) {
+                e.printStackTrace();
+            }
+        }
+
+        return user.getNome_usuario();
+
+    }
 
     public boolean verificaSenha(Usuario user) {
 
@@ -123,8 +159,8 @@ public class UsuarioDAO {
 
         try {
 
-            String sqlSenha = "SELECT cpf, senha FROM usuarios WHERE cpf = '"
-                              + user.getCpf_usuario() + "' AND senha = '" + user.getPassword_usuario() +"'";
+            String sqlSenha = "SELECT senha_usuarios, cpf_usuarios FROM usuarios WHERE senha_usuarios = '"
+                              + user.getPassword_usuario() + "' AND cpf_usuarios = '" + (user.getCpf_usuario()) +"'";
             conn = C.createConnectionToMySQL();
             //pstm.setString(1, user.getPassword());
             pstm = conn.prepareStatement(sqlSenha);
@@ -133,6 +169,7 @@ public class UsuarioDAO {
                 resultadoSenha = true;
             } else {
                 System.out.println("ERRO! \nDigite novamente sua senha.\n");
+                JOptionPane.showMessageDialog(null, "Falha no login!\nSenha não confere!","Login",JOptionPane.WARNING_MESSAGE);
                 resultadoSenha = false;
             }
 

@@ -74,6 +74,7 @@ public class FrmPesquisar extends javax.swing.JFrame {
 
         Alterar.setText("Alterar");
 
+        Pesquisar.setFont(new java.awt.Font("Tahoma", 1, 11)); // NOI18N
         Pesquisar.setText("Pesquisar");
 
         Excluir.setText("Excluir");
@@ -123,7 +124,7 @@ public class FrmPesquisar extends javax.swing.JFrame {
                 .addComponent(Excluir)
                 .addGap(18, 18, 18)
                 .addComponent(LimparCampos)
-                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 142, Short.MAX_VALUE)
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 134, Short.MAX_VALUE)
                 .addComponent(Fechar)
                 .addContainerGap())
         );

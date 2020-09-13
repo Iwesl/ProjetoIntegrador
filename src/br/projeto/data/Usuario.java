@@ -2,7 +2,7 @@ package br.projeto.data;
 
 /**
  *
- * @author Igor - Davi *
+ * @author Igor
  */
 
 public class Usuario {
@@ -11,7 +11,7 @@ public class Usuario {
 
 	private String nome_usuario;
 
-	private String cpf_usuario;
+	private long cpf_usuario;
         
 	private String password_usuario;
 
@@ -46,14 +46,14 @@ public class Usuario {
     /**
      * @return the cpf_usuario
      */
-    public String getCpf_usuario() {
+    public long getCpf_usuario() {
         return cpf_usuario;
     }
 
     /**
      * @param cpf_usuario the cpf_usuario to set
      */
-    public void setCpf_usuario(String cpf_usuario) {
+    public void setCpf_usuario(long cpf_usuario) {
         this.cpf_usuario = cpf_usuario;
     }
 

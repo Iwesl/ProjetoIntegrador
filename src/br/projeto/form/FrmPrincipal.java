@@ -5,6 +5,8 @@
  */
 package br.projeto.form;
 
+import br.projeto.data.Usuario;
+import java.awt.event.WindowFocusListener;
 import javax.swing.JOptionPane;
 
 /**
@@ -17,7 +19,11 @@ public class FrmPrincipal extends javax.swing.JFrame {
      * Creates new form FrmPrincipal
      */
     public FrmPrincipal() {
-        initComponents();
+        FrmLogin frmLogin = new FrmLogin();
+        frmLogin.setVisible(true);
+        if(frmLogin.verificaLogin()){
+            initComponents();
+        }
     }
 
     /**
@@ -39,6 +45,7 @@ public class FrmPrincipal extends javax.swing.JFrame {
         mnNovaOS = new javax.swing.JMenuItem();
         mnServicos = new javax.swing.JMenuItem();
         mnStatus = new javax.swing.JMenuItem();
+        jMenu3 = new javax.swing.JMenu();
 
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
         setBackground(new java.awt.Color(204, 204, 204));
@@ -113,6 +120,11 @@ public class FrmPrincipal extends javax.swing.JFrame {
         jMenu2.add(mnStatus);
 
         jMenuBar1.add(jMenu2);
+
+        jMenu3.setText("Logado como "+getNomeUsr());
+        jMenu3.setEnabled(false);
+        jMenu3.setHorizontalAlignment(javax.swing.SwingConstants.RIGHT);
+        jMenuBar1.add(jMenu3);
 
         setJMenuBar(jMenuBar1);
 
@@ -209,6 +221,7 @@ public class FrmPrincipal extends javax.swing.JFrame {
     // Variables declaration - do not modify//GEN-BEGIN:variables
     private javax.swing.JMenu jMenu1;
     private javax.swing.JMenu jMenu2;
+    private javax.swing.JMenu jMenu3;
     private javax.swing.JMenuBar jMenuBar1;
     private javax.swing.JMenuItem jMenuItem1;
     private javax.swing.JMenuItem jMenuItem2;
@@ -218,4 +231,8 @@ public class FrmPrincipal extends javax.swing.JFrame {
     private javax.swing.JMenuItem mnStatus;
     private javax.swing.JMenuItem mnUsuario;
     // End of variables declaration//GEN-END:variables
+public String getNomeUsr(){
+    Usuario usuario = new Usuario();
+    return usuario.getNome_usuario();
+}
 }

@@ -33,14 +33,11 @@ public class FrmUsuarios extends javax.swing.JFrame {
         frmNomeUsuairo = new javax.swing.JTextField();
         jLabel3 = new javax.swing.JLabel();
         frmSenhaUsuario = new javax.swing.JTextField();
-        Incluir = new javax.swing.JButton();
-        Excluir = new javax.swing.JButton();
-        Alterar = new javax.swing.JButton();
-        Novo = new javax.swing.JButton();
-        Fechar = new javax.swing.JButton();
-        Pesquisar = new javax.swing.JButton();
         jLabel4 = new javax.swing.JLabel();
         frmCPFusuario = new javax.swing.JTextField();
+        Cadastrar = new javax.swing.JButton();
+        LimparCampos = new javax.swing.JButton();
+        Fechar = new javax.swing.JButton();
 
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
         setResizable(false);
@@ -49,42 +46,29 @@ public class FrmUsuarios extends javax.swing.JFrame {
 
         jLabel3.setText("Senha");
 
-        Incluir.setText("Incluir");
-        Incluir.setActionCommand("incluir");
-        Incluir.addActionListener(new java.awt.event.ActionListener() {
+        jLabel4.setText("CPF");
+
+        Cadastrar.setFont(new java.awt.Font("Tahoma", 1, 11)); // NOI18N
+        Cadastrar.setText("Cadastrar");
+        Cadastrar.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
-                IncluirActionPerformed(evt);
+                CadastrarActionPerformed(evt);
             }
         });
 
-        Excluir.setText("Excluir");
-
-        Alterar.setText("Alterar");
-        Alterar.setActionCommand("incluir");
-        Alterar.addActionListener(new java.awt.event.ActionListener() {
+        LimparCampos.setText("Limpar Campos");
+        LimparCampos.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
-                AlterarActionPerformed(evt);
-            }
-        });
-
-        Novo.setText("Novo");
-        Novo.addActionListener(new java.awt.event.ActionListener() {
-            public void actionPerformed(java.awt.event.ActionEvent evt) {
-                NovoActionPerformed(evt);
+                LimparCamposActionPerformed(evt);
             }
         });
 
         Fechar.setText("Fechar");
-        Fechar.setActionCommand("incluir");
         Fechar.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 FecharActionPerformed(evt);
             }
         });
-
-        Pesquisar.setText("Pesquisar");
-
-        jLabel4.setText("CPF");
 
         javax.swing.GroupLayout layout = new javax.swing.GroupLayout(getContentPane());
         getContentPane().setLayout(layout);
@@ -93,29 +77,21 @@ public class FrmUsuarios extends javax.swing.JFrame {
             .addGroup(layout.createSequentialGroup()
                 .addGap(21, 21, 21)
                 .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                    .addGroup(layout.createSequentialGroup()
-                        .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING, false)
-                            .addComponent(frmNomeUsuairo, javax.swing.GroupLayout.Alignment.LEADING)
-                            .addGroup(javax.swing.GroupLayout.Alignment.LEADING, layout.createSequentialGroup()
-                                .addComponent(Novo)
-                                .addGap(18, 18, 18)
-                                .addComponent(Incluir)
-                                .addGap(18, 18, 18)
-                                .addComponent(Alterar)))
-                        .addGap(18, 18, 18)
-                        .addComponent(Pesquisar)
-                        .addGap(18, 18, 18)
-                        .addComponent(Excluir)
-                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 32, Short.MAX_VALUE)
-                        .addComponent(Fechar))
-                    .addGroup(layout.createSequentialGroup()
-                        .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
-                            .addComponent(jLabel4)
-                            .addComponent(frmCPFusuario, javax.swing.GroupLayout.DEFAULT_SIZE, 156, Short.MAX_VALUE)
-                            .addComponent(jLabel3)
-                            .addComponent(jLabel2)
-                            .addComponent(frmSenhaUsuario))
-                        .addGap(0, 0, Short.MAX_VALUE)))
+                    .addComponent(frmNomeUsuairo, javax.swing.GroupLayout.PREFERRED_SIZE, 227, javax.swing.GroupLayout.PREFERRED_SIZE)
+                    .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
+                        .addComponent(jLabel4)
+                        .addComponent(frmCPFusuario, javax.swing.GroupLayout.DEFAULT_SIZE, 156, Short.MAX_VALUE)
+                        .addComponent(jLabel3)
+                        .addComponent(jLabel2)
+                        .addComponent(frmSenhaUsuario)))
+                .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
+            .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, layout.createSequentialGroup()
+                .addContainerGap()
+                .addComponent(Cadastrar)
+                .addGap(18, 18, 18)
+                .addComponent(LimparCampos)
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                .addComponent(Fechar)
                 .addContainerGap())
         );
         layout.setVerticalGroup(
@@ -135,12 +111,9 @@ public class FrmUsuarios extends javax.swing.JFrame {
                 .addComponent(frmSenhaUsuario, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 63, Short.MAX_VALUE)
                 .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
-                    .addComponent(Incluir)
-                    .addComponent(Alterar)
                     .addComponent(Fechar)
-                    .addComponent(Excluir)
-                    .addComponent(Novo)
-                    .addComponent(Pesquisar))
+                    .addComponent(Cadastrar)
+                    .addComponent(LimparCampos))
                 .addContainerGap())
         );
 
@@ -148,17 +121,13 @@ public class FrmUsuarios extends javax.swing.JFrame {
         setLocationRelativeTo(null);
     }// </editor-fold>//GEN-END:initComponents
 
-    private void IncluirActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_IncluirActionPerformed
+    private void CadastrarActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_CadastrarActionPerformed
+
+    }//GEN-LAST:event_CadastrarActionPerformed
+
+    private void LimparCamposActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_LimparCamposActionPerformed
         // TODO add your handling code here:
-    }//GEN-LAST:event_IncluirActionPerformed
-
-    private void AlterarActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_AlterarActionPerformed
-        // TODO add your handling code here:
-    }//GEN-LAST:event_AlterarActionPerformed
-
-    private void NovoActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_NovoActionPerformed
-
-    }//GEN-LAST:event_NovoActionPerformed
+    }//GEN-LAST:event_LimparCamposActionPerformed
 
     private void FecharActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_FecharActionPerformed
         this.dispose();
@@ -203,12 +172,9 @@ public class FrmUsuarios extends javax.swing.JFrame {
     }
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
-    private javax.swing.JButton Alterar;
-    private javax.swing.JButton Excluir;
+    private javax.swing.JButton Cadastrar;
     private javax.swing.JButton Fechar;
-    private javax.swing.JButton Incluir;
-    private javax.swing.JButton Novo;
-    private javax.swing.JButton Pesquisar;
+    private javax.swing.JButton LimparCampos;
     private javax.swing.JTextField frmCPFusuario;
     private javax.swing.JTextField frmNomeUsuairo;
     private javax.swing.JTextField frmSenhaUsuario;

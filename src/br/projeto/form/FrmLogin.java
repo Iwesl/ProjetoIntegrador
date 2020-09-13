@@ -18,6 +18,7 @@ import br.projeto.data.Usuario;
  */
 public class FrmLogin extends javax.swing.JFrame {
 
+    private static boolean resultado = false;
     /**
      * Creates new form Login
      */
@@ -44,7 +45,10 @@ public class FrmLogin extends javax.swing.JFrame {
         Campo2 = new javax.swing.JPasswordField();
 
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
+        setAlwaysOnTop(true);
+        setCursor(new java.awt.Cursor(java.awt.Cursor.DEFAULT_CURSOR));
         setResizable(false);
+        setType(java.awt.Window.Type.POPUP);
 
         confirma.setFont(new java.awt.Font("Tahoma", 1, 11)); // NOI18N
         confirma.setText("Logar");
@@ -62,7 +66,6 @@ public class FrmLogin extends javax.swing.JFrame {
             }
         });
 
-        CadastrarUsuario.setForeground(new java.awt.Color(0, 102, 0));
         CadastrarUsuario.setText("Cadastrar");
         CadastrarUsuario.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
@@ -76,8 +79,6 @@ public class FrmLogin extends javax.swing.JFrame {
 
         Campo1.setName("Usuario"); // NOI18N
 
-        Campo2.setText("jPasswordField1");
-
         javax.swing.GroupLayout layout = new javax.swing.GroupLayout(getContentPane());
         getContentPane().setLayout(layout);
         layout.setHorizontalGroup(
@@ -88,21 +89,21 @@ public class FrmLogin extends javax.swing.JFrame {
                         .addGap(27, 27, 27)
                         .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                             .addGroup(layout.createSequentialGroup()
-                                .addComponent(CadastrarUsuario)
-                                .addGap(77, 77, 77)
-                                .addComponent(fechar))
-                            .addGroup(layout.createSequentialGroup()
                                 .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                                     .addComponent(jLabel2)
                                     .addComponent(jLabel1))
                                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
                                 .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING)
                                     .addComponent(Campo1, javax.swing.GroupLayout.Alignment.LEADING, javax.swing.GroupLayout.PREFERRED_SIZE, 169, javax.swing.GroupLayout.PREFERRED_SIZE)
-                                    .addComponent(Campo2, javax.swing.GroupLayout.Alignment.LEADING, javax.swing.GroupLayout.PREFERRED_SIZE, 169, javax.swing.GroupLayout.PREFERRED_SIZE)))))
+                                    .addComponent(Campo2, javax.swing.GroupLayout.Alignment.LEADING, javax.swing.GroupLayout.PREFERRED_SIZE, 169, javax.swing.GroupLayout.PREFERRED_SIZE)))
+                            .addGroup(layout.createSequentialGroup()
+                                .addComponent(CadastrarUsuario)
+                                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 79, Short.MAX_VALUE)
+                                .addComponent(fechar))))
                     .addGroup(layout.createSequentialGroup()
                         .addGap(112, 112, 112)
                         .addComponent(confirma)))
-                .addContainerGap(44, Short.MAX_VALUE))
+                .addGap(42, 42, 42))
         );
         layout.setVerticalGroup(
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
@@ -118,9 +119,9 @@ public class FrmLogin extends javax.swing.JFrame {
                 .addGap(18, 18, 18)
                 .addComponent(confirma)
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 25, Short.MAX_VALUE)
-                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                    .addComponent(fechar)
-                    .addComponent(CadastrarUsuario))
+                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
+                    .addComponent(CadastrarUsuario)
+                    .addComponent(fechar))
                 .addGap(24, 24, 24))
         );
 
@@ -131,11 +132,10 @@ public class FrmLogin extends javax.swing.JFrame {
     private void CadastrarUsuarioActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_CadastrarUsuarioActionPerformed
         FrmUsuarios frmUsuario = new FrmUsuarios();
         frmUsuario.setVisible(true);
-        this.dispose();
     }//GEN-LAST:event_CadastrarUsuarioActionPerformed
 
     private void fecharActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_fecharActionPerformed
-        this.dispose();
+         this.dispose();
     }//GEN-LAST:event_fecharActionPerformed
 
     private void confirmaActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_confirmaActionPerformed
@@ -145,27 +145,28 @@ public class FrmLogin extends javax.swing.JFrame {
         UsuarioDAO Usr = new UsuarioDAO();
 
         if (Campo1.getText().isEmpty() || Campo2.getText().isEmpty()) {
-            JOptionPane.showMessageDialog(null, "Preencha os campos.");
+            JOptionPane.showMessageDialog(this, "Preencha os campos!","Login",JOptionPane.WARNING_MESSAGE);
+            resultado = false;
         } else {
             try {
-                Usuario.setCpf_usuario(Campo1.getText());
-
-                if (Usr.verificaSenha(Usuario)) {
-
-                    Usuario.setPassword_usuario(Campo2.getText());
+                Usuario.setCpf_usuario(Long.parseLong(Campo1.getText().trim()));
+                if (Usr.verificaCpf(Usuario)) {
+                    Usuario.setPassword_usuario(Campo2.getText().trim());
                     Usr.verificaSenha(Usuario);
-                    
-                    
+                    Usr.verificaNome();
                     if (Usr.verificaLogin()) {
-                        JOptionPane.showMessageDialog(null, "Bem vindo! " + Usuario.getNome_usuario());
+                        resultado = true;
+                        JOptionPane.showMessageDialog(this, "Bem vindo! " + Usuario.getNome_usuario(),"Login",JOptionPane.OK_OPTION);
                         P.setVisible(true);
                         this.dispose();
                     } else {
-                        JOptionPane.showMessageDialog(Campo2, "ERRO\n\nSenha não confere.");
+                        resultado = false;
+                        
                     }
 
                 } else {
-                    JOptionPane.showMessageDialog(Campo1, "ERRO\n\nEste usuário não existe.");
+                    resultado = false;
+                    JOptionPane.showMessageDialog(this, "Falha no login!\nEste usuário não existe!","Login",JOptionPane.WARNING_MESSAGE);
                 }
 
             } catch (Exception e) {e.printStackTrace();}
@@ -221,5 +222,7 @@ public class FrmLogin extends javax.swing.JFrame {
     private javax.swing.JLabel jLabel1;
     private javax.swing.JLabel jLabel2;
     // End of variables declaration//GEN-END:variables
-
+public boolean verificaLogin(){
+    return resultado;
+}
 }
