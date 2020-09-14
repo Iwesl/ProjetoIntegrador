@@ -33,24 +33,23 @@ public class FrmUsuarios extends javax.swing.JFrame {
     // <editor-fold defaultstate="collapsed" desc="Generated Code">//GEN-BEGIN:initComponents
     private void initComponents() {
 
-        jLabel2 = new javax.swing.JLabel();
-        frmNomeUsuario = new javax.swing.JTextField();
+        jPanel2 = new javax.swing.JPanel();
+        frmCadNomeUsuario = new javax.swing.JTextField();
         jLabel3 = new javax.swing.JLabel();
         jLabel4 = new javax.swing.JLabel();
-        frmCPFusuario = new javax.swing.JTextField();
+        frmCadCPFusuario = new javax.swing.JTextField();
         Cadastrar = new javax.swing.JButton();
         LimparCampos = new javax.swing.JButton();
-        Fechar = new javax.swing.JButton();
-        frmSenhaUsuario = new javax.swing.JPasswordField();
+        Fechar2 = new javax.swing.JButton();
+        frmCadSenhaUsuario = new javax.swing.JPasswordField();
+        jLabel5 = new javax.swing.JLabel();
 
         setDefaultCloseOperation(javax.swing.WindowConstants.DISPOSE_ON_CLOSE);
         setResizable(false);
 
-        jLabel2.setText("Nome");
-
-        frmNomeUsuario.addActionListener(new java.awt.event.ActionListener() {
+        frmCadNomeUsuario.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
-                frmNomeUsuarioActionPerformed(evt);
+                frmCadNomeUsuarioActionPerformed(evt);
             }
         });
 
@@ -58,9 +57,9 @@ public class FrmUsuarios extends javax.swing.JFrame {
 
         jLabel4.setText("CPF");
 
-        frmCPFusuario.addActionListener(new java.awt.event.ActionListener() {
+        frmCadCPFusuario.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
-                frmCPFusuarioActionPerformed(evt);
+                frmCadCPFusuarioActionPerformed(evt);
             }
         });
 
@@ -79,86 +78,119 @@ public class FrmUsuarios extends javax.swing.JFrame {
             }
         });
 
-        Fechar.setText("Fechar");
-        Fechar.addActionListener(new java.awt.event.ActionListener() {
+        Fechar2.setText("Fechar");
+        Fechar2.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
-                FecharActionPerformed(evt);
+                Fechar2ActionPerformed(evt);
             }
         });
 
-        frmSenhaUsuario.setFont(new java.awt.Font("Tahoma", 0, 12)); // NOI18N
-        frmSenhaUsuario.addActionListener(new java.awt.event.ActionListener() {
+        frmCadSenhaUsuario.setFont(new java.awt.Font("Tahoma", 0, 12)); // NOI18N
+        frmCadSenhaUsuario.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
-                frmSenhaUsuarioActionPerformed(evt);
+                frmCadSenhaUsuarioActionPerformed(evt);
             }
         });
+
+        jLabel5.setText("Nome");
+
+        javax.swing.GroupLayout jPanel2Layout = new javax.swing.GroupLayout(jPanel2);
+        jPanel2.setLayout(jPanel2Layout);
+        jPanel2Layout.setHorizontalGroup(
+            jPanel2Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+            .addGap(0, 303, Short.MAX_VALUE)
+            .addGroup(jPanel2Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                .addGroup(jPanel2Layout.createSequentialGroup()
+                    .addContainerGap()
+                    .addGroup(jPanel2Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                        .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, jPanel2Layout.createSequentialGroup()
+                            .addComponent(Cadastrar)
+                            .addGap(18, 18, 18)
+                            .addComponent(LimparCampos)
+                            .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                            .addComponent(Fechar2))
+                        .addGroup(jPanel2Layout.createSequentialGroup()
+                            .addGap(11, 11, 11)
+                            .addGroup(jPanel2Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                                .addComponent(frmCadNomeUsuario, javax.swing.GroupLayout.PREFERRED_SIZE, 227, javax.swing.GroupLayout.PREFERRED_SIZE)
+                                .addComponent(jLabel4)
+                                .addComponent(jLabel5)
+                                .addComponent(jLabel3)
+                                .addGroup(jPanel2Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING, false)
+                                    .addComponent(frmCadSenhaUsuario, javax.swing.GroupLayout.Alignment.LEADING)
+                                    .addComponent(frmCadCPFusuario, javax.swing.GroupLayout.Alignment.LEADING, javax.swing.GroupLayout.PREFERRED_SIZE, 156, javax.swing.GroupLayout.PREFERRED_SIZE)))
+                            .addGap(45, 45, 45)))
+                    .addContainerGap()))
+        );
+        jPanel2Layout.setVerticalGroup(
+            jPanel2Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+            .addGap(0, 255, Short.MAX_VALUE)
+            .addGroup(jPanel2Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                .addGroup(jPanel2Layout.createSequentialGroup()
+                    .addContainerGap()
+                    .addComponent(jLabel5)
+                    .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                    .addComponent(frmCadNomeUsuario, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                    .addGap(18, 18, 18)
+                    .addComponent(jLabel4)
+                    .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                    .addComponent(frmCadCPFusuario, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                    .addGap(18, 18, 18)
+                    .addComponent(jLabel3)
+                    .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
+                    .addComponent(frmCadSenhaUsuario, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                    .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 48, Short.MAX_VALUE)
+                    .addGroup(jPanel2Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
+                        .addComponent(Fechar2)
+                        .addComponent(Cadastrar)
+                        .addComponent(LimparCampos))
+                    .addContainerGap()))
+        );
 
         javax.swing.GroupLayout layout = new javax.swing.GroupLayout(getContentPane());
         getContentPane().setLayout(layout);
         layout.setHorizontalGroup(
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, layout.createSequentialGroup()
-                .addContainerGap()
-                .addComponent(Cadastrar)
-                .addGap(18, 18, 18)
-                .addComponent(LimparCampos)
-                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 123, Short.MAX_VALUE)
-                .addComponent(Fechar)
-                .addContainerGap())
             .addGroup(layout.createSequentialGroup()
-                .addGap(21, 21, 21)
-                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                    .addComponent(frmNomeUsuario, javax.swing.GroupLayout.PREFERRED_SIZE, 227, javax.swing.GroupLayout.PREFERRED_SIZE)
-                    .addComponent(jLabel4)
-                    .addComponent(jLabel3)
-                    .addComponent(jLabel2)
-                    .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING, false)
-                        .addComponent(frmSenhaUsuario, javax.swing.GroupLayout.Alignment.LEADING)
-                        .addComponent(frmCPFusuario, javax.swing.GroupLayout.Alignment.LEADING, javax.swing.GroupLayout.DEFAULT_SIZE, 156, Short.MAX_VALUE)))
-                .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
+                .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                .addComponent(jPanel2, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addContainerGap())
         );
         layout.setVerticalGroup(
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, layout.createSequentialGroup()
+            .addGroup(layout.createSequentialGroup()
                 .addContainerGap()
-                .addComponent(jLabel2)
-                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                .addComponent(frmNomeUsuario, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addGap(18, 18, 18)
-                .addComponent(jLabel4)
-                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                .addComponent(frmCPFusuario, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addGap(18, 18, 18)
-                .addComponent(jLabel3)
-                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
-                .addComponent(frmSenhaUsuario, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 62, Short.MAX_VALUE)
-                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
-                    .addComponent(Fechar)
-                    .addComponent(Cadastrar)
-                    .addComponent(LimparCampos))
-                .addContainerGap())
+                .addComponent(jPanel2, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
         );
 
         pack();
         setLocationRelativeTo(null);
     }// </editor-fold>//GEN-END:initComponents
 
+    private void frmCadNomeUsuarioActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_frmCadNomeUsuarioActionPerformed
+        // TODO add your handling code here:
+    }//GEN-LAST:event_frmCadNomeUsuarioActionPerformed
+
+    private void frmCadCPFusuarioActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_frmCadCPFusuarioActionPerformed
+        // TODO add your handling code here:
+    }//GEN-LAST:event_frmCadCPFusuarioActionPerformed
+
     private void CadastrarActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_CadastrarActionPerformed
         Usuario usr = new Usuario();
         UsuarioDAO usrDAO = new UsuarioDAO();
 
         // abre o if, para caso algum campo esteja vazio
-        if (frmNomeUsuario.getText().isEmpty() || frmCPFusuario.getText().isEmpty() || frmSenhaUsuario.getText().isEmpty()) {
+        if (frmCadNomeUsuario.getText().isEmpty() || frmCadCPFusuario.getText().isEmpty() || frmCadSenhaUsuario.getText().isEmpty()) {
             JOptionPane.showMessageDialog(this, "Preencha todos os campos.", "Cadastro de Funcionários", JOptionPane.WARNING_MESSAGE);
-        } else if ((!frmCPFusuario.getText().matches("[0-9]+"))) {
+        } else if ((!frmCadCPFusuario.getText().matches("[0-9]+"))) {
             // caso os campos de Double sejam inválidos
             JOptionPane.showMessageDialog(this, "Erro: apenas caractéres numéricos são válidos no campo CPF", "Cadastro de Funcionários", JOptionPane.WARNING_MESSAGE);
         } else { // pega os dados dos campos e os coloca nas variáveis desejadas
             try {
-                usr.setNome_usuario(frmNomeUsuario.getText().trim());
-                usr.setCpf_usuario(Long.parseLong(frmCPFusuario.getText().trim()));
-                usr.setPassword_usuario(frmSenhaUsuario.getText().trim().toUpperCase());
+                usr.setNome_usuario(frmCadNomeUsuario.getText().trim());
+                usr.setCpf_usuario(Long.parseLong(frmCadCPFusuario.getText().trim()));
+                usr.setPassword_usuario(frmCadSenhaUsuario.getText().trim().toUpperCase());
 
                 usrDAO.inserir(usr); // faz a inserção no banco de dados dos dados que agora estão nas variáveis
 
@@ -176,9 +208,9 @@ public class FrmUsuarios extends javax.swing.JFrame {
 
                 }
                 // limpa os campos
-                frmNomeUsuario.setText("");
-                frmCPFusuario.setText("");
-                frmSenhaUsuario.setText("");
+                frmCadNomeUsuario.setText("");
+                frmCadCPFusuario.setText("");
+                frmCadSenhaUsuario.setText("");
 
             } catch (SQLException ex) {
                 JOptionPane.showMessageDialog(this, "Erro no processo!\n" + ex.getMessage(), "Cadastro de Funcionários", JOptionPane.ERROR);
@@ -189,26 +221,18 @@ public class FrmUsuarios extends javax.swing.JFrame {
     }//GEN-LAST:event_CadastrarActionPerformed
 
     private void LimparCamposActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_LimparCamposActionPerformed
-        frmNomeUsuario.setText("");
-        frmCPFusuario.setText("");
-        frmSenhaUsuario.setText("");
+        frmCadNomeUsuario.setText("");
+        frmCadCPFusuario.setText("");
+        frmCadSenhaUsuario.setText("");
     }//GEN-LAST:event_LimparCamposActionPerformed
 
-    private void FecharActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_FecharActionPerformed
+    private void Fechar2ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_Fechar2ActionPerformed
         this.dispose();
-    }//GEN-LAST:event_FecharActionPerformed
+    }//GEN-LAST:event_Fechar2ActionPerformed
 
-    private void frmNomeUsuarioActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_frmNomeUsuarioActionPerformed
+    private void frmCadSenhaUsuarioActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_frmCadSenhaUsuarioActionPerformed
         // TODO add your handling code here:
-    }//GEN-LAST:event_frmNomeUsuarioActionPerformed
-
-    private void frmCPFusuarioActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_frmCPFusuarioActionPerformed
-        // TODO add your handling code here:
-    }//GEN-LAST:event_frmCPFusuarioActionPerformed
-
-    private void frmSenhaUsuarioActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_frmSenhaUsuarioActionPerformed
-        // TODO add your handling code here:
-    }//GEN-LAST:event_frmSenhaUsuarioActionPerformed
+    }//GEN-LAST:event_frmCadSenhaUsuarioActionPerformed
 
     /**
      * @param args the command line arguments
@@ -250,13 +274,14 @@ public class FrmUsuarios extends javax.swing.JFrame {
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
     private javax.swing.JButton Cadastrar;
-    private javax.swing.JButton Fechar;
+    private javax.swing.JButton Fechar2;
     private javax.swing.JButton LimparCampos;
-    private javax.swing.JTextField frmCPFusuario;
-    private javax.swing.JTextField frmNomeUsuario;
-    private javax.swing.JPasswordField frmSenhaUsuario;
-    private javax.swing.JLabel jLabel2;
+    private javax.swing.JTextField frmCadCPFusuario;
+    private javax.swing.JTextField frmCadNomeUsuario;
+    private javax.swing.JPasswordField frmCadSenhaUsuario;
     private javax.swing.JLabel jLabel3;
     private javax.swing.JLabel jLabel4;
+    private javax.swing.JLabel jLabel5;
+    private javax.swing.JPanel jPanel2;
     // End of variables declaration//GEN-END:variables
 }

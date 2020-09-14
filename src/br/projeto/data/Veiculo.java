@@ -20,6 +20,8 @@ public class Veiculo {
         private String cor_veiculo;
 
 	private String placa_veiculo;
+        
+        private int id_cliente;
 
     /**
      * @return the id_veiculo
@@ -89,5 +91,19 @@ public class Veiculo {
      */
     public void setPlaca_veiculo(String placa_veiculo) {
         this.placa_veiculo = placa_veiculo;
+    }
+
+    /**
+     * @return the id_cliente
+     */
+    public int getId_cliente() {
+        return id_cliente;
+    }
+
+    /**
+     * @param id_cliente the id_cliente to set
+     */
+    public void setId_cliente(int id_cliente) {
+        this.id_cliente = id_cliente;
     }
 }

@@ -22,7 +22,7 @@ public class FrmPrincipal extends javax.swing.JFrame {
     public FrmPrincipal() {
         initComponents();
         Login();
-        
+
     }
 
     /**
@@ -35,18 +35,19 @@ public class FrmPrincipal extends javax.swing.JFrame {
         jMenuBar1 = new javax.swing.JMenuBar();
         jMenu1 = new javax.swing.JMenu();
         mnCliente = new javax.swing.JMenuItem();
-        jMenuItem1 = new javax.swing.JMenuItem();
-        jMenuItem2 = new javax.swing.JMenuItem();
+        mnVeiculo = new javax.swing.JMenuItem();
+        mnPecas = new javax.swing.JMenuItem();
         mnUsuario = new javax.swing.JMenuItem();
         jMenu2 = new javax.swing.JMenu();
         mnNovaOS = new javax.swing.JMenuItem();
         mnServicos = new javax.swing.JMenuItem();
-        mnStatus = new javax.swing.JMenuItem();
+        mnPesquisar = new javax.swing.JMenuItem();
         jMenuUsuario = new javax.swing.JMenu();
+        mnLogout = new javax.swing.JMenuItem();
 
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
         setBackground(new java.awt.Color(204, 204, 204));
-        setCursor(new java.awt.Cursor(java.awt.Cursor.HAND_CURSOR));
+        setCursor(new java.awt.Cursor(java.awt.Cursor.DEFAULT_CURSOR));
         setName("framePrincipal"); // NOI18N
         addWindowListener(new java.awt.event.WindowAdapter() {
             public void windowClosing(java.awt.event.WindowEvent evt) {
@@ -54,7 +55,11 @@ public class FrmPrincipal extends javax.swing.JFrame {
             }
         });
 
+        jMenuBar1.setCursor(new java.awt.Cursor(java.awt.Cursor.HAND_CURSOR));
+        jMenuBar1.setFont(jMenuBar1.getFont());
+
         jMenu1.setText("Cadastros");
+        jMenu1.setFont(new java.awt.Font("Segoe UI", 0, 14)); // NOI18N
 
         mnCliente.setText("Cliente");
         mnCliente.addActionListener(new java.awt.event.ActionListener() {
@@ -64,21 +69,21 @@ public class FrmPrincipal extends javax.swing.JFrame {
         });
         jMenu1.add(mnCliente);
 
-        jMenuItem1.setText("Veículo");
-        jMenuItem1.addActionListener(new java.awt.event.ActionListener() {
+        mnVeiculo.setText("Veículo");
+        mnVeiculo.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
-                jMenuItem1ActionPerformed(evt);
+                mnVeiculoActionPerformed(evt);
             }
         });
-        jMenu1.add(jMenuItem1);
+        jMenu1.add(mnVeiculo);
 
-        jMenuItem2.setText("Peças");
-        jMenuItem2.addActionListener(new java.awt.event.ActionListener() {
+        mnPecas.setText("Peças");
+        mnPecas.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
-                jMenuItem2ActionPerformed(evt);
+                mnPecasActionPerformed(evt);
             }
         });
-        jMenu1.add(jMenuItem2);
+        jMenu1.add(mnPecas);
 
         mnUsuario.setText("Usuario");
         mnUsuario.addActionListener(new java.awt.event.ActionListener() {
@@ -91,6 +96,7 @@ public class FrmPrincipal extends javax.swing.JFrame {
         jMenuBar1.add(jMenu1);
 
         jMenu2.setText("Serviços");
+        jMenu2.setFont(new java.awt.Font("Segoe UI", 0, 14)); // NOI18N
 
         mnNovaOS.setText("Abrir Nova OS");
         mnNovaOS.addActionListener(new java.awt.event.ActionListener() {
@@ -108,18 +114,28 @@ public class FrmPrincipal extends javax.swing.JFrame {
         });
         jMenu2.add(mnServicos);
 
-        mnStatus.setText("Pesquisar");
-        mnStatus.addActionListener(new java.awt.event.ActionListener() {
+        mnPesquisar.setText("Pesquisar");
+        mnPesquisar.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
-                mnStatusActionPerformed(evt);
+                mnPesquisarActionPerformed(evt);
             }
         });
-        jMenu2.add(mnStatus);
+        jMenu2.add(mnPesquisar);
 
         jMenuBar1.add(jMenu2);
 
-        jMenuUsuario.setText("");
-        jMenuUsuario.setEnabled(false);
+        jMenuUsuario.setForeground(javax.swing.UIManager.getDefaults().getColor("MenuItem.disabledForeground"));
+        jMenuUsuario.setText("Usuário");
+        jMenuUsuario.setFont(new java.awt.Font("Segoe UI", 0, 14)); // NOI18N
+
+        mnLogout.setText("Logout");
+        mnLogout.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                mnLogoutActionPerformed(evt);
+            }
+        });
+        jMenuUsuario.add(mnLogout);
+
         jMenuBar1.add(jMenuUsuario);
 
         setJMenuBar(jMenuBar1);
@@ -132,7 +148,7 @@ public class FrmPrincipal extends javax.swing.JFrame {
         );
         layout.setVerticalGroup(
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGap(0, 279, Short.MAX_VALUE)
+            .addGap(0, 278, Short.MAX_VALUE)
         );
 
         pack();
@@ -140,43 +156,56 @@ public class FrmPrincipal extends javax.swing.JFrame {
     }// </editor-fold>//GEN-END:initComponents
 
     private void formWindowClosing(java.awt.event.WindowEvent evt) {//GEN-FIRST:event_formWindowClosing
-        //JOptionPane.showConfirmDialog(jMenu1, evt, "ATENÇÃO\n\nVocê quer fechar esta aplicação?", JOptionPane.OK_CANCEL_OPTION, JOptionPane.QUESTION_MESSAGE);
+        //JOptionPane.showConfirmDialog(this, evt, "ATENÇÃO\n\nVocê quer fechar esta aplicação?", JOptionPane.OK_CANCEL_OPTION, JOptionPane.QUESTION_MESSAGE);
     }//GEN-LAST:event_formWindowClosing
 
-    private void mnStatusActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_mnStatusActionPerformed
+    private void mnPesquisarActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_mnPesquisarActionPerformed
+        Login();
         FrmPesquisar frmPesquisar = new FrmPesquisar();
         frmPesquisar.setVisible(true);
-    }//GEN-LAST:event_mnStatusActionPerformed
+    }//GEN-LAST:event_mnPesquisarActionPerformed
 
     private void mnServicosActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_mnServicosActionPerformed
+        Login();
         FrmServicos frmServicos = new FrmServicos();
         frmServicos.setVisible(true);
     }//GEN-LAST:event_mnServicosActionPerformed
 
     private void mnUsuarioActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_mnUsuarioActionPerformed
+        Login();
         FrmUsuarios frmUser = new FrmUsuarios();
         frmUser.setVisible(true);
     }//GEN-LAST:event_mnUsuarioActionPerformed
 
     private void mnClienteActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_mnClienteActionPerformed
-        FrmPesquisar frmClientes = new FrmPesquisar();
+        Login();
+        FrmClientes frmClientes = new FrmClientes();
         frmClientes.setVisible(true);
     }//GEN-LAST:event_mnClienteActionPerformed
 
     private void mnNovaOSActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_mnNovaOSActionPerformed
+        Login();
         FrmOS frmOs = new FrmOS();
         frmOs.setVisible(true);
     }//GEN-LAST:event_mnNovaOSActionPerformed
 
-    private void jMenuItem1ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jMenuItem1ActionPerformed
+    private void mnVeiculoActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_mnVeiculoActionPerformed
+        Login();
         FrmVeiculos frmVeiculos = new FrmVeiculos();
         frmVeiculos.setVisible(true);
-    }//GEN-LAST:event_jMenuItem1ActionPerformed
+    }//GEN-LAST:event_mnVeiculoActionPerformed
 
-    private void jMenuItem2ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jMenuItem2ActionPerformed
+    private void mnPecasActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_mnPecasActionPerformed
+        Login();
         FrmPecas frmPecas = new FrmPecas();
         frmPecas.setVisible(true);
-    }//GEN-LAST:event_jMenuItem2ActionPerformed
+    }//GEN-LAST:event_mnPecasActionPerformed
+
+    private void mnLogoutActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_mnLogoutActionPerformed
+        FrmLoginJPanel l = new FrmLoginJPanel(this, true);
+        FrmLoginJPanel.setRs(false);
+        l.setVisible(true);
+    }//GEN-LAST:event_mnLogoutActionPerformed
 
     /**
      * @param args the command line arguments
@@ -218,18 +247,19 @@ public class FrmPrincipal extends javax.swing.JFrame {
     private javax.swing.JMenu jMenu1;
     private javax.swing.JMenu jMenu2;
     private javax.swing.JMenuBar jMenuBar1;
-    private javax.swing.JMenuItem jMenuItem1;
-    private javax.swing.JMenuItem jMenuItem2;
     private javax.swing.JMenu jMenuUsuario;
     private javax.swing.JMenuItem mnCliente;
+    private javax.swing.JMenuItem mnLogout;
     private javax.swing.JMenuItem mnNovaOS;
+    private javax.swing.JMenuItem mnPecas;
+    private javax.swing.JMenuItem mnPesquisar;
     private javax.swing.JMenuItem mnServicos;
-    private javax.swing.JMenuItem mnStatus;
     private javax.swing.JMenuItem mnUsuario;
+    private javax.swing.JMenuItem mnVeiculo;
     // End of variables declaration//GEN-END:variables
 public final void Login() {
         FrmLoginJPanel l = new FrmLoginJPanel(this, true);
-
+        
         while (!l.Logado()) {
 
             l.setVisible(true);

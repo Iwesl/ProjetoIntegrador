@@ -22,7 +22,7 @@ import javax.swing.JRootPane;
  */
 public class FrmLoginJPanel extends javax.swing.JDialog {
     
-    private static boolean rs = false;
+    private static boolean rs;
     /**
      * Creates new form FrmLoginJPanel
      * @param parent
@@ -33,7 +33,7 @@ public class FrmLoginJPanel extends javax.swing.JDialog {
         //setUndecorated(true);
         //getRootPane().setWindowDecorationStyle(JRootPane.NONE);
         initComponents();
-        
+               
     }
 
     /**
@@ -43,7 +43,7 @@ public class FrmLoginJPanel extends javax.swing.JDialog {
     // <editor-fold defaultstate="collapsed" desc="Generated Code">//GEN-BEGIN:initComponents
     private void initComponents() {
 
-        jDialog1 = new javax.swing.JDialog();
+        jDialogCadastro = new javax.swing.JDialog();
         jPanel2 = new javax.swing.JPanel();
         frmCadNomeUsuario = new javax.swing.JTextField();
         jLabel3 = new javax.swing.JLabel();
@@ -63,11 +63,11 @@ public class FrmLoginJPanel extends javax.swing.JDialog {
         confirma = new javax.swing.JButton();
         fechar1 = new javax.swing.JButton();
 
-        jDialog1.setMinimumSize(new java.awt.Dimension(330, 350));
-        jDialog1.setModalExclusionType(java.awt.Dialog.ModalExclusionType.APPLICATION_EXCLUDE);
-        jDialog1.setModalityType(java.awt.Dialog.ModalityType.APPLICATION_MODAL);
-        jDialog1.setPreferredSize(new java.awt.Dimension(330, 322));
-        jDialog1.setResizable(false);
+        jDialogCadastro.setMinimumSize(new java.awt.Dimension(330, 350));
+        jDialogCadastro.setModalExclusionType(java.awt.Dialog.ModalExclusionType.APPLICATION_EXCLUDE);
+        jDialogCadastro.setModalityType(java.awt.Dialog.ModalityType.APPLICATION_MODAL);
+        jDialogCadastro.setPreferredSize(new java.awt.Dimension(330, 322));
+        jDialogCadastro.setResizable(false);
 
         frmCadNomeUsuario.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
@@ -169,24 +169,24 @@ public class FrmLoginJPanel extends javax.swing.JDialog {
                     .addContainerGap()))
         );
 
-        javax.swing.GroupLayout jDialog1Layout = new javax.swing.GroupLayout(jDialog1.getContentPane());
-        jDialog1.getContentPane().setLayout(jDialog1Layout);
-        jDialog1Layout.setHorizontalGroup(
-            jDialog1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGroup(jDialog1Layout.createSequentialGroup()
+        javax.swing.GroupLayout jDialogCadastroLayout = new javax.swing.GroupLayout(jDialogCadastro.getContentPane());
+        jDialogCadastro.getContentPane().setLayout(jDialogCadastroLayout);
+        jDialogCadastroLayout.setHorizontalGroup(
+            jDialogCadastroLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+            .addGroup(jDialogCadastroLayout.createSequentialGroup()
                 .addContainerGap(17, Short.MAX_VALUE)
                 .addComponent(jPanel2, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
                 .addContainerGap())
         );
-        jDialog1Layout.setVerticalGroup(
-            jDialog1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGroup(jDialog1Layout.createSequentialGroup()
+        jDialogCadastroLayout.setVerticalGroup(
+            jDialogCadastroLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+            .addGroup(jDialogCadastroLayout.createSequentialGroup()
                 .addContainerGap()
                 .addComponent(jPanel2, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
                 .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
         );
 
-        jDialog1.getAccessibleContext().setAccessibleParent(TelaCadastro);
+        jDialogCadastro.getAccessibleContext().setAccessibleParent(TelaCadastro);
 
         setDefaultCloseOperation(javax.swing.WindowConstants.DO_NOTHING_ON_CLOSE);
         setResizable(false);
@@ -290,8 +290,8 @@ public class FrmLoginJPanel extends javax.swing.JDialog {
     }// </editor-fold>//GEN-END:initComponents
 
     private void TelaCadastroActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_TelaCadastroActionPerformed
-        jDialog1.setLocationRelativeTo(null);
-        jDialog1.setVisible(true);
+        jDialogCadastro.setLocationRelativeTo(null);
+        jDialogCadastro.setVisible(true);
     }//GEN-LAST:event_TelaCadastroActionPerformed
 
     private void confirmaActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_confirmaActionPerformed
@@ -305,12 +305,12 @@ public class FrmLoginJPanel extends javax.swing.JDialog {
             try {
                 Usuario.setCpf_usuario(Long.parseLong(Campo1.getText().trim()));
                 if (Usr.verificaCpf(Usuario)) {
-                    Usuario.setPassword_usuario(Campo2.getText().trim());
+                    Usuario.setPassword_usuario(Campo2.getText());
                     Usr.verificaSenha(Usuario);
                     Usr.verificaNome(Usuario);
                     if (Usr.verificaLogin()) {
                         JOptionPane.showMessageDialog(this, "Bem vindo! " + Usuario.getNome_usuario(),"Login",JOptionPane.INFORMATION_MESSAGE);
-                        rs = true;
+                        setRs(true);
                         //FrmPrincipal p = new FrmPrincipal();
                         //p.getjMenuUsuario().setText(Usuario.getNome_usuario());
                         this.dispose();
@@ -326,7 +326,7 @@ public class FrmLoginJPanel extends javax.swing.JDialog {
     }//GEN-LAST:event_confirmaActionPerformed
 
     private void fechar1ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_fechar1ActionPerformed
-        if(rs){
+        if(isRs()){
             this.dispose();
         } else {
             System.exit(0);
@@ -339,7 +339,7 @@ public class FrmLoginJPanel extends javax.swing.JDialog {
     }//GEN-LAST:event_frmCadSenhaUsuarioActionPerformed
 
     private void Fechar2ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_Fechar2ActionPerformed
-        jDialog1.dispose();
+        jDialogCadastro.dispose();
     }//GEN-LAST:event_Fechar2ActionPerformed
 
     private void LimparCamposActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_LimparCamposActionPerformed
@@ -354,10 +354,10 @@ public class FrmLoginJPanel extends javax.swing.JDialog {
 
         // abre o if, para caso algum campo esteja vazio
         if (frmCadNomeUsuario.getText().isEmpty() || frmCadCPFusuario.getText().isEmpty() || frmCadSenhaUsuario.getText().isEmpty()) {
-            JOptionPane.showMessageDialog(jDialog1, "Preencha todos os campos.", "Cadastro de Funcionários", JOptionPane.WARNING_MESSAGE);
+            JOptionPane.showMessageDialog(jDialogCadastro, "Preencha todos os campos.", "Cadastro de Funcionários", JOptionPane.WARNING_MESSAGE);
         } else if ((!frmCadCPFusuario.getText().matches("[0-9]+"))) {
             // caso os campos de Double sejam inválidos
-            JOptionPane.showMessageDialog(jDialog1, "Erro: apenas caractéres numéricos são válidos no campo CPF", "Cadastro de Funcionários", JOptionPane.WARNING_MESSAGE);
+            JOptionPane.showMessageDialog(jDialogCadastro, "Erro: apenas caractéres numéricos são válidos no campo CPF", "Cadastro de Funcionários", JOptionPane.WARNING_MESSAGE);
         } else { // pega os dados dos campos e os coloca nas variáveis desejadas
             try {
                 usr.setNome_usuario(frmCadNomeUsuario.getText().trim());
@@ -368,10 +368,10 @@ public class FrmLoginJPanel extends javax.swing.JDialog {
 
                 try {
                     if (usrDAO.verificaCpf(usr) && usrDAO.verificaSenha(usr)) {
-                        JOptionPane.showMessageDialog(jDialog1, "Cadastro efetuado com sucesso!", "Cadastro de Funcionários", JOptionPane.INFORMATION_MESSAGE);
+                        JOptionPane.showMessageDialog(jDialogCadastro, "Cadastro efetuado com sucesso!", "Cadastro de Funcionários", JOptionPane.INFORMATION_MESSAGE);
                     }
                 } catch (SQLException ex) {
-                    JOptionPane.showMessageDialog(jDialog1, "Erro no processo!\n" + ex.getMessage(), "Cadastro de Funcionários", JOptionPane.ERROR);
+                    JOptionPane.showMessageDialog(jDialogCadastro, "Erro no processo!\n" + ex.getMessage(), "Cadastro de Funcionários", JOptionPane.ERROR);
                 } catch (HeadlessException | NumberFormatException ex) {
                     Logger.getLogger(UsuarioDAO.class.getName()).log(Level.SEVERE, null, ex);
                 }
@@ -385,7 +385,7 @@ public class FrmLoginJPanel extends javax.swing.JDialog {
                 frmCadSenhaUsuario.setText("");
 
             } catch (SQLException ex) {
-                JOptionPane.showMessageDialog(jDialog1, "Erro no processo!\n" + ex.getMessage(), "Cadastro de Funcionários", JOptionPane.ERROR);
+                JOptionPane.showMessageDialog(jDialogCadastro, "Erro no processo!\n" + ex.getMessage(), "Cadastro de Funcionários", JOptionPane.ERROR);
             } catch (HeadlessException | NumberFormatException ex) {
                 Logger.getLogger(UsuarioDAO.class.getName()).log(Level.SEVERE, null, ex);
             }
@@ -454,7 +454,7 @@ public class FrmLoginJPanel extends javax.swing.JDialog {
     private javax.swing.JTextField frmCadCPFusuario;
     private javax.swing.JTextField frmCadNomeUsuario;
     private javax.swing.JPasswordField frmCadSenhaUsuario;
-    private javax.swing.JDialog jDialog1;
+    private javax.swing.JDialog jDialogCadastro;
     private javax.swing.JLabel jLabel1;
     private javax.swing.JLabel jLabel2;
     private javax.swing.JLabel jLabel3;
@@ -464,6 +464,20 @@ public class FrmLoginJPanel extends javax.swing.JDialog {
     private javax.swing.JPanel jPanel2;
     // End of variables declaration//GEN-END:variables
 public boolean Logado(){
-    return rs;
+    return isRs();
 }
+
+    /**
+     * @return the rs
+     */
+    public static boolean isRs() {
+        return rs;
+    }
+
+    /**
+     * @param aRs the rs to set
+     */
+    public static void setRs(boolean aRs) {
+        rs = aRs;
+    }
 }

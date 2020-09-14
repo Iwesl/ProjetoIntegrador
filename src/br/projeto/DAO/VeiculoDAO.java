@@ -22,16 +22,15 @@ import javax.swing.JOptionPane;
  */
 public class VeiculoDAO {
     
-    FrmLogin login = new FrmLogin();
     private final Conect C = new Conect();
     private Connection conn = null;
     private PreparedStatement pstm = null;
     
-    private boolean resultadoCadastro, resultadoPlaca;
+    private boolean resultado;
     
     public void inserir(Veiculo vei) throws SQLException {
 
-        String sql = "INSERT INTO veiculos(modelo_veiculo, marca_veiculo, cor_veiculo, placa_veiculo) VALUES(?,?,?,?)";
+        String sql = "INSERT INTO veiculos(modelo_veiculo, marca_veiculo, cor_veiculo, placa_veiculo, id_cliente) VALUES(?,?,?,?,?)";
 
         try {
             //Cria uma conexão com o banco
@@ -49,7 +48,7 @@ public class VeiculoDAO {
             
             pstm.setString(4, vei.getPlaca_veiculo());
             
-
+            pstm.setInt(5, vei.getId_cliente());
             //Executa a sql para inserção dos dados
             pstm.execute();
 
@@ -72,7 +71,7 @@ public class VeiculoDAO {
                 }
 
             } catch (SQLException ex) {
-            JOptionPane.showMessageDialog(null, "Falha no processo!\nErro: " + ex.getMessage(), "Cadastro de Funcionários", JOptionPane.ERROR_MESSAGE);
+            JOptionPane.showMessageDialog(null, "Falha no processo!\nErro: " + ex.getMessage(), "Cadastro de Veículos", JOptionPane.ERROR_MESSAGE);
 
             }
         }
@@ -91,10 +90,10 @@ public class VeiculoDAO {
             pstm.setString(1, vei.getPlaca_veiculo());
             rs = pstm.executeQuery();
             if (rs.next()) {
-                resultadoPlaca = true;
+                resultado = true;
             } else {
-                JOptionPane.showMessageDialog(null, "Falha no cadastro!","Cadastro",JOptionPane.WARNING_MESSAGE);
-                resultadoPlaca = false;
+                JOptionPane.showMessageDialog(null, "Falha no cadastro!","Cadastro de Veículos",JOptionPane.WARNING_MESSAGE);
+                resultado = false;
             }
 
         } catch (SQLException ex) {
@@ -117,6 +116,6 @@ public class VeiculoDAO {
             }
         }
 
-        return resultadoPlaca;
+        return resultado;
      }
 }

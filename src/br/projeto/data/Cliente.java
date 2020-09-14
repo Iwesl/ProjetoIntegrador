@@ -1,6 +1,6 @@
 package br.projeto.data;
 
-import java.util.Date;
+import java.sql.Date;
 
 public class Cliente {
 

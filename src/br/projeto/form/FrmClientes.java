@@ -5,6 +5,12 @@
  */
 package br.projeto.form;
 
+import br.projeto.DAO.ClienteDAO;
+import br.projeto.data.Cliente;
+import java.sql.Date;
+import java.sql.SQLException;
+import javax.swing.JOptionPane;
+
 /**
  *
  * @author Igor
@@ -29,7 +35,6 @@ public class FrmClientes extends javax.swing.JFrame {
         frmNome = new javax.swing.JTextField();
         jLabel2 = new javax.swing.JLabel();
         frmCPF = new javax.swing.JTextField();
-        jLabel3 = new javax.swing.JLabel();
         jLabel4 = new javax.swing.JLabel();
         frmCel1 = new javax.swing.JTextField();
         jLabel5 = new javax.swing.JLabel();
@@ -44,7 +49,6 @@ public class FrmClientes extends javax.swing.JFrame {
         frmEndereco = new javax.swing.JTextField();
         frmEntrada = new javax.swing.JTextField();
         jLabel7 = new javax.swing.JLabel();
-        frmVeiculo = new javax.swing.JComboBox<>();
 
         setDefaultCloseOperation(javax.swing.WindowConstants.DISPOSE_ON_CLOSE);
         setResizable(false);
@@ -52,8 +56,6 @@ public class FrmClientes extends javax.swing.JFrame {
         jLabel1.setText("Nome");
 
         jLabel2.setText("CPF");
-
-        jLabel3.setText("Veículo");
 
         jLabel4.setText("Celular 1");
 
@@ -100,8 +102,6 @@ public class FrmClientes extends javax.swing.JFrame {
 
         jLabel7.setText("Data de Entrada");
 
-        frmVeiculo.setModel(new javax.swing.DefaultComboBoxModel<>(new String[] { "Item 1", "Item 2", "Item 3", "Item 4" }));
-
         javax.swing.GroupLayout layout = new javax.swing.GroupLayout(getContentPane());
         getContentPane().setLayout(layout);
         layout.setHorizontalGroup(
@@ -132,9 +132,6 @@ public class FrmClientes extends javax.swing.JFrame {
                             .addComponent(frmCel2, javax.swing.GroupLayout.PREFERRED_SIZE, 140, javax.swing.GroupLayout.PREFERRED_SIZE))
                         .addGap(94, 94, 94))
                     .addGroup(layout.createSequentialGroup()
-                        .addComponent(jLabel3)
-                        .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
-                    .addGroup(layout.createSequentialGroup()
                         .addComponent(Cadastrar)
                         .addGap(18, 18, 18)
                         .addComponent(Remover)
@@ -146,10 +143,7 @@ public class FrmClientes extends javax.swing.JFrame {
                         .addComponent(LimparCampos)
                         .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 89, Short.MAX_VALUE)
                         .addComponent(Fechar)
-                        .addContainerGap())
-                    .addGroup(layout.createSequentialGroup()
-                        .addComponent(frmVeiculo, javax.swing.GroupLayout.PREFERRED_SIZE, 352, javax.swing.GroupLayout.PREFERRED_SIZE)
-                        .addGap(0, 0, Short.MAX_VALUE))))
+                        .addContainerGap())))
         );
         layout.setVerticalGroup(
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
@@ -182,11 +176,7 @@ public class FrmClientes extends javax.swing.JFrame {
                 .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
                     .addComponent(frmCel2, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
                     .addComponent(frmEntrada, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
-                .addGap(18, 18, 18)
-                .addComponent(jLabel3)
-                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                .addComponent(frmVeiculo, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 41, Short.MAX_VALUE)
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 48, Short.MAX_VALUE)
                 .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
                     .addComponent(Fechar)
                     .addComponent(Remover)
@@ -198,6 +188,7 @@ public class FrmClientes extends javax.swing.JFrame {
         );
 
         pack();
+        setLocationRelativeTo(null);
     }// </editor-fold>//GEN-END:initComponents
 
     private void FecharActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_FecharActionPerformed
@@ -205,7 +196,44 @@ public class FrmClientes extends javax.swing.JFrame {
     }//GEN-LAST:event_FecharActionPerformed
 
     private void CadastrarActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_CadastrarActionPerformed
-        
+        Cliente cl = new Cliente();
+        ClienteDAO cDAO = new ClienteDAO();
+
+        if (frmNome.getText().isEmpty() || frmCPF.getText().isEmpty() || frmEndereco.getText().isEmpty() || frmCel1.getText().isEmpty() || frmCel2.getText().isEmpty()) {
+            JOptionPane.showMessageDialog(this, "Preencha todos os campos.", "Cadastro de Clientes", JOptionPane.WARNING_MESSAGE);
+        } else { // pega os dados dos campos e os coloca nas variáveis desejadas
+            try {
+                cl.setNome_cliente(frmNome.getText());
+                cl.setCpf_cliente(Long.parseLong(frmCPF.getText().trim()));
+                cl.setEndereco_cliente(frmEndereco.getText());
+                cl.setCelular1_cliente(Long.parseLong(frmCel1.getText().trim()));
+                cl.setCelular2_cliente(Long.parseLong(frmCel1.getText().trim()));
+                cl.setDataEntrada_cliente(Date.valueOf(frmEntrada.getText().trim()));
+
+                cDAO.inserir(cl); // faz a inserção no banco de dados dos dados que agora estão nas variáveis
+
+                try {
+                    if (cDAO.verificaCliente(cl)) {
+                        JOptionPane.showMessageDialog(this, "Cadastro efetuado com sucesso!", "Cadastro de Clientes", JOptionPane.INFORMATION_MESSAGE);
+                    }
+                } catch (SQLException ex) {
+                    JOptionPane.showMessageDialog(this, "Erro no processo!\n" + ex.getMessage(), "Cadastro de Clientes", JOptionPane.ERROR);
+                }
+
+                {
+
+                }
+                // limpa os campos
+                frmCPF.setText("");
+                frmNome.setText("");
+                frmEndereco.setText("");
+                frmCel1.setText("");
+                frmCel2.setText("");
+            } catch (SQLException ex) {
+                JOptionPane.showMessageDialog(this, "Erro no processo!\n" + ex.getMessage(), "Cadastro de Clientes", JOptionPane.ERROR);
+            }
+        }
+
     }//GEN-LAST:event_CadastrarActionPerformed
 
     private void LimparCamposActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_LimparCamposActionPerformed
@@ -214,7 +242,7 @@ public class FrmClientes extends javax.swing.JFrame {
         frmEndereco.setText("");
         frmCel1.setText("");
         frmCel2.setText("");
-        frmVeiculo.setSelectedIndex(-1);
+        frmEntrada.setText("");
     }//GEN-LAST:event_LimparCamposActionPerformed
 
     private void frmEntradaActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_frmEntradaActionPerformed
@@ -270,10 +298,8 @@ public class FrmClientes extends javax.swing.JFrame {
     private javax.swing.JTextField frmEndereco;
     private javax.swing.JTextField frmEntrada;
     private javax.swing.JTextField frmNome;
-    private javax.swing.JComboBox<String> frmVeiculo;
     private javax.swing.JLabel jLabel1;
     private javax.swing.JLabel jLabel2;
-    private javax.swing.JLabel jLabel3;
     private javax.swing.JLabel jLabel4;
     private javax.swing.JLabel jLabel5;
     private javax.swing.JLabel jLabel6;

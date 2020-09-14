@@ -9,6 +9,8 @@ import java.sql.ResultSet;
 import java.sql.SQLException;
 import java.util.ArrayList;
 import java.util.List;
+import java.util.logging.Level;
+import java.util.logging.Logger;
 import javax.swing.JOptionPane;
 
 public class PecaDAO {
@@ -17,9 +19,95 @@ public class PecaDAO {
     private Connection conn = null; // cria uma nova variável de método Connection
     private PreparedStatement pstm = null; // cria uma nova variável de método PreparedStatement
 
-    public void cadastrar(Peca pecas) {
+    private boolean resultado;
+    
+    public void inserir(Peca pc) throws SQLException {
 
+        String sql = "INSERT INTO pecas(nome_pecas, quantidade_pecas, valor_precas) VALUES(?,?,?)";
+
+        try {
+            //Cria uma conexão com o banco
+            conn = C.createConnectionToMySQL();
+
+            //Cria um PreparedStatment, classe usada para executar a query
+            pstm = conn.prepareStatement(sql);
+            //pstm.setInt(1, user.getId());
+
+            pstm.setString(1, pc.getNome_pecas());
+
+            pstm.setInt(2, pc.getQuantidade_pecas());
+            
+            pstm.setDouble(3, pc.getValor_pecas());            
+
+            //Executa a sql para inserção dos dados
+            pstm.execute();
+
+        } catch (SQLException ex) {
+            JOptionPane.showMessageDialog(null, "Falha no processo!\nErro: " + ex.getMessage(), "Cadastro de Peças", JOptionPane.ERROR_MESSAGE);
+
+        } catch (Exception ex) {
+            Logger.getLogger(UsuarioDAO.class.getName()).log(Level.SEVERE, null, ex);
+        } finally {
+
+            //Fecha as conexões
+            try {
+                if (pstm != null) {
+
+                    pstm.close();
+                }
+
+                if (conn != null) {
+                    conn.close();
+                }
+
+            } catch (SQLException ex) {
+            JOptionPane.showMessageDialog(null, "Falha no processo!\nErro: " + ex.getMessage(), "Cadastro de Peças", JOptionPane.ERROR_MESSAGE);
+
+            }
+        }
     }
+    
+    public boolean verificaPeca(Peca pc) throws SQLException {
+
+        
+        ResultSet rs;
+
+        try {
+
+            String sqlNome = "SELECT nome_pecas FROM pecas WHERE nome_pecas = ?";
+            conn = C.createConnectionToMySQL();
+            pstm = conn.prepareStatement(sqlNome);
+            pstm.setString(1, pc.getNome_pecas());
+            rs = pstm.executeQuery();
+            if (rs.next()) {
+                resultado = true;
+            } else {
+                JOptionPane.showMessageDialog(null, "Falha no cadastro!","Cadastro de Peças",JOptionPane.WARNING_MESSAGE);
+                resultado = false;
+            }
+
+        } catch (SQLException ex) {
+            JOptionPane.showMessageDialog(null, "Falha no processo!\nErro: " + ex.getMessage(), "Cadastro de Peças", JOptionPane.ERROR_MESSAGE);
+
+        } catch (Exception ex) {
+            Logger.getLogger(UsuarioDAO.class.getName()).log(Level.SEVERE, null, ex);
+        } finally {
+            try {
+                if (pstm != null) {
+                    pstm.close();
+                }
+                if (conn != null) {
+                    conn.close();
+                }
+
+            } catch (SQLException ex) {
+            JOptionPane.showMessageDialog(null, "Falha no processo!\nErro: " + ex.getMessage(), "Cadastro de Funcionários", JOptionPane.ERROR_MESSAGE);
+
+            }
+        }
+
+        return resultado;
+     }
 
     public void removerByName(String nome_pecas) {
 
