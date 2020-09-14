@@ -7,6 +7,10 @@ package br.projeto.form;
 
 import br.projeto.DAO.UsuarioDAO;
 import br.projeto.data.Usuario;
+import java.awt.HeadlessException;
+import java.sql.SQLException;
+import java.util.logging.Level;
+import java.util.logging.Logger;
 import javax.swing.JOptionPane;
 
 /**
@@ -30,44 +34,20 @@ public class FrmUsuariosJPanel extends javax.swing.JDialog {
     // <editor-fold defaultstate="collapsed" desc="Generated Code">//GEN-BEGIN:initComponents
     private void initComponents() {
 
-        jPanel1 = new javax.swing.JPanel();
-        Cadastrar = new javax.swing.JButton();
-        jLabel4 = new javax.swing.JLabel();
-        LimparCampos = new javax.swing.JButton();
         jLabel2 = new javax.swing.JLabel();
-        frmCPFusuario = new javax.swing.JTextField();
         frmNomeUsuario = new javax.swing.JTextField();
         jLabel3 = new javax.swing.JLabel();
-        frmSenhaUsuario = new javax.swing.JPasswordField();
+        jLabel4 = new javax.swing.JLabel();
+        frmCPFusuario = new javax.swing.JTextField();
+        Cadastrar = new javax.swing.JButton();
+        LimparCampos = new javax.swing.JButton();
         Fechar = new javax.swing.JButton();
+        frmSenhaUsuario = new javax.swing.JPasswordField();
 
         setDefaultCloseOperation(javax.swing.WindowConstants.DISPOSE_ON_CLOSE);
         setResizable(false);
 
-        Cadastrar.setFont(new java.awt.Font("Tahoma", 1, 11)); // NOI18N
-        Cadastrar.setText("Cadastrar");
-        Cadastrar.addActionListener(new java.awt.event.ActionListener() {
-            public void actionPerformed(java.awt.event.ActionEvent evt) {
-                CadastrarActionPerformed(evt);
-            }
-        });
-
-        jLabel4.setText("CPF");
-
-        LimparCampos.setText("Limpar Campos");
-        LimparCampos.addActionListener(new java.awt.event.ActionListener() {
-            public void actionPerformed(java.awt.event.ActionEvent evt) {
-                LimparCamposActionPerformed(evt);
-            }
-        });
-
         jLabel2.setText("Nome");
-
-        frmCPFusuario.addActionListener(new java.awt.event.ActionListener() {
-            public void actionPerformed(java.awt.event.ActionEvent evt) {
-                frmCPFusuarioActionPerformed(evt);
-            }
-        });
 
         frmNomeUsuario.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
@@ -77,10 +57,26 @@ public class FrmUsuariosJPanel extends javax.swing.JDialog {
 
         jLabel3.setText("Senha");
 
-        frmSenhaUsuario.setFont(new java.awt.Font("Tahoma", 0, 12)); // NOI18N
-        frmSenhaUsuario.addActionListener(new java.awt.event.ActionListener() {
+        jLabel4.setText("CPF");
+
+        frmCPFusuario.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
-                frmSenhaUsuarioActionPerformed(evt);
+                frmCPFusuarioActionPerformed(evt);
+            }
+        });
+
+        Cadastrar.setFont(new java.awt.Font("Tahoma", 1, 11)); // NOI18N
+        Cadastrar.setText("Cadastrar");
+        Cadastrar.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                CadastrarActionPerformed(evt);
+            }
+        });
+
+        LimparCampos.setText("Limpar Campos");
+        LimparCampos.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                LimparCamposActionPerformed(evt);
             }
         });
 
@@ -91,11 +87,18 @@ public class FrmUsuariosJPanel extends javax.swing.JDialog {
             }
         });
 
-        javax.swing.GroupLayout jPanel1Layout = new javax.swing.GroupLayout(jPanel1);
-        jPanel1.setLayout(jPanel1Layout);
-        jPanel1Layout.setHorizontalGroup(
-            jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, jPanel1Layout.createSequentialGroup()
+        frmSenhaUsuario.setFont(new java.awt.Font("Tahoma", 0, 12)); // NOI18N
+        frmSenhaUsuario.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                frmSenhaUsuarioActionPerformed(evt);
+            }
+        });
+
+        javax.swing.GroupLayout layout = new javax.swing.GroupLayout(getContentPane());
+        getContentPane().setLayout(layout);
+        layout.setHorizontalGroup(
+            layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+            .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, layout.createSequentialGroup()
                 .addContainerGap()
                 .addComponent(Cadastrar)
                 .addGap(18, 18, 18)
@@ -103,21 +106,21 @@ public class FrmUsuariosJPanel extends javax.swing.JDialog {
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
                 .addComponent(Fechar)
                 .addContainerGap())
-            .addGroup(jPanel1Layout.createSequentialGroup()
+            .addGroup(layout.createSequentialGroup()
                 .addGap(21, 21, 21)
-                .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                     .addComponent(frmNomeUsuario, javax.swing.GroupLayout.PREFERRED_SIZE, 227, javax.swing.GroupLayout.PREFERRED_SIZE)
                     .addComponent(jLabel4)
                     .addComponent(jLabel3)
                     .addComponent(jLabel2)
-                    .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING, false)
+                    .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING, false)
                         .addComponent(frmSenhaUsuario, javax.swing.GroupLayout.Alignment.LEADING)
                         .addComponent(frmCPFusuario, javax.swing.GroupLayout.Alignment.LEADING, javax.swing.GroupLayout.DEFAULT_SIZE, 156, Short.MAX_VALUE)))
                 .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
         );
-        jPanel1Layout.setVerticalGroup(
-            jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, jPanel1Layout.createSequentialGroup()
+        layout.setVerticalGroup(
+            layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+            .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, layout.createSequentialGroup()
                 .addContainerGap()
                 .addComponent(jLabel2)
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
@@ -131,27 +134,24 @@ public class FrmUsuariosJPanel extends javax.swing.JDialog {
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
                 .addComponent(frmSenhaUsuario, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 93, Short.MAX_VALUE)
-                .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
+                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
                     .addComponent(Fechar)
                     .addComponent(Cadastrar)
                     .addComponent(LimparCampos))
                 .addContainerGap())
         );
 
-        javax.swing.GroupLayout layout = new javax.swing.GroupLayout(getContentPane());
-        getContentPane().setLayout(layout);
-        layout.setHorizontalGroup(
-            layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addComponent(jPanel1, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-        );
-        layout.setVerticalGroup(
-            layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addComponent(jPanel1, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-        );
-
         pack();
         setLocationRelativeTo(null);
     }// </editor-fold>//GEN-END:initComponents
+
+    private void frmNomeUsuarioActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_frmNomeUsuarioActionPerformed
+        // TODO add your handling code here:
+    }//GEN-LAST:event_frmNomeUsuarioActionPerformed
+
+    private void frmCPFusuarioActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_frmCPFusuarioActionPerformed
+        // TODO add your handling code here:
+    }//GEN-LAST:event_frmCPFusuarioActionPerformed
 
     private void CadastrarActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_CadastrarActionPerformed
         Usuario usr = new Usuario();
@@ -171,16 +171,28 @@ public class FrmUsuariosJPanel extends javax.swing.JDialog {
 
                 usrDAO.inserir(usr); // faz a inserção no banco de dados dos dados que agora estão nas variáveis
 
-                if(usrDAO.verificaCpf(usr)) {
-                    JOptionPane.showMessageDialog(this, "Cadastro efetuado com sucesso!", "Cadastro de Funcionários", JOptionPane.INFORMATION_MESSAGE);
+                try {
+                    if (usrDAO.verificaCpf(usr) && usrDAO.verificaSenha(usr)) {
+                        JOptionPane.showMessageDialog(this, "Cadastro efetuado com sucesso!", "Cadastro de Funcionários", JOptionPane.INFORMATION_MESSAGE);
+                    }
+                } catch (SQLException ex) {
+                    JOptionPane.showMessageDialog(this, "Erro no processo!\n" + ex.getMessage(), "Cadastro de Funcionários", JOptionPane.ERROR);
+                } catch (HeadlessException | NumberFormatException ex) {
+                    Logger.getLogger(UsuarioDAO.class.getName()).log(Level.SEVERE, null, ex);
+                }
+
+                {
+
                 }
                 // limpa os campos
                 frmNomeUsuario.setText("");
                 frmCPFusuario.setText("");
                 frmSenhaUsuario.setText("");
 
-            } catch (NumberFormatException e) {
-                JOptionPane.showMessageDialog(this, "Erro no processo!\n" + e.getMessage(), "Cadastro de Funcionários", JOptionPane.ERROR_MESSAGE);
+            } catch (SQLException ex) {
+                JOptionPane.showMessageDialog(this, "Erro no processo!\n" + ex.getMessage(), "Cadastro de Funcionários", JOptionPane.ERROR);
+            } catch (HeadlessException | NumberFormatException ex) {
+                Logger.getLogger(UsuarioDAO.class.getName()).log(Level.SEVERE, null, ex);
             }
         }
     }//GEN-LAST:event_CadastrarActionPerformed
@@ -189,21 +201,13 @@ public class FrmUsuariosJPanel extends javax.swing.JDialog {
         // TODO add your handling code here:
     }//GEN-LAST:event_LimparCamposActionPerformed
 
-    private void frmCPFusuarioActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_frmCPFusuarioActionPerformed
-        // TODO add your handling code here:
-    }//GEN-LAST:event_frmCPFusuarioActionPerformed
-
-    private void frmNomeUsuarioActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_frmNomeUsuarioActionPerformed
-        // TODO add your handling code here:
-    }//GEN-LAST:event_frmNomeUsuarioActionPerformed
+    private void FecharActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_FecharActionPerformed
+        this.dispose();
+    }//GEN-LAST:event_FecharActionPerformed
 
     private void frmSenhaUsuarioActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_frmSenhaUsuarioActionPerformed
         // TODO add your handling code here:
     }//GEN-LAST:event_frmSenhaUsuarioActionPerformed
-
-    private void FecharActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_FecharActionPerformed
-        System.exit(0);
-    }//GEN-LAST:event_FecharActionPerformed
 
     /**
      * @param args the command line arguments
@@ -257,6 +261,5 @@ public class FrmUsuariosJPanel extends javax.swing.JDialog {
     private javax.swing.JLabel jLabel2;
     private javax.swing.JLabel jLabel3;
     private javax.swing.JLabel jLabel4;
-    private javax.swing.JPanel jPanel1;
     // End of variables declaration//GEN-END:variables
 }

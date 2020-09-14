@@ -21,7 +21,7 @@ public class UsuarioDAO {
     private boolean resultadoLogin, resultadoCpf, resultadoSenha;
     private String nome;
 
-    public void inserir(Usuario user) {
+    public void inserir(Usuario user) throws SQLException {
 
         String sql = "INSERT INTO usuarios(login_usuarios,cpf_usuarios,senha_usuarios) VALUES(?,?,?)";
 
@@ -83,7 +83,7 @@ public class UsuarioDAO {
         return null;
     }
 
-    public boolean verificaCpf(Usuario user) {
+    public boolean verificaCpf(Usuario user) throws SQLException {
 
         
         ResultSet rs;
@@ -98,7 +98,7 @@ public class UsuarioDAO {
             if (rs.next()) {
                 resultadoCpf = true;
             } else {
-                JOptionPane.showMessageDialog(null, "Falha no login!\nEste usuário não existe!","Login",JOptionPane.WARNING_MESSAGE);
+                JOptionPane.showMessageDialog(null, "Falha no login!\nEste CPF não está cadastrado!","Login",JOptionPane.WARNING_MESSAGE);
                 System.out.println("ERRO! \nEste usuário não existe!\n");
                 resultadoCpf = false;
             }
@@ -126,7 +126,7 @@ public class UsuarioDAO {
         return resultadoCpf;
 
     }
-    public String verificaNome(Usuario user) {
+    public String verificaNome(Usuario user) throws SQLException {
         ResultSet rs;
 
         try {
@@ -166,7 +166,7 @@ public class UsuarioDAO {
         return n;
     }
     
-    public boolean verificaSenha(Usuario user) {
+    public boolean verificaSenha(Usuario user) throws SQLException {
 
         ResultSet rs;
 

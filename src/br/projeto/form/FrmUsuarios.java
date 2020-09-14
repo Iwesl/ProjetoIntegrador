@@ -7,6 +7,7 @@ package br.projeto.form;
 
 import br.projeto.DAO.UsuarioDAO;
 import br.projeto.data.Usuario;
+import java.awt.HeadlessException;
 import java.sql.SQLException;
 import java.util.logging.Level;
 import java.util.logging.Logger;
@@ -161,19 +162,28 @@ public class FrmUsuarios extends javax.swing.JFrame {
 
                 usrDAO.inserir(usr); // faz a inserção no banco de dados dos dados que agora estão nas variáveis
 
-                if(usrDAO.verificaCpf(usr)) {
-                    JOptionPane.showMessageDialog(this, "Cadastro efetuado com sucesso!", "Cadastro de Funcionários", JOptionPane.INFORMATION_MESSAGE);
+                try {
+                    if (usrDAO.verificaCpf(usr) && usrDAO.verificaSenha(usr)) {
+                        JOptionPane.showMessageDialog(this, "Cadastro efetuado com sucesso!", "Cadastro de Funcionários", JOptionPane.INFORMATION_MESSAGE);
+                    }
+                } catch (SQLException ex) {
+                    JOptionPane.showMessageDialog(this, "Erro no processo!\n" + ex.getMessage(), "Cadastro de Funcionários", JOptionPane.ERROR);
+                } catch (HeadlessException | NumberFormatException ex) {
+                    Logger.getLogger(UsuarioDAO.class.getName()).log(Level.SEVERE, null, ex);
                 }
-{
-                
+
+                {
+
                 }
                 // limpa os campos
                 frmNomeUsuario.setText("");
                 frmCPFusuario.setText("");
                 frmSenhaUsuario.setText("");
 
-            } catch (NumberFormatException e) {
-                JOptionPane.showMessageDialog(this, "Erro no processo!\n" + e.getMessage(), "Cadastro de Funcionários", JOptionPane.ERROR_MESSAGE);
+            } catch (SQLException ex) {
+                JOptionPane.showMessageDialog(this, "Erro no processo!\n" + ex.getMessage(), "Cadastro de Funcionários", JOptionPane.ERROR);
+            } catch (HeadlessException | NumberFormatException ex) {
+                Logger.getLogger(UsuarioDAO.class.getName()).log(Level.SEVERE, null, ex);
             }
         }
     }//GEN-LAST:event_CadastrarActionPerformed

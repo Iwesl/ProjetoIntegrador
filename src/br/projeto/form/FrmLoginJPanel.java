@@ -7,7 +7,12 @@ package br.projeto.form;
 
 import br.projeto.DAO.UsuarioDAO;
 import br.projeto.data.Usuario;
+import java.awt.Dialog;
 import java.awt.HeadlessException;
+import java.sql.SQLException;
+import java.util.logging.Level;
+import java.util.logging.Logger;
+import javax.swing.JDialog;
 import javax.swing.JOptionPane;
 import javax.swing.JRootPane;
 
@@ -20,11 +25,13 @@ public class FrmLoginJPanel extends javax.swing.JDialog {
     private static boolean rs = false;
     /**
      * Creates new form FrmLoginJPanel
+     * @param parent
+     * @param modal
      */
     public FrmLoginJPanel(java.awt.Frame parent, boolean modal) {
         super(parent, modal);
-        setUndecorated(true);
-        getRootPane().setWindowDecorationStyle(JRootPane.NONE);
+        //setUndecorated(true);
+        //getRootPane().setWindowDecorationStyle(JRootPane.NONE);
         initComponents();
         
     }
@@ -36,14 +43,150 @@ public class FrmLoginJPanel extends javax.swing.JDialog {
     // <editor-fold defaultstate="collapsed" desc="Generated Code">//GEN-BEGIN:initComponents
     private void initComponents() {
 
+        jDialog1 = new javax.swing.JDialog();
+        jPanel2 = new javax.swing.JPanel();
+        frmCadNomeUsuario = new javax.swing.JTextField();
+        jLabel3 = new javax.swing.JLabel();
+        jLabel4 = new javax.swing.JLabel();
+        frmCadCPFusuario = new javax.swing.JTextField();
+        Cadastrar = new javax.swing.JButton();
+        LimparCampos = new javax.swing.JButton();
+        Fechar2 = new javax.swing.JButton();
+        frmCadSenhaUsuario = new javax.swing.JPasswordField();
+        jLabel5 = new javax.swing.JLabel();
         jPanel1 = new javax.swing.JPanel();
-        CadastrarUsuario = new javax.swing.JButton();
+        TelaCadastro = new javax.swing.JButton();
         jLabel1 = new javax.swing.JLabel();
         jLabel2 = new javax.swing.JLabel();
         Campo1 = new javax.swing.JTextField();
         Campo2 = new javax.swing.JPasswordField();
         confirma = new javax.swing.JButton();
-        fechar = new javax.swing.JButton();
+        fechar1 = new javax.swing.JButton();
+
+        jDialog1.setMinimumSize(new java.awt.Dimension(330, 350));
+        jDialog1.setModalExclusionType(java.awt.Dialog.ModalExclusionType.APPLICATION_EXCLUDE);
+        jDialog1.setModalityType(java.awt.Dialog.ModalityType.APPLICATION_MODAL);
+        jDialog1.setPreferredSize(new java.awt.Dimension(330, 322));
+        jDialog1.setResizable(false);
+
+        frmCadNomeUsuario.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                frmCadNomeUsuarioActionPerformed(evt);
+            }
+        });
+
+        jLabel3.setText("Senha");
+
+        jLabel4.setText("CPF");
+
+        frmCadCPFusuario.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                frmCadCPFusuarioActionPerformed(evt);
+            }
+        });
+
+        Cadastrar.setFont(new java.awt.Font("Tahoma", 1, 11)); // NOI18N
+        Cadastrar.setText("Cadastrar");
+        Cadastrar.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                CadastrarActionPerformed(evt);
+            }
+        });
+
+        LimparCampos.setText("Limpar Campos");
+        LimparCampos.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                LimparCamposActionPerformed(evt);
+            }
+        });
+
+        Fechar2.setText("Fechar");
+        Fechar2.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                Fechar2ActionPerformed(evt);
+            }
+        });
+
+        frmCadSenhaUsuario.setFont(new java.awt.Font("Tahoma", 0, 12)); // NOI18N
+        frmCadSenhaUsuario.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                frmCadSenhaUsuarioActionPerformed(evt);
+            }
+        });
+
+        jLabel5.setText("Nome");
+
+        javax.swing.GroupLayout jPanel2Layout = new javax.swing.GroupLayout(jPanel2);
+        jPanel2.setLayout(jPanel2Layout);
+        jPanel2Layout.setHorizontalGroup(
+            jPanel2Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+            .addGap(0, 303, Short.MAX_VALUE)
+            .addGroup(jPanel2Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                .addGroup(jPanel2Layout.createSequentialGroup()
+                    .addContainerGap()
+                    .addGroup(jPanel2Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                        .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, jPanel2Layout.createSequentialGroup()
+                            .addComponent(Cadastrar)
+                            .addGap(18, 18, 18)
+                            .addComponent(LimparCampos)
+                            .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                            .addComponent(Fechar2))
+                        .addGroup(jPanel2Layout.createSequentialGroup()
+                            .addGap(11, 11, 11)
+                            .addGroup(jPanel2Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                                .addComponent(frmCadNomeUsuario, javax.swing.GroupLayout.PREFERRED_SIZE, 227, javax.swing.GroupLayout.PREFERRED_SIZE)
+                                .addComponent(jLabel4)
+                                .addComponent(jLabel5)
+                                .addComponent(jLabel3)
+                                .addGroup(jPanel2Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING, false)
+                                    .addComponent(frmCadSenhaUsuario, javax.swing.GroupLayout.Alignment.LEADING)
+                                    .addComponent(frmCadCPFusuario, javax.swing.GroupLayout.Alignment.LEADING, javax.swing.GroupLayout.PREFERRED_SIZE, 156, javax.swing.GroupLayout.PREFERRED_SIZE)))
+                            .addGap(45, 45, 45)))
+                    .addContainerGap()))
+        );
+        jPanel2Layout.setVerticalGroup(
+            jPanel2Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+            .addGap(0, 255, Short.MAX_VALUE)
+            .addGroup(jPanel2Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                .addGroup(jPanel2Layout.createSequentialGroup()
+                    .addContainerGap()
+                    .addComponent(jLabel5)
+                    .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                    .addComponent(frmCadNomeUsuario, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                    .addGap(18, 18, 18)
+                    .addComponent(jLabel4)
+                    .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                    .addComponent(frmCadCPFusuario, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                    .addGap(18, 18, 18)
+                    .addComponent(jLabel3)
+                    .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
+                    .addComponent(frmCadSenhaUsuario, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                    .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 48, Short.MAX_VALUE)
+                    .addGroup(jPanel2Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
+                        .addComponent(Fechar2)
+                        .addComponent(Cadastrar)
+                        .addComponent(LimparCampos))
+                    .addContainerGap()))
+        );
+
+        javax.swing.GroupLayout jDialog1Layout = new javax.swing.GroupLayout(jDialog1.getContentPane());
+        jDialog1.getContentPane().setLayout(jDialog1Layout);
+        jDialog1Layout.setHorizontalGroup(
+            jDialog1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+            .addGroup(jDialog1Layout.createSequentialGroup()
+                .addContainerGap(17, Short.MAX_VALUE)
+                .addComponent(jPanel2, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addContainerGap())
+        );
+        jDialog1Layout.setVerticalGroup(
+            jDialog1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+            .addGroup(jDialog1Layout.createSequentialGroup()
+                .addContainerGap()
+                .addComponent(jPanel2, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
+        );
+
+        jDialog1.getAccessibleContext().setAccessibleParent(TelaCadastro);
 
         setDefaultCloseOperation(javax.swing.WindowConstants.DO_NOTHING_ON_CLOSE);
         setResizable(false);
@@ -51,11 +194,11 @@ public class FrmLoginJPanel extends javax.swing.JDialog {
 
         jPanel1.setBorder(javax.swing.BorderFactory.createEtchedBorder(new java.awt.Color(0, 0, 0), null));
 
-        CadastrarUsuario.setFont(new java.awt.Font("Tahoma", 0, 12)); // NOI18N
-        CadastrarUsuario.setText("Cadastrar");
-        CadastrarUsuario.addActionListener(new java.awt.event.ActionListener() {
+        TelaCadastro.setFont(new java.awt.Font("Tahoma", 0, 12)); // NOI18N
+        TelaCadastro.setText("Cadastrar");
+        TelaCadastro.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
-                CadastrarUsuarioActionPerformed(evt);
+                TelaCadastroActionPerformed(evt);
             }
         });
 
@@ -75,12 +218,12 @@ public class FrmLoginJPanel extends javax.swing.JDialog {
             }
         });
 
-        fechar.setFont(new java.awt.Font("Tahoma", 0, 12)); // NOI18N
-        fechar.setForeground(new java.awt.Color(51, 51, 51));
-        fechar.setText("Sair");
-        fechar.addActionListener(new java.awt.event.ActionListener() {
+        fechar1.setFont(new java.awt.Font("Tahoma", 0, 12)); // NOI18N
+        fechar1.setForeground(new java.awt.Color(51, 51, 51));
+        fechar1.setText("Sair");
+        fechar1.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
-                fecharActionPerformed(evt);
+                fechar1ActionPerformed(evt);
             }
         });
 
@@ -106,9 +249,9 @@ public class FrmLoginJPanel extends javax.swing.JDialog {
                                     .addComponent(Campo2, javax.swing.GroupLayout.Alignment.LEADING, javax.swing.GroupLayout.PREFERRED_SIZE, 169, javax.swing.GroupLayout.PREFERRED_SIZE))))
                         .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
                     .addGroup(jPanel1Layout.createSequentialGroup()
-                        .addComponent(CadastrarUsuario)
+                        .addComponent(TelaCadastro)
                         .addGap(92, 92, 92)
-                        .addComponent(fechar)
+                        .addComponent(fechar1)
                         .addGap(26, 26, 26))))
         );
         jPanel1Layout.setVerticalGroup(
@@ -126,8 +269,8 @@ public class FrmLoginJPanel extends javax.swing.JDialog {
                 .addComponent(confirma)
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 26, Short.MAX_VALUE)
                 .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
-                    .addComponent(CadastrarUsuario)
-                    .addComponent(fechar))
+                    .addComponent(TelaCadastro)
+                    .addComponent(fechar1))
                 .addContainerGap())
         );
 
@@ -146,14 +289,12 @@ public class FrmLoginJPanel extends javax.swing.JDialog {
         setLocationRelativeTo(null);
     }// </editor-fold>//GEN-END:initComponents
 
-    private void CadastrarUsuarioActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_CadastrarUsuarioActionPerformed
-        FrmUsuarios usr = new FrmUsuarios();
-        usr.setVisible(true);
-        this.setVisible(false);
-    }//GEN-LAST:event_CadastrarUsuarioActionPerformed
+    private void TelaCadastroActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_TelaCadastroActionPerformed
+        jDialog1.setVisible(true);
+    }//GEN-LAST:event_TelaCadastroActionPerformed
 
     private void confirmaActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_confirmaActionPerformed
-
+        
         Usuario Usuario = new Usuario();
         UsuarioDAO Usr = new UsuarioDAO();
         
@@ -169,21 +310,92 @@ public class FrmLoginJPanel extends javax.swing.JDialog {
                     if (Usr.verificaLogin()) {
                         JOptionPane.showMessageDialog(this, "Bem vindo! " + Usuario.getNome_usuario(),"Login",JOptionPane.INFORMATION_MESSAGE);
                         rs = true;
+                        //FrmPrincipal p = new FrmPrincipal();
+                        //p.getjMenuUsuario().setText(Usuario.getNome_usuario());
                         this.dispose();
                     }
-                } else {
-                    JOptionPane.showMessageDialog(this, "Falha no login!\nEste usuário não existe!","Login",JOptionPane.WARNING_MESSAGE);
                 }
 
-            } catch (HeadlessException e) {
-                JOptionPane.showMessageDialog(this, "Erro no processo!\n"+e.getMessage(), "Cadastro de Funcionários", JOptionPane.ERROR);
+            } catch (SQLException ex) {
+                JOptionPane.showMessageDialog(this, "Erro no processo!\n"+ex.getMessage(), "Cadastro de Funcionários", JOptionPane.ERROR);
+            } catch (HeadlessException | NumberFormatException ex) {
+                Logger.getLogger(UsuarioDAO.class.getName()).log(Level.SEVERE, null, ex);
             }
         }
     }//GEN-LAST:event_confirmaActionPerformed
 
-    private void fecharActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_fecharActionPerformed
-        System.exit(0);
-    }//GEN-LAST:event_fecharActionPerformed
+    private void fechar1ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_fechar1ActionPerformed
+        if(rs){
+            this.dispose();
+        } else {
+            System.exit(0);
+        }
+        
+    }//GEN-LAST:event_fechar1ActionPerformed
+
+    private void frmCadSenhaUsuarioActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_frmCadSenhaUsuarioActionPerformed
+        // TODO add your handling code here:
+    }//GEN-LAST:event_frmCadSenhaUsuarioActionPerformed
+
+    private void Fechar2ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_Fechar2ActionPerformed
+        jDialog1.dispose();
+    }//GEN-LAST:event_Fechar2ActionPerformed
+
+    private void LimparCamposActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_LimparCamposActionPerformed
+        // TODO add your handling code here:
+    }//GEN-LAST:event_LimparCamposActionPerformed
+
+    private void CadastrarActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_CadastrarActionPerformed
+        Usuario usr = new Usuario();
+        UsuarioDAO usrDAO = new UsuarioDAO();
+
+        // abre o if, para caso algum campo esteja vazio
+        if (frmCadNomeUsuario.getText().isEmpty() || frmCadCPFusuario.getText().isEmpty() || frmCadSenhaUsuario.getText().isEmpty()) {
+            JOptionPane.showMessageDialog(jDialog1, "Preencha todos os campos.", "Cadastro de Funcionários", JOptionPane.WARNING_MESSAGE);
+        } else if ((!frmCadCPFusuario.getText().matches("[0-9]+"))) {
+            // caso os campos de Double sejam inválidos
+            JOptionPane.showMessageDialog(jDialog1, "Erro: apenas caractéres numéricos são válidos no campo CPF", "Cadastro de Funcionários", JOptionPane.WARNING_MESSAGE);
+        } else { // pega os dados dos campos e os coloca nas variáveis desejadas
+            try {
+                usr.setNome_usuario(frmCadNomeUsuario.getText().trim());
+                usr.setCpf_usuario(Long.parseLong(frmCadCPFusuario.getText().trim()));
+                usr.setPassword_usuario(frmCadSenhaUsuario.getText().trim().toUpperCase());
+
+                usrDAO.inserir(usr); // faz a inserção no banco de dados dos dados que agora estão nas variáveis
+
+                try {
+                    if (usrDAO.verificaCpf(usr) && usrDAO.verificaSenha(usr)) {
+                        JOptionPane.showMessageDialog(jDialog1, "Cadastro efetuado com sucesso!", "Cadastro de Funcionários", JOptionPane.INFORMATION_MESSAGE);
+                    }
+                } catch (SQLException ex) {
+                    JOptionPane.showMessageDialog(jDialog1, "Erro no processo!\n" + ex.getMessage(), "Cadastro de Funcionários", JOptionPane.ERROR);
+                } catch (HeadlessException | NumberFormatException ex) {
+                    Logger.getLogger(UsuarioDAO.class.getName()).log(Level.SEVERE, null, ex);
+                }
+
+                {
+
+                }
+                // limpa os campos
+                frmCadNomeUsuario.setText("");
+                frmCadCPFusuario.setText("");
+                frmCadSenhaUsuario.setText("");
+
+            } catch (SQLException ex) {
+                JOptionPane.showMessageDialog(jDialog1, "Erro no processo!\n" + ex.getMessage(), "Cadastro de Funcionários", JOptionPane.ERROR);
+            } catch (HeadlessException | NumberFormatException ex) {
+                Logger.getLogger(UsuarioDAO.class.getName()).log(Level.SEVERE, null, ex);
+            }
+        }
+    }//GEN-LAST:event_CadastrarActionPerformed
+
+    private void frmCadCPFusuarioActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_frmCadCPFusuarioActionPerformed
+        // TODO add your handling code here:
+    }//GEN-LAST:event_frmCadCPFusuarioActionPerformed
+
+    private void frmCadNomeUsuarioActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_frmCadNomeUsuarioActionPerformed
+        // TODO add your handling code here:
+    }//GEN-LAST:event_frmCadNomeUsuarioActionPerformed
 
     /**
      * @param args the command line arguments
@@ -228,14 +440,25 @@ public class FrmLoginJPanel extends javax.swing.JDialog {
     }
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
-    private javax.swing.JButton CadastrarUsuario;
+    private javax.swing.JButton Cadastrar;
     private javax.swing.JTextField Campo1;
     private javax.swing.JPasswordField Campo2;
+    private javax.swing.JButton Fechar2;
+    private javax.swing.JButton LimparCampos;
+    private javax.swing.JButton TelaCadastro;
     private javax.swing.JButton confirma;
-    private javax.swing.JButton fechar;
+    private javax.swing.JButton fechar1;
+    private javax.swing.JTextField frmCadCPFusuario;
+    private javax.swing.JTextField frmCadNomeUsuario;
+    private javax.swing.JPasswordField frmCadSenhaUsuario;
+    private javax.swing.JDialog jDialog1;
     private javax.swing.JLabel jLabel1;
     private javax.swing.JLabel jLabel2;
+    private javax.swing.JLabel jLabel3;
+    private javax.swing.JLabel jLabel4;
+    private javax.swing.JLabel jLabel5;
     private javax.swing.JPanel jPanel1;
+    private javax.swing.JPanel jPanel2;
     // End of variables declaration//GEN-END:variables
 public boolean Logado(){
     return rs;
