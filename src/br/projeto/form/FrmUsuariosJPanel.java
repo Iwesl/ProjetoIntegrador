@@ -198,7 +198,9 @@ public class FrmUsuariosJPanel extends javax.swing.JDialog {
     }//GEN-LAST:event_CadastrarActionPerformed
 
     private void LimparCamposActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_LimparCamposActionPerformed
-        // TODO add your handling code here:
+        frmNomeUsuario.setText("");
+        frmCPFusuario.setText("");
+        frmSenhaUsuario.setText("");
     }//GEN-LAST:event_LimparCamposActionPerformed
 
     private void FecharActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_FecharActionPerformed

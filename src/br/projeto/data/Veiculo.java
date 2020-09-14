@@ -17,7 +17,7 @@ public class Veiculo {
 
 	private String marca_veiculo;
         
-        private int cor_veiculo;
+        private String cor_veiculo;
 
 	private String placa_veiculo;
 
@@ -66,14 +66,14 @@ public class Veiculo {
     /**
      * @return the cor_veiculo
      */
-    public int getCor_veiculo() {
+    public String getCor_veiculo() {
         return cor_veiculo;
     }
 
     /**
      * @param cor_veiculo the cor_veiculo to set
      */
-    public void setCor_veiculo(int cor_veiculo) {
+    public void setCor_veiculo(String cor_veiculo) {
         this.cor_veiculo = cor_veiculo;
     }
 

@@ -5,6 +5,14 @@
  */
 package br.projeto.form;
 
+import br.projeto.DAO.VeiculoDAO;
+import br.projeto.data.Veiculo;
+import java.awt.HeadlessException;
+import java.sql.SQLException;
+import java.util.logging.Level;
+import java.util.logging.Logger;
+import javax.swing.JOptionPane;
+
 /**
  *
  * @author Igor
@@ -52,6 +60,7 @@ public class FrmVeiculos extends javax.swing.JFrame {
 
         jLabel6.setText("Cor");
 
+        Cadastrar.setFont(new java.awt.Font("Tahoma", 1, 11)); // NOI18N
         Cadastrar.setText("Cadastrar");
         Cadastrar.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
@@ -159,14 +168,52 @@ public class FrmVeiculos extends javax.swing.JFrame {
         );
 
         pack();
+        setLocationRelativeTo(null);
     }// </editor-fold>//GEN-END:initComponents
 
     private void CadastrarActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_CadastrarActionPerformed
+        Veiculo vei = new Veiculo();
+        VeiculoDAO vDAO = new VeiculoDAO();
 
+        if (frmModelo.getText().isEmpty() || frmMarca.getText().isEmpty() || frmPlaca.getText().isEmpty() || frmCor.getText().isEmpty()){
+            JOptionPane.showMessageDialog(this, "Preencha todos os campos.", "Cadastro de Veículos", JOptionPane.WARNING_MESSAGE);
+        } else { // pega os dados dos campos e os coloca nas variáveis desejadas
+            try {
+                vei.setModelo_veiculo(frmModelo.getText().trim());
+                vei.setMarca_veiculo(frmMarca.getText().trim());
+                vei.setCor_veiculo(frmCor.getText().trim());
+                vei.setPlaca_veiculo(frmPlaca.getText().trim().toUpperCase());
+
+                vDAO.inserir(vei); // faz a inserção no banco de dados dos dados que agora estão nas variáveis
+
+                try {
+                    if (vDAO.verificaPlaca(vei)) {
+                        JOptionPane.showMessageDialog(this, "Cadastro efetuado com sucesso!", "Cadastro de Veículos", JOptionPane.INFORMATION_MESSAGE);
+                    }
+                } catch (SQLException ex) {
+                    JOptionPane.showMessageDialog(this, "Erro no processo!\n" + ex.getMessage(), "Cadastro de Veículos", JOptionPane.ERROR);
+                }
+
+                {
+
+                }
+                // limpa os campos
+                frmCor.setText("");
+                frmMarca.setText("");
+                frmModelo.setText("");
+                frmPlaca.setText("");
+
+            } catch (SQLException ex) {
+                JOptionPane.showMessageDialog(this, "Erro no processo!\n" + ex.getMessage(), "Cadastro de veículos", JOptionPane.ERROR);
+            }
+        }
     }//GEN-LAST:event_CadastrarActionPerformed
 
     private void LimparCamposActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_LimparCamposActionPerformed
-        // TODO add your handling code here:
+        frmCor.setText("");
+        frmMarca.setText("");
+        frmModelo.setText("");
+        frmPlaca.setText("");
     }//GEN-LAST:event_LimparCamposActionPerformed
 
     private void FecharActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_FecharActionPerformed

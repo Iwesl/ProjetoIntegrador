@@ -290,6 +290,7 @@ public class FrmLoginJPanel extends javax.swing.JDialog {
     }// </editor-fold>//GEN-END:initComponents
 
     private void TelaCadastroActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_TelaCadastroActionPerformed
+        jDialog1.setLocationRelativeTo(null);
         jDialog1.setVisible(true);
     }//GEN-LAST:event_TelaCadastroActionPerformed
 
@@ -342,7 +343,9 @@ public class FrmLoginJPanel extends javax.swing.JDialog {
     }//GEN-LAST:event_Fechar2ActionPerformed
 
     private void LimparCamposActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_LimparCamposActionPerformed
-        // TODO add your handling code here:
+        frmCadNomeUsuario.setText("");
+        frmCadCPFusuario.setText("");
+        frmCadSenhaUsuario.setText("");
     }//GEN-LAST:event_LimparCamposActionPerformed
 
     private void CadastrarActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_CadastrarActionPerformed

@@ -152,7 +152,9 @@ public class FrmPecas extends javax.swing.JFrame {
     }//GEN-LAST:event_CadastrarActionPerformed
 
     private void LimparCamposActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_LimparCamposActionPerformed
-        // TODO add your handling code here:
+        fmrPeca.setText("");
+        fmrQuantidade.setText("");
+        fmrValor.setText("");
     }//GEN-LAST:event_LimparCamposActionPerformed
 
     /**

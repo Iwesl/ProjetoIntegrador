@@ -64,11 +64,11 @@ public class FrmOS extends javax.swing.JFrame {
         jLabel15 = new javax.swing.JLabel();
         frmOrcamentoFinal = new javax.swing.JFormattedTextField();
         jScrollPane3 = new javax.swing.JScrollPane();
-        frmObs = new javax.swing.JTextArea();
+        frmDefeito = new javax.swing.JTextArea();
         jScrollPane4 = new javax.swing.JScrollPane();
         frmObs1 = new javax.swing.JTextArea();
         jLabel14 = new javax.swing.JLabel();
-        jComboBox1 = new javax.swing.JComboBox<>();
+        frmStatus = new javax.swing.JComboBox<>();
         LimparCampos = new javax.swing.JButton();
         frmNomeCliente = new javax.swing.JFormattedTextField();
 
@@ -254,9 +254,9 @@ public class FrmOS extends javax.swing.JFrame {
                 .addGap(32, 32, 32))
         );
 
-        frmObs.setColumns(20);
-        frmObs.setRows(5);
-        jScrollPane3.setViewportView(frmObs);
+        frmDefeito.setColumns(20);
+        frmDefeito.setRows(5);
+        jScrollPane3.setViewportView(frmDefeito);
 
         frmObs1.setColumns(20);
         frmObs1.setRows(5);
@@ -265,12 +265,12 @@ public class FrmOS extends javax.swing.JFrame {
         jLabel14.setFont(new java.awt.Font("Tahoma", 0, 12)); // NOI18N
         jLabel14.setText("Status da Ordem de Serviço:");
 
-        jComboBox1.setFont(new java.awt.Font("Tahoma", 0, 12)); // NOI18N
-        jComboBox1.setMaximumRowCount(3);
-        jComboBox1.setModel(new javax.swing.DefaultComboBoxModel<>(new String[] { "AGUARDANDO", "FINALIZADA", "NÃO AUTORIZADA" }));
-        jComboBox1.addActionListener(new java.awt.event.ActionListener() {
+        frmStatus.setFont(new java.awt.Font("Tahoma", 0, 12)); // NOI18N
+        frmStatus.setMaximumRowCount(3);
+        frmStatus.setModel(new javax.swing.DefaultComboBoxModel<>(new String[] { "AGUARDANDO", "FINALIZADA", "NÃO AUTORIZADA" }));
+        frmStatus.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
-                jComboBox1ActionPerformed(evt);
+                frmStatusActionPerformed(evt);
             }
         });
 
@@ -360,7 +360,7 @@ public class FrmOS extends javax.swing.JFrame {
                     .addGroup(layout.createSequentialGroup()
                         .addComponent(jLabel14)
                         .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
-                        .addComponent(jComboBox1, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                        .addComponent(frmStatus, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
                         .addGap(0, 0, Short.MAX_VALUE))))
         );
         layout.setVerticalGroup(
@@ -417,7 +417,7 @@ public class FrmOS extends javax.swing.JFrame {
                         .addGap(35, 35, 35)
                         .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
                             .addComponent(jLabel14)
-                            .addComponent(jComboBox1, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
+                            .addComponent(frmStatus, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
                         .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 37, Short.MAX_VALUE)
                         .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
                             .addComponent(Fechar)
@@ -450,12 +450,25 @@ public class FrmOS extends javax.swing.JFrame {
     }//GEN-LAST:event_frmPecasActionPerformed
 
     private void LimparCamposActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_LimparCamposActionPerformed
-        // TODO add your handling code here:
+        frmCPFcliente.setText("");
+        frmNomeCliente.setText("");
+        frmCel1.setText("");
+        frmCel2.setText("");
+        frmAtendente.setSelectedIndex(-1);
+        frmVeiculo.setSelectedIndex(-1);
+        frmPecas.setSelectedIndex(-1);
+        frmStatus.setSelectedIndex(-1);
+        frmTotalPecas.setText("");
+        frmTotalObra.setText("");
+        frmOrcamentoFinal.setText("");
+        frmDefeito.setText("");
+        frmObs1.setText("");
+                
     }//GEN-LAST:event_LimparCamposActionPerformed
 
-    private void jComboBox1ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jComboBox1ActionPerformed
+    private void frmStatusActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_frmStatusActionPerformed
         // TODO add your handling code here:
-    }//GEN-LAST:event_jComboBox1ActionPerformed
+    }//GEN-LAST:event_frmStatusActionPerformed
 
     /**
      * @param args the command line arguments
@@ -517,15 +530,15 @@ public class FrmOS extends javax.swing.JFrame {
     private javax.swing.JFormattedTextField frmCPFcliente;
     private javax.swing.JFormattedTextField frmCel1;
     private javax.swing.JFormattedTextField frmCel2;
+    private javax.swing.JTextArea frmDefeito;
     private javax.swing.JFormattedTextField frmNomeCliente;
-    private javax.swing.JTextArea frmObs;
     private javax.swing.JTextArea frmObs1;
     private javax.swing.JFormattedTextField frmOrcamentoFinal;
     private javax.swing.JComboBox<String> frmPecas;
+    private javax.swing.JComboBox<String> frmStatus;
     private javax.swing.JFormattedTextField frmTotalObra;
     private javax.swing.JFormattedTextField frmTotalPecas;
     private javax.swing.JComboBox<String> frmVeiculo;
-    private javax.swing.JComboBox<String> jComboBox1;
     private javax.swing.JLabel jLabel1;
     private javax.swing.JLabel jLabel10;
     private javax.swing.JLabel jLabel12;

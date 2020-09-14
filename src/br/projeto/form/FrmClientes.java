@@ -31,7 +31,7 @@ public class FrmClientes extends javax.swing.JFrame {
         frmCPF = new javax.swing.JTextField();
         jLabel3 = new javax.swing.JLabel();
         jLabel4 = new javax.swing.JLabel();
-        fmrCel1 = new javax.swing.JTextField();
+        frmCel1 = new javax.swing.JTextField();
         jLabel5 = new javax.swing.JLabel();
         frmCel2 = new javax.swing.JTextField();
         Alterar = new javax.swing.JButton();
@@ -41,10 +41,10 @@ public class FrmClientes extends javax.swing.JFrame {
         Cadastrar = new javax.swing.JButton();
         LimparCampos = new javax.swing.JButton();
         jLabel6 = new javax.swing.JLabel();
-        fmrEndereco = new javax.swing.JTextField();
+        frmEndereco = new javax.swing.JTextField();
         frmEntrada = new javax.swing.JTextField();
         jLabel7 = new javax.swing.JLabel();
-        jComboBox1 = new javax.swing.JComboBox<>();
+        frmVeiculo = new javax.swing.JComboBox<>();
 
         setDefaultCloseOperation(javax.swing.WindowConstants.DISPOSE_ON_CLOSE);
         setResizable(false);
@@ -100,7 +100,7 @@ public class FrmClientes extends javax.swing.JFrame {
 
         jLabel7.setText("Data de Entrada");
 
-        jComboBox1.setModel(new javax.swing.DefaultComboBoxModel<>(new String[] { "Item 1", "Item 2", "Item 3", "Item 4" }));
+        frmVeiculo.setModel(new javax.swing.DefaultComboBoxModel<>(new String[] { "Item 1", "Item 2", "Item 3", "Item 4" }));
 
         javax.swing.GroupLayout layout = new javax.swing.GroupLayout(getContentPane());
         getContentPane().setLayout(layout);
@@ -113,7 +113,7 @@ public class FrmClientes extends javax.swing.JFrame {
                         .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                             .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, layout.createSequentialGroup()
                                 .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING)
-                                    .addComponent(fmrEndereco, javax.swing.GroupLayout.Alignment.LEADING)
+                                    .addComponent(frmEndereco, javax.swing.GroupLayout.Alignment.LEADING)
                                     .addComponent(frmNome))
                                 .addGap(27, 27, 27))
                             .addGroup(layout.createSequentialGroup()
@@ -127,7 +127,7 @@ public class FrmClientes extends javax.swing.JFrame {
                             .addComponent(jLabel2)
                             .addComponent(frmCPF, javax.swing.GroupLayout.PREFERRED_SIZE, 140, javax.swing.GroupLayout.PREFERRED_SIZE)
                             .addComponent(jLabel4)
-                            .addComponent(fmrCel1, javax.swing.GroupLayout.PREFERRED_SIZE, 140, javax.swing.GroupLayout.PREFERRED_SIZE)
+                            .addComponent(frmCel1, javax.swing.GroupLayout.PREFERRED_SIZE, 140, javax.swing.GroupLayout.PREFERRED_SIZE)
                             .addComponent(jLabel5)
                             .addComponent(frmCel2, javax.swing.GroupLayout.PREFERRED_SIZE, 140, javax.swing.GroupLayout.PREFERRED_SIZE))
                         .addGap(94, 94, 94))
@@ -148,7 +148,7 @@ public class FrmClientes extends javax.swing.JFrame {
                         .addComponent(Fechar)
                         .addContainerGap())
                     .addGroup(layout.createSequentialGroup()
-                        .addComponent(jComboBox1, javax.swing.GroupLayout.PREFERRED_SIZE, 352, javax.swing.GroupLayout.PREFERRED_SIZE)
+                        .addComponent(frmVeiculo, javax.swing.GroupLayout.PREFERRED_SIZE, 352, javax.swing.GroupLayout.PREFERRED_SIZE)
                         .addGap(0, 0, Short.MAX_VALUE))))
         );
         layout.setVerticalGroup(
@@ -169,11 +169,11 @@ public class FrmClientes extends javax.swing.JFrame {
                     .addGroup(layout.createSequentialGroup()
                         .addComponent(jLabel4)
                         .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                        .addComponent(fmrCel1, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
+                        .addComponent(frmCel1, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
                     .addGroup(layout.createSequentialGroup()
                         .addComponent(jLabel6)
                         .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                        .addComponent(fmrEndereco, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)))
+                        .addComponent(frmEndereco, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)))
                 .addGap(18, 18, 18)
                 .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                     .addComponent(jLabel5)
@@ -185,7 +185,7 @@ public class FrmClientes extends javax.swing.JFrame {
                 .addGap(18, 18, 18)
                 .addComponent(jLabel3)
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                .addComponent(jComboBox1, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addComponent(frmVeiculo, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 41, Short.MAX_VALUE)
                 .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
                     .addComponent(Fechar)
@@ -209,7 +209,12 @@ public class FrmClientes extends javax.swing.JFrame {
     }//GEN-LAST:event_CadastrarActionPerformed
 
     private void LimparCamposActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_LimparCamposActionPerformed
-        // TODO add your handling code here:
+        frmCPF.setText("");
+        frmNome.setText("");
+        frmEndereco.setText("");
+        frmCel1.setText("");
+        frmCel2.setText("");
+        frmVeiculo.setSelectedIndex(-1);
     }//GEN-LAST:event_LimparCamposActionPerformed
 
     private void frmEntradaActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_frmEntradaActionPerformed
@@ -259,13 +264,13 @@ public class FrmClientes extends javax.swing.JFrame {
     private javax.swing.JButton LimparCampos;
     private javax.swing.JButton Pesquisar;
     private javax.swing.JButton Remover;
-    private javax.swing.JTextField fmrCel1;
-    private javax.swing.JTextField fmrEndereco;
     private javax.swing.JTextField frmCPF;
+    private javax.swing.JTextField frmCel1;
     private javax.swing.JTextField frmCel2;
+    private javax.swing.JTextField frmEndereco;
     private javax.swing.JTextField frmEntrada;
     private javax.swing.JTextField frmNome;
-    private javax.swing.JComboBox<String> jComboBox1;
+    private javax.swing.JComboBox<String> frmVeiculo;
     private javax.swing.JLabel jLabel1;
     private javax.swing.JLabel jLabel2;
     private javax.swing.JLabel jLabel3;
