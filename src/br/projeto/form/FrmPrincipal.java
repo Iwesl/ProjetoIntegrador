@@ -5,6 +5,7 @@
  */
 package br.projeto.form;
 
+import br.projeto.DAO.UsuarioDAO;
 import br.projeto.data.Usuario;
 import java.awt.event.WindowFocusListener;
 import javax.swing.JOptionPane;
@@ -19,12 +20,9 @@ public class FrmPrincipal extends javax.swing.JFrame {
      * Creates new form FrmPrincipal
      */
     public FrmPrincipal() {
-
         initComponents();
-        FrmLogin frmLogin = new FrmLogin();
-        frmLogin.setVisible(true);
-        
-        
+        Login();
+                  
     }
 
     /**
@@ -46,7 +44,7 @@ public class FrmPrincipal extends javax.swing.JFrame {
         mnNovaOS = new javax.swing.JMenuItem();
         mnServicos = new javax.swing.JMenuItem();
         mnStatus = new javax.swing.JMenuItem();
-        jMenu3 = new javax.swing.JMenu();
+        jMenuUsuario = new javax.swing.JMenu();
 
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
         setBackground(new java.awt.Color(204, 204, 204));
@@ -122,11 +120,9 @@ public class FrmPrincipal extends javax.swing.JFrame {
 
         jMenuBar1.add(jMenu2);
 
-        jMenu3.setText("Logado como "+getNomeUsr());
-        jMenu3.setEnabled(false);
-        jMenu3.setHorizontalAlignment(javax.swing.SwingConstants.RIGHT);
-        jMenu3.setLabel("");
-        jMenuBar1.add(jMenu3);
+        jMenuUsuario.setText("");
+        jMenuUsuario.setEnabled(false);
+        jMenuBar1.add(jMenuUsuario);
 
         setJMenuBar(jMenuBar1);
 
@@ -223,18 +219,29 @@ public class FrmPrincipal extends javax.swing.JFrame {
     // Variables declaration - do not modify//GEN-BEGIN:variables
     private javax.swing.JMenu jMenu1;
     private javax.swing.JMenu jMenu2;
-    private javax.swing.JMenu jMenu3;
     private javax.swing.JMenuBar jMenuBar1;
     private javax.swing.JMenuItem jMenuItem1;
     private javax.swing.JMenuItem jMenuItem2;
+    private javax.swing.JMenu jMenuUsuario;
     private javax.swing.JMenuItem mnCliente;
     private javax.swing.JMenuItem mnNovaOS;
     private javax.swing.JMenuItem mnServicos;
     private javax.swing.JMenuItem mnStatus;
     private javax.swing.JMenuItem mnUsuario;
     // End of variables declaration//GEN-END:variables
-public String getNomeUsr(){
-    Usuario usuario = new Usuario();
-    return usuario.getNome_usuario();
+//public String getNomeUsr(){
+//    UsuarioDAO user = new UsuarioDAO();
+//    
+//    return user.nomeFinal(user.verificaNome(user));
+//}
+public final void Login(){
+    FrmLoginJPanel l = new FrmLoginJPanel(this, true);
+    
+    while(!l.Logado()){
+    
+        l.setVisible(true);
+    } 
+    l.dispose();
+    //jMenuUsuario.setText("Olá "+getNomeUsr());
 }
 }

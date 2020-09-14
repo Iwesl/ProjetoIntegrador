@@ -6,6 +6,9 @@ import java.sql.ResultSet;
 import br.projeto.bd.Conect;
 import br.projeto.form.FrmLogin;
 import br.projeto.data.Usuario;
+import java.sql.SQLException;
+import java.util.logging.Level;
+import java.util.logging.Logger;
 import javax.swing.JOptionPane;
 
 public class UsuarioDAO {
@@ -15,7 +18,8 @@ public class UsuarioDAO {
     private Connection conn = null;
     private PreparedStatement pstm = null;
 
-    private boolean resultadoLogin, resultadoNome, resultadoSenha;
+    private boolean resultadoLogin, resultadoCpf, resultadoSenha;
+    private String nome;
 
     public void inserir(Usuario user) {
 
@@ -39,9 +43,11 @@ public class UsuarioDAO {
             //Executa a sql para inserção dos dados
             pstm.execute();
 
-        } catch (Exception e) {
+        } catch (SQLException ex) {
+            JOptionPane.showMessageDialog(null, "Falha no processo!\nErro: " + ex.getMessage(), "Cadastro de Funcionários", JOptionPane.ERROR_MESSAGE);
 
-            e.printStackTrace();
+        } catch (Exception ex) {
+            Logger.getLogger(UsuarioDAO.class.getName()).log(Level.SEVERE, null, ex);
         } finally {
 
             //Fecha as conexões
@@ -55,9 +61,9 @@ public class UsuarioDAO {
                     conn.close();
                 }
 
-            } catch (Exception e) {
+            } catch (SQLException ex) {
+            JOptionPane.showMessageDialog(null, "Falha no processo!\nErro: " + ex.getMessage(), "Cadastro de Funcionários", JOptionPane.ERROR_MESSAGE);
 
-                e.printStackTrace();
             }
         }
     }
@@ -90,16 +96,18 @@ public class UsuarioDAO {
             pstm.setLong(1, user.getCpf_usuario());
             rs = pstm.executeQuery();
             if (rs.next()) {
-                resultadoNome = true;
+                resultadoCpf = true;
             } else {
                 JOptionPane.showMessageDialog(null, "Falha no login!\nEste usuário não existe!","Login",JOptionPane.WARNING_MESSAGE);
                 System.out.println("ERRO! \nEste usuário não existe!\n");
-                resultadoNome = false;
+                resultadoCpf = false;
             }
 
-        } catch (Exception e) {
-            e.printStackTrace();
+        } catch (SQLException ex) {
+            JOptionPane.showMessageDialog(null, "Falha no processo!\nErro: " + ex.getMessage(), "Cadastro de Funcionários", JOptionPane.ERROR_MESSAGE);
 
+        } catch (Exception ex) {
+            Logger.getLogger(UsuarioDAO.class.getName()).log(Level.SEVERE, null, ex);
         } finally {
             try {
                 if (pstm != null) {
@@ -109,12 +117,13 @@ public class UsuarioDAO {
                     conn.close();
                 }
 
-            } catch (Exception e) {
-                e.printStackTrace();
+            } catch (SQLException ex) {
+            JOptionPane.showMessageDialog(null, "Falha no processo!\nErro: " + ex.getMessage(), "Cadastro de Funcionários", JOptionPane.ERROR_MESSAGE);
+
             }
         }
 
-        return resultadoNome;
+        return resultadoCpf;
 
     }
     public String verificaNome(Usuario user) {
@@ -128,11 +137,15 @@ public class UsuarioDAO {
             rs = pstm.executeQuery();
             if (rs.next()) {
                 user.setNome_usuario(rs.getString("login_usuarios"));
+                 nome = user.getNome_usuario();
+                 nomeFinal(nome);
             }
 
-        } catch (Exception e) {
-            e.printStackTrace();
+        } catch (SQLException ex) {
+            JOptionPane.showMessageDialog(null, "Falha no processo!\nErro: " + ex.getMessage(), "Cadastro de Funcionários", JOptionPane.ERROR_MESSAGE);
 
+        } catch (Exception ex) {
+            Logger.getLogger(UsuarioDAO.class.getName()).log(Level.SEVERE, null, ex);
         } finally {
             try {
                 if (pstm != null) {
@@ -142,15 +155,17 @@ public class UsuarioDAO {
                     conn.close();
                 }
 
-            } catch (Exception e) {
-                e.printStackTrace();
+            } catch (SQLException ex) {
+            JOptionPane.showMessageDialog(null, "Falha no processo!\nErro: " + ex.getMessage(), "Cadastro de Funcionários", JOptionPane.ERROR_MESSAGE);
             }
         }
-
-        return user.getNome_usuario();
-
+        return nome;
     }
-
+    public final String nomeFinal(String n){
+        
+        return n;
+    }
+    
     public boolean verificaSenha(Usuario user) {
 
         ResultSet rs;
@@ -158,7 +173,7 @@ public class UsuarioDAO {
         try {
 
             String sqlSenha = "SELECT senha_usuarios, cpf_usuarios FROM usuarios WHERE senha_usuarios = '"
-                              + user.getPassword_usuario() + "' AND cpf_usuarios = '" + (user.getCpf_usuario()) +"'";
+                              + user.getPassword_usuario() + "' AND cpf_usuarios = '" + user.getCpf_usuario() +"'";
             conn = C.createConnectionToMySQL();
             //pstm.setString(1, user.getPassword());
             pstm = conn.prepareStatement(sqlSenha);
@@ -171,9 +186,11 @@ public class UsuarioDAO {
                 resultadoSenha = false;
             }
 
-        } catch (Exception e) {
-            e.printStackTrace();
+        } catch (SQLException ex) {
+            JOptionPane.showMessageDialog(null, "Falha no processo!\nErro: " + ex.getMessage(), "Cadastro de Funcionários", JOptionPane.ERROR_MESSAGE);
 
+        } catch (Exception ex) {
+            Logger.getLogger(UsuarioDAO.class.getName()).log(Level.SEVERE, null, ex);
         } finally {
             try {
                 if (pstm != null) {
@@ -183,8 +200,9 @@ public class UsuarioDAO {
                     conn.close();
                 }
 
-            } catch (Exception e) {
-                e.printStackTrace();
+            } catch (SQLException ex) {
+            JOptionPane.showMessageDialog(null, "Falha no processo!\nErro: " + ex.getMessage(), "Cadastro de Funcionários", JOptionPane.ERROR_MESSAGE);
+
             }
         }
 
@@ -194,9 +212,11 @@ public class UsuarioDAO {
 
     public boolean verificaLogin() {
 
-        this.resultadoLogin = resultadoNome && resultadoSenha;
+        this.resultadoLogin = resultadoCpf && resultadoSenha;
         return this.resultadoLogin;
 
     }
+
+    
 
 }

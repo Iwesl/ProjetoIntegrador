@@ -8,11 +8,11 @@ public class Cliente {
 
 	private String Nome_cliente;
 
-	private String cpf_cliente;
+	private long cpf_cliente;
 
-	private String Celular1_cliente;
+	private long Celular1_cliente;
 
-	private String Celular2_cliente;
+	private long Celular2_cliente;
 
 	private String Endereco_cliente;
 
@@ -49,42 +49,42 @@ public class Cliente {
     /**
      * @return the cpf_cliente
      */
-    public String getCpf_cliente() {
+    public long getCpf_cliente() {
         return cpf_cliente;
     }
 
     /**
      * @param cpf_cliente the cpf_cliente to set
      */
-    public void setCpf_cliente(String cpf_cliente) {
+    public void setCpf_cliente(long cpf_cliente) {
         this.cpf_cliente = cpf_cliente;
     }
 
     /**
      * @return the Celular1_cliente
      */
-    public String getCelular1_cliente() {
+    public long getCelular1_cliente() {
         return Celular1_cliente;
     }
 
     /**
      * @param Celular1_cliente the Celular1_cliente to set
      */
-    public void setCelular1_cliente(String Celular1_cliente) {
+    public void setCelular1_cliente(long Celular1_cliente) {
         this.Celular1_cliente = Celular1_cliente;
     }
 
     /**
      * @return the Celular2_cliente
      */
-    public String getCelular2_cliente() {
+    public long getCelular2_cliente() {
         return Celular2_cliente;
     }
 
     /**
      * @param Celular2_cliente the Celular2_cliente to set
      */
-    public void setCelular2_cliente(String Celular2_cliente) {
+    public void setCelular2_cliente(long Celular2_cliente) {
         this.Celular2_cliente = Celular2_cliente;
     }
 
@@ -115,5 +115,6 @@ public class Cliente {
     public void setDataEntrada_cliente(Date DataEntrada_cliente) {
         this.DataEntrada_cliente = DataEntrada_cliente;
     }
+
 
 }

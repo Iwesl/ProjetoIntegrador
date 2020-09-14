@@ -14,7 +14,7 @@ import br.projeto.data.Usuario;
 
 /**
  *
- * @author Igor - Davi *
+ * @author Igor
  */
 public class FrmLogin extends javax.swing.JFrame {
 
@@ -44,7 +44,6 @@ public class FrmLogin extends javax.swing.JFrame {
         Campo2 = new javax.swing.JPasswordField();
 
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
-        setAlwaysOnTop(true);
         setCursor(new java.awt.Cursor(java.awt.Cursor.DEFAULT_CURSOR));
         setResizable(false);
         setType(java.awt.Window.Type.POPUP);
@@ -171,7 +170,9 @@ public class FrmLogin extends javax.swing.JFrame {
                     JOptionPane.showMessageDialog(this, "Falha no login!\nEste usuário não existe!","Login",JOptionPane.WARNING_MESSAGE);
                 }
 
-            } catch (Exception e) {e.printStackTrace();}
+            } catch (HeadlessException e) {
+                JOptionPane.showMessageDialog(this, "Erro no processo!\n"+e.getMessage(), "Cadastro de Funcionários", JOptionPane.ERROR);
+            }
         }
     }//GEN-LAST:event_confirmaActionPerformed
 
