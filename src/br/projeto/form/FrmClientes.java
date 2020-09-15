@@ -9,6 +9,8 @@ import br.projeto.DAO.ClienteDAO;
 import br.projeto.data.Cliente;
 import java.sql.Date;
 import java.sql.SQLException;
+import java.text.ParseException;
+import java.text.SimpleDateFormat;
 import javax.swing.JOptionPane;
 
 /**
@@ -201,6 +203,8 @@ public class FrmClientes extends javax.swing.JFrame {
 
         if (frmNome.getText().isEmpty() || frmCPF.getText().isEmpty() || frmEndereco.getText().isEmpty() || frmCel1.getText().isEmpty() || frmCel2.getText().isEmpty()) {
             JOptionPane.showMessageDialog(this, "Preencha todos os campos.", "Cadastro de Clientes", JOptionPane.WARNING_MESSAGE);
+        } else if(!validarData(frmEntrada.getText())){
+            JOptionPane.showMessageDialog(this, "Insira a data em que o cadastro foi feito no formato AAAA-MM-DD\nExemplo: 2020-12-30", "Cadastro de Clientes", JOptionPane.WARNING_MESSAGE);
         } else { // pega os dados dos campos e os coloca nas variáveis desejadas
             try {
                 cl.setNome_cliente(frmNome.getText());
@@ -229,6 +233,7 @@ public class FrmClientes extends javax.swing.JFrame {
                 frmEndereco.setText("");
                 frmCel1.setText("");
                 frmCel2.setText("");
+                frmEntrada.setText("");
             } catch (SQLException ex) {
                 JOptionPane.showMessageDialog(this, "Erro no processo!\n" + ex.getMessage(), "Cadastro de Clientes", JOptionPane.ERROR);
             }
@@ -305,4 +310,24 @@ public class FrmClientes extends javax.swing.JFrame {
     private javax.swing.JLabel jLabel6;
     private javax.swing.JLabel jLabel7;
     // End of variables declaration//GEN-END:variables
+private boolean validarData(String data) {
+
+        /*
+	 * define o formato de data específico,
+	 * por exemplo: MM-dd-yyyy, MM.dd.yyyy, dd.MM.yyyy etc.
+         */
+        SimpleDateFormat sdfrmt = new SimpleDateFormat("yyyy-MM-dd");
+        sdfrmt.setLenient(false);
+        // Cria o objeto filtrado da Data
+        try {
+            sdfrmt.parse(data);
+            // analiza e valida a string "data"
+        } catch (ParseException e) {
+            // se for inválido
+            return false;
+        }
+        /* retorna true se a validação for positiva */
+        return true;
+
+    }
 }

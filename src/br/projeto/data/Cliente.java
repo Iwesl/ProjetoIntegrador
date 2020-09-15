@@ -17,6 +17,8 @@ public class Cliente {
 	private String Endereco_cliente;
 
 	private Date DataEntrada_cliente;
+        
+        private int id_veiculo;
 
     /**
      * @return the Id_cliente
@@ -114,6 +116,20 @@ public class Cliente {
      */
     public void setDataEntrada_cliente(Date DataEntrada_cliente) {
         this.DataEntrada_cliente = DataEntrada_cliente;
+    }
+
+    /**
+     * @return the id_veiculo
+     */
+    public int getId_veiculo() {
+        return id_veiculo;
+    }
+
+    /**
+     * @param id_veiculo the id_veiculo to set
+     */
+    public void setId_veiculo(int id_veiculo) {
+        this.id_veiculo = id_veiculo;
     }
 
 
