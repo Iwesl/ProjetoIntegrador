@@ -4,7 +4,6 @@ import java.sql.Connection;
 import java.sql.PreparedStatement;
 import java.sql.ResultSet;
 import br.projeto.bd.Conect;
-import br.projeto.form.FrmLogin;
 import br.projeto.data.Usuario;
 import java.sql.SQLException;
 import java.util.logging.Level;
@@ -13,7 +12,6 @@ import javax.swing.JOptionPane;
 
 public class UsuarioDAO {
 
-    FrmLogin login = new FrmLogin();
     private final Conect C = new Conect();
     private Connection conn = null;
     private PreparedStatement pstm = null;

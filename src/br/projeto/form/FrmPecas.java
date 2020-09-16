@@ -166,7 +166,7 @@ public class FrmPecas extends javax.swing.JFrame {
                 pDAO.inserir(pc); // faz a inserção no banco de dados dos dados que agora estão nas variáveis
 
                 try {
-                    if (pDAO.verificaPeca(pc)) {
+                    if (pDAO.verificaNomePeca(pc)) {
                         JOptionPane.showMessageDialog(this, "Cadastro efetuado com sucesso!", "Cadastro de Peças", JOptionPane.INFORMATION_MESSAGE);
                     }
                 } catch (SQLException ex) {

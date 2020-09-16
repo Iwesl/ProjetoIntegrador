@@ -106,7 +106,7 @@ public class FrmPrincipal extends javax.swing.JFrame {
         });
         jMenu2.add(mnNovaOS);
 
-        mnServicos.setText("Serviços");
+        mnServicos.setText("Ver Serviços");
         mnServicos.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 mnServicosActionPerformed(evt);
@@ -114,7 +114,7 @@ public class FrmPrincipal extends javax.swing.JFrame {
         });
         jMenu2.add(mnServicos);
 
-        mnPesquisar.setText("Pesquisar");
+        mnPesquisar.setText("Ver Clientes");
         mnPesquisar.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 mnPesquisarActionPerformed(evt);

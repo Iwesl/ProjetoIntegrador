@@ -5,6 +5,15 @@
  */
 package br.projeto.form;
 
+import br.projeto.DAO.ServicoDAO;
+import br.projeto.data.OS;
+import java.sql.SQLException;
+import java.util.ArrayList;
+import java.util.logging.Level;
+import java.util.logging.Logger;
+import javax.swing.JOptionPane;
+import javax.swing.table.DefaultTableModel;
+
 /**
  *
  * @author Igor
@@ -31,13 +40,17 @@ public class FrmServicos extends javax.swing.JFrame {
         jLabel1 = new javax.swing.JLabel();
         AbrirOS = new javax.swing.JButton();
         Alterar = new javax.swing.JButton();
-        Pesquisar = new javax.swing.JButton();
         Excluir = new javax.swing.JButton();
         Fechar = new javax.swing.JButton();
         Cadastrar = new javax.swing.JButton();
         LimparCampos = new javax.swing.JButton();
         jScrollPane1 = new javax.swing.JScrollPane();
         jTable1 = new javax.swing.JTable();
+        jLabel2 = new javax.swing.JLabel();
+        Pesquisar = new javax.swing.JButton();
+        PesquisarCompleto = new javax.swing.JButton();
+        fmrNomeCliente = new javax.swing.JTextField();
+        jLabel3 = new javax.swing.JLabel();
 
         setDefaultCloseOperation(javax.swing.WindowConstants.DISPOSE_ON_CLOSE);
         setResizable(false);
@@ -47,8 +60,6 @@ public class FrmServicos extends javax.swing.JFrame {
         AbrirOS.setText("Abrir OS");
 
         Alterar.setText("Alterar");
-
-        Pesquisar.setText("Pesquisar");
 
         Excluir.setText("Excluir");
 
@@ -80,14 +91,14 @@ public class FrmServicos extends javax.swing.JFrame {
 
             },
             new String [] {
-                "Número da OS", "Data Abertura", "Descrição do Problema", "Status", "Valor Total"
+                "Número da OS", "Nome Cliente", "Nome Funcionário", "Status", "Descrição do Problema", "Data Abertura", "Data Fechamento", "Nome das peças", "Valor Total"
             }
         ) {
             Class[] types = new Class [] {
-                java.lang.Integer.class, java.lang.String.class, java.lang.String.class, java.lang.String.class, java.lang.Double.class
+                java.lang.Integer.class, java.lang.String.class, java.lang.String.class, java.lang.String.class, java.lang.String.class, java.lang.String.class, java.lang.String.class, java.lang.String.class, java.lang.Double.class
             };
             boolean[] canEdit = new boolean [] {
-                false, false, false, true, false
+                false, false, false, true, false, false, false, false, false
             };
 
             public Class getColumnClass(int columnIndex) {
@@ -99,6 +110,28 @@ public class FrmServicos extends javax.swing.JFrame {
             }
         });
         jScrollPane1.setViewportView(jTable1);
+
+        jLabel2.setFont(new java.awt.Font("Tahoma", 0, 12)); // NOI18N
+        jLabel2.setForeground(new java.awt.Color(51, 51, 51));
+        jLabel2.setText("Obs: deixe o campo vazio e clique em Pesquisar para listar todos");
+
+        Pesquisar.setFont(new java.awt.Font("Tahoma", 1, 11)); // NOI18N
+        Pesquisar.setText("Pesquisar");
+        Pesquisar.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                PesquisarActionPerformed(evt);
+            }
+        });
+
+        PesquisarCompleto.setFont(new java.awt.Font("Tahoma", 1, 11)); // NOI18N
+        PesquisarCompleto.setText("Pesquisa Completa");
+        PesquisarCompleto.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                PesquisarCompletoActionPerformed(evt);
+            }
+        });
+
+        jLabel3.setText("Nome do cliente");
 
         javax.swing.GroupLayout layout = new javax.swing.GroupLayout(getContentPane());
         getContentPane().setLayout(layout);
@@ -116,38 +149,56 @@ public class FrmServicos extends javax.swing.JFrame {
                         .addGap(18, 18, 18)
                         .addComponent(Pesquisar)
                         .addGap(18, 18, 18)
+                        .addComponent(PesquisarCompleto)
+                        .addGap(18, 18, 18)
                         .addComponent(Excluir)
                         .addGap(18, 18, 18)
                         .addComponent(LimparCampos)
                         .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
                         .addComponent(Fechar))
                     .addGroup(layout.createSequentialGroup()
-                        .addGap(12, 12, 12)
+                        .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                            .addComponent(jLabel3)
+                            .addComponent(fmrNomeCliente, javax.swing.GroupLayout.PREFERRED_SIZE, 142, javax.swing.GroupLayout.PREFERRED_SIZE))
+                        .addGap(18, 18, 18)
                         .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                             .addComponent(jLabel1)
                             .addComponent(fmrNumOS, javax.swing.GroupLayout.PREFERRED_SIZE, 88, javax.swing.GroupLayout.PREFERRED_SIZE))
-                        .addGap(0, 0, Short.MAX_VALUE)))
+                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                        .addComponent(jLabel2)
+                        .addGap(19, 19, 19)))
                 .addContainerGap())
             .addComponent(jScrollPane1)
         );
         layout.setVerticalGroup(
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, layout.createSequentialGroup()
-                .addGap(19, 19, 19)
-                .addComponent(jLabel1)
-                .addGap(7, 7, 7)
-                .addComponent(fmrNumOS, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                    .addGroup(layout.createSequentialGroup()
+                        .addGap(42, 42, 42)
+                        .addComponent(jLabel2))
+                    .addGroup(layout.createSequentialGroup()
+                        .addContainerGap()
+                        .addComponent(jLabel3)
+                        .addGap(7, 7, 7)
+                        .addComponent(fmrNomeCliente, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
+                    .addGroup(layout.createSequentialGroup()
+                        .addContainerGap()
+                        .addComponent(jLabel1)
+                        .addGap(7, 7, 7)
+                        .addComponent(fmrNumOS, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)))
                 .addGap(18, 18, 18)
-                .addComponent(jScrollPane1, javax.swing.GroupLayout.DEFAULT_SIZE, 276, Short.MAX_VALUE)
+                .addComponent(jScrollPane1, javax.swing.GroupLayout.DEFAULT_SIZE, 279, Short.MAX_VALUE)
                 .addGap(18, 18, 18)
                 .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
                     .addComponent(Fechar)
                     .addComponent(Excluir)
-                    .addComponent(Pesquisar)
                     .addComponent(Alterar)
                     .addComponent(AbrirOS)
                     .addComponent(Cadastrar)
-                    .addComponent(LimparCampos))
+                    .addComponent(LimparCampos)
+                    .addComponent(Pesquisar)
+                    .addComponent(PesquisarCompleto))
                 .addContainerGap())
         );
 
@@ -165,7 +216,63 @@ public class FrmServicos extends javax.swing.JFrame {
 
     private void LimparCamposActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_LimparCamposActionPerformed
         fmrNumOS.setText("");
+        fmrNomeCliente.setText("");
+        DefaultTableModel modeloTabela = (DefaultTableModel) jTable1.getModel();
+            // coloca a tabela em uma variável do tipo DefaultTableModel, que permite a modelagem dos dados da tabela
+
+            for (int i = modeloTabela.getRowCount() - 1; i >= 0; i--) {
+                modeloTabela.removeRow(i);
+                // loop que limpa a tabela antes de ser atualizada
+            }
     }//GEN-LAST:event_LimparCamposActionPerformed
+
+    private void PesquisarActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_PesquisarActionPerformed
+        if (fmrNumOS.getText().isEmpty() && fmrNomeCliente.getText().isEmpty()) {
+            try {
+                buscaTodasOSs();
+            } catch (Exception ex) {
+                Logger.getLogger(FrmPesquisar.class.getName()).log(Level.SEVERE, null, ex);
+            }
+        } else if (!fmrNumOS.getText().isEmpty()) {
+            try {
+                buscaTodasOsPorNum();
+            } catch (Exception ex) {
+                Logger.getLogger(FrmPesquisar.class.getName()).log(Level.SEVERE, null, ex);
+            }
+        } else if (!fmrNomeCliente.getText().isEmpty()) {
+            try {
+                buscaTodasOsPorNome();
+            } catch (Exception ex) {
+                Logger.getLogger(FrmPesquisar.class.getName()).log(Level.SEVERE, null, ex);
+            } 
+        } else {
+            JOptionPane.showMessageDialog(this, "Preencha apenas um dos campos.", "Pesquisa", JOptionPane.WARNING_MESSAGE);
+        }
+    }//GEN-LAST:event_PesquisarActionPerformed
+
+    private void PesquisarCompletoActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_PesquisarCompletoActionPerformed
+        if (fmrNumOS.getText().isEmpty() && fmrNomeCliente.getText().isEmpty()) {
+            try {
+                buscaTodasOsPlus();
+            } catch (Exception ex) {
+                Logger.getLogger(FrmPesquisar.class.getName()).log(Level.SEVERE, null, ex);
+            }
+        } else if (!fmrNumOS.getText().isEmpty()) {
+            try {
+                buscaTodasOsPorNumPlus();
+            } catch (Exception ex) {
+                Logger.getLogger(FrmPesquisar.class.getName()).log(Level.SEVERE, null, ex);
+            }
+        } else if (!fmrNomeCliente.getText().isEmpty()) {
+            try {
+                buscaTodasOsPorNomePlus();
+            } catch (Exception ex) {
+                Logger.getLogger(FrmPesquisar.class.getName()).log(Level.SEVERE, null, ex);
+            } 
+        } else {
+            JOptionPane.showMessageDialog(this, "Preencha apenas um dos campos.", "Pesquisa", JOptionPane.WARNING_MESSAGE);
+        }
+    }//GEN-LAST:event_PesquisarCompletoActionPerformed
 
     /**
      * @param args the command line arguments
@@ -211,9 +318,218 @@ public class FrmServicos extends javax.swing.JFrame {
     private javax.swing.JButton Fechar;
     private javax.swing.JButton LimparCampos;
     private javax.swing.JButton Pesquisar;
+    private javax.swing.JButton PesquisarCompleto;
+    private javax.swing.JTextField fmrNomeCliente;
     private javax.swing.JTextField fmrNumOS;
     private javax.swing.JLabel jLabel1;
+    private javax.swing.JLabel jLabel2;
+    private javax.swing.JLabel jLabel3;
     private javax.swing.JScrollPane jScrollPane1;
     private javax.swing.JTable jTable1;
     // End of variables declaration//GEN-END:variables
+public void buscaTodasOSs() {
+        try {
+            ServicoDAO sDAO = new ServicoDAO(); // instancia a classe ProdutoDB()
+            ArrayList<OS> cl = sDAO.consultaTodasOs(); // coloca o método dentro da variável
+            
+
+            DefaultTableModel modeloTabela = (DefaultTableModel) jTable1.getModel();
+            // coloca a tabela em uma variável do tipo DefaultTableModel, que permite a modelagem dos dados da tabela
+
+            for (int i = modeloTabela.getRowCount() - 1; i >= 0; i--) {
+                modeloTabela.removeRow(i);
+                // loop que limpa a tabela antes de ser atualizada
+            }
+
+            for (int i = 0; i < cl.size(); i++) {
+                // loop que pega os dados e insere na tabela
+                Object[] dados = new Object[7]; // instancia os objetos. Cada objeto representa um atributo 
+                dados[0] = cl.get(i).getNumero_OS();
+                dados[3] = cl.get(i).getStatus_OS();
+                dados[4] = cl.get(i).getDefeito_OS();
+                dados[5] = cl.get(i).getDataAbertura_OS();
+                dados[6] = cl.get(i).getDataFechamento_OS();
+
+                // pega os dados salvos do banco de dados (que estão nas variáveis) e os coloca nos objetos definidos
+
+                modeloTabela.addRow(dados); // insere uma linha nova a cada item novo encontrado na tabela do BD
+            }
+        } catch (SQLException ex) {
+            JOptionPane.showMessageDialog(null, "Falha na operação.\nErro: " + ex.getMessage());
+        } catch (Exception ex) {
+            Logger.getLogger(FrmPesquisar.class.getName()).log(Level.SEVERE, null, ex);
+        }
+    }
+public void buscaTodasOsPorNum() {
+        try {
+            ServicoDAO sDAO = new ServicoDAO(); // instancia a classe ProdutoDB()
+            ArrayList<OS> cl = sDAO.consultaTodasPorOS(Integer.parseInt(fmrNumOS.getText().trim())); // coloca o método dentro da variável
+            
+
+            DefaultTableModel modeloTabela = (DefaultTableModel) jTable1.getModel();
+            // coloca a tabela em uma variável do tipo DefaultTableModel, que permite a modelagem dos dados da tabela
+
+            for (int i = modeloTabela.getRowCount() - 1; i >= 0; i--) {
+                modeloTabela.removeRow(i);
+                // loop que limpa a tabela antes de ser atualizada
+            }
+
+            for (int i = 0; i < cl.size(); i++) {
+                // loop que pega os dados e insere na tabela
+                Object[] dados = new Object[7]; // instancia os objetos. Cada objeto representa um atributo 
+                dados[0] = cl.get(i).getNumero_OS();
+                dados[3] = cl.get(i).getStatus_OS();
+                dados[4] = cl.get(i).getDefeito_OS();
+                dados[5] = cl.get(i).getDataAbertura_OS();
+                dados[6] = cl.get(i).getDataFechamento_OS();
+                // pega os dados salvos do banco de dados (que estão nas variáveis) e os coloca nos objetos definidos
+
+                modeloTabela.addRow(dados); // insere uma linha nova a cada item novo encontrado na tabela do BD
+            }
+        } catch (SQLException ex) {
+            JOptionPane.showMessageDialog(null, "Falha na operação.\nErro: " + ex.getMessage());
+        } catch (Exception ex) {
+            Logger.getLogger(FrmPesquisar.class.getName()).log(Level.SEVERE, null, ex);
+        }
+    }
+public void buscaTodasOsPorNome() {
+        try {
+            ServicoDAO sDAO = new ServicoDAO(); // instancia a classe ProdutoDB()
+            ArrayList<OS> cl = sDAO.consultaTodasPorNome(fmrNomeCliente.getText()); // coloca o método dentro da variável
+            
+
+            DefaultTableModel modeloTabela = (DefaultTableModel) jTable1.getModel();
+            // coloca a tabela em uma variável do tipo DefaultTableModel, que permite a modelagem dos dados da tabela
+
+            for (int i = modeloTabela.getRowCount() - 1; i >= 0; i--) {
+                modeloTabela.removeRow(i);
+                // loop que limpa a tabela antes de ser atualizada
+            }
+
+            for (int i = 0; i < cl.size(); i++) {
+                // loop que pega os dados e insere na tabela
+                Object[] dados = new Object[7]; // instancia os objetos. Cada objeto representa um atributo 
+                dados[0] = cl.get(i).getNumero_OS();
+                dados[1] = cl.get(i).getNomeCliente_OS();
+                dados[3] = cl.get(i).getStatus_OS();
+                dados[4] = cl.get(i).getDefeito_OS();
+                dados[5] = cl.get(i).getDataAbertura_OS();
+                dados[6] = cl.get(i).getDataFechamento_OS();
+                // pega os dados salvos do banco de dados (que estão nas variáveis) e os coloca nos objetos definidos
+
+                modeloTabela.addRow(dados); // insere uma linha nova a cada item novo encontrado na tabela do BD
+            }
+        } catch (SQLException ex) {
+            JOptionPane.showMessageDialog(null, "Falha na operação.\nErro: " + ex.getMessage());
+        } catch (Exception ex) {
+            Logger.getLogger(FrmPesquisar.class.getName()).log(Level.SEVERE, null, ex);
+        }
+    }
+public void buscaTodasOsPlus() {
+        try {
+            ServicoDAO sDAO = new ServicoDAO(); // instancia a classe ProdutoDB()
+            ArrayList<OS> cl = sDAO.consultaTodasOsPlus(); // coloca o método dentro da variável
+            
+
+            DefaultTableModel modeloTabela = (DefaultTableModel) jTable1.getModel();
+            // coloca a tabela em uma variável do tipo DefaultTableModel, que permite a modelagem dos dados da tabela
+
+            for (int i = modeloTabela.getRowCount() - 1; i >= 0; i--) {
+                modeloTabela.removeRow(i);
+                // loop que limpa a tabela antes de ser atualizada
+            }
+
+            for (int i = 0; i < cl.size(); i++) {
+                // loop que pega os dados e insere na tabela
+                Object[] dados = new Object[8]; // instancia os objetos. Cada objeto representa um atributo 
+                dados[0] = cl.get(i).getNumero_OS();
+                dados[1] = cl.get(i).getNomeCliente_OS();
+                dados[2] = cl.get(i).getNomeUsuario_OS();
+                dados[3] = cl.get(i).getStatus_OS();
+                dados[4] = cl.get(i).getDefeito_OS();
+                dados[5] = cl.get(i).getDataAbertura_OS();
+                dados[6] = cl.get(i).getDataFechamento_OS();
+                dados[7] = cl.get(i).getNomePeca_OS();
+                // pega os dados salvos do banco de dados (que estão nas variáveis) e os coloca nos objetos definidos
+
+                modeloTabela.addRow(dados); // insere uma linha nova a cada item novo encontrado na tabela do BD
+            }
+             
+        } catch (SQLException ex) {
+            JOptionPane.showMessageDialog(null, "Falha na operação.\nErro: " + ex.getMessage());
+        } catch (Exception ex) {
+            Logger.getLogger(FrmPesquisar.class.getName()).log(Level.SEVERE, null, ex);
+        }  
+    }
+public void buscaTodasOsPorNumPlus() {
+        try {
+            ServicoDAO sDAO = new ServicoDAO(); // instancia a classe ProdutoDB()
+            ArrayList<OS> cl = sDAO.consultaTodasPorOSPlus(Integer.parseInt(fmrNumOS.getText().trim())); // coloca o método dentro da variável
+            
+
+            DefaultTableModel modeloTabela = (DefaultTableModel) jTable1.getModel();
+            // coloca a tabela em uma variável do tipo DefaultTableModel, que permite a modelagem dos dados da tabela
+
+            for (int i = modeloTabela.getRowCount() - 1; i >= 0; i--) {
+                modeloTabela.removeRow(i);
+                // loop que limpa a tabela antes de ser atualizada
+            }
+
+            for (int i = 0; i < cl.size(); i++) {
+                // loop que pega os dados e insere na tabela
+                Object[] dados = new Object[8]; // instancia os objetos. Cada objeto representa um atributo 
+                dados[0] = cl.get(i).getNumero_OS();
+                dados[1] = cl.get(i).getNomeCliente_OS();
+                dados[2] = cl.get(i).getNomeUsuario_OS();
+                dados[3] = cl.get(i).getStatus_OS();
+                dados[4] = cl.get(i).getDefeito_OS();
+                dados[5] = cl.get(i).getDataAbertura_OS();
+                dados[6] = cl.get(i).getDataFechamento_OS();
+                dados[7] = cl.get(i).getNomePeca_OS();
+                // pega os dados salvos do banco de dados (que estão nas variáveis) e os coloca nos objetos definidos
+
+                modeloTabela.addRow(dados); // insere uma linha nova a cada item novo encontrado na tabela do BD
+            }
+             
+        } catch (SQLException ex) {
+            JOptionPane.showMessageDialog(null, "Falha na operação.\nErro: " + ex.getMessage());
+        } catch (Exception ex) {
+            Logger.getLogger(FrmPesquisar.class.getName()).log(Level.SEVERE, null, ex);
+        }  
+    }
+public void buscaTodasOsPorNomePlus() {
+        try {
+            ServicoDAO sDAO = new ServicoDAO(); // instancia a classe ProdutoDB()
+            ArrayList<OS> cl = sDAO.consultaTodasPorNomePlus(fmrNomeCliente.getText().trim()); // coloca o método dentro da variável
+            
+
+            DefaultTableModel modeloTabela = (DefaultTableModel) jTable1.getModel();
+            // coloca a tabela em uma variável do tipo DefaultTableModel, que permite a modelagem dos dados da tabela
+
+            for (int i = modeloTabela.getRowCount() - 1; i >= 0; i--) {
+                modeloTabela.removeRow(i);
+                // loop que limpa a tabela antes de ser atualizada
+            }
+
+            for (int i = 0; i < cl.size(); i++) {
+                // loop que pega os dados e insere na tabela
+                Object[] dados = new Object[8]; // instancia os objetos. Cada objeto representa um atributo 
+                dados[0] = cl.get(i).getNumero_OS();
+                dados[1] = cl.get(i).getNomeCliente_OS();
+                dados[2] = cl.get(i).getNomeUsuario_OS();
+                dados[3] = cl.get(i).getStatus_OS();
+                dados[4] = cl.get(i).getDefeito_OS();
+                dados[5] = cl.get(i).getDataAbertura_OS();
+                dados[6] = cl.get(i).getDataFechamento_OS();
+                dados[7] = cl.get(i).getNomePeca_OS();
+                // pega os dados salvos do banco de dados (que estão nas variáveis) e os coloca nos objetos definidos
+
+                modeloTabela.addRow(dados); // insere uma linha nova a cada item novo encontrado na tabela do BD
+            }
+        } catch (SQLException ex) {
+            JOptionPane.showMessageDialog(null, "Falha na operação.\nErro: " + ex.getMessage());
+        } catch (Exception ex) {
+            Logger.getLogger(FrmPesquisar.class.getName()).log(Level.SEVERE, null, ex);
+        }
+    }
 }

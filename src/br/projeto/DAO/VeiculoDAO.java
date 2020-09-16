@@ -7,7 +7,6 @@ package br.projeto.DAO;
 
 import br.projeto.bd.Conect;
 import br.projeto.data.Veiculo;
-import br.projeto.form.FrmLogin;
 import java.sql.Connection;
 import java.sql.PreparedStatement;
 import java.sql.ResultSet;

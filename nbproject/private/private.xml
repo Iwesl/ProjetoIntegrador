@@ -12,7 +12,6 @@
             <file>file:/Z:/Cod/Projects/ProjetoIntegrador/src/br/projeto/data/Peca.java</file>
             <file>file:/Z:/Cod/Projects/ProjetoIntegrador/src/br/projeto/form/FrmClientes.java</file>
             <file>file:/Z:/Cod/Projects/ProjetoIntegrador/src/br/projeto/data/Contato.java</file>
-            <file>file:/Z:/Cod/Projects/ProjetoIntegrador/src/br/projeto/form/FrmLogin.java</file>
             <file>file:/Z:/Cod/Projects/ProjetoIntegrador/src/br/projeto/data/Usuario.java</file>
             <file>file:/Z:/Cod/Projects/ProjetoIntegrador/src/br/projeto/form/FrmUsuarios.java</file>
             <file>file:/Z:/Cod/Projects/ProjetoIntegrador/src/br/projeto/form/FrmPesquisar.java</file>
@@ -25,6 +24,7 @@
             <file>file:/Z:/Cod/Projects/ProjetoIntegrador/src/br/projeto/form/FrmPrincipal.java</file>
             <file>file:/Z:/Cod/Projects/ProjetoIntegrador/src/br/projeto/DAO/PecaDAO.java</file>
             <file>file:/Z:/Cod/Projects/ProjetoIntegrador/src/br/projeto/DAO/ContatoDAO.java</file>
+            <file>file:/Z:/Cod/Projects/ProjetoIntegrador/src/br/projeto/DAO/OrcamentoDAO.java</file>
             <file>file:/Z:/Cod/Projects/ProjetoIntegrador/src/br/projeto/DAO/PesquisaDAO.java</file>
             <file>file:/Z:/Cod/Projects/ProjetoIntegrador/src/br/projeto/data/OS.java</file>
             <file>file:/Z:/Cod/Projects/ProjetoIntegrador/src/br/projeto/data/Veiculo.java</file>

@@ -68,6 +68,11 @@ public class FrmClientes extends javax.swing.JFrame {
         Pesquisar.setText("Pesquisar");
 
         Remover.setText("Remover");
+        Remover.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                RemoverActionPerformed(evt);
+            }
+        });
 
         Fechar.setText("Fechar");
         Fechar.addActionListener(new java.awt.event.ActionListener() {
@@ -77,7 +82,6 @@ public class FrmClientes extends javax.swing.JFrame {
         });
 
         Cadastrar.setFont(new java.awt.Font("Tahoma", 1, 11)); // NOI18N
-        Cadastrar.setForeground(new java.awt.Color(0, 102, 0));
         Cadastrar.setText("Cadastrar");
         Cadastrar.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
@@ -253,6 +257,10 @@ public class FrmClientes extends javax.swing.JFrame {
     private void frmEntradaActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_frmEntradaActionPerformed
         // TODO add your handling code here:
     }//GEN-LAST:event_frmEntradaActionPerformed
+
+    private void RemoverActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_RemoverActionPerformed
+        // TODO add your handling code here:
+    }//GEN-LAST:event_RemoverActionPerformed
 
     /**
      * @param args the command line arguments

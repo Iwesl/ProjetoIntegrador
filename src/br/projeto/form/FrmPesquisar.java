@@ -41,12 +41,13 @@ public class FrmPesquisar extends javax.swing.JFrame {
         jTable1 = new javax.swing.JTable();
         AbrirOS = new javax.swing.JButton();
         Alterar = new javax.swing.JButton();
-        Pesquisar = new javax.swing.JButton();
+        PesquisarTudo = new javax.swing.JButton();
         Excluir = new javax.swing.JButton();
         Fechar = new javax.swing.JButton();
         Cadastrar = new javax.swing.JButton();
         LimparCampos = new javax.swing.JButton();
         jLabel2 = new javax.swing.JLabel();
+        PesquisarComVeiculo = new javax.swing.JButton();
 
         setDefaultCloseOperation(javax.swing.WindowConstants.DISPOSE_ON_CLOSE);
 
@@ -59,7 +60,7 @@ public class FrmPesquisar extends javax.swing.JFrame {
 
             },
             new String [] {
-                "ID", "Nome", "CPF", "Celular1", "Celular2", "Endereço", "Veículo", "Data Entrada"
+                "ID", "Nome", "CPF", "Celular 1", "Celular 2", "Endereço", "Data Entrada", "Veículo"
             }
         ) {
             Class[] types = new Class [] {
@@ -83,11 +84,11 @@ public class FrmPesquisar extends javax.swing.JFrame {
 
         Alterar.setText("Alterar");
 
-        Pesquisar.setFont(new java.awt.Font("Tahoma", 1, 11)); // NOI18N
-        Pesquisar.setText("Pesquisar");
-        Pesquisar.addActionListener(new java.awt.event.ActionListener() {
+        PesquisarTudo.setFont(new java.awt.Font("Tahoma", 1, 11)); // NOI18N
+        PesquisarTudo.setText("Pesquisar");
+        PesquisarTudo.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
-                PesquisarActionPerformed(evt);
+                PesquisarTudoActionPerformed(evt);
             }
         });
 
@@ -118,6 +119,14 @@ public class FrmPesquisar extends javax.swing.JFrame {
         jLabel2.setForeground(new java.awt.Color(51, 51, 51));
         jLabel2.setText("Obs: deixe o campo vazio e clique em Pesquisar para listar todos");
 
+        PesquisarComVeiculo.setFont(new java.awt.Font("Tahoma", 1, 11)); // NOI18N
+        PesquisarComVeiculo.setText("Pesquisar (com veículo)");
+        PesquisarComVeiculo.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                PesquisarComVeiculoActionPerformed(evt);
+            }
+        });
+
         javax.swing.GroupLayout layout = new javax.swing.GroupLayout(getContentPane());
         getContentPane().setLayout(layout);
         layout.setHorizontalGroup(
@@ -127,29 +136,30 @@ public class FrmPesquisar extends javax.swing.JFrame {
                 .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                     .addComponent(jLabel1)
                     .addComponent(frmCPFcliente, javax.swing.GroupLayout.PREFERRED_SIZE, 125, javax.swing.GroupLayout.PREFERRED_SIZE))
-                .addContainerGap(634, Short.MAX_VALUE))
+                .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
             .addComponent(jScrollPane1)
             .addGroup(layout.createSequentialGroup()
                 .addContainerGap()
-                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                    .addGroup(layout.createSequentialGroup()
-                        .addComponent(Cadastrar)
-                        .addGap(18, 18, 18)
-                        .addComponent(AbrirOS)
-                        .addGap(18, 18, 18)
-                        .addComponent(Alterar)
-                        .addGap(18, 18, 18)
-                        .addComponent(Pesquisar)
-                        .addGap(18, 18, 18)
-                        .addComponent(Excluir)
-                        .addGap(18, 18, 18)
-                        .addComponent(LimparCampos)
-                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 134, Short.MAX_VALUE)
-                        .addComponent(Fechar))
-                    .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, layout.createSequentialGroup()
-                        .addGap(0, 0, Short.MAX_VALUE)
-                        .addComponent(jLabel2)))
+                .addComponent(Cadastrar)
+                .addGap(18, 18, 18)
+                .addComponent(AbrirOS)
+                .addGap(18, 18, 18)
+                .addComponent(Alterar)
+                .addGap(18, 18, 18)
+                .addComponent(PesquisarTudo)
+                .addGap(18, 18, 18)
+                .addComponent(PesquisarComVeiculo)
+                .addGap(18, 18, 18)
+                .addComponent(Excluir)
+                .addGap(18, 18, 18)
+                .addComponent(LimparCampos)
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                .addComponent(Fechar)
                 .addContainerGap())
+            .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, layout.createSequentialGroup()
+                .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                .addComponent(jLabel2)
+                .addGap(33, 33, 33))
         );
         layout.setVerticalGroup(
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
@@ -161,17 +171,18 @@ public class FrmPesquisar extends javax.swing.JFrame {
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
                 .addComponent(jLabel2)
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                .addComponent(jScrollPane1, javax.swing.GroupLayout.PREFERRED_SIZE, 308, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                .addComponent(jScrollPane1, javax.swing.GroupLayout.DEFAULT_SIZE, 250, Short.MAX_VALUE)
+                .addGap(34, 34, 34)
                 .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
                     .addComponent(Fechar)
                     .addComponent(Excluir)
-                    .addComponent(Pesquisar)
+                    .addComponent(PesquisarTudo)
                     .addComponent(Alterar)
                     .addComponent(AbrirOS)
                     .addComponent(Cadastrar)
-                    .addComponent(LimparCampos))
-                .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
+                    .addComponent(LimparCampos)
+                    .addComponent(PesquisarComVeiculo))
+                .addContainerGap())
         );
 
         pack();
@@ -188,18 +199,38 @@ public class FrmPesquisar extends javax.swing.JFrame {
 
     private void LimparCamposActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_LimparCamposActionPerformed
         frmCPFcliente.setText("");
+        DefaultTableModel modeloTabela = (DefaultTableModel) jTable1.getModel();
+            // coloca a tabela em uma variável do tipo DefaultTableModel, que permite a modelagem dos dados da tabela
+
+            for (int i = modeloTabela.getRowCount() - 1; i >= 0; i--) {
+                modeloTabela.removeRow(i);
+                // loop que limpa a tabela antes de ser atualizada
+            }
     }//GEN-LAST:event_LimparCamposActionPerformed
 
-    private void PesquisarActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_PesquisarActionPerformed
+    private void PesquisarTudoActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_PesquisarTudoActionPerformed
         if (frmCPFcliente.getText().isEmpty()) {
-            PesquisaDAO pDAO = new PesquisaDAO();
             try {
-                pDAO.consultaTodos();
-            } catch (SQLException ex) {
+                buscaTodosClientes();
+            } catch (Exception ex) {
+                Logger.getLogger(FrmPesquisar.class.getName()).log(Level.SEVERE, null, ex);
+            } 
+        } else {
+            buscaTodosClientesPorCPF();
+        } 
+    }//GEN-LAST:event_PesquisarTudoActionPerformed
+
+    private void PesquisarComVeiculoActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_PesquisarComVeiculoActionPerformed
+        if (frmCPFcliente.getText().isEmpty()) {
+            try {
+                buscaTodosClientesComVeiculo();
+            } catch (Exception ex) {
                 Logger.getLogger(FrmPesquisar.class.getName()).log(Level.SEVERE, null, ex);
             }
+        } else {
+            buscaTodosClientesComVeiculoPorCPF();
         }
-    }//GEN-LAST:event_PesquisarActionPerformed
+    }//GEN-LAST:event_PesquisarComVeiculoActionPerformed
 
     /**
      * @param args the command line arguments
@@ -246,17 +277,86 @@ public class FrmPesquisar extends javax.swing.JFrame {
     private javax.swing.JButton Excluir;
     private javax.swing.JButton Fechar;
     private javax.swing.JButton LimparCampos;
-    private javax.swing.JButton Pesquisar;
+    private javax.swing.JButton PesquisarComVeiculo;
+    private javax.swing.JButton PesquisarTudo;
     private javax.swing.JTextField frmCPFcliente;
     private javax.swing.JLabel jLabel1;
     private javax.swing.JLabel jLabel2;
     private javax.swing.JScrollPane jScrollPane1;
     private javax.swing.JTable jTable1;
     // End of variables declaration//GEN-END:variables
-public void buscaClientes() {
+public void buscaTodosClientes() {
         try {
-            ClienteDAO cDAO = new ClienteDAO(); // instancia a classe ProdutoDB()
-            ArrayList<Cliente> cl = PesquisaDAO.consultaTodos(); // coloca o método dentro da variável
+            PesquisaDAO pDAO = new PesquisaDAO(); // instancia a classe ProdutoDB()
+            ArrayList<Cliente> cl = pDAO.consultaTodos(); // coloca o método dentro da variável
+            
+
+            DefaultTableModel modeloTabela = (DefaultTableModel) jTable1.getModel();
+            // coloca a tabela em uma variável do tipo DefaultTableModel, que permite a modelagem dos dados da tabela
+
+            for (int i = modeloTabela.getRowCount() - 1; i >= 0; i--) {
+                modeloTabela.removeRow(i);
+                // loop que limpa a tabela antes de ser atualizada
+            }
+
+            for (int i = 0; i < cl.size(); i++) {
+                // loop que pega os dados e insere na tabela
+                Object[] dados = new Object[7]; // instancia os objetos. Cada objeto representa um atributo 
+                dados[0] = cl.get(i).getId_cliente();
+                dados[1] = cl.get(i).getNome_cliente();
+                dados[2] = cl.get(i).getCpf_cliente();
+                dados[3] = cl.get(i).getCelular1_cliente();
+                dados[4] = cl.get(i).getCelular2_cliente();
+                dados[5] = cl.get(i).getEndereco_cliente();
+                dados[6] = cl.get(i).getDataEntrada_cliente();
+                // pega os dados salvos do banco de dados (que estão nas variáveis) e os coloca nos objetos definidos
+
+                modeloTabela.addRow(dados); // insere uma linha nova a cada item novo encontrado na tabela do BD
+            }
+        } catch (SQLException ex) {
+            JOptionPane.showMessageDialog(null, "Falha na operação.\nErro: " + ex.getMessage());
+        } catch (Exception ex) {
+            Logger.getLogger(FrmPesquisar.class.getName()).log(Level.SEVERE, null, ex);
+        }
+    }
+public void buscaTodosClientesPorCPF() {
+        try {
+            PesquisaDAO pDAO = new PesquisaDAO(); // instancia a classe ProdutoDB()
+            ArrayList<Cliente> cl = pDAO.consultaTodosPorCPF(Long.parseLong(frmCPFcliente.getText().trim())); // coloca o método dentro da variável
+            
+
+            DefaultTableModel modeloTabela = (DefaultTableModel) jTable1.getModel();
+            // coloca a tabela em uma variável do tipo DefaultTableModel, que permite a modelagem dos dados da tabela
+
+            for (int i = modeloTabela.getRowCount() - 1; i >= 0; i--) {
+                modeloTabela.removeRow(i);
+                // loop que limpa a tabela antes de ser atualizada
+            }
+
+            for (int i = 0; i < cl.size(); i++) {
+                // loop que pega os dados e insere na tabela
+                Object[] dados = new Object[7]; // instancia os objetos. Cada objeto representa um atributo 
+                dados[0] = cl.get(i).getId_cliente();
+                dados[1] = cl.get(i).getNome_cliente();
+                dados[2] = cl.get(i).getCpf_cliente();
+                dados[3] = cl.get(i).getCelular1_cliente();
+                dados[4] = cl.get(i).getCelular2_cliente();
+                dados[5] = cl.get(i).getEndereco_cliente();
+                dados[6] = cl.get(i).getDataEntrada_cliente();
+                // pega os dados salvos do banco de dados (que estão nas variáveis) e os coloca nos objetos definidos
+
+                modeloTabela.addRow(dados); // insere uma linha nova a cada item novo encontrado na tabela do BD
+            }
+        } catch (SQLException ex) {
+            JOptionPane.showMessageDialog(null, "Falha na operação.\nErro: " + ex.getMessage());
+        } catch (Exception ex) {
+            Logger.getLogger(FrmPesquisar.class.getName()).log(Level.SEVERE, null, ex);
+        }
+    }
+public void buscaTodosClientesComVeiculo() {
+        try {
+            PesquisaDAO pDAO = new PesquisaDAO(); // instancia a classe ProdutoDB()
+            ArrayList<Cliente> cl = pDAO.consultaTodosComCarro(); // coloca o método dentro da variável
             
 
             DefaultTableModel modeloTabela = (DefaultTableModel) jTable1.getModel();
@@ -277,29 +377,52 @@ public void buscaClientes() {
                 dados[4] = cl.get(i).getCelular2_cliente();
                 dados[5] = cl.get(i).getEndereco_cliente();
                 dados[6] = cl.get(i).getDataEntrada_cliente();
-                dados[7] = cl.get(i).getId_veiculo();
+                dados[7] = cl.get(i).getModelo_veiculo();
                 // pega os dados salvos do banco de dados (que estão nas variáveis) e os coloca nos objetos definidos
 
                 modeloTabela.addRow(dados); // insere uma linha nova a cada item novo encontrado na tabela do BD
             }
-            /* 
-                *** abaixo uma forma alternativa, sem o uso da tabela e sim de uma janela para cada produto ***
-            
-            for (int i=0; i<produtos.size(); i++) {
-                JOptionPane.showMessageDialog(null, "ID do Produto:"
-                + produtos.get(i).getId()+ "\n\n"
-                +"Nome: "+ produtos.get(i).getNome()+ "\n\n"
-                +"Quantidade: "+ produtos.get(i).getQuantidade()+ "\n\n"
-                +"Valor: R$"+ produtos.get(i).getValor()+ "\n\n"
-                +"Uidade de Medida: "+ produtos.get(i).getMedida()+ "\n\n"
-                +"Validade: "+ produtos.get(i).getValidade()+ "\n\n\n"
-                +"("+(i+1)+" de "+produtos.size()+")");
-            }
-             */
+             
         } catch (SQLException ex) {
             JOptionPane.showMessageDialog(null, "Falha na operação.\nErro: " + ex.getMessage());
         } catch (Exception ex) {
             Logger.getLogger(FrmPesquisar.class.getName()).log(Level.SEVERE, null, ex);
-        }
+        }  
+    }
+public void buscaTodosClientesComVeiculoPorCPF() {
+        try {
+            PesquisaDAO pDAO = new PesquisaDAO(); // instancia a classe ProdutoDB()
+            ArrayList<Cliente> cl = pDAO.consultaTodosComCarroPorCPF(Long.parseLong(frmCPFcliente.getText().trim())); // coloca o método dentro da variável
+            
+
+            DefaultTableModel modeloTabela = (DefaultTableModel) jTable1.getModel();
+            // coloca a tabela em uma variável do tipo DefaultTableModel, que permite a modelagem dos dados da tabela
+
+            for (int i = modeloTabela.getRowCount() - 1; i >= 0; i--) {
+                modeloTabela.removeRow(i);
+                // loop que limpa a tabela antes de ser atualizada
+            }
+
+            for (int i = 0; i < cl.size(); i++) {
+                // loop que pega os dados e insere na tabela
+                Object[] dados = new Object[8]; // instancia os objetos. Cada objeto representa um atributo 
+                dados[0] = cl.get(i).getId_cliente();
+                dados[1] = cl.get(i).getNome_cliente();
+                dados[2] = cl.get(i).getCpf_cliente();
+                dados[3] = cl.get(i).getCelular1_cliente();
+                dados[4] = cl.get(i).getCelular2_cliente();
+                dados[5] = cl.get(i).getEndereco_cliente();
+                dados[6] = cl.get(i).getDataEntrada_cliente();
+                dados[7] = cl.get(i).getModelo_veiculo();
+                // pega os dados salvos do banco de dados (que estão nas variáveis) e os coloca nos objetos definidos
+
+                modeloTabela.addRow(dados); // insere uma linha nova a cada item novo encontrado na tabela do BD
+            }
+             
+        } catch (SQLException ex) {
+            JOptionPane.showMessageDialog(null, "Falha na operação.\nErro: " + ex.getMessage());
+        } catch (Exception ex) {
+            Logger.getLogger(FrmPesquisar.class.getName()).log(Level.SEVERE, null, ex);
+        }  
     }
 }

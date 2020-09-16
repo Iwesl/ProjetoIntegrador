@@ -1,16 +1,10 @@
 package br.projeto.DAO;
 
+import br.projeto.data.Peca;
+import java.util.ArrayList;
+
 public class OrcamentoDAO {
     
     
-    
-    public double totalPecas() {
-        
-        return 0;
-    }
-    public double totalOrcamento(double maoDeObra) {
-        
-        return 0;
-    }
 
 }

@@ -19,6 +19,9 @@ public class OS {
 	private String Status_OS;
 	private Date DataAbertura_OS;
 	private Date DataFechamento_OS;
+        private String NomeUsuario_OS;
+        private String NomeCliente_OS;
+        private String NomePeca_OS;
     
     public static void main(String[] args) throws Exception {
        
@@ -96,5 +99,47 @@ public class OS {
      */
     public void setDataFechamento_OS(Date DataFechamento_OS) {
         this.DataFechamento_OS = DataFechamento_OS;
+    }
+
+    /**
+     * @return the NomeCliente_OS
+     */
+    public String getNomeCliente_OS() {
+        return NomeCliente_OS;
+    }
+
+    /**
+     * @param NomeCliente_OS the NomeCliente_OS to set
+     */
+    public void setNomeCliente_OS(String NomeCliente_OS) {
+        this.NomeCliente_OS = NomeCliente_OS;
+    }
+
+    /**
+     * @return the NomePeca_OS
+     */
+    public String getNomePeca_OS() {
+        return NomePeca_OS;
+    }
+
+    /**
+     * @param NomePeca_OS the NomePeca_OS to set
+     */
+    public void setNomePeca_OS(String NomePeca_OS) {
+        this.NomePeca_OS = NomePeca_OS;
+    }
+
+    /**
+     * @return the NomeUsuario_OS
+     */
+    public String getNomeUsuario_OS() {
+        return NomeUsuario_OS;
+    }
+
+    /**
+     * @param NomeUsuario_OS the NomeUsuario_OS to set
+     */
+    public void setNomeUsuario_OS(String NomeUsuario_OS) {
+        this.NomeUsuario_OS = NomeUsuario_OS;
     }
 }
