@@ -47,7 +47,6 @@ public class FrmServicos extends javax.swing.JFrame {
         jScrollPane1 = new javax.swing.JScrollPane();
         jTable1 = new javax.swing.JTable();
         jLabel2 = new javax.swing.JLabel();
-        Pesquisar = new javax.swing.JButton();
         PesquisarCompleto = new javax.swing.JButton();
         fmrNomeCliente = new javax.swing.JTextField();
         jLabel3 = new javax.swing.JLabel();
@@ -115,16 +114,8 @@ public class FrmServicos extends javax.swing.JFrame {
         jLabel2.setForeground(new java.awt.Color(51, 51, 51));
         jLabel2.setText("Obs: deixe o campo vazio e clique em Pesquisar para listar todos");
 
-        Pesquisar.setFont(new java.awt.Font("Tahoma", 1, 11)); // NOI18N
-        Pesquisar.setText("Pesquisar");
-        Pesquisar.addActionListener(new java.awt.event.ActionListener() {
-            public void actionPerformed(java.awt.event.ActionEvent evt) {
-                PesquisarActionPerformed(evt);
-            }
-        });
-
         PesquisarCompleto.setFont(new java.awt.Font("Tahoma", 1, 11)); // NOI18N
-        PesquisarCompleto.setText("Pesquisa Completa");
+        PesquisarCompleto.setText("Pesquisar");
         PesquisarCompleto.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 PesquisarCompletoActionPerformed(evt);
@@ -147,8 +138,6 @@ public class FrmServicos extends javax.swing.JFrame {
                         .addGap(18, 18, 18)
                         .addComponent(Alterar)
                         .addGap(18, 18, 18)
-                        .addComponent(Pesquisar)
-                        .addGap(18, 18, 18)
                         .addComponent(PesquisarCompleto)
                         .addGap(18, 18, 18)
                         .addComponent(Excluir)
@@ -164,7 +153,7 @@ public class FrmServicos extends javax.swing.JFrame {
                         .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                             .addComponent(jLabel1)
                             .addComponent(fmrNumOS, javax.swing.GroupLayout.PREFERRED_SIZE, 88, javax.swing.GroupLayout.PREFERRED_SIZE))
-                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                        .addGap(175, 175, Short.MAX_VALUE)
                         .addComponent(jLabel2)
                         .addGap(19, 19, 19)))
                 .addContainerGap())
@@ -197,7 +186,6 @@ public class FrmServicos extends javax.swing.JFrame {
                     .addComponent(AbrirOS)
                     .addComponent(Cadastrar)
                     .addComponent(LimparCampos)
-                    .addComponent(Pesquisar)
                     .addComponent(PesquisarCompleto))
                 .addContainerGap())
         );
@@ -225,30 +213,6 @@ public class FrmServicos extends javax.swing.JFrame {
                 // loop que limpa a tabela antes de ser atualizada
             }
     }//GEN-LAST:event_LimparCamposActionPerformed
-
-    private void PesquisarActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_PesquisarActionPerformed
-        if (fmrNumOS.getText().isEmpty() && fmrNomeCliente.getText().isEmpty()) {
-            try {
-                buscaTodasOSs();
-            } catch (Exception ex) {
-                Logger.getLogger(FrmPesquisar.class.getName()).log(Level.SEVERE, null, ex);
-            }
-        } else if (!fmrNumOS.getText().isEmpty()) {
-            try {
-                buscaTodasOsPorNum();
-            } catch (Exception ex) {
-                Logger.getLogger(FrmPesquisar.class.getName()).log(Level.SEVERE, null, ex);
-            }
-        } else if (!fmrNomeCliente.getText().isEmpty()) {
-            try {
-                buscaTodasOsPorNome();
-            } catch (Exception ex) {
-                Logger.getLogger(FrmPesquisar.class.getName()).log(Level.SEVERE, null, ex);
-            } 
-        } else {
-            JOptionPane.showMessageDialog(this, "Preencha apenas um dos campos.", "Pesquisa", JOptionPane.WARNING_MESSAGE);
-        }
-    }//GEN-LAST:event_PesquisarActionPerformed
 
     private void PesquisarCompletoActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_PesquisarCompletoActionPerformed
         if (fmrNumOS.getText().isEmpty() && fmrNomeCliente.getText().isEmpty()) {
@@ -317,7 +281,6 @@ public class FrmServicos extends javax.swing.JFrame {
     private javax.swing.JButton Excluir;
     private javax.swing.JButton Fechar;
     private javax.swing.JButton LimparCampos;
-    private javax.swing.JButton Pesquisar;
     private javax.swing.JButton PesquisarCompleto;
     private javax.swing.JTextField fmrNomeCliente;
     private javax.swing.JTextField fmrNumOS;

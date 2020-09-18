@@ -102,7 +102,7 @@ public class UsuarioDAO {
             }
 
         } catch (SQLException ex) {
-            JOptionPane.showMessageDialog(null, "Falha no processo!\nErro: " + ex.getMessage(), "Cadastro de Funcionários", JOptionPane.ERROR_MESSAGE);
+            JOptionPane.showMessageDialog(null, "Falha no processo!\nErro: " + ex.getMessage(), "Login", JOptionPane.ERROR_MESSAGE);
 
         } catch (Exception ex) {
             Logger.getLogger(UsuarioDAO.class.getName()).log(Level.SEVERE, null, ex);
@@ -116,7 +116,7 @@ public class UsuarioDAO {
                 }
 
             } catch (SQLException ex) {
-            JOptionPane.showMessageDialog(null, "Falha no processo!\nErro: " + ex.getMessage(), "Cadastro de Funcionários", JOptionPane.ERROR_MESSAGE);
+            JOptionPane.showMessageDialog(null, "Falha no processo!\nErro: " + ex.getMessage(), "Login", JOptionPane.ERROR_MESSAGE);
 
             }
         }
@@ -140,7 +140,7 @@ public class UsuarioDAO {
             }
 
         } catch (SQLException ex) {
-            JOptionPane.showMessageDialog(null, "Falha no processo!\nErro: " + ex.getMessage(), "Cadastro de Funcionários", JOptionPane.ERROR_MESSAGE);
+            JOptionPane.showMessageDialog(null, "Falha no processo!\nErro: " + ex.getMessage(), "Login", JOptionPane.ERROR_MESSAGE);
 
         } catch (Exception ex) {
             Logger.getLogger(UsuarioDAO.class.getName()).log(Level.SEVERE, null, ex);
@@ -154,7 +154,7 @@ public class UsuarioDAO {
                 }
 
             } catch (SQLException ex) {
-            JOptionPane.showMessageDialog(null, "Falha no processo!\nErro: " + ex.getMessage(), "Cadastro de Funcionários", JOptionPane.ERROR_MESSAGE);
+            JOptionPane.showMessageDialog(null, "Falha no processo!\nErro: " + ex.getMessage(), "Login", JOptionPane.ERROR_MESSAGE);
             }
         }
         return nome;
@@ -185,7 +185,7 @@ public class UsuarioDAO {
             }
 
         } catch (SQLException ex) {
-            JOptionPane.showMessageDialog(null, "Falha no processo!\nErro: " + ex.getMessage(), "Cadastro de Funcionários", JOptionPane.ERROR_MESSAGE);
+            JOptionPane.showMessageDialog(null, "Falha no processo!\nErro: " + ex.getMessage(), "Login", JOptionPane.ERROR_MESSAGE);
 
         } catch (Exception ex) {
             Logger.getLogger(UsuarioDAO.class.getName()).log(Level.SEVERE, null, ex);
@@ -199,7 +199,7 @@ public class UsuarioDAO {
                 }
 
             } catch (SQLException ex) {
-            JOptionPane.showMessageDialog(null, "Falha no processo!\nErro: " + ex.getMessage(), "Cadastro de Funcionários", JOptionPane.ERROR_MESSAGE);
+            JOptionPane.showMessageDialog(null, "Falha no processo!\nErro: " + ex.getMessage(), "Login", JOptionPane.ERROR_MESSAGE);
 
             }
         }

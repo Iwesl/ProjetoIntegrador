@@ -34,8 +34,6 @@
                       <EmptySpace type="separate" max="-2" attributes="0"/>
                       <Component id="Alterar" min="-2" max="-2" attributes="0"/>
                       <EmptySpace type="separate" max="-2" attributes="0"/>
-                      <Component id="Pesquisar" min="-2" max="-2" attributes="0"/>
-                      <EmptySpace type="separate" max="-2" attributes="0"/>
                       <Component id="PesquisarCompleto" min="-2" max="-2" attributes="0"/>
                       <EmptySpace type="separate" max="-2" attributes="0"/>
                       <Component id="Excluir" min="-2" max="-2" attributes="0"/>
@@ -54,7 +52,7 @@
                           <Component id="jLabel1" alignment="0" min="-2" max="-2" attributes="0"/>
                           <Component id="fmrNumOS" alignment="0" min="-2" pref="88" max="-2" attributes="0"/>
                       </Group>
-                      <EmptySpace min="209" max="32767" attributes="0"/>
+                      <EmptySpace min="209" pref="175" max="32767" attributes="0"/>
                       <Component id="jLabel2" min="-2" max="-2" attributes="0"/>
                       <EmptySpace min="-2" pref="19" max="-2" attributes="0"/>
                   </Group>
@@ -95,7 +93,6 @@
                   <Component id="AbrirOS" alignment="3" min="-2" max="-2" attributes="0"/>
                   <Component id="Cadastrar" alignment="3" min="-2" max="-2" attributes="0"/>
                   <Component id="LimparCampos" alignment="3" min="-2" max="-2" attributes="0"/>
-                  <Component id="Pesquisar" alignment="3" min="-2" max="-2" attributes="0"/>
                   <Component id="PesquisarCompleto" alignment="3" min="-2" max="-2" attributes="0"/>
               </Group>
               <EmptySpace max="-2" attributes="0"/>
@@ -191,23 +188,12 @@
         <Property name="text" type="java.lang.String" value="Obs: deixe o campo vazio e clique em Pesquisar para listar todos"/>
       </Properties>
     </Component>
-    <Component class="javax.swing.JButton" name="Pesquisar">
-      <Properties>
-        <Property name="font" type="java.awt.Font" editor="org.netbeans.beaninfo.editors.FontEditor">
-          <Font name="Tahoma" size="11" style="1"/>
-        </Property>
-        <Property name="text" type="java.lang.String" value="Pesquisar"/>
-      </Properties>
-      <Events>
-        <EventHandler event="actionPerformed" listener="java.awt.event.ActionListener" parameters="java.awt.event.ActionEvent" handler="PesquisarActionPerformed"/>
-      </Events>
-    </Component>
     <Component class="javax.swing.JButton" name="PesquisarCompleto">
       <Properties>
         <Property name="font" type="java.awt.Font" editor="org.netbeans.beaninfo.editors.FontEditor">
           <Font name="Tahoma" size="11" style="1"/>
         </Property>
-        <Property name="text" type="java.lang.String" value="Pesquisa Completa"/>
+        <Property name="text" type="java.lang.String" value="Pesquisar"/>
       </Properties>
       <Events>
         <EventHandler event="actionPerformed" listener="java.awt.event.ActionListener" parameters="java.awt.event.ActionEvent" handler="PesquisarCompletoActionPerformed"/>

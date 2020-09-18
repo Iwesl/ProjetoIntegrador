@@ -13,11 +13,11 @@ import java.sql.Connection;
  */
 public class Conect {
 
-    private static final String USERNAME = "root";
+    private static final String USERNAME = "u453492576_entregador";
 
-    private static final String PASSWORD = "";
+    private static final String PASSWORD = "3Macacos";
 
-    private static final String DATABASE_URL = "jdbc:mysql://localhost:3306/os";
+    private static final String DATABASE_URL = "jdbc:mysql://sql396.main-hosting.eu/u453492576_os";
 
     /**
      *

@@ -309,7 +309,7 @@ public class FrmLoginJPanel extends javax.swing.JDialog {
                     Usr.verificaSenha(Usuario);
                     Usr.verificaNome(Usuario);
                     if (Usr.verificaLogin()) {
-                        JOptionPane.showMessageDialog(this, "Bem vindo! " + Usuario.getNome_usuario(),"Login",JOptionPane.INFORMATION_MESSAGE);
+                        JOptionPane.showMessageDialog(this, "Bem vindo " + Usuario.getNome_usuario() + "!","Login",JOptionPane.INFORMATION_MESSAGE);
                         setRs(true);
                         //FrmPrincipal p = new FrmPrincipal();
                         //p.getjMenuUsuario().setText(Usuario.getNome_usuario());
@@ -318,7 +318,7 @@ public class FrmLoginJPanel extends javax.swing.JDialog {
                 }
 
             } catch (SQLException ex) {
-                JOptionPane.showMessageDialog(this, "Erro no processo!\n"+ex.getMessage(), "Cadastro de Funcionários", JOptionPane.ERROR);
+                JOptionPane.showMessageDialog(this, "Erro no processo!\n"+ex.getMessage(), "Login", JOptionPane.ERROR);
             } catch (HeadlessException | NumberFormatException ex) {
                 Logger.getLogger(UsuarioDAO.class.getName()).log(Level.SEVERE, null, ex);
             }
