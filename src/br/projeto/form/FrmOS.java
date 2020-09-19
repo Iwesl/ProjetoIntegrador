@@ -80,6 +80,7 @@ public class FrmOS extends javax.swing.JFrame {
         frmOrcamentoFinal = new javax.swing.JFormattedTextField();
         jScrollPane5 = new javax.swing.JScrollPane();
         jTable3 = new javax.swing.JTable();
+        RemoverPecaOrcamento = new javax.swing.JButton();
         jScrollPane3 = new javax.swing.JScrollPane();
         frmDefeito = new javax.swing.JTextArea();
         jScrollPane4 = new javax.swing.JScrollPane();
@@ -166,6 +167,7 @@ public class FrmOS extends javax.swing.JFrame {
         jScrollPane1.setBorder(javax.swing.BorderFactory.createEtchedBorder());
 
         jTable1.setAutoCreateRowSorter(true);
+        jTable1.setFont(new java.awt.Font("Tahoma", 0, 12)); // NOI18N
         jTable1.setModel(new javax.swing.table.DefaultTableModel(
             new Object [][] {
 
@@ -271,6 +273,7 @@ public class FrmOS extends javax.swing.JFrame {
 
         jScrollPane5.setBorder(javax.swing.BorderFactory.createEtchedBorder());
 
+        jTable3.setFont(new java.awt.Font("Tahoma", 0, 14)); // NOI18N
         jTable3.setModel(new javax.swing.table.DefaultTableModel(
             new Object [][] {
 
@@ -306,6 +309,20 @@ public class FrmOS extends javax.swing.JFrame {
         });
         jScrollPane5.setViewportView(jTable3);
 
+        RemoverPecaOrcamento.setBackground(new java.awt.Color(255, 255, 255));
+        RemoverPecaOrcamento.setIcon(new javax.swing.ImageIcon(getClass().getResource("/br/projeto/form/iconmonstr-x-mark-cinza.png"))); // NOI18N
+        RemoverPecaOrcamento.setToolTipText("Para remover ltens do orçamento");
+        RemoverPecaOrcamento.setAlignmentX(0.5F);
+        RemoverPecaOrcamento.setPressedIcon(new javax.swing.ImageIcon(getClass().getResource("/br/projeto/form/iconmonstr-x-mark-2.png"))); // NOI18N
+        RemoverPecaOrcamento.setRolloverIcon(new javax.swing.ImageIcon(getClass().getResource("/br/projeto/form/iconmonstr-x-mark-2.png"))); // NOI18N
+        RemoverPecaOrcamento.setRolloverSelectedIcon(new javax.swing.ImageIcon(getClass().getResource("/br/projeto/form/iconmonstr-x-mark-vermelho.png"))); // NOI18N
+        RemoverPecaOrcamento.setSelectedIcon(new javax.swing.ImageIcon(getClass().getResource("/br/projeto/form/iconmonstr-x-mark-vermelho.png"))); // NOI18N
+        RemoverPecaOrcamento.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                RemoverPecaOrcamentoActionPerformed(evt);
+            }
+        });
+
         javax.swing.GroupLayout jPanel1Layout = new javax.swing.GroupLayout(jPanel1);
         jPanel1.setLayout(jPanel1Layout);
         jPanel1Layout.setHorizontalGroup(
@@ -328,21 +345,24 @@ public class FrmOS extends javax.swing.JFrame {
                                 .addComponent(frmTotalObra, javax.swing.GroupLayout.PREFERRED_SIZE, 111, javax.swing.GroupLayout.PREFERRED_SIZE)))
                         .addGap(24, 24, 24))
                     .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, jPanel1Layout.createSequentialGroup()
-                        .addGap(38, 38, 38)
+                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
                         .addComponent(jLabel15)
                         .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
                         .addComponent(frmOrcamentoFinal, javax.swing.GroupLayout.PREFERRED_SIZE, 111, javax.swing.GroupLayout.PREFERRED_SIZE)
-                        .addGap(23, 23, 23))))
+                        .addGap(23, 23, 23))
+                    .addGroup(jPanel1Layout.createSequentialGroup()
+                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                        .addComponent(RemoverPecaOrcamento, javax.swing.GroupLayout.PREFERRED_SIZE, 25, javax.swing.GroupLayout.PREFERRED_SIZE)
+                        .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))))
         );
         jPanel1Layout.setVerticalGroup(
             jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(jPanel1Layout.createSequentialGroup()
+                .addContainerGap()
                 .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                     .addGroup(jPanel1Layout.createSequentialGroup()
-                        .addContainerGap()
-                        .addComponent(jScrollPane5, javax.swing.GroupLayout.PREFERRED_SIZE, 136, javax.swing.GroupLayout.PREFERRED_SIZE))
-                    .addGroup(jPanel1Layout.createSequentialGroup()
-                        .addGap(36, 36, 36)
+                        .addComponent(RemoverPecaOrcamento)
+                        .addGap(2, 2, 2)
                         .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
                             .addComponent(frmTotalPecas, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
                             .addComponent(jLabel2))
@@ -353,7 +373,8 @@ public class FrmOS extends javax.swing.JFrame {
                         .addGap(18, 18, 18)
                         .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
                             .addComponent(frmOrcamentoFinal, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                            .addComponent(jLabel15))))
+                            .addComponent(jLabel15)))
+                    .addComponent(jScrollPane5, javax.swing.GroupLayout.PREFERRED_SIZE, 136, javax.swing.GroupLayout.PREFERRED_SIZE))
                 .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
         );
 
@@ -700,6 +721,10 @@ public class FrmOS extends javax.swing.JFrame {
         });
     }//GEN-LAST:event_jTable3PropertyChange
 
+    private void RemoverPecaOrcamentoActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_RemoverPecaOrcamentoActionPerformed
+        
+    }//GEN-LAST:event_RemoverPecaOrcamentoActionPerformed
+
     /**
      * @param args the command line arguments
      */
@@ -759,6 +784,7 @@ public class FrmOS extends javax.swing.JFrame {
     private javax.swing.JButton LimparCampos;
     private javax.swing.JButton LimparPecas;
     private javax.swing.JButton Pesquisar;
+    private javax.swing.JButton RemoverPecaOrcamento;
     private javax.swing.JButton Selecionar;
     private javax.swing.JComboBox<String> frmAtendente;
     private javax.swing.JFormattedTextField frmCel1;
@@ -882,7 +908,7 @@ public class FrmOS extends javax.swing.JFrame {
         String selectedNome = null;
         double selectedValor = 0;
         int selectedQtd = 0;
-
+        
         int qtdLinhasSelecionadas = jTable2.getSelectedRowCount();
         int[] selectedRow = jTable2.getSelectedRows();
 
@@ -910,7 +936,7 @@ public class FrmOS extends javax.swing.JFrame {
         double valorTotalPecas = 0;
         double maoDeObra = 50.0;
         double orcamento = 0;
-
+        jTable3.selectAll();
         int[] selectedRow = jTable3.getSelectedRows();
         int qtdLinhasSelecionadas = jTable3.getSelectedRowCount();
 
@@ -918,14 +944,14 @@ public class FrmOS extends javax.swing.JFrame {
             selectedNome = (String) jTable3.getValueAt(jTable3.convertRowIndexToModel(selectedRow[i]), 0);
             selectedValor = (double) jTable3.getValueAt(jTable3.convertRowIndexToModel(selectedRow[i]), 1);
             selectedQtd = (int) jTable3.getValueAt(jTable3.convertRowIndexToModel(selectedRow[i]), 2);
-        }
 
-        for (int i = 0; i < qtdLinhasSelecionadas; i++) {
-            for (int j = 0; j <= selectedQtd; j++) {
-                maoDeObra = maoDeObra * 0.2;
+            for (int x = 0; x < qtdLinhasSelecionadas; x++) {
+                for (int j = 0; j <= selectedQtd; j++) {
+                    maoDeObra = maoDeObra * 0.2;
+                }
+                valorTotalPecas = selectedValor * selectedQtd;
+                orcamento = valorTotalPecas + maoDeObra;
             }
-            valorTotalPecas = selectedValor * selectedQtd;
-            orcamento = valorTotalPecas + maoDeObra;
 
             Object[] dados = new Object[3]; // instancia os objetos. Cada objeto representa um atributo
             dados[0] = valorTotalPecas;
