@@ -33,12 +33,7 @@
                   </Group>
                   <Group type="102" attributes="0">
                       <Group type="103" groupAlignment="0" attributes="0">
-                          <Group type="102" alignment="0" attributes="0">
-                              <Component id="jLabel14" min="-2" max="-2" attributes="0"/>
-                              <EmptySpace type="unrelated" max="-2" attributes="0"/>
-                              <Component id="frmStatus" min="-2" max="-2" attributes="0"/>
-                              <EmptySpace min="0" pref="0" max="32767" attributes="0"/>
-                          </Group>
+                          <Component id="jPanel1" max="32767" attributes="0"/>
                           <Group type="102" alignment="0" attributes="0">
                               <Group type="103" groupAlignment="1" attributes="0">
                                   <Group type="102" attributes="0">
@@ -46,7 +41,7 @@
                                       <EmptySpace min="-2" pref="13" max="-2" attributes="0"/>
                                       <Component id="frmPlacaVeiculo" min="-2" pref="120" max="-2" attributes="0"/>
                                   </Group>
-                                  <Component id="SelecionaVeiculo" min="-2" max="-2" attributes="0"/>
+                                  <Component id="Selecionar" min="-2" max="-2" attributes="0"/>
                               </Group>
                               <EmptySpace max="32767" attributes="0"/>
                               <Group type="103" groupAlignment="0" attributes="0">
@@ -87,57 +82,48 @@
                               <EmptySpace max="32767" attributes="0"/>
                               <Component id="Fechar" min="-2" max="-2" attributes="0"/>
                           </Group>
-                          <Group type="102" alignment="0" attributes="0">
-                              <Group type="103" groupAlignment="0" attributes="0">
-                                  <Component id="jLabel5" min="-2" max="-2" attributes="0"/>
-                                  <Component id="jScrollPane3" min="-2" pref="459" max="-2" attributes="0"/>
-                              </Group>
-                              <EmptySpace type="separate" max="-2" attributes="0"/>
-                              <Group type="103" groupAlignment="0" attributes="0">
-                                  <Component id="jScrollPane4" max="32767" attributes="0"/>
-                                  <Group type="102" alignment="0" attributes="0">
-                                      <Component id="jLabel4" min="-2" max="-2" attributes="0"/>
-                                      <EmptySpace min="0" pref="0" max="32767" attributes="0"/>
-                                  </Group>
-                              </Group>
-                          </Group>
-                          <Group type="102" alignment="1" attributes="0">
-                              <Group type="103" groupAlignment="1" attributes="0">
-                                  <Group type="102" attributes="0">
-                                      <EmptySpace min="0" pref="0" max="32767" attributes="0"/>
-                                      <Component id="LimparPecas" min="-2" max="-2" attributes="0"/>
-                                  </Group>
-                                  <Component id="jScrollPane1" alignment="0" pref="460" max="32767" attributes="0"/>
-                                  <Group type="102" alignment="0" attributes="0">
+                          <Group type="102" attributes="0">
+                              <Group type="103" groupAlignment="0" max="-2" attributes="0">
+                                  <Group type="102" alignment="1" attributes="0">
                                       <Component id="frmPecas" max="32767" attributes="0"/>
                                       <EmptySpace max="-2" attributes="0"/>
-                                      <Component id="ConsultaPeca" min="-2" max="-2" attributes="0"/>
+                                      <Component id="ConsultaPecas" min="-2" max="-2" attributes="0"/>
                                   </Group>
-                                  <Component id="jScrollPane2" alignment="0" pref="0" max="32767" attributes="0"/>
                                   <Group type="102" alignment="0" attributes="0">
-                                      <Group type="103" groupAlignment="1" attributes="0">
-                                          <Component id="jLabel13" alignment="0" min="-2" max="-2" attributes="0"/>
-                                          <Component id="InserePecas" alignment="0" min="-2" max="-2" attributes="0"/>
-                                      </Group>
-                                      <EmptySpace min="0" pref="0" max="32767" attributes="0"/>
+                                      <Component id="jLabel14" min="-2" max="-2" attributes="0"/>
+                                      <EmptySpace type="unrelated" max="-2" attributes="0"/>
+                                      <Component id="frmStatus" min="-2" max="-2" attributes="0"/>
+                                  </Group>
+                                  <Component id="jScrollPane2" alignment="0" max="32767" attributes="0"/>
+                                  <Component id="jScrollPane1" min="-2" pref="501" max="-2" attributes="0"/>
+                                  <Component id="InserePecas" min="-2" max="-2" attributes="0"/>
+                                  <Group type="102" alignment="1" attributes="0">
+                                      <Component id="AtualizaOrcamento" min="-2" max="-2" attributes="0"/>
+                                      <EmptySpace max="32767" attributes="0"/>
+                                      <Component id="LimparPecas" min="-2" max="-2" attributes="0"/>
                                   </Group>
                               </Group>
+                              <EmptySpace max="-2" attributes="0"/>
                               <Group type="103" groupAlignment="0" attributes="0">
+                                  <Component id="jScrollPane4" alignment="1" max="32767" attributes="0"/>
+                                  <Component id="jScrollPane3" max="32767" attributes="0"/>
+                                  <Component id="frmAtendente" alignment="0" max="32767" attributes="0"/>
                                   <Group type="102" attributes="0">
-                                      <EmptySpace min="-2" pref="18" max="-2" attributes="0"/>
                                       <Group type="103" groupAlignment="0" attributes="0">
-                                          <Component id="frmAtendente" min="-2" pref="326" max="-2" attributes="0"/>
-                                          <Component id="jLabel6" min="-2" max="-2" attributes="0"/>
+                                          <Component id="jLabel4" min="-2" max="-2" attributes="0"/>
+                                          <Component id="jLabel5" alignment="0" min="-2" max="-2" attributes="0"/>
+                                          <Component id="jLabel6" alignment="0" min="-2" max="-2" attributes="0"/>
                                       </Group>
-                                  </Group>
-                                  <Group type="102" alignment="0" attributes="0">
-                                      <EmptySpace type="separate" max="-2" attributes="0"/>
-                                      <Component id="jPanel1" min="-2" max="-2" attributes="0"/>
+                                      <EmptySpace min="0" pref="0" max="32767" attributes="0"/>
                                   </Group>
                               </Group>
                           </Group>
                       </Group>
                       <EmptySpace max="-2" attributes="0"/>
+                  </Group>
+                  <Group type="102" alignment="0" attributes="0">
+                      <Component id="jLabel13" min="-2" max="-2" attributes="0"/>
+                      <EmptySpace min="0" pref="0" max="32767" attributes="0"/>
                   </Group>
               </Group>
           </Group>
@@ -161,7 +147,7 @@
                       <Group type="103" groupAlignment="3" attributes="0">
                           <Component id="jLabel12" alignment="3" min="-2" max="-2" attributes="0"/>
                           <Component id="frmModeloVeiculo" alignment="3" min="-2" pref="22" max="-2" attributes="0"/>
-                          <Component id="SelecionaVeiculo" alignment="3" min="-2" max="-2" attributes="0"/>
+                          <Component id="Selecionar" alignment="3" min="-2" max="-2" attributes="0"/>
                       </Group>
                   </Group>
                   <Group type="102" alignment="1" attributes="0">
@@ -176,51 +162,49 @@
                       </Group>
                   </Group>
               </Group>
-              <EmptySpace type="separate" max="-2" attributes="0"/>
+              <EmptySpace min="-2" pref="19" max="-2" attributes="0"/>
+              <Component id="jLabel13" min="-2" max="-2" attributes="0"/>
+              <EmptySpace max="-2" attributes="0"/>
               <Group type="103" groupAlignment="1" attributes="0">
-                  <Group type="102" alignment="1" attributes="0">
-                      <Component id="jLabel6" min="-2" max="-2" attributes="0"/>
-                      <EmptySpace max="-2" attributes="0"/>
-                      <Group type="103" groupAlignment="3" attributes="0">
-                          <Component id="frmAtendente" alignment="3" min="-2" max="-2" attributes="0"/>
-                          <Component id="ConsultaPeca" alignment="3" min="-2" max="-2" attributes="0"/>
-                      </Group>
+                  <Group type="103" alignment="1" groupAlignment="3" attributes="0">
+                      <Component id="frmPecas" alignment="3" min="-2" max="-2" attributes="0"/>
+                      <Component id="ConsultaPecas" alignment="3" min="-2" max="-2" attributes="0"/>
                   </Group>
-                  <Group type="102" alignment="1" attributes="0">
-                      <Component id="jLabel13" min="-2" max="-2" attributes="0"/>
-                      <EmptySpace min="-2" pref="2" max="-2" attributes="0"/>
-                      <Component id="frmPecas" min="-2" max="-2" attributes="0"/>
-                  </Group>
-              </Group>
-              <EmptySpace max="-2" attributes="0"/>
-              <Component id="jScrollPane1" min="-2" pref="145" max="-2" attributes="0"/>
-              <EmptySpace max="-2" attributes="0"/>
-              <Component id="InserePecas" min="-2" max="-2" attributes="0"/>
-              <EmptySpace max="-2" attributes="0"/>
-              <Group type="103" groupAlignment="0" max="-2" attributes="0">
-                  <Component id="jPanel1" max="32767" attributes="0"/>
-                  <Component id="jScrollPane2" pref="145" max="32767" attributes="0"/>
-              </Group>
-              <EmptySpace max="-2" attributes="0"/>
-              <Component id="LimparPecas" min="-2" max="-2" attributes="0"/>
-              <EmptySpace pref="36" max="32767" attributes="0"/>
-              <Group type="103" groupAlignment="0" attributes="0">
-                  <Component id="jLabel4" alignment="1" min="-2" max="-2" attributes="0"/>
                   <Component id="jLabel5" min="-2" max="-2" attributes="0"/>
               </Group>
               <EmptySpace max="-2" attributes="0"/>
-              <Group type="103" groupAlignment="0" attributes="0">
-                  <Group type="102" alignment="0" attributes="0">
-                      <Component id="jScrollPane3" min="-2" max="-2" attributes="0"/>
-                      <EmptySpace min="-2" pref="35" max="-2" attributes="0"/>
-                      <Group type="103" groupAlignment="3" attributes="0">
-                          <Component id="jLabel14" alignment="3" min="-2" max="-2" attributes="0"/>
-                          <Component id="frmStatus" alignment="3" min="-2" max="-2" attributes="0"/>
-                      </Group>
-                  </Group>
-                  <Component id="jScrollPane4" alignment="0" min="-2" max="-2" attributes="0"/>
+              <Group type="103" groupAlignment="0" max="-2" attributes="0">
+                  <Component id="jScrollPane1" pref="145" max="32767" attributes="0"/>
+                  <Component id="jScrollPane3" max="32767" attributes="0"/>
               </Group>
-              <EmptySpace min="-2" pref="143" max="-2" attributes="0"/>
+              <EmptySpace max="-2" attributes="0"/>
+              <Group type="103" groupAlignment="1" attributes="0">
+                  <Component id="InserePecas" min="-2" max="-2" attributes="0"/>
+                  <Component id="jLabel4" min="-2" max="-2" attributes="0"/>
+              </Group>
+              <EmptySpace max="-2" attributes="0"/>
+              <Group type="103" groupAlignment="0" max="-2" attributes="0">
+                  <Component id="jScrollPane2" pref="0" max="32767" attributes="0"/>
+                  <Component id="jScrollPane4" pref="145" max="32767" attributes="0"/>
+              </Group>
+              <EmptySpace type="unrelated" max="-2" attributes="0"/>
+              <Group type="103" groupAlignment="0" attributes="0">
+                  <Component id="LimparPecas" min="-2" max="-2" attributes="0"/>
+                  <Component id="AtualizaOrcamento" alignment="0" min="-2" max="-2" attributes="0"/>
+              </Group>
+              <EmptySpace type="unrelated" max="-2" attributes="0"/>
+              <Component id="jPanel1" min="-2" max="-2" attributes="0"/>
+              <EmptySpace type="separate" max="-2" attributes="0"/>
+              <Component id="jLabel6" min="-2" max="-2" attributes="0"/>
+              <EmptySpace max="-2" attributes="0"/>
+              <Group type="103" groupAlignment="0" attributes="0">
+                  <Group type="103" alignment="1" groupAlignment="3" attributes="0">
+                      <Component id="jLabel14" alignment="3" min="-2" max="-2" attributes="0"/>
+                      <Component id="frmStatus" alignment="3" min="-2" max="-2" attributes="0"/>
+                  </Group>
+                  <Component id="frmAtendente" alignment="1" min="-2" max="-2" attributes="0"/>
+              </Group>
+              <EmptySpace pref="58" max="32767" attributes="0"/>
               <Group type="103" groupAlignment="3" attributes="0">
                   <Component id="Fechar" alignment="3" min="-2" max="-2" attributes="0"/>
                   <Component id="Excluir" alignment="3" min="-2" max="-2" attributes="0"/>
@@ -230,7 +214,7 @@
                   <Component id="Cadastrar" alignment="3" min="-2" max="-2" attributes="0"/>
                   <Component id="LimparCampos" alignment="3" min="-2" max="-2" attributes="0"/>
               </Group>
-              <EmptySpace min="-2" pref="24" max="-2" attributes="0"/>
+              <EmptySpace min="-2" pref="21" max="-2" attributes="0"/>
           </Group>
       </Group>
     </DimensionLayout>
@@ -386,7 +370,9 @@
                 <Column editable="false" title="Quantidade" type="java.lang.Integer"/>
               </Table>
             </Property>
-            <Property name="cellSelectionEnabled" type="boolean" value="true"/>
+            <Property name="dropMode" type="javax.swing.DropMode" editor="org.netbeans.modules.form.editors.EnumEditor">
+              <Value id="ON"/>
+            </Property>
             <Property name="gridColor" type="java.awt.Color" editor="org.netbeans.beaninfo.editors.ColorEditor">
               <Color blue="cc" green="ff" red="ff" type="rgb"/>
             </Property>
@@ -418,16 +404,24 @@
       <SubComponents>
         <Component class="javax.swing.JTable" name="jTable2">
           <Properties>
-            <Property name="autoCreateRowSorter" type="boolean" value="true"/>
             <Property name="model" type="javax.swing.table.TableModel" editor="org.netbeans.modules.form.editors2.TableModelEditor">
               <Table columnCount="3" rowCount="0">
                 <Column editable="false" title="Nome da Pe&#xe7;a" type="java.lang.String"/>
                 <Column editable="false" title="Pre&#xe7;o" type="java.lang.Double"/>
-                <Column editable="false" title="Quantidade" type="java.lang.Integer"/>
+                <Column editable="true" title="Quantidade" type="java.lang.Integer"/>
               </Table>
+            </Property>
+            <Property name="dropMode" type="javax.swing.DropMode" editor="org.netbeans.modules.form.editors.EnumEditor">
+              <Value id="ON"/>
             </Property>
             <Property name="gridColor" type="java.awt.Color" editor="org.netbeans.beaninfo.editors.ColorEditor">
               <Color blue="cc" green="ff" red="ff" type="rgb"/>
+            </Property>
+            <Property name="selectionBackground" type="java.awt.Color" editor="org.netbeans.beaninfo.editors.ColorEditor">
+              <Color blue="cc" green="ff" red="ff" type="rgb"/>
+            </Property>
+            <Property name="selectionForeground" type="java.awt.Color" editor="org.netbeans.beaninfo.editors.ColorEditor">
+              <Color blue="0" green="0" red="0" type="rgb"/>
             </Property>
             <Property name="selectionModel" type="javax.swing.ListSelectionModel" editor="org.netbeans.modules.form.editors2.JTableSelectionModelEditor">
               <JTableSelectionModel selectionMode="0"/>
@@ -461,8 +455,8 @@
           <Color blue="cc" green="ff" red="ff" type="rgb"/>
         </Property>
         <Property name="border" type="javax.swing.border.Border" editor="org.netbeans.modules.form.editors2.BorderEditor">
-          <Border info="org.netbeans.modules.form.compat2.border.EtchedBorderInfo">
-            <EtchetBorder/>
+          <Border info="org.netbeans.modules.form.compat2.border.BevelBorderInfo">
+            <BevelBorder/>
           </Border>
         </Property>
       </Properties>
@@ -470,48 +464,65 @@
       <Layout>
         <DimensionLayout dim="0">
           <Group type="103" groupAlignment="0" attributes="0">
-              <Group type="102" alignment="1" attributes="0">
-                  <EmptySpace pref="50" max="32767" attributes="0"/>
-                  <Group type="103" groupAlignment="1" attributes="0">
+              <Group type="102" attributes="0">
+                  <EmptySpace max="-2" attributes="0"/>
+                  <Component id="jScrollPane5" min="-2" pref="569" max="-2" attributes="0"/>
+                  <Group type="103" groupAlignment="0" attributes="0">
                       <Group type="102" alignment="1" attributes="0">
-                          <Component id="jLabel7" min="-2" max="-2" attributes="0"/>
-                          <EmptySpace max="-2" attributes="0"/>
-                          <Component id="frmTotalObra" min="-2" pref="100" max="-2" attributes="0"/>
+                          <Group type="103" groupAlignment="1" attributes="0">
+                              <Group type="102" alignment="1" attributes="0">
+                                  <EmptySpace min="-2" pref="52" max="-2" attributes="0"/>
+                                  <Component id="jLabel2" min="-2" max="-2" attributes="0"/>
+                                  <EmptySpace max="-2" attributes="0"/>
+                                  <Component id="frmTotalPecas" max="32767" attributes="0"/>
+                              </Group>
+                              <Group type="102" alignment="1" attributes="0">
+                                  <EmptySpace min="0" pref="0" max="32767" attributes="0"/>
+                                  <Component id="jLabel7" min="-2" max="-2" attributes="0"/>
+                                  <EmptySpace max="-2" attributes="0"/>
+                                  <Component id="frmTotalObra" min="-2" pref="111" max="-2" attributes="0"/>
+                              </Group>
+                          </Group>
+                          <EmptySpace min="-2" pref="24" max="-2" attributes="0"/>
                       </Group>
                       <Group type="102" alignment="1" attributes="0">
-                          <Component id="jLabel2" min="-2" max="-2" attributes="0"/>
-                          <EmptySpace max="-2" attributes="0"/>
-                          <Component id="frmTotalPecas" min="-2" pref="100" max="-2" attributes="0"/>
-                      </Group>
-                      <Group type="102" attributes="0">
+                          <EmptySpace min="-2" pref="38" max="-2" attributes="0"/>
                           <Component id="jLabel15" min="-2" max="-2" attributes="0"/>
                           <EmptySpace max="-2" attributes="0"/>
-                          <Component id="frmOrcamentoFinal" min="-2" pref="100" max="-2" attributes="0"/>
+                          <Component id="frmOrcamentoFinal" min="-2" pref="111" max="-2" attributes="0"/>
+                          <EmptySpace min="-2" pref="23" max="-2" attributes="0"/>
                       </Group>
                   </Group>
-                  <EmptySpace min="-2" pref="61" max="-2" attributes="0"/>
               </Group>
           </Group>
         </DimensionLayout>
         <DimensionLayout dim="1">
           <Group type="103" groupAlignment="0" attributes="0">
-              <Group type="102" alignment="0" attributes="0">
+              <Group type="102" attributes="0">
+                  <Group type="103" groupAlignment="0" attributes="0">
+                      <Group type="102" attributes="0">
+                          <EmptySpace max="-2" attributes="0"/>
+                          <Component id="jScrollPane5" min="-2" pref="136" max="-2" attributes="0"/>
+                      </Group>
+                      <Group type="102" alignment="0" attributes="0">
+                          <EmptySpace min="-2" pref="36" max="-2" attributes="0"/>
+                          <Group type="103" groupAlignment="3" attributes="0">
+                              <Component id="frmTotalPecas" alignment="3" min="-2" max="-2" attributes="0"/>
+                              <Component id="jLabel2" alignment="3" min="-2" max="-2" attributes="0"/>
+                          </Group>
+                          <EmptySpace type="unrelated" max="-2" attributes="0"/>
+                          <Group type="103" groupAlignment="3" attributes="0">
+                              <Component id="frmTotalObra" alignment="3" min="-2" max="-2" attributes="0"/>
+                              <Component id="jLabel7" alignment="3" min="-2" max="-2" attributes="0"/>
+                          </Group>
+                          <EmptySpace type="separate" max="-2" attributes="0"/>
+                          <Group type="103" groupAlignment="3" attributes="0">
+                              <Component id="frmOrcamentoFinal" alignment="3" min="-2" max="-2" attributes="0"/>
+                              <Component id="jLabel15" alignment="3" min="-2" max="-2" attributes="0"/>
+                          </Group>
+                      </Group>
+                  </Group>
                   <EmptySpace max="32767" attributes="0"/>
-                  <Group type="103" groupAlignment="3" attributes="0">
-                      <Component id="frmTotalPecas" alignment="3" min="-2" max="-2" attributes="0"/>
-                      <Component id="jLabel2" alignment="3" min="-2" max="-2" attributes="0"/>
-                  </Group>
-                  <EmptySpace type="unrelated" max="-2" attributes="0"/>
-                  <Group type="103" groupAlignment="3" attributes="0">
-                      <Component id="frmTotalObra" alignment="3" min="-2" max="-2" attributes="0"/>
-                      <Component id="jLabel7" alignment="3" min="-2" max="-2" attributes="0"/>
-                  </Group>
-                  <EmptySpace type="separate" max="-2" attributes="0"/>
-                  <Group type="103" groupAlignment="3" attributes="0">
-                      <Component id="frmOrcamentoFinal" alignment="3" min="-2" max="-2" attributes="0"/>
-                      <Component id="jLabel15" alignment="3" min="-2" max="-2" attributes="0"/>
-                  </Group>
-                  <EmptySpace min="-2" pref="32" max="-2" attributes="0"/>
               </Group>
           </Group>
         </DimensionLayout>
@@ -531,12 +542,19 @@
             <Property name="formatterFactory" type="javax.swing.JFormattedTextField$AbstractFormatterFactory" editor="org.netbeans.modules.form.editors.AbstractFormatterFactoryEditor">
               <Format subtype="0" type="4"/>
             </Property>
+            <Property name="disabledTextColor" type="java.awt.Color" editor="org.netbeans.beaninfo.editors.ColorEditor">
+              <Color blue="0" green="0" red="0" type="rgb"/>
+            </Property>
+            <Property name="enabled" type="boolean" value="false"/>
+            <Property name="font" type="java.awt.Font" editor="org.netbeans.beaninfo.editors.FontEditor">
+              <Font name="Tahoma" size="14" style="0"/>
+            </Property>
           </Properties>
         </Component>
         <Component class="javax.swing.JLabel" name="jLabel2">
           <Properties>
             <Property name="font" type="java.awt.Font" editor="org.netbeans.beaninfo.editors.FontEditor">
-              <Font name="Tahoma" size="13" style="0"/>
+              <Font name="Tahoma" size="14" style="0"/>
             </Property>
             <Property name="text" type="java.lang.String" value="Total das pe&#xe7;as:"/>
           </Properties>
@@ -544,7 +562,7 @@
         <Component class="javax.swing.JLabel" name="jLabel7">
           <Properties>
             <Property name="font" type="java.awt.Font" editor="org.netbeans.beaninfo.editors.FontEditor">
-              <Font name="Tahoma" size="13" style="0"/>
+              <Font name="Tahoma" size="14" style="0"/>
             </Property>
             <Property name="text" type="java.lang.String" value="M&#xe3;o de obra:"/>
           </Properties>
@@ -563,12 +581,19 @@
             <Property name="formatterFactory" type="javax.swing.JFormattedTextField$AbstractFormatterFactory" editor="org.netbeans.modules.form.editors.AbstractFormatterFactoryEditor">
               <Format subtype="0" type="4"/>
             </Property>
+            <Property name="disabledTextColor" type="java.awt.Color" editor="org.netbeans.beaninfo.editors.ColorEditor">
+              <Color blue="0" green="0" red="0" type="rgb"/>
+            </Property>
+            <Property name="enabled" type="boolean" value="false"/>
+            <Property name="font" type="java.awt.Font" editor="org.netbeans.beaninfo.editors.FontEditor">
+              <Font name="Tahoma" size="14" style="0"/>
+            </Property>
           </Properties>
         </Component>
         <Component class="javax.swing.JLabel" name="jLabel15">
           <Properties>
             <Property name="font" type="java.awt.Font" editor="org.netbeans.beaninfo.editors.FontEditor">
-              <Font name="Tahoma" size="13" style="1"/>
+              <Font name="Tahoma" size="14" style="1"/>
             </Property>
             <Property name="text" type="java.lang.String" value="Or&#xe7;amento final:"/>
           </Properties>
@@ -587,8 +612,57 @@
             <Property name="formatterFactory" type="javax.swing.JFormattedTextField$AbstractFormatterFactory" editor="org.netbeans.modules.form.editors.AbstractFormatterFactoryEditor">
               <Format subtype="0" type="4"/>
             </Property>
+            <Property name="disabledTextColor" type="java.awt.Color" editor="org.netbeans.beaninfo.editors.ColorEditor">
+              <Color blue="0" green="0" red="0" type="rgb"/>
+            </Property>
+            <Property name="enabled" type="boolean" value="false"/>
+            <Property name="font" type="java.awt.Font" editor="org.netbeans.beaninfo.editors.FontEditor">
+              <Font name="Tahoma" size="14" style="1"/>
+            </Property>
           </Properties>
         </Component>
+        <Container class="javax.swing.JScrollPane" name="jScrollPane5">
+          <Properties>
+            <Property name="border" type="javax.swing.border.Border" editor="org.netbeans.modules.form.editors2.BorderEditor">
+              <Border info="org.netbeans.modules.form.compat2.border.EtchedBorderInfo">
+                <EtchetBorder/>
+              </Border>
+            </Property>
+          </Properties>
+
+          <Layout class="org.netbeans.modules.form.compat2.layouts.support.JScrollPaneSupportLayout"/>
+          <SubComponents>
+            <Component class="javax.swing.JTable" name="jTable3">
+              <Properties>
+                <Property name="model" type="javax.swing.table.TableModel" editor="org.netbeans.modules.form.editors2.TableModelEditor">
+                  <Table columnCount="3" rowCount="0">
+                    <Column editable="false" title="Nome da Pe&#xe7;a" type="java.lang.String"/>
+                    <Column editable="false" title="Pre&#xe7;o" type="java.lang.Double"/>
+                    <Column editable="true" title="Quantidade" type="java.lang.Integer"/>
+                  </Table>
+                </Property>
+                <Property name="dropMode" type="javax.swing.DropMode" editor="org.netbeans.modules.form.editors.EnumEditor">
+                  <Value id="ON"/>
+                </Property>
+                <Property name="gridColor" type="java.awt.Color" editor="org.netbeans.beaninfo.editors.ColorEditor">
+                  <Color blue="cc" green="ff" red="ff" type="rgb"/>
+                </Property>
+                <Property name="selectionBackground" type="java.awt.Color" editor="org.netbeans.beaninfo.editors.ColorEditor">
+                  <Color blue="cc" green="ff" red="ff" type="rgb"/>
+                </Property>
+                <Property name="selectionForeground" type="java.awt.Color" editor="org.netbeans.beaninfo.editors.ColorEditor">
+                  <Color blue="0" green="0" red="0" type="rgb"/>
+                </Property>
+                <Property name="selectionModel" type="javax.swing.ListSelectionModel" editor="org.netbeans.modules.form.editors2.JTableSelectionModelEditor">
+                  <JTableSelectionModel selectionMode="0"/>
+                </Property>
+              </Properties>
+              <Events>
+                <EventHandler event="propertyChange" listener="java.beans.PropertyChangeListener" parameters="java.beans.PropertyChangeEvent" handler="jTable3PropertyChange"/>
+              </Events>
+            </Component>
+          </SubComponents>
+        </Container>
       </SubComponents>
     </Container>
     <Container class="javax.swing.JScrollPane" name="jScrollPane3">
@@ -601,7 +675,9 @@
         <Component class="javax.swing.JTextArea" name="frmDefeito">
           <Properties>
             <Property name="columns" type="int" value="20"/>
+            <Property name="lineWrap" type="boolean" value="true"/>
             <Property name="rows" type="int" value="5"/>
+            <Property name="wrapStyleWord" type="boolean" value="true"/>
           </Properties>
         </Component>
       </SubComponents>
@@ -616,7 +692,9 @@
         <Component class="javax.swing.JTextArea" name="frmObs1">
           <Properties>
             <Property name="columns" type="int" value="20"/>
+            <Property name="lineWrap" type="boolean" value="true"/>
             <Property name="rows" type="int" value="5"/>
+            <Property name="wrapStyleWord" type="boolean" value="true"/>
           </Properties>
         </Component>
       </SubComponents>
@@ -676,6 +754,9 @@
     </Component>
     <Component class="javax.swing.JButton" name="InserePecas">
       <Properties>
+        <Property name="font" type="java.awt.Font" editor="org.netbeans.beaninfo.editors.FontEditor">
+          <Font name="Tahoma" size="12" style="0"/>
+        </Property>
         <Property name="text" type="java.lang.String" value="Inserir Pe&#xe7;a no Or&#xe7;amento"/>
       </Properties>
       <Events>
@@ -684,7 +765,13 @@
     </Component>
     <Component class="javax.swing.JButton" name="LimparPecas">
       <Properties>
-        <Property name="text" type="java.lang.String" value="Limpar Pe&#xe7;as e Or&#xe7;amentos"/>
+        <Property name="font" type="java.awt.Font" editor="org.netbeans.beaninfo.editors.FontEditor">
+          <Font name="Tahoma" size="12" style="0"/>
+        </Property>
+        <Property name="foreground" type="java.awt.Color" editor="org.netbeans.beaninfo.editors.ColorEditor">
+          <Color blue="33" green="33" red="33" type="rgb"/>
+        </Property>
+        <Property name="text" type="java.lang.String" value="Limpar Pe&#xe7;as"/>
       </Properties>
       <Events>
         <EventHandler event="actionPerformed" listener="java.awt.event.ActionListener" parameters="java.awt.event.ActionEvent" handler="LimparPecasActionPerformed"/>
@@ -726,18 +813,18 @@
         </Property>
       </Properties>
     </Component>
-    <Component class="javax.swing.JButton" name="SelecionaVeiculo">
+    <Component class="javax.swing.JButton" name="Selecionar">
       <Properties>
         <Property name="font" type="java.awt.Font" editor="org.netbeans.beaninfo.editors.FontEditor">
           <Font name="Tahoma" size="12" style="0"/>
         </Property>
-        <Property name="text" type="java.lang.String" value="Selecionar Ve&#xed;culo"/>
+        <Property name="text" type="java.lang.String" value="Selecionar"/>
       </Properties>
       <Events>
-        <EventHandler event="actionPerformed" listener="java.awt.event.ActionListener" parameters="java.awt.event.ActionEvent" handler="SelecionaVeiculoActionPerformed"/>
+        <EventHandler event="actionPerformed" listener="java.awt.event.ActionListener" parameters="java.awt.event.ActionEvent" handler="SelecionarActionPerformed"/>
       </Events>
     </Component>
-    <Component class="javax.swing.JButton" name="ConsultaPeca">
+    <Component class="javax.swing.JButton" name="ConsultaPecas">
       <Properties>
         <Property name="font" type="java.awt.Font" editor="org.netbeans.beaninfo.editors.FontEditor">
           <Font name="Tahoma" size="12" style="0"/>
@@ -745,7 +832,7 @@
         <Property name="text" type="java.lang.String" value="Consultar"/>
       </Properties>
       <Events>
-        <EventHandler event="actionPerformed" listener="java.awt.event.ActionListener" parameters="java.awt.event.ActionEvent" handler="ConsultaPecaActionPerformed"/>
+        <EventHandler event="actionPerformed" listener="java.awt.event.ActionListener" parameters="java.awt.event.ActionEvent" handler="ConsultaPecasActionPerformed"/>
       </Events>
     </Component>
     <Component class="javax.swing.JTextField" name="frmPecas">
@@ -754,6 +841,17 @@
           <Font name="Tahoma" size="12" style="0"/>
         </Property>
       </Properties>
+    </Component>
+    <Component class="javax.swing.JButton" name="AtualizaOrcamento">
+      <Properties>
+        <Property name="font" type="java.awt.Font" editor="org.netbeans.beaninfo.editors.FontEditor">
+          <Font name="Tahoma" size="14" style="0"/>
+        </Property>
+        <Property name="text" type="java.lang.String" value="Atualizar Or&#xe7;amento"/>
+      </Properties>
+      <Events>
+        <EventHandler event="actionPerformed" listener="java.awt.event.ActionListener" parameters="java.awt.event.ActionEvent" handler="AtualizaOrcamentoActionPerformed"/>
+      </Events>
     </Component>
   </SubComponents>
 </Form>

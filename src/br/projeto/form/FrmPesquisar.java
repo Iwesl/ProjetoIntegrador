@@ -348,7 +348,7 @@ public void buscaTodosClientesPorCPF() {
                 modeloTabela.addRow(dados); // insere uma linha nova a cada item novo encontrado na tabela do BD
             }
         } catch (SQLException ex) {
-            JOptionPane.showMessageDialog(null, "Falha na operação.\nErro: " + ex.getMessage());
+            JOptionPane.showMessageDialog(this, "Erro no processo!\n" + ex.getMessage(), "Consultas", JOptionPane.ERROR_MESSAGE);
         } catch (Exception ex) {
             Logger.getLogger(FrmPesquisar.class.getName()).log(Level.SEVERE, null, ex);
         }
@@ -384,7 +384,7 @@ public void buscaTodosClientesComVeiculo() {
             }
              
         } catch (SQLException ex) {
-            JOptionPane.showMessageDialog(null, "Falha na operação.\nErro: " + ex.getMessage());
+            JOptionPane.showMessageDialog(this, "Erro no processo!\n" + ex.getMessage(), "Consultas", JOptionPane.ERROR_MESSAGE);
         } catch (Exception ex) {
             Logger.getLogger(FrmPesquisar.class.getName()).log(Level.SEVERE, null, ex);
         }  
@@ -420,7 +420,7 @@ public void buscaTodosClientesComVeiculoPorCPF() {
             }
              
         } catch (SQLException ex) {
-            JOptionPane.showMessageDialog(null, "Falha na operação.\nErro: " + ex.getMessage());
+            JOptionPane.showMessageDialog(this, "Erro no processo!\n" + ex.getMessage(), "Consultas", JOptionPane.ERROR_MESSAGE);
         } catch (Exception ex) {
             Logger.getLogger(FrmPesquisar.class.getName()).log(Level.SEVERE, null, ex);
         }  

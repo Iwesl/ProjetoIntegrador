@@ -170,7 +170,7 @@ public class FrmPecas extends javax.swing.JFrame {
                         JOptionPane.showMessageDialog(this, "Cadastro efetuado com sucesso!", "Cadastro de Peças", JOptionPane.INFORMATION_MESSAGE);
                     }
                 } catch (SQLException ex) {
-                    JOptionPane.showMessageDialog(this, "Erro no processo!\n" + ex.getMessage(), "Cadastro de Peças", JOptionPane.ERROR);
+                    JOptionPane.showMessageDialog(this, "Erro no processo!\n" + ex.getMessage(), "Cadastro de Peças", JOptionPane.ERROR_MESSAGE);
                 }
 
                 {
@@ -182,7 +182,7 @@ public class FrmPecas extends javax.swing.JFrame {
                 fmrValor.setText("");
 
             } catch (SQLException ex) {
-                JOptionPane.showMessageDialog(this, "Erro no processo!\n" + ex.getMessage(), "Cadastro de Peças", JOptionPane.ERROR);
+                JOptionPane.showMessageDialog(this, "Erro no processo!\n" + ex.getMessage(), "Cadastro de Peças", JOptionPane.ERROR_MESSAGE);
             }
         }
     }//GEN-LAST:event_CadastrarActionPerformed
