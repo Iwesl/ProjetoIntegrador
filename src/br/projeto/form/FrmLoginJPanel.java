@@ -192,7 +192,7 @@ public class FrmLoginJPanel extends javax.swing.JDialog {
         setResizable(false);
         setType(java.awt.Window.Type.POPUP);
 
-        jPanel1.setBorder(javax.swing.BorderFactory.createEtchedBorder(new java.awt.Color(0, 0, 0), null));
+        jPanel1.setBorder(javax.swing.BorderFactory.createEtchedBorder());
 
         TelaCadastro.setFont(new java.awt.Font("Tahoma", 0, 12)); // NOI18N
         TelaCadastro.setText("Cadastrar");
@@ -247,10 +247,10 @@ public class FrmLoginJPanel extends javax.swing.JDialog {
                                 .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING)
                                     .addComponent(Campo1, javax.swing.GroupLayout.Alignment.LEADING, javax.swing.GroupLayout.PREFERRED_SIZE, 169, javax.swing.GroupLayout.PREFERRED_SIZE)
                                     .addComponent(Campo2, javax.swing.GroupLayout.Alignment.LEADING, javax.swing.GroupLayout.PREFERRED_SIZE, 169, javax.swing.GroupLayout.PREFERRED_SIZE))))
-                        .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
+                        .addContainerGap(44, Short.MAX_VALUE))
                     .addGroup(jPanel1Layout.createSequentialGroup()
                         .addComponent(TelaCadastro)
-                        .addGap(92, 92, 92)
+                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
                         .addComponent(fechar1)
                         .addGap(26, 26, 26))))
         );

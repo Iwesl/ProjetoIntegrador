@@ -41,9 +41,7 @@ public class FrmClientes extends javax.swing.JFrame {
         frmCel1 = new javax.swing.JTextField();
         jLabel5 = new javax.swing.JLabel();
         frmCel2 = new javax.swing.JTextField();
-        Alterar = new javax.swing.JButton();
         Pesquisar = new javax.swing.JButton();
-        Remover = new javax.swing.JButton();
         Fechar = new javax.swing.JButton();
         Cadastrar = new javax.swing.JButton();
         LimparCampos = new javax.swing.JButton();
@@ -51,6 +49,7 @@ public class FrmClientes extends javax.swing.JFrame {
         frmEndereco = new javax.swing.JTextField();
         frmEntrada = new javax.swing.JTextField();
         jLabel7 = new javax.swing.JLabel();
+        AbrirOS = new javax.swing.JButton();
 
         setDefaultCloseOperation(javax.swing.WindowConstants.DISPOSE_ON_CLOSE);
         setResizable(false);
@@ -63,14 +62,10 @@ public class FrmClientes extends javax.swing.JFrame {
 
         jLabel5.setText("Celular 2");
 
-        Alterar.setText("Alterar");
-
         Pesquisar.setText("Pesquisar");
-
-        Remover.setText("Remover");
-        Remover.addActionListener(new java.awt.event.ActionListener() {
+        Pesquisar.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
-                RemoverActionPerformed(evt);
+                PesquisarActionPerformed(evt);
             }
         });
 
@@ -108,6 +103,13 @@ public class FrmClientes extends javax.swing.JFrame {
 
         jLabel7.setText("Data de Entrada");
 
+        AbrirOS.setText("Abrir OS");
+        AbrirOS.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                AbrirOSActionPerformed(evt);
+            }
+        });
+
         javax.swing.GroupLayout layout = new javax.swing.GroupLayout(getContentPane());
         getContentPane().setLayout(layout);
         layout.setHorizontalGroup(
@@ -128,7 +130,7 @@ public class FrmClientes extends javax.swing.JFrame {
                                     .addComponent(jLabel6)
                                     .addComponent(jLabel7)
                                     .addComponent(frmEntrada, javax.swing.GroupLayout.PREFERRED_SIZE, 110, javax.swing.GroupLayout.PREFERRED_SIZE))
-                                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)))
+                                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 305, Short.MAX_VALUE)))
                         .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                             .addComponent(jLabel2)
                             .addComponent(frmCPF, javax.swing.GroupLayout.PREFERRED_SIZE, 140, javax.swing.GroupLayout.PREFERRED_SIZE)
@@ -140,14 +142,12 @@ public class FrmClientes extends javax.swing.JFrame {
                     .addGroup(layout.createSequentialGroup()
                         .addComponent(Cadastrar)
                         .addGap(18, 18, 18)
-                        .addComponent(Remover)
-                        .addGap(18, 18, 18)
-                        .addComponent(Alterar)
+                        .addComponent(AbrirOS)
                         .addGap(18, 18, 18)
                         .addComponent(Pesquisar)
                         .addGap(18, 18, 18)
                         .addComponent(LimparCampos)
-                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 89, Short.MAX_VALUE)
+                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
                         .addComponent(Fechar)
                         .addContainerGap())))
         );
@@ -185,11 +185,10 @@ public class FrmClientes extends javax.swing.JFrame {
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 48, Short.MAX_VALUE)
                 .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
                     .addComponent(Fechar)
-                    .addComponent(Remover)
                     .addComponent(Pesquisar)
-                    .addComponent(Alterar)
                     .addComponent(Cadastrar)
-                    .addComponent(LimparCampos))
+                    .addComponent(LimparCampos)
+                    .addComponent(AbrirOS))
                 .addContainerGap())
         );
 
@@ -258,9 +257,15 @@ public class FrmClientes extends javax.swing.JFrame {
         // TODO add your handling code here:
     }//GEN-LAST:event_frmEntradaActionPerformed
 
-    private void RemoverActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_RemoverActionPerformed
-        // TODO add your handling code here:
-    }//GEN-LAST:event_RemoverActionPerformed
+    private void PesquisarActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_PesquisarActionPerformed
+        FrmPesquisar p = new FrmPesquisar();
+        p.setVisible(true);
+    }//GEN-LAST:event_PesquisarActionPerformed
+
+    private void AbrirOSActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_AbrirOSActionPerformed
+        FrmOS os = new FrmOS();
+        os.setVisible(true);
+    }//GEN-LAST:event_AbrirOSActionPerformed
 
     /**
      * @param args the command line arguments
@@ -299,12 +304,11 @@ public class FrmClientes extends javax.swing.JFrame {
     }
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
-    private javax.swing.JButton Alterar;
+    private javax.swing.JButton AbrirOS;
     private javax.swing.JButton Cadastrar;
     private javax.swing.JButton Fechar;
     private javax.swing.JButton LimparCampos;
     private javax.swing.JButton Pesquisar;
-    private javax.swing.JButton Remover;
     private javax.swing.JTextField frmCPF;
     private javax.swing.JTextField frmCel1;
     private javax.swing.JTextField frmCel2;

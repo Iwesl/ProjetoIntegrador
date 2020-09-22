@@ -257,9 +257,8 @@ public class PesquisaDAO {
             //Enquanto existir dados no banco de dados, faça
             while (rset.next()) {
                 Cliente cl = new Cliente();
-                //Recupera o id do banco e atribui ele ao objeto
                 if (rset.getLong("cpf_cliente") == cpf) {
-                    
+                    //Recupera o id do banco e atribui ele ao objeto
                     cl.setId_cliente(rset.getInt("id_clientes"));
                     //Recupera o nome do banco e atribui ele ao objeto
                     cl.setNome_cliente(rset.getString("nome_cliente"));

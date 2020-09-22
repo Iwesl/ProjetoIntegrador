@@ -6,6 +6,7 @@ import java.sql.ResultSet;
 import br.projeto.bd.Conect;
 import br.projeto.data.Usuario;
 import java.sql.SQLException;
+import java.util.ArrayList;
 import java.util.logging.Level;
 import java.util.logging.Logger;
 import javax.swing.JOptionPane;
@@ -74,11 +75,68 @@ public class UsuarioDAO {
 
     }
 
-    public Usuario Consultar(int Codigo) {
-        
-        
-        
-        return null;
+    public ArrayList<Usuario> consultaTodos() throws SQLException {
+        final Conect C = new Conect(); // instancia o método de conexão
+        Connection conn = null; // cria uma nova variável de método Connection
+        PreparedStatement pstm = null; // cria uma nova variável de método PreparedStatement
+        String sql = "SELECT * FROM usuarios";
+        ArrayList<Usuario> usuarios = new ArrayList<>();
+        //  List<Contato> contatos = new ArrayList<Contato>();
+        ResultSet rset = null;
+
+        try {
+            conn = C.createConnectionToMySQL();
+
+            pstm = conn.prepareStatement(sql);
+
+            rset = pstm.executeQuery();
+
+            //Enquanto existir dados no banco de dados, faça
+            while (rset.next()) {
+                Usuario usr = new Usuario();
+                //Recupera o id do banco e atribui ele ao objeto
+                usr.setId_usuario(rset.getInt("id_usuarios"));
+                //Recupera o nome do banco e atribui ele ao objeto
+                usr.setNome_usuario(rset.getString("login_usuarios"));
+                //Recupera a idade do banco e atribui ele ao objeto
+                usr.setCpf_usuario(rset.getLong("cpf_usuarios"));
+                //Recupera a data do banco e atribui ela ao objeto
+
+                usuarios.add(usr);
+
+            }
+        } catch (SQLException ex) {
+            JOptionPane.showMessageDialog(null, "Falha no processo!\nErro: " + ex.getMessage(), "Pesquisa", JOptionPane.ERROR_MESSAGE);
+
+        } catch (Exception ex) {
+            Logger.getLogger(UsuarioDAO.class.getName()).log(Level.SEVERE, null, ex);
+        } finally {
+
+            try {
+
+                if (rset != null) {
+
+                    rset.close();
+                }
+
+                if (pstm != null) {
+
+                    pstm.close();
+                }
+
+                if (conn != null) {
+                    conn.close();
+                }
+
+            } catch (SQLException ex) {
+                JOptionPane.showMessageDialog(null, "Falha no processo!\nErro: " + ex.getMessage(), "Pesquisa", JOptionPane.ERROR_MESSAGE);
+
+            } catch (Exception ex) {
+                Logger.getLogger(UsuarioDAO.class.getName()).log(Level.SEVERE, null, ex);
+            }
+
+            return usuarios;
+        }
     }
 
     public boolean verificaCpf(Usuario user) throws SQLException {

@@ -39,8 +39,6 @@ public class FrmServicos extends javax.swing.JFrame {
         fmrNumOS = new javax.swing.JTextField();
         jLabel1 = new javax.swing.JLabel();
         AbrirOS = new javax.swing.JButton();
-        Alterar = new javax.swing.JButton();
-        Excluir = new javax.swing.JButton();
         Fechar = new javax.swing.JButton();
         Cadastrar = new javax.swing.JButton();
         LimparCampos = new javax.swing.JButton();
@@ -57,10 +55,11 @@ public class FrmServicos extends javax.swing.JFrame {
         jLabel1.setText("Numero da OS");
 
         AbrirOS.setText("Abrir OS");
-
-        Alterar.setText("Alterar");
-
-        Excluir.setText("Excluir");
+        AbrirOS.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                AbrirOSActionPerformed(evt);
+            }
+        });
 
         Fechar.setText("Fechar");
         Fechar.addActionListener(new java.awt.event.ActionListener() {
@@ -136,11 +135,7 @@ public class FrmServicos extends javax.swing.JFrame {
                         .addGap(18, 18, 18)
                         .addComponent(AbrirOS)
                         .addGap(18, 18, 18)
-                        .addComponent(Alterar)
-                        .addGap(18, 18, 18)
                         .addComponent(PesquisarCompleto)
-                        .addGap(18, 18, 18)
-                        .addComponent(Excluir)
                         .addGap(18, 18, 18)
                         .addComponent(LimparCampos)
                         .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
@@ -181,8 +176,6 @@ public class FrmServicos extends javax.swing.JFrame {
                 .addGap(18, 18, 18)
                 .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
                     .addComponent(Fechar)
-                    .addComponent(Excluir)
-                    .addComponent(Alterar)
                     .addComponent(AbrirOS)
                     .addComponent(Cadastrar)
                     .addComponent(LimparCampos)
@@ -199,7 +192,29 @@ public class FrmServicos extends javax.swing.JFrame {
     }//GEN-LAST:event_FecharActionPerformed
 
     private void CadastrarActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_CadastrarActionPerformed
+         String[] options = {"Clientes", "Peças", "Veículos", "Usuários"};
+        int cadastrar = JOptionPane.showOptionDialog(this, "Que tipo de cadastro deseja fazer?", "ATENÇÃO", JOptionPane.DEFAULT_OPTION, JOptionPane.INFORMATION_MESSAGE, null, options, options[0]);
 
+        switch (cadastrar + 1) {
+            case 1:
+                FrmClientes cl = new FrmClientes();
+                cl.setVisible(true);
+                break;
+            case 2:
+                FrmPecas p = new FrmPecas();
+                p.setVisible(true);
+                break;
+            case 3:
+                FrmVeiculos v = new FrmVeiculos();
+                v.setVisible(true);
+                break;
+            case 4:
+                FrmUsuarios u = new FrmUsuarios();
+                u.setVisible(true);
+                break;
+            default:
+                // não faz nada
+        }
     }//GEN-LAST:event_CadastrarActionPerformed
 
     private void LimparCamposActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_LimparCamposActionPerformed
@@ -234,9 +249,14 @@ public class FrmServicos extends javax.swing.JFrame {
                 Logger.getLogger(FrmPesquisar.class.getName()).log(Level.SEVERE, null, ex);
             } 
         } else {
-            JOptionPane.showMessageDialog(this, "Preencha apenas um dos campos.", "Pesquisa", JOptionPane.WARNING_MESSAGE);
+            JOptionPane.showMessageDialog(this, "Preencha apenas um dos campos por vez.", "Pesquisa", JOptionPane.WARNING_MESSAGE);
         }
     }//GEN-LAST:event_PesquisarCompletoActionPerformed
+
+    private void AbrirOSActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_AbrirOSActionPerformed
+        FrmOS os = new FrmOS();
+        os.setVisible(true);
+    }//GEN-LAST:event_AbrirOSActionPerformed
 
     /**
      * @param args the command line arguments
@@ -276,9 +296,7 @@ public class FrmServicos extends javax.swing.JFrame {
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
     private javax.swing.JButton AbrirOS;
-    private javax.swing.JButton Alterar;
     private javax.swing.JButton Cadastrar;
-    private javax.swing.JButton Excluir;
     private javax.swing.JButton Fechar;
     private javax.swing.JButton LimparCampos;
     private javax.swing.JButton PesquisarCompleto;

@@ -6,9 +6,11 @@
 package br.projeto.form;
 
 import br.projeto.DAO.VeiculoDAO;
+import br.projeto.data.Cliente;
 import br.projeto.data.Veiculo;
 import java.awt.HeadlessException;
 import java.sql.SQLException;
+import java.util.ArrayList;
 import java.util.logging.Level;
 import java.util.logging.Logger;
 import javax.swing.JOptionPane;
@@ -24,6 +26,7 @@ public class FrmVeiculos extends javax.swing.JFrame {
      */
     public FrmVeiculos() {
         initComponents();
+        listaCliente();
     }
 
     /**
@@ -44,9 +47,7 @@ public class FrmVeiculos extends javax.swing.JFrame {
         Cadastrar = new javax.swing.JButton();
         LimparCampos = new javax.swing.JButton();
         AbrirOS = new javax.swing.JButton();
-        Alterar = new javax.swing.JButton();
         Pesquisar = new javax.swing.JButton();
-        Excluir = new javax.swing.JButton();
         Fechar = new javax.swing.JButton();
         frmCliente = new javax.swing.JComboBox<>();
         jLabel7 = new javax.swing.JLabel();
@@ -78,12 +79,18 @@ public class FrmVeiculos extends javax.swing.JFrame {
         });
 
         AbrirOS.setText("Abrir OS");
-
-        Alterar.setText("Alterar");
+        AbrirOS.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                AbrirOSActionPerformed(evt);
+            }
+        });
 
         Pesquisar.setText("Pesquisar");
-
-        Excluir.setText("Excluir");
+        Pesquisar.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                PesquisarActionPerformed(evt);
+            }
+        });
 
         Fechar.setText("Fechar");
         Fechar.addActionListener(new java.awt.event.ActionListener() {
@@ -113,12 +120,8 @@ public class FrmVeiculos extends javax.swing.JFrame {
                         .addGap(18, 18, 18)
                         .addComponent(AbrirOS)
                         .addGap(18, 18, 18)
-                        .addComponent(Alterar)
-                        .addGap(18, 18, 18)
                         .addComponent(Pesquisar)
-                        .addGap(18, 18, 18)
-                        .addComponent(Excluir)
-                        .addGap(18, 18, 18)
+                        .addGap(182, 182, 182)
                         .addComponent(LimparCampos))
                     .addGroup(layout.createSequentialGroup()
                         .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
@@ -174,12 +177,10 @@ public class FrmVeiculos extends javax.swing.JFrame {
                         .addComponent(jLabel6)
                         .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
                         .addComponent(frmCor, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)))
-                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 48, Short.MAX_VALUE)
+                .addGap(48, 48, 48)
                 .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
                     .addComponent(Fechar)
-                    .addComponent(Excluir)
                     .addComponent(Pesquisar)
-                    .addComponent(Alterar)
                     .addComponent(AbrirOS)
                     .addComponent(Cadastrar)
                     .addComponent(LimparCampos))
@@ -191,37 +192,41 @@ public class FrmVeiculos extends javax.swing.JFrame {
     }// </editor-fold>//GEN-END:initComponents
 
     private void CadastrarActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_CadastrarActionPerformed
-        Veiculo vei = new Veiculo();
-        VeiculoDAO vDAO = new VeiculoDAO();
+        Veiculo vei = new Veiculo(); // instancia a classe de dados do veículo
+        VeiculoDAO vDAO = new VeiculoDAO(); // instancia o veículo DAO
 
-        if (frmModelo.getText().isEmpty() || frmMarca.getText().isEmpty() || frmPlaca.getText().isEmpty() || frmCor.getText().isEmpty()){
+        //faz os testes de validação
+        if (frmModelo.getText().isEmpty() || frmMarca.getText().isEmpty() || frmPlaca.getText().isEmpty() || frmCor.getText().isEmpty()) {
             JOptionPane.showMessageDialog(this, "Preencha todos os campos.", "Cadastro de Veículos", JOptionPane.WARNING_MESSAGE);
-        } else { // pega os dados dos campos e os coloca nas variáveis desejadas
+        } else if (frmCliente.getSelectedItem().equals("--ESCOLHA O CLIENTE--")) {
+            JOptionPane.showMessageDialog(this, "Escolha o dono deste veículo.", "Cadastro de Veículos", JOptionPane.WARNING_MESSAGE);
+        } else { 
             try {
-                vei.setModelo_veiculo(frmModelo.getText().trim());
-                vei.setMarca_veiculo(frmMarca.getText().trim());
-                vei.setCor_veiculo(frmCor.getText().trim());
+                String idString = frmCliente.getSelectedItem().toString(); // pega o item selecionado do JComboBox e colona em uma String
+                String[] idsplit = idString.split("---"); // separa o ID do usuário e o nome do usuário em uma array
+                int id = Integer.parseInt(idsplit[0]); // coloca o ID do cliente em uma variável int
+                
+                // pega os dados dos campos e os coloca nas variáveis desejadas
+                vei.setModelo_veiculo(frmModelo.getText());
+                vei.setMarca_veiculo(frmMarca.getText());
+                vei.setCor_veiculo(frmCor.getText());
                 vei.setPlaca_veiculo(frmPlaca.getText().trim().toUpperCase());
+                vei.setId_cliente(id);
 
-                vDAO.inserir(vei); // faz a inserção no banco de dados dos dados que agora estão nas variáveis
+                vDAO.inserir(vei); // faz a inserção no BD dos dados que agora estão nas variáveis
 
                 try {
-                    if (vDAO.verificaPlaca(vei)) {
+                    if (vDAO.verificaPlaca(vei)) { // verifica se a placa do veículo cadastrado está inserida no banco de dados
                         JOptionPane.showMessageDialog(this, "Cadastro efetuado com sucesso!", "Cadastro de Veículos", JOptionPane.INFORMATION_MESSAGE);
+                        // limpa os campos
+                        frmCor.setText("");
+                        frmMarca.setText("");
+                        frmModelo.setText("");
+                        frmPlaca.setText("");
                     }
                 } catch (SQLException ex) {
                     JOptionPane.showMessageDialog(this, "Erro no processo!\n" + ex.getMessage(), "Cadastro de Veículos", JOptionPane.ERROR);
                 }
-
-                {
-
-                }
-                // limpa os campos
-                frmCor.setText("");
-                frmMarca.setText("");
-                frmModelo.setText("");
-                frmPlaca.setText("");
-
             } catch (SQLException ex) {
                 JOptionPane.showMessageDialog(this, "Erro no processo!\n" + ex.getMessage(), "Cadastro de veículos", JOptionPane.ERROR);
             }
@@ -233,6 +238,7 @@ public class FrmVeiculos extends javax.swing.JFrame {
         frmMarca.setText("");
         frmModelo.setText("");
         frmPlaca.setText("");
+        listaCliente(); // lista novamente os clientes disponíveis
     }//GEN-LAST:event_LimparCamposActionPerformed
 
     private void FecharActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_FecharActionPerformed
@@ -240,8 +246,17 @@ public class FrmVeiculos extends javax.swing.JFrame {
     }//GEN-LAST:event_FecharActionPerformed
 
     private void frmClienteActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_frmClienteActionPerformed
-        
+
     }//GEN-LAST:event_frmClienteActionPerformed
+
+    private void AbrirOSActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_AbrirOSActionPerformed
+        FrmOS os = new FrmOS();
+        os.setVisible(true);
+    }//GEN-LAST:event_AbrirOSActionPerformed
+
+    private void PesquisarActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_PesquisarActionPerformed
+        
+    }//GEN-LAST:event_PesquisarActionPerformed
 
     /**
      * @param args the command line arguments
@@ -280,9 +295,7 @@ public class FrmVeiculos extends javax.swing.JFrame {
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
     private javax.swing.JButton AbrirOS;
-    private javax.swing.JButton Alterar;
     private javax.swing.JButton Cadastrar;
-    private javax.swing.JButton Excluir;
     private javax.swing.JButton Fechar;
     private javax.swing.JButton LimparCampos;
     private javax.swing.JButton Pesquisar;
@@ -297,4 +310,28 @@ public class FrmVeiculos extends javax.swing.JFrame {
     private javax.swing.JLabel jLabel6;
     private javax.swing.JLabel jLabel7;
     // End of variables declaration//GEN-END:variables
+public final void listaCliente() {
+        VeiculoDAO vDAO = new VeiculoDAO(); // instancia o veículo DAO
+        
+        frmCliente.removeAllItems(); // remove todos os itens do JComboBox antes de inserir novos
+        int id;
+        String nome;
+        try {
+            ArrayList<Cliente> todosf = vDAO.consultaCliente(); // instancia o método em uma arraylist
+            frmCliente.addItem("--ESCOLHA O CLIENTE--"); // adiciona o item que será a seleção "padrão"
+            for (int i = 0; i < todosf.size(); i++) {
+                // loop que pega os dados e insere no JComboBox
+
+                id = todosf.get(i).getId_cliente(); // pega o ID do cliente
+                nome = todosf.get(i).getNome_cliente(); // pega o nome do cliente
+
+                frmCliente.addItem(id + "---" + nome); // insere uma linha nova no JComboBox a cada item disponível no BD
+            }
+
+        } catch (SQLException ex) {
+            JOptionPane.showMessageDialog(this, "Erro no processo!\n" + ex.getMessage(), "Consulta", JOptionPane.ERROR_MESSAGE);
+        } catch (Exception ex) {
+            Logger.getLogger(FrmPrincipal.class.getName()).log(Level.SEVERE, null, ex);
+        }
+    }
 }

@@ -7,6 +7,8 @@ package br.projeto.form;
 
 import br.projeto.DAO.UsuarioDAO;
 import br.projeto.data.Usuario;
+import java.awt.GraphicsEnvironment;
+import java.awt.Window;
 import java.awt.event.WindowFocusListener;
 import javax.swing.JOptionPane;
 
@@ -22,6 +24,7 @@ public class FrmPrincipal extends javax.swing.JFrame {
     public FrmPrincipal() {
         initComponents();
         Login();
+        
 
     }
 
@@ -48,6 +51,7 @@ public class FrmPrincipal extends javax.swing.JFrame {
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
         setBackground(new java.awt.Color(204, 204, 204));
         setCursor(new java.awt.Cursor(java.awt.Cursor.DEFAULT_CURSOR));
+        setFocusTraversalPolicyProvider(true);
         setName("framePrincipal"); // NOI18N
         addWindowListener(new java.awt.event.WindowAdapter() {
             public void windowClosing(java.awt.event.WindowEvent evt) {
@@ -239,6 +243,7 @@ public class FrmPrincipal extends javax.swing.JFrame {
         java.awt.EventQueue.invokeLater(new Runnable() {
             public void run() {
                 new FrmPrincipal().setVisible(true);
+                
             }
         });
     }
@@ -259,11 +264,17 @@ public class FrmPrincipal extends javax.swing.JFrame {
     // End of variables declaration//GEN-END:variables
 public final void Login() {
         FrmLoginJPanel l = new FrmLoginJPanel(this, true);
-        
+
         while (!l.Logado()) {
 
             l.setVisible(true);
         }
         l.dispose();
+        if(!l.isActive()){
+//        for (Window w : Window.getWindows()) {
+//            GraphicsEnvironment.getLocalGraphicsEnvironment().getDefaultScreenDevice().setFullScreenWindow(w);
+//        }
+        }
+        
     }
 }

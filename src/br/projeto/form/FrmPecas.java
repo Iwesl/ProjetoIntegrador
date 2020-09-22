@@ -37,9 +37,7 @@ public class FrmPecas extends javax.swing.JFrame {
         fmrValor = new javax.swing.JTextField();
         jLabel4 = new javax.swing.JLabel();
         AbrirOS = new javax.swing.JButton();
-        Alterar = new javax.swing.JButton();
         Pesquisar = new javax.swing.JButton();
-        Excluir = new javax.swing.JButton();
         Fechar = new javax.swing.JButton();
         Cadastrar = new javax.swing.JButton();
         LimparCampos = new javax.swing.JButton();
@@ -54,12 +52,18 @@ public class FrmPecas extends javax.swing.JFrame {
         jLabel4.setText("Valor");
 
         AbrirOS.setText("Abrir OS");
-
-        Alterar.setText("Alterar");
+        AbrirOS.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                AbrirOSActionPerformed(evt);
+            }
+        });
 
         Pesquisar.setText("Pesquisar");
-
-        Excluir.setText("Excluir");
+        Pesquisar.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                PesquisarActionPerformed(evt);
+            }
+        });
 
         Fechar.setText("Fechar");
         Fechar.addActionListener(new java.awt.event.ActionListener() {
@@ -105,14 +109,10 @@ public class FrmPecas extends javax.swing.JFrame {
                         .addGap(18, 18, 18)
                         .addComponent(AbrirOS)
                         .addGap(18, 18, 18)
-                        .addComponent(Alterar)
-                        .addGap(18, 18, 18)
                         .addComponent(Pesquisar)
                         .addGap(18, 18, 18)
-                        .addComponent(Excluir)
-                        .addGap(18, 18, 18)
                         .addComponent(LimparCampos)
-                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 170, Short.MAX_VALUE)
                         .addComponent(Fechar)))
                 .addContainerGap())
         );
@@ -134,9 +134,7 @@ public class FrmPecas extends javax.swing.JFrame {
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 34, Short.MAX_VALUE)
                 .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
                     .addComponent(Fechar)
-                    .addComponent(Excluir)
                     .addComponent(Pesquisar)
-                    .addComponent(Alterar)
                     .addComponent(AbrirOS)
                     .addComponent(Cadastrar)
                     .addComponent(LimparCampos))
@@ -193,6 +191,16 @@ public class FrmPecas extends javax.swing.JFrame {
         fmrValor.setText("");
     }//GEN-LAST:event_LimparCamposActionPerformed
 
+    private void AbrirOSActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_AbrirOSActionPerformed
+        FrmOS os = new FrmOS();
+        os.setVisible(true);
+    }//GEN-LAST:event_AbrirOSActionPerformed
+
+    private void PesquisarActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_PesquisarActionPerformed
+        FrmOS os = new FrmOS();
+        os.setVisible(true);
+    }//GEN-LAST:event_PesquisarActionPerformed
+
     /**
      * @param args the command line arguments
      */
@@ -231,9 +239,7 @@ public class FrmPecas extends javax.swing.JFrame {
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
     private javax.swing.JButton AbrirOS;
-    private javax.swing.JButton Alterar;
     private javax.swing.JButton Cadastrar;
-    private javax.swing.JButton Excluir;
     private javax.swing.JButton Fechar;
     private javax.swing.JButton LimparCampos;
     private javax.swing.JButton Pesquisar;

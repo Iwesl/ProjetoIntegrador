@@ -45,14 +45,10 @@
                       <EmptySpace type="separate" max="-2" attributes="0"/>
                       <Component id="AbrirOS" min="-2" max="-2" attributes="0"/>
                       <EmptySpace type="separate" max="-2" attributes="0"/>
-                      <Component id="Alterar" min="-2" max="-2" attributes="0"/>
-                      <EmptySpace type="separate" max="-2" attributes="0"/>
                       <Component id="Pesquisar" min="-2" max="-2" attributes="0"/>
                       <EmptySpace type="separate" max="-2" attributes="0"/>
-                      <Component id="Excluir" min="-2" max="-2" attributes="0"/>
-                      <EmptySpace type="separate" max="-2" attributes="0"/>
                       <Component id="LimparCampos" min="-2" max="-2" attributes="0"/>
-                      <EmptySpace max="32767" attributes="0"/>
+                      <EmptySpace pref="170" max="32767" attributes="0"/>
                       <Component id="Fechar" min="-2" max="-2" attributes="0"/>
                   </Group>
               </Group>
@@ -78,9 +74,7 @@
               <EmptySpace pref="34" max="32767" attributes="0"/>
               <Group type="103" groupAlignment="3" attributes="0">
                   <Component id="Fechar" alignment="3" min="-2" max="-2" attributes="0"/>
-                  <Component id="Excluir" alignment="3" min="-2" max="-2" attributes="0"/>
                   <Component id="Pesquisar" alignment="3" min="-2" max="-2" attributes="0"/>
-                  <Component id="Alterar" alignment="3" min="-2" max="-2" attributes="0"/>
                   <Component id="AbrirOS" alignment="3" min="-2" max="-2" attributes="0"/>
                   <Component id="Cadastrar" alignment="3" min="-2" max="-2" attributes="0"/>
                   <Component id="LimparCampos" alignment="3" min="-2" max="-2" attributes="0"/>
@@ -116,21 +110,17 @@
       <Properties>
         <Property name="text" type="java.lang.String" value="Abrir OS"/>
       </Properties>
-    </Component>
-    <Component class="javax.swing.JButton" name="Alterar">
-      <Properties>
-        <Property name="text" type="java.lang.String" value="Alterar"/>
-      </Properties>
+      <Events>
+        <EventHandler event="actionPerformed" listener="java.awt.event.ActionListener" parameters="java.awt.event.ActionEvent" handler="AbrirOSActionPerformed"/>
+      </Events>
     </Component>
     <Component class="javax.swing.JButton" name="Pesquisar">
       <Properties>
         <Property name="text" type="java.lang.String" value="Pesquisar"/>
       </Properties>
-    </Component>
-    <Component class="javax.swing.JButton" name="Excluir">
-      <Properties>
-        <Property name="text" type="java.lang.String" value="Excluir"/>
-      </Properties>
+      <Events>
+        <EventHandler event="actionPerformed" listener="java.awt.event.ActionListener" parameters="java.awt.event.ActionEvent" handler="PesquisarActionPerformed"/>
+      </Events>
     </Component>
     <Component class="javax.swing.JButton" name="Fechar">
       <Properties>

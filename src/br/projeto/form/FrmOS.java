@@ -7,7 +7,12 @@ package br.projeto.form;
 
 import br.projeto.DAO.OrcamentoDAO;
 import br.projeto.DAO.PecaDAO;
+import br.projeto.DAO.UsuarioDAO;
+import br.projeto.DAO.VeiculoDAO;
+import br.projeto.data.Cliente;
 import br.projeto.data.Peca;
+import br.projeto.data.Usuario;
+import br.projeto.data.Veiculo;
 import java.sql.SQLException;
 import java.text.DateFormat;
 import java.util.ArrayList;
@@ -39,7 +44,7 @@ public class FrmOS extends javax.swing.JFrame {
      */
     public FrmOS() {
         initComponents();
-
+        addFuncionario();
     }
 
     /**
@@ -50,10 +55,8 @@ public class FrmOS extends javax.swing.JFrame {
     private void initComponents() {
 
         AbrirOS = new javax.swing.JButton();
-        Alterar = new javax.swing.JButton();
         jLabel1 = new javax.swing.JLabel();
         Pesquisar = new javax.swing.JButton();
-        Excluir = new javax.swing.JButton();
         Fechar = new javax.swing.JButton();
         Cadastrar = new javax.swing.JButton();
         jLabel3 = new javax.swing.JLabel();
@@ -79,6 +82,7 @@ public class FrmOS extends javax.swing.JFrame {
         jScrollPane5 = new javax.swing.JScrollPane();
         jTable3 = new javax.swing.JTable();
         RemoverPecaOrcamento = new javax.swing.JButton();
+        AtualizaOrcamento = new javax.swing.JButton();
         jScrollPane3 = new javax.swing.JScrollPane();
         frmDefeito = new javax.swing.JTextArea();
         jScrollPane4 = new javax.swing.JScrollPane();
@@ -86,30 +90,37 @@ public class FrmOS extends javax.swing.JFrame {
         jLabel14 = new javax.swing.JLabel();
         frmStatus = new javax.swing.JComboBox<>();
         LimparCampos = new javax.swing.JButton();
-        frmNomeCliente = new javax.swing.JFormattedTextField();
         InserePecas = new javax.swing.JButton();
         LimparPecas = new javax.swing.JButton();
         jLabel11 = new javax.swing.JLabel();
-        frmPlacaVeiculo = new javax.swing.JFormattedTextField();
-        frmModeloVeiculo = new javax.swing.JFormattedTextField();
         Selecionar = new javax.swing.JButton();
         ConsultaPecas = new javax.swing.JButton();
         frmPecas = new javax.swing.JTextField();
+        frmPlacaVeiculo = new javax.swing.JTextField();
+        frmCliente = new javax.swing.JTextField();
+        frmModeloVeiculo = new javax.swing.JTextField();
 
         setDefaultCloseOperation(javax.swing.WindowConstants.DISPOSE_ON_CLOSE);
+        setFocusCycleRoot(false);
         setResizable(false);
 
         AbrirOS.setFont(new java.awt.Font("Tahoma", 1, 11)); // NOI18N
         AbrirOS.setText("Abrir OS");
-
-        Alterar.setText("Alterar");
+        AbrirOS.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                AbrirOSActionPerformed(evt);
+            }
+        });
 
         jLabel1.setFont(new java.awt.Font("Tahoma", 0, 12)); // NOI18N
         jLabel1.setText("Cliente");
 
         Pesquisar.setText("Pesquisar");
-
-        Excluir.setText("Excluir");
+        Pesquisar.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                PesquisarActionPerformed(evt);
+            }
+        });
 
         Fechar.setText("Fechar");
         Fechar.addActionListener(new java.awt.event.ActionListener() {
@@ -133,6 +144,7 @@ public class FrmOS extends javax.swing.JFrame {
         } catch (java.text.ParseException ex) {
             ex.printStackTrace();
         }
+        frmCel1.setFont(new java.awt.Font("Tahoma", 0, 12)); // NOI18N
 
         frmCel2.setEditable(false);
         frmCel2.setBackground(java.awt.SystemColor.controlHighlight);
@@ -142,6 +154,7 @@ public class FrmOS extends javax.swing.JFrame {
         } catch (java.text.ParseException ex) {
             ex.printStackTrace();
         }
+        frmCel2.setFont(new java.awt.Font("Tahoma", 0, 12)); // NOI18N
 
         jLabel8.setFont(new java.awt.Font("Tahoma", 0, 12)); // NOI18N
         jLabel8.setText("Celular 1");
@@ -198,9 +211,10 @@ public class FrmOS extends javax.swing.JFrame {
         jLabel6.setFont(new java.awt.Font("Tahoma", 0, 12)); // NOI18N
         jLabel6.setText("Atendente");
 
-        frmAtendente.setEditable(true);
         frmAtendente.setFont(new java.awt.Font("Tahoma", 0, 12)); // NOI18N
+        frmAtendente.setMaximumRowCount(3);
         frmAtendente.setModel(new javax.swing.DefaultComboBoxModel<>(new String[] { "Item 1", "Item 2", "Item 3", "Item 4" }));
+        frmAtendente.setCursor(new java.awt.Cursor(java.awt.Cursor.HAND_CURSOR));
 
         jPanel1.setBackground(new java.awt.Color(255, 255, 204));
         jPanel1.setBorder(javax.swing.BorderFactory.createBevelBorder(javax.swing.border.BevelBorder.RAISED));
@@ -283,12 +297,26 @@ public class FrmOS extends javax.swing.JFrame {
         RemoverPecaOrcamento.setToolTipText("Remove ltens do orçamento");
         RemoverPecaOrcamento.setAlignmentX(0.5F);
         RemoverPecaOrcamento.setPressedIcon(new javax.swing.ImageIcon(getClass().getResource("/br/projeto/assets/iconmonstr-x-mark-vermelho.png"))); // NOI18N
-        RemoverPecaOrcamento.setRolloverIcon(new javax.swing.ImageIcon(getClass().getResource("/br/projeto/assets/iconmonstr-x-mark-2.png"))); // NOI18N
-        RemoverPecaOrcamento.setRolloverSelectedIcon(new javax.swing.ImageIcon(getClass().getResource("/br/projeto/assets/iconmonstr-x-mark-2.png"))); // NOI18N
+        RemoverPecaOrcamento.setRolloverIcon(new javax.swing.ImageIcon(getClass().getResource("/br/projeto/assets/iconmonstr-x-mark-vermelho.png"))); // NOI18N
+        RemoverPecaOrcamento.setRolloverSelectedIcon(new javax.swing.ImageIcon(getClass().getResource("/br/projeto/assets/iconmonstr-x-mark-vermelho.png"))); // NOI18N
         RemoverPecaOrcamento.setSelectedIcon(new javax.swing.ImageIcon(getClass().getResource("/br/projeto/assets/iconmonstr-x-mark-2.png"))); // NOI18N
         RemoverPecaOrcamento.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 RemoverPecaOrcamentoActionPerformed(evt);
+            }
+        });
+
+        AtualizaOrcamento.setBackground(new java.awt.Color(255, 255, 255));
+        AtualizaOrcamento.setIcon(new javax.swing.ImageIcon(getClass().getResource("/br/projeto/assets/checkverde.png"))); // NOI18N
+        AtualizaOrcamento.setToolTipText("Atualiza o orçamento");
+        AtualizaOrcamento.setAlignmentX(0.5F);
+        AtualizaOrcamento.setPressedIcon(new javax.swing.ImageIcon(getClass().getResource("/br/projeto/assets/checkverde.png"))); // NOI18N
+        AtualizaOrcamento.setRolloverIcon(new javax.swing.ImageIcon(getClass().getResource("/br/projeto/assets/checkverde.png"))); // NOI18N
+        AtualizaOrcamento.setRolloverSelectedIcon(new javax.swing.ImageIcon(getClass().getResource("/br/projeto/assets/checkverde.png"))); // NOI18N
+        AtualizaOrcamento.setSelectedIcon(new javax.swing.ImageIcon(getClass().getResource("/br/projeto/assets/iconmonstr-x-mark-2.png"))); // NOI18N
+        AtualizaOrcamento.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                AtualizaOrcamentoActionPerformed(evt);
             }
         });
 
@@ -301,9 +329,6 @@ public class FrmOS extends javax.swing.JFrame {
                 .addComponent(jScrollPane5, javax.swing.GroupLayout.PREFERRED_SIZE, 488, javax.swing.GroupLayout.PREFERRED_SIZE)
                 .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                     .addGroup(jPanel1Layout.createSequentialGroup()
-                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                        .addComponent(RemoverPecaOrcamento, javax.swing.GroupLayout.PREFERRED_SIZE, 24, javax.swing.GroupLayout.PREFERRED_SIZE))
-                    .addGroup(jPanel1Layout.createSequentialGroup()
                         .addGap(71, 71, 71)
                         .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                             .addComponent(jLabel15, javax.swing.GroupLayout.Alignment.TRAILING)
@@ -313,33 +338,43 @@ public class FrmOS extends javax.swing.JFrame {
                         .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING, false)
                             .addComponent(frmOrcamentoFinal)
                             .addComponent(frmTotalObra)
-                            .addComponent(frmTotalPecas, javax.swing.GroupLayout.PREFERRED_SIZE, 183, javax.swing.GroupLayout.PREFERRED_SIZE))))
+                            .addComponent(frmTotalPecas, javax.swing.GroupLayout.PREFERRED_SIZE, 183, javax.swing.GroupLayout.PREFERRED_SIZE)))
+                    .addGroup(jPanel1Layout.createSequentialGroup()
+                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                        .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                            .addComponent(AtualizaOrcamento, javax.swing.GroupLayout.PREFERRED_SIZE, 24, javax.swing.GroupLayout.PREFERRED_SIZE)
+                            .addComponent(RemoverPecaOrcamento, javax.swing.GroupLayout.PREFERRED_SIZE, 24, javax.swing.GroupLayout.PREFERRED_SIZE))))
                 .addContainerGap(43, Short.MAX_VALUE))
         );
         jPanel1Layout.setVerticalGroup(
             jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(jPanel1Layout.createSequentialGroup()
                 .addContainerGap()
-                .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
                     .addGroup(jPanel1Layout.createSequentialGroup()
                         .addComponent(RemoverPecaOrcamento)
-                        .addGap(2, 2, 2)
-                        .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
-                            .addComponent(frmTotalPecas, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                            .addComponent(jLabel2))
-                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                        .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
-                            .addComponent(frmTotalObra, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                            .addComponent(jLabel7))
-                        .addGap(16, 16, 16)
-                        .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
-                            .addComponent(frmOrcamentoFinal, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                            .addComponent(jLabel15)))
+                        .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                            .addGroup(jPanel1Layout.createSequentialGroup()
+                                .addGap(2, 2, 2)
+                                .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
+                                    .addComponent(frmTotalPecas, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                                    .addComponent(jLabel2))
+                                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                                .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
+                                    .addComponent(frmTotalObra, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                                    .addComponent(jLabel7))
+                                .addGap(16, 16, 16)
+                                .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
+                                    .addComponent(frmOrcamentoFinal, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                                    .addComponent(jLabel15)))
+                            .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, jPanel1Layout.createSequentialGroup()
+                                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                                .addComponent(AtualizaOrcamento))))
                     .addComponent(jScrollPane5, javax.swing.GroupLayout.PREFERRED_SIZE, 136, javax.swing.GroupLayout.PREFERRED_SIZE))
                 .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
         );
 
-        frmDefeito.setColumns(20);
+        frmDefeito.setColumns(7);
         frmDefeito.setFont(new java.awt.Font("Monospaced", 0, 14)); // NOI18N
         frmDefeito.setLineWrap(true);
         frmDefeito.setRows(5);
@@ -347,7 +382,7 @@ public class FrmOS extends javax.swing.JFrame {
         frmDefeito.setWrapStyleWord(true);
         jScrollPane3.setViewportView(frmDefeito);
 
-        frmObs1.setColumns(20);
+        frmObs1.setColumns(7);
         frmObs1.setFont(new java.awt.Font("Monospaced", 0, 14)); // NOI18N
         frmObs1.setLineWrap(true);
         frmObs1.setRows(5);
@@ -374,11 +409,6 @@ public class FrmOS extends javax.swing.JFrame {
             }
         });
 
-        frmNomeCliente.setEditable(false);
-        frmNomeCliente.setBackground(java.awt.SystemColor.controlHighlight);
-        frmNomeCliente.setBorder(javax.swing.BorderFactory.createEtchedBorder());
-        frmNomeCliente.setFormatterFactory(new javax.swing.text.DefaultFormatterFactory(new javax.swing.text.DateFormatter()));
-
         InserePecas.setFont(new java.awt.Font("Tahoma", 0, 12)); // NOI18N
         InserePecas.setText("Inserir Peça no Orçamento");
         InserePecas.addActionListener(new java.awt.event.ActionListener() {
@@ -399,14 +429,6 @@ public class FrmOS extends javax.swing.JFrame {
         jLabel11.setFont(new java.awt.Font("Tahoma", 1, 12)); // NOI18N
         jLabel11.setText("Placa do veículo");
 
-        frmPlacaVeiculo.setBorder(javax.swing.BorderFactory.createEtchedBorder());
-        frmPlacaVeiculo.setFormatterFactory(new javax.swing.text.DefaultFormatterFactory(new javax.swing.text.DateFormatter()));
-
-        frmModeloVeiculo.setEditable(false);
-        frmModeloVeiculo.setBackground(java.awt.SystemColor.controlHighlight);
-        frmModeloVeiculo.setBorder(javax.swing.BorderFactory.createEtchedBorder());
-        frmModeloVeiculo.setFormatterFactory(new javax.swing.text.DefaultFormatterFactory(new javax.swing.text.DateFormatter()));
-
         Selecionar.setFont(new java.awt.Font("Tahoma", 0, 12)); // NOI18N
         Selecionar.setText("Selecionar");
         Selecionar.addActionListener(new java.awt.event.ActionListener() {
@@ -423,7 +445,19 @@ public class FrmOS extends javax.swing.JFrame {
             }
         });
 
+        frmPecas.setBackground(new java.awt.Color(255, 255, 204));
         frmPecas.setFont(new java.awt.Font("Tahoma", 0, 12)); // NOI18N
+
+        frmPlacaVeiculo.setBackground(new java.awt.Color(255, 255, 204));
+        frmPlacaVeiculo.setFont(new java.awt.Font("Tahoma", 0, 12)); // NOI18N
+
+        frmCliente.setBackground(java.awt.SystemColor.controlHighlight);
+        frmCliente.setFont(new java.awt.Font("Tahoma", 0, 12)); // NOI18N
+        frmCliente.setBorder(javax.swing.BorderFactory.createEtchedBorder());
+
+        frmModeloVeiculo.setBackground(java.awt.SystemColor.controlHighlight);
+        frmModeloVeiculo.setFont(new java.awt.Font("Tahoma", 0, 12)); // NOI18N
+        frmModeloVeiculo.setBorder(javax.swing.BorderFactory.createEtchedBorder());
 
         javax.swing.GroupLayout layout = new javax.swing.GroupLayout(getContentPane());
         getContentPane().setLayout(layout);
@@ -442,11 +476,7 @@ public class FrmOS extends javax.swing.JFrame {
                                 .addGap(18, 18, 18)
                                 .addComponent(AbrirOS)
                                 .addGap(18, 18, 18)
-                                .addComponent(Alterar)
-                                .addGap(18, 18, 18)
                                 .addComponent(Pesquisar)
-                                .addGap(18, 18, 18)
-                                .addComponent(Excluir)
                                 .addGap(18, 18, 18)
                                 .addComponent(LimparCampos)
                                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
@@ -465,17 +495,17 @@ public class FrmOS extends javax.swing.JFrame {
                                         .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING)
                                             .addGroup(layout.createSequentialGroup()
                                                 .addComponent(jLabel11)
-                                                .addGap(13, 13, 13)
-                                                .addComponent(frmPlacaVeiculo, javax.swing.GroupLayout.PREFERRED_SIZE, 120, javax.swing.GroupLayout.PREFERRED_SIZE))
+                                                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                                                .addComponent(frmPlacaVeiculo, javax.swing.GroupLayout.PREFERRED_SIZE, 129, javax.swing.GroupLayout.PREFERRED_SIZE))
                                             .addComponent(Selecionar))
                                         .addGap(86, 86, 86)
                                         .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                                             .addComponent(jLabel1, javax.swing.GroupLayout.Alignment.TRAILING)
                                             .addComponent(jLabel12, javax.swing.GroupLayout.Alignment.TRAILING))
                                         .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
-                                        .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                                            .addComponent(frmNomeCliente, javax.swing.GroupLayout.PREFERRED_SIZE, 276, javax.swing.GroupLayout.PREFERRED_SIZE)
-                                            .addComponent(frmModeloVeiculo, javax.swing.GroupLayout.PREFERRED_SIZE, 276, javax.swing.GroupLayout.PREFERRED_SIZE))
+                                        .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
+                                            .addComponent(frmCliente)
+                                            .addComponent(frmModeloVeiculo, javax.swing.GroupLayout.DEFAULT_SIZE, 276, Short.MAX_VALUE))
                                         .addGap(42, 42, 42)
                                         .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING, false)
                                             .addGroup(javax.swing.GroupLayout.Alignment.LEADING, layout.createSequentialGroup()
@@ -516,23 +546,23 @@ public class FrmOS extends javax.swing.JFrame {
             .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, layout.createSequentialGroup()
                 .addGap(15, 15, 15)
                 .addComponent(jLabel3)
-                .addGap(25, 25, 25)
+                .addGap(23, 23, 23)
                 .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                     .addGroup(layout.createSequentialGroup()
                         .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
-                            .addComponent(frmPlacaVeiculo, javax.swing.GroupLayout.PREFERRED_SIZE, 22, javax.swing.GroupLayout.PREFERRED_SIZE)
-                            .addComponent(jLabel11))
+                            .addComponent(jLabel11)
+                            .addComponent(frmPlacaVeiculo, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
                         .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
                         .addComponent(Selecionar))
                     .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING)
                         .addGroup(layout.createSequentialGroup()
-                            .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
-                                .addComponent(frmNomeCliente, javax.swing.GroupLayout.PREFERRED_SIZE, 22, javax.swing.GroupLayout.PREFERRED_SIZE)
-                                .addComponent(jLabel1))
+                            .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING)
+                                .addComponent(jLabel1)
+                                .addComponent(frmCliente, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
                             .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
                             .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
                                 .addComponent(jLabel12)
-                                .addComponent(frmModeloVeiculo, javax.swing.GroupLayout.PREFERRED_SIZE, 22, javax.swing.GroupLayout.PREFERRED_SIZE)))
+                                .addComponent(frmModeloVeiculo, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)))
                         .addGroup(layout.createSequentialGroup()
                             .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
                                 .addComponent(frmCel1, javax.swing.GroupLayout.PREFERRED_SIZE, 22, javax.swing.GroupLayout.PREFERRED_SIZE)
@@ -541,7 +571,7 @@ public class FrmOS extends javax.swing.JFrame {
                             .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
                                 .addComponent(frmCel2, javax.swing.GroupLayout.PREFERRED_SIZE, 22, javax.swing.GroupLayout.PREFERRED_SIZE)
                                 .addComponent(jLabel9)))))
-                .addGap(27, 27, 27)
+                .addGap(25, 25, 25)
                 .addComponent(jLabel5)
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
                 .addComponent(jScrollPane3, javax.swing.GroupLayout.PREFERRED_SIZE, 145, javax.swing.GroupLayout.PREFERRED_SIZE)
@@ -572,12 +602,10 @@ public class FrmOS extends javax.swing.JFrame {
                     .addComponent(frmAtendente, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
                     .addComponent(jLabel14)
                     .addComponent(frmStatus, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
-                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 58, Short.MAX_VALUE)
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 63, Short.MAX_VALUE)
                 .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
                     .addComponent(Fechar)
-                    .addComponent(Excluir)
                     .addComponent(Pesquisar)
-                    .addComponent(Alterar)
                     .addComponent(AbrirOS)
                     .addComponent(Cadastrar)
                     .addComponent(LimparCampos))
@@ -589,7 +617,29 @@ public class FrmOS extends javax.swing.JFrame {
     }// </editor-fold>//GEN-END:initComponents
 
     private void CadastrarActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_CadastrarActionPerformed
+        String[] options = {"Clientes", "Peças", "Veículos", "Usuários"};
+        int cadastrar = JOptionPane.showOptionDialog(this, "Que tipo de cadastro deseja fazer?", "ATENÇÃO", JOptionPane.DEFAULT_OPTION, JOptionPane.INFORMATION_MESSAGE, null, options, options[0]);
 
+        switch (cadastrar + 1) {
+            case 1:
+                FrmClientes cl = new FrmClientes();
+                cl.setVisible(true);
+                break;
+            case 2:
+                FrmPecas p = new FrmPecas();
+                p.setVisible(true);
+                break;
+            case 3:
+                FrmVeiculos v = new FrmVeiculos();
+                v.setVisible(true);
+                break;
+            case 4:
+                FrmUsuarios u = new FrmUsuarios();
+                u.setVisible(true);
+                break;
+            default:
+                // não faz nada
+        }
     }//GEN-LAST:event_CadastrarActionPerformed
 
     private void FecharActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_FecharActionPerformed
@@ -598,7 +648,7 @@ public class FrmOS extends javax.swing.JFrame {
 
     private void LimparCamposActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_LimparCamposActionPerformed
         frmPlacaVeiculo.setText("");
-        frmNomeCliente.setText("");
+        frmCliente.setText("");
         frmCel1.setText("");
         frmCel2.setText("");
         frmAtendente.setSelectedIndex(-1);
@@ -611,6 +661,7 @@ public class FrmOS extends javax.swing.JFrame {
         frmOrcamentoFinal.setText("");
         frmDefeito.setText("");
         frmObs1.setText("");
+        addFuncionario();
 
         DefaultTableModel modeloTabela = (DefaultTableModel) jTable1.getModel();
         DefaultTableModel modeloTabela3 = (DefaultTableModel) jTable3.getModel();
@@ -618,6 +669,10 @@ public class FrmOS extends javax.swing.JFrame {
 
         for (int i = modeloTabela.getRowCount() - 1; i >= 0; i--) {
             modeloTabela.removeRow(i);
+            // loop que limpa a tabela
+        }
+        for (int i = modeloTabela3.getRowCount() - 1; i >= 0; i--) {
+            modeloTabela3.removeRow(i);
             // loop que limpa a tabela
         }
 
@@ -644,7 +699,7 @@ public class FrmOS extends javax.swing.JFrame {
     }//GEN-LAST:event_InserePecasActionPerformed
 
     private void SelecionarActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_SelecionarActionPerformed
-
+        addClienteVeiculo();
     }//GEN-LAST:event_SelecionarActionPerformed
 
     private void ConsultaPecasActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_ConsultaPecasActionPerformed
@@ -652,14 +707,13 @@ public class FrmOS extends javax.swing.JFrame {
     }//GEN-LAST:event_ConsultaPecasActionPerformed
 
     private void jTable3PropertyChange(java.beans.PropertyChangeEvent evt) {//GEN-FIRST:event_jTable3PropertyChange
-        DefaultTableModel modeloTabela3 = (DefaultTableModel) jTable3.getModel();
-        modeloTabela3.addTableModelListener(new TableModelListener() {
-            @Override
-            public void tableChanged(TableModelEvent e) {
-                jTable3.selectAll();
-                totalOrcamento();
-            }
-        });
+//        DefaultTableModel modeloTabela3 = (DefaultTableModel) jTable3.getModel();
+//        modeloTabela3.addTableModelListener(new TableModelListener() {
+//            @Override
+//            public void tableChanged(TableModelEvent e) {
+//
+//            }
+//        });
     }//GEN-LAST:event_jTable3PropertyChange
 
     private void RemoverPecaOrcamentoActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_RemoverPecaOrcamentoActionPerformed
@@ -667,9 +721,22 @@ public class FrmOS extends javax.swing.JFrame {
     }//GEN-LAST:event_RemoverPecaOrcamentoActionPerformed
 
     private void frmTotalObraActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_frmTotalObraActionPerformed
-        jTable3.selectAll();
-        totalOrcamento();
+
     }//GEN-LAST:event_frmTotalObraActionPerformed
+
+    private void AtualizaOrcamentoActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_AtualizaOrcamentoActionPerformed
+        jTable3.selectAll();
+        atualizarOrcamento();
+    }//GEN-LAST:event_AtualizaOrcamentoActionPerformed
+
+    private void PesquisarActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_PesquisarActionPerformed
+        FrmServicos s = new FrmServicos();
+        s.setVisible(true);
+    }//GEN-LAST:event_PesquisarActionPerformed
+
+    private void AbrirOSActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_AbrirOSActionPerformed
+
+    }//GEN-LAST:event_AbrirOSActionPerformed
 
     /**
      * @param args the command line arguments
@@ -720,10 +787,9 @@ public class FrmOS extends javax.swing.JFrame {
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
     private javax.swing.JButton AbrirOS;
-    private javax.swing.JButton Alterar;
+    private javax.swing.JButton AtualizaOrcamento;
     private javax.swing.JButton Cadastrar;
     private javax.swing.JButton ConsultaPecas;
-    private javax.swing.JButton Excluir;
     private javax.swing.JButton Fechar;
     private javax.swing.JButton InserePecas;
     private javax.swing.JButton LimparCampos;
@@ -734,13 +800,13 @@ public class FrmOS extends javax.swing.JFrame {
     private javax.swing.JComboBox<String> frmAtendente;
     private javax.swing.JFormattedTextField frmCel1;
     private javax.swing.JFormattedTextField frmCel2;
+    private javax.swing.JTextField frmCliente;
     private javax.swing.JTextArea frmDefeito;
-    private javax.swing.JFormattedTextField frmModeloVeiculo;
-    private javax.swing.JFormattedTextField frmNomeCliente;
+    private javax.swing.JTextField frmModeloVeiculo;
     private javax.swing.JTextArea frmObs1;
     private javax.swing.JFormattedTextField frmOrcamentoFinal;
     private javax.swing.JTextField frmPecas;
-    private javax.swing.JFormattedTextField frmPlacaVeiculo;
+    private javax.swing.JTextField frmPlacaVeiculo;
     private javax.swing.JComboBox<String> frmStatus;
     private javax.swing.JFormattedTextField frmTotalObra;
     private javax.swing.JFormattedTextField frmTotalPecas;
@@ -795,8 +861,9 @@ public class FrmOS extends javax.swing.JFrame {
                 ArrayList<Peca> p = pDAO.consultaValorPecas(frmPecas.getText());
 
                 for (int i = modeloTabela.getRowCount() - 1; i >= 0; i--) {
-                    modeloTabela.removeRow(i);
                     // loop que limpa a tabela antes de ser atualizada
+
+                    modeloTabela.removeRow(i);
                 }
                 for (int i = 0; i < p.size(); i++) {
                     // loop que pega os dados e insere na tabela
@@ -827,6 +894,8 @@ public class FrmOS extends javax.swing.JFrame {
         int[] selectedRow = jTable1.getSelectedRows();
 
         for (int i = selectedRow.length - 1; i >= 0; i--) {
+
+            // loop para pegar os dados de cada linha na tabela
             selectedNome = (String) jTable1.getValueAt(jTable1.convertRowIndexToModel(selectedRow[i]), 0);
             selectedValor = (double) jTable1.getValueAt(jTable1.convertRowIndexToModel(selectedRow[i]), 1);
             selectedQtd = (int) jTable1.getValueAt(jTable1.convertRowIndexToModel(selectedRow[i]), 2);
@@ -844,48 +913,73 @@ public class FrmOS extends javax.swing.JFrame {
         //System.out.println("Nome " + selectedNome + "\nValor " + selectedValor + "\nQuantidade " + selectedQtd);
     }
 
-    public void totalOrcamento() {
-        String selectedNome = null;
+    private ArrayList<String> selectedNome;
+    private ArrayList<Double> selectedValor;
+    private ArrayList<Integer> selectedQtd;
 
-        double selectedValor = 0;
-        int selectedQtd = 0;
-        double valorTotalPecas = 0;
-        double maoDeObra = 100;
-        double orcamento = 0;
+    private static double valorTotalPecas = 0;
+    private static double maoDeObra = 100;
+    private static long orcamento = 0;
+
+    public void atualizarOrcamento() {
+
+        Object[] dados = new Object[3]; // instancia os objetos. Cada objeto representa um atributo
+        dados[0] = 0;
+        dados[1] = 0;
+        dados[2] = 0;
+
+        frmTotalPecas.setValue(dados[0]);
+        frmTotalObra.setValue(dados[1]);
+        frmOrcamentoFinal.setValue(dados[2]);
 
         int[] selectedRow = jTable3.getSelectedRows();
         int qtdLinhasSelecionadas = jTable3.getSelectedRowCount();
 
         for (int i = selectedRow.length - 1; i >= 0; i--) {
-            selectedQtd = (int) jTable3.getValueAt(jTable3.convertRowIndexToModel(selectedRow[i]), 2);
-            if (selectedQtd == 0) {
-                frmTotalPecas.setValue(0);
-                frmTotalObra.setValue(0);
-                frmOrcamentoFinal.setValue(0);
-            } else {
-                selectedNome = (String) jTable3.getValueAt(jTable3.convertRowIndexToModel(selectedRow[i]), 0);
-                selectedValor = (double) jTable3.getValueAt(jTable3.convertRowIndexToModel(selectedRow[i]), 1);
 
-                for (int j = 0; j <= selectedQtd; j++) {
-                    maoDeObra = maoDeObra * 1.1;
-                }
+            selectedNome = (ArrayList<String>) jTable3.getValueAt(jTable3.convertRowIndexToModel(selectedRow[i]), 0);
+            selectedValor = (ArrayList<Double>) jTable3.getValueAt(jTable3.convertRowIndexToModel(selectedRow[i]), 1);
+            selectedQtd = (ArrayList<Integer>) jTable3.getValueAt(jTable3.convertRowIndexToModel(selectedRow[i]), 2);
 
-                for (int x = 0; x < qtdLinhasSelecionadas; x++) {
+            totalPecas();
+            totalObra();
+            totalOrcamento();
+            printResultado();
 
-                    valorTotalPecas = selectedValor * selectedQtd;
-                    orcamento = valorTotalPecas + maoDeObra;
-                }
+        }
+    }
 
-                Object[] dados = new Object[3]; // instancia os objetos. Cada objeto representa um atributo
-                dados[0] = valorTotalPecas;
-                dados[1] = maoDeObra;
-                dados[2] = orcamento;
+    public final double totalPecas() {
+        for (int i = selectedQtd.size() - 1; i >= 0; i--) {
+            valorTotalPecas = selectedQtd.get(i) * selectedValor.get(i);
+        }
+        return valorTotalPecas;
+    }
 
-                frmTotalPecas.setValue(dados[0]);
-                frmTotalObra.setValue(dados[1]);
-                frmOrcamentoFinal.setValue(dados[2]);
+    public final double totalObra() {
+        for (int i = selectedQtd.size() - 1; i >= 0; i--) {
+            for (int j = 0; j <= selectedQtd.get(i); j++) {
+                maoDeObra *= 1.1;
             }
         }
+        return maoDeObra;
+    }
+
+    public final long totalOrcamento() {
+        orcamento = (long) (valorTotalPecas + maoDeObra);
+        return orcamento;
+    }
+
+    public final void printResultado() {
+
+        Object[] dados = new Object[3]; // instancia os objetos. Cada objeto representa um atributo
+        dados[0] = valorTotalPecas;
+        dados[1] = maoDeObra;
+        dados[2] = orcamento;
+
+        frmTotalPecas.setValue(dados[0]);
+        frmTotalObra.setValue(dados[1]);
+        frmOrcamentoFinal.setValue(dados[2]);
     }
 
     public void removerLinhaOrcamento() {
@@ -900,11 +994,14 @@ public class FrmOS extends javax.swing.JFrame {
                 for (int i = selectedRow.length - 1; i >= 0; i--) {
                     modeloTabela3.removeRow(i);
                 }
+                frmTotalPecas.setText("");
+                frmTotalObra.setText("");
+                frmOrcamentoFinal.setText("");
             } else {
                 // não faz nada
             }
         } else {
-            joptionpane = JOptionPane.showConfirmDialog(this, "Você tem certeza que deseja remover essa peça do orçamento?", "ATENÇÃO", JOptionPane.INFORMATION_MESSAGE, JOptionPane.YES_NO_OPTION);
+            joptionpane = JOptionPane.showConfirmDialog(this, "Você tem certeza que deseja remover essa peça do orçamento?", "ATENÇÃO", JOptionPane.WARNING_MESSAGE, JOptionPane.YES_NO_OPTION);
             if (joptionpane == 0) {
                 for (int i = selectedRow.length - 1; i >= 0; i--) {
                     modeloTabela3.removeRow(i);
@@ -913,6 +1010,70 @@ public class FrmOS extends javax.swing.JFrame {
                 // não faz nada
             }
         }
+    }
 
+    public final void addFuncionario() {
+        UsuarioDAO uDAO = new UsuarioDAO();
+        frmAtendente.removeAllItems(); // remove todos os itens do JComboBox antes de inserir novos
+        String nome;
+        int id;
+        try {
+            ArrayList<Usuario> todosf = uDAO.consultaTodos(); // instancia o método em u arraylist
+            for (int i = 0; i < todosf.size(); i++) {
+                // loop que pega os dados e insere na tabela
+
+                nome = todosf.get(i).getNome_usuario(); // pega o nome do usuário
+                id = todosf.get(i).getId_usuario(); // pega o id do usuario
+
+                frmAtendente.addItem(id + "---" + nome.toUpperCase()); // insere uma linha nova a cada item novo encontrado na tabela do BD
+            }
+        } catch (SQLException ex) {
+            JOptionPane.showMessageDialog(this, "Erro no processo!\n" + ex.getMessage(), "Consulta", JOptionPane.ERROR_MESSAGE);
+        } catch (Exception ex) {
+            Logger.getLogger(FrmPrincipal.class.getName()).log(Level.SEVERE, null, ex);
+        }
+    }
+
+    public final void addClienteVeiculo() {
+        try {
+            VeiculoDAO vDAO = new VeiculoDAO(); // instancia a classe ProdutoDB()
+            ArrayList<Cliente> v = vDAO.consultaClienteOSPlaca(frmPlacaVeiculo.getText()); // coloca o método dentro da variável
+
+            frmCliente.setText("");
+            frmCel1.setText("");
+            frmCel2.setText("");
+            frmModeloVeiculo.setText("");
+
+            int id;
+            String nomeCliente;
+            long celular1;
+            long celular2;
+            String modeloVeiculo;
+
+            for (int i = 0; i < v.size(); i++) {
+                // loop que pega os dados e insere na tabela
+
+                id = v.get(i).getId_cliente();
+                nomeCliente = v.get(i).getNome_cliente();
+                celular1 = v.get(i).getCelular1_cliente();
+                celular2 = v.get(i).getCelular2_cliente();
+                modeloVeiculo = v.get(i).getModelo_veiculo();
+                // pega os dados salvos do banco de dados (que estão nas variáveis) e os coloca nos objetos definidos
+
+                frmCliente.setText(id + "---" + nomeCliente);
+                frmCel1.setValue(celular1);
+                if (celular2 == 0) {
+                    frmCel2.setValue("");
+                } else {
+                    frmCel2.setValue(celular2);
+                }
+                frmModeloVeiculo.setText(modeloVeiculo);
+            }
+
+        } catch (SQLException ex) {
+            JOptionPane.showMessageDialog(this, "Erro no processo!\n" + ex.getMessage(), "Consultas", JOptionPane.ERROR_MESSAGE);
+        } catch (Exception ex) {
+            Logger.getLogger(FrmPesquisar.class.getName()).log(Level.SEVERE, null, ex);
+        }
     }
 }

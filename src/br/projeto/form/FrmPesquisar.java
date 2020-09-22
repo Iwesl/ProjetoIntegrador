@@ -40,9 +40,7 @@ public class FrmPesquisar extends javax.swing.JFrame {
         jScrollPane1 = new javax.swing.JScrollPane();
         jTable1 = new javax.swing.JTable();
         AbrirOS = new javax.swing.JButton();
-        Alterar = new javax.swing.JButton();
         PesquisarTudo = new javax.swing.JButton();
-        Excluir = new javax.swing.JButton();
         Fechar = new javax.swing.JButton();
         Cadastrar = new javax.swing.JButton();
         LimparCampos = new javax.swing.JButton();
@@ -81,8 +79,11 @@ public class FrmPesquisar extends javax.swing.JFrame {
         jScrollPane1.setViewportView(jTable1);
 
         AbrirOS.setText("Abrir OS");
-
-        Alterar.setText("Alterar");
+        AbrirOS.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                AbrirOSActionPerformed(evt);
+            }
+        });
 
         PesquisarTudo.setFont(new java.awt.Font("Tahoma", 1, 11)); // NOI18N
         PesquisarTudo.setText("Pesquisar");
@@ -91,8 +92,6 @@ public class FrmPesquisar extends javax.swing.JFrame {
                 PesquisarTudoActionPerformed(evt);
             }
         });
-
-        Excluir.setText("Excluir");
 
         Fechar.setText("Fechar");
         Fechar.addActionListener(new java.awt.event.ActionListener() {
@@ -144,16 +143,12 @@ public class FrmPesquisar extends javax.swing.JFrame {
                 .addGap(18, 18, 18)
                 .addComponent(AbrirOS)
                 .addGap(18, 18, 18)
-                .addComponent(Alterar)
-                .addGap(18, 18, 18)
                 .addComponent(PesquisarTudo)
                 .addGap(18, 18, 18)
                 .addComponent(PesquisarComVeiculo)
                 .addGap(18, 18, 18)
-                .addComponent(Excluir)
-                .addGap(18, 18, 18)
                 .addComponent(LimparCampos)
-                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 170, Short.MAX_VALUE)
                 .addComponent(Fechar)
                 .addContainerGap())
             .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, layout.createSequentialGroup()
@@ -175,9 +170,7 @@ public class FrmPesquisar extends javax.swing.JFrame {
                 .addGap(34, 34, 34)
                 .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
                     .addComponent(Fechar)
-                    .addComponent(Excluir)
                     .addComponent(PesquisarTudo)
-                    .addComponent(Alterar)
                     .addComponent(AbrirOS)
                     .addComponent(Cadastrar)
                     .addComponent(LimparCampos)
@@ -194,7 +187,29 @@ public class FrmPesquisar extends javax.swing.JFrame {
     }//GEN-LAST:event_FecharActionPerformed
 
     private void CadastrarActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_CadastrarActionPerformed
+         String[] options = {"Clientes", "Peças", "Veículos", "Usuários"};
+        int cadastrar = JOptionPane.showOptionDialog(this, "Que tipo de cadastro deseja fazer?", "ATENÇÃO", JOptionPane.DEFAULT_OPTION, JOptionPane.INFORMATION_MESSAGE, null, options, options[0]);
 
+        switch (cadastrar + 1) {
+            case 1:
+                FrmClientes cl = new FrmClientes();
+                cl.setVisible(true);
+                break;
+            case 2:
+                FrmPecas p = new FrmPecas();
+                p.setVisible(true);
+                break;
+            case 3:
+                FrmVeiculos v = new FrmVeiculos();
+                v.setVisible(true);
+                break;
+            case 4:
+                FrmUsuarios u = new FrmUsuarios();
+                u.setVisible(true);
+                break;
+            default:
+                // não faz nada
+        }
     }//GEN-LAST:event_CadastrarActionPerformed
 
     private void LimparCamposActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_LimparCamposActionPerformed
@@ -231,6 +246,11 @@ public class FrmPesquisar extends javax.swing.JFrame {
             buscaTodosClientesComVeiculoPorCPF();
         }
     }//GEN-LAST:event_PesquisarComVeiculoActionPerformed
+
+    private void AbrirOSActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_AbrirOSActionPerformed
+        FrmOS os = new FrmOS();
+        os.setVisible(true);
+    }//GEN-LAST:event_AbrirOSActionPerformed
 
     /**
      * @param args the command line arguments
@@ -272,9 +292,7 @@ public class FrmPesquisar extends javax.swing.JFrame {
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
     private javax.swing.JButton AbrirOS;
-    private javax.swing.JButton Alterar;
     private javax.swing.JButton Cadastrar;
-    private javax.swing.JButton Excluir;
     private javax.swing.JButton Fechar;
     private javax.swing.JButton LimparCampos;
     private javax.swing.JButton PesquisarComVeiculo;
