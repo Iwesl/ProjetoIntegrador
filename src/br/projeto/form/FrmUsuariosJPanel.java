@@ -66,6 +66,7 @@ public class FrmUsuariosJPanel extends javax.swing.JDialog {
 
         Cadastrar.setFont(new java.awt.Font("Tahoma", 1, 11)); // NOI18N
         Cadastrar.setText("Cadastrar");
+        Cadastrar.setCursor(new java.awt.Cursor(java.awt.Cursor.HAND_CURSOR));
         Cadastrar.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 CadastrarActionPerformed(evt);
@@ -73,6 +74,7 @@ public class FrmUsuariosJPanel extends javax.swing.JDialog {
         });
 
         LimparCampos.setText("Limpar Campos");
+        LimparCampos.setCursor(new java.awt.Cursor(java.awt.Cursor.HAND_CURSOR));
         LimparCampos.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 LimparCamposActionPerformed(evt);
@@ -80,6 +82,7 @@ public class FrmUsuariosJPanel extends javax.swing.JDialog {
         });
 
         Fechar2.setText("Fechar");
+        Fechar2.setCursor(new java.awt.Cursor(java.awt.Cursor.HAND_CURSOR));
         Fechar2.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 Fechar2ActionPerformed(evt);

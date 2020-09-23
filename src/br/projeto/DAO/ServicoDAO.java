@@ -18,7 +18,7 @@ public class ServicoDAO {
         Connection conn = null; // cria uma nova variável de método Connection
         PreparedStatement pstm = null; // cria uma nova variável de método PreparedStatement
         
-        String sql = "INSERT INTO os(id_os , defeito_os, obs_os, status_os, data_abertura, data_fechamento, id_usuario, id_pecas, id_clientes) VALUES(?,?,?,?,?,?,?,?,?)";
+        String sql = "INSERT INTO os(id_os , defeito_os, obs_os, status_os, valor_os, data_abertura, data_fechamento, id_usuario, id_pecas, id_clientes) VALUES(?,?,?,?,?,?,?,?,?,?)";
 
         try {
             //Cria uma conexão com o banco
@@ -36,15 +36,17 @@ public class ServicoDAO {
             
             pstm.setString(4, os.getStatus_OS());
             
-            pstm.setDate(5, os.getDataAbertura_OS());
+            pstm.setDouble(5, os.getValorTotal_OS());
             
-            pstm.setDate(6, os.getDataFechamento_OS());
+            pstm.setDate(6, os.getDataAbertura_OS());
             
-            pstm.setInt(7, os.getIdUsuario_OS());
+            pstm.setDate(7, os.getDataFechamento_OS());
             
-            pstm.setInt(8, os.getIdPeca_OS());
+            pstm.setInt(8, os.getIdUsuario_OS());
             
-            pstm.setInt(9, os.getIdCliente_OS());
+            pstm.setInt(9, os.getIdPeca_OS());
+            
+            pstm.setInt(10, os.getIdCliente_OS());
             
             
 
@@ -76,9 +78,47 @@ public class ServicoDAO {
         }
     }
 
-    public void alterar(int Numero_OS) {
+    public boolean verificaOS(OS os) throws SQLException {
+        final Conect C = new Conect(); // instancia o método de conexão
+        Connection conn = null; // cria uma nova variável de método Connection
+        PreparedStatement pstm = null; // cria uma nova variável de método PreparedStatement
+        boolean resultado = false;
+        ResultSet rs;
 
-    }
+        try {
+
+            String sqlNome = "SELECT id_os FROM os WHERE id_os = '"+os.getNumero_OS()+"'";
+            conn = C.createConnectionToMySQL();
+            pstm = conn.prepareStatement(sqlNome);
+            rs = pstm.executeQuery();
+            if (rs.next()) {
+                resultado = true;
+            } else {
+                resultado = false;
+            }
+
+        } catch (SQLException ex) {
+            JOptionPane.showMessageDialog(null, "Falha no processo!\nErro: " + ex.getMessage(), "Verificação da Ordem de Serviço", JOptionPane.ERROR_MESSAGE);
+
+        } catch (Exception ex) {
+            Logger.getLogger(UsuarioDAO.class.getName()).log(Level.SEVERE, null, ex);
+        } finally {
+            try {
+                if (pstm != null) {
+                    pstm.close();
+                }
+                if (conn != null) {
+                    conn.close();
+                }
+
+            } catch (SQLException ex) {
+            JOptionPane.showMessageDialog(null, "Falha no processo!\nErro: " + ex.getMessage(), "Verificação da Ordem de Serviço", JOptionPane.ERROR_MESSAGE);
+
+            }
+        }
+
+        return resultado;
+     }
 
     public void apagar(int Numero_OS) {
 

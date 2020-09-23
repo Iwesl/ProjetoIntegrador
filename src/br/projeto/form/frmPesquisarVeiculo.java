@@ -56,6 +56,7 @@ public class frmPesquisarVeiculo extends javax.swing.JFrame {
         frmModelo.setEditable(false);
 
         Fechar.setText("Fechar");
+        Fechar.setCursor(new java.awt.Cursor(java.awt.Cursor.HAND_CURSOR));
         Fechar.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 FecharActionPerformed(evt);
@@ -73,6 +74,7 @@ public class frmPesquisarVeiculo extends javax.swing.JFrame {
         frmCor.setEditable(false);
 
         Cadastrar.setText("Cadastrar");
+        Cadastrar.setCursor(new java.awt.Cursor(java.awt.Cursor.HAND_CURSOR));
         Cadastrar.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 CadastrarActionPerformed(evt);
@@ -80,6 +82,7 @@ public class frmPesquisarVeiculo extends javax.swing.JFrame {
         });
 
         LimparCampos.setText("Limpar Campos");
+        LimparCampos.setCursor(new java.awt.Cursor(java.awt.Cursor.HAND_CURSOR));
         LimparCampos.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 LimparCamposActionPerformed(evt);
@@ -87,6 +90,7 @@ public class frmPesquisarVeiculo extends javax.swing.JFrame {
         });
 
         AbrirOS.setText("Abrir OS");
+        AbrirOS.setCursor(new java.awt.Cursor(java.awt.Cursor.HAND_CURSOR));
         AbrirOS.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 AbrirOSActionPerformed(evt);
@@ -99,6 +103,7 @@ public class frmPesquisarVeiculo extends javax.swing.JFrame {
 
         Pesquisar.setFont(new java.awt.Font("Tahoma", 1, 11)); // NOI18N
         Pesquisar.setText("Pesquisar");
+        Pesquisar.setCursor(new java.awt.Cursor(java.awt.Cursor.HAND_CURSOR));
         Pesquisar.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 PesquisarActionPerformed(evt);
@@ -151,7 +156,6 @@ public class frmPesquisarVeiculo extends javax.swing.JFrame {
                                         .addComponent(jLabel2)
                                         .addGap(105, 105, 105))
                                     .addComponent(frmPlaca, javax.swing.GroupLayout.Alignment.LEADING, javax.swing.GroupLayout.PREFERRED_SIZE, 130, javax.swing.GroupLayout.PREFERRED_SIZE))
-                                .addGap(18, 18, 18)
                                 .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                                     .addComponent(jLabel5)
                                     .addComponent(frmMarca, javax.swing.GroupLayout.PREFERRED_SIZE, 140, javax.swing.GroupLayout.PREFERRED_SIZE))
@@ -159,7 +163,7 @@ public class frmPesquisarVeiculo extends javax.swing.JFrame {
                                 .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING)
                                     .addComponent(jLabel6, javax.swing.GroupLayout.Alignment.LEADING)
                                     .addComponent(frmCor, javax.swing.GroupLayout.Alignment.LEADING, javax.swing.GroupLayout.PREFERRED_SIZE, 130, javax.swing.GroupLayout.PREFERRED_SIZE))))
-                        .addGap(0, 19, Short.MAX_VALUE))))
+                        .addGap(0, 23, Short.MAX_VALUE))))
         );
         layout.setVerticalGroup(
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)

@@ -55,6 +55,7 @@ public class FrmServicos extends javax.swing.JFrame {
         jLabel1.setText("Numero da OS");
 
         AbrirOS.setText("Abrir OS");
+        AbrirOS.setCursor(new java.awt.Cursor(java.awt.Cursor.HAND_CURSOR));
         AbrirOS.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 AbrirOSActionPerformed(evt);
@@ -62,6 +63,7 @@ public class FrmServicos extends javax.swing.JFrame {
         });
 
         Fechar.setText("Fechar");
+        Fechar.setCursor(new java.awt.Cursor(java.awt.Cursor.HAND_CURSOR));
         Fechar.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 FecharActionPerformed(evt);
@@ -69,6 +71,7 @@ public class FrmServicos extends javax.swing.JFrame {
         });
 
         Cadastrar.setText("Cadastrar");
+        Cadastrar.setCursor(new java.awt.Cursor(java.awt.Cursor.HAND_CURSOR));
         Cadastrar.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 CadastrarActionPerformed(evt);
@@ -76,6 +79,7 @@ public class FrmServicos extends javax.swing.JFrame {
         });
 
         LimparCampos.setText("Limpar Campos");
+        LimparCampos.setCursor(new java.awt.Cursor(java.awt.Cursor.HAND_CURSOR));
         LimparCampos.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 LimparCamposActionPerformed(evt);
@@ -115,6 +119,7 @@ public class FrmServicos extends javax.swing.JFrame {
 
         PesquisarCompleto.setFont(new java.awt.Font("Tahoma", 1, 11)); // NOI18N
         PesquisarCompleto.setText("Pesquisar");
+        PesquisarCompleto.setCursor(new java.awt.Cursor(java.awt.Cursor.HAND_CURSOR));
         PesquisarCompleto.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 PesquisarCompletoActionPerformed(evt);

@@ -20,6 +20,7 @@ public class OS {
 	private String Defeito_OS;
 	private String Obs_OS;
 	private String Status_OS;
+        private double valorTotal_OS;
 	private Date DataAbertura_OS;
 	private Date DataFechamento_OS;
         private String NomeUsuario_OS;
@@ -196,6 +197,20 @@ public class OS {
      */
     public void setObs_OS(String Obs_OS) {
         this.Obs_OS = Obs_OS;
+    }
+
+    /**
+     * @return the valorTotal_OS
+     */
+    public double getValorTotal_OS() {
+        return valorTotal_OS;
+    }
+
+    /**
+     * @param valorTotal_OS the valorTotal_OS to set
+     */
+    public void setValorTotal_OS(double valorTotal_OS) {
+        this.valorTotal_OS = valorTotal_OS;
     }
 
    

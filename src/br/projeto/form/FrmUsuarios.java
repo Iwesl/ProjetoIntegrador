@@ -43,6 +43,7 @@ public class FrmUsuarios extends javax.swing.JFrame {
         Fechar2 = new javax.swing.JButton();
         frmCadSenhaUsuario = new javax.swing.JPasswordField();
         jLabel5 = new javax.swing.JLabel();
+        AbrirOS = new javax.swing.JButton();
 
         setDefaultCloseOperation(javax.swing.WindowConstants.DISPOSE_ON_CLOSE);
         setResizable(false);
@@ -65,6 +66,7 @@ public class FrmUsuarios extends javax.swing.JFrame {
 
         Cadastrar.setFont(new java.awt.Font("Tahoma", 1, 11)); // NOI18N
         Cadastrar.setText("Cadastrar");
+        Cadastrar.setCursor(new java.awt.Cursor(java.awt.Cursor.HAND_CURSOR));
         Cadastrar.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 CadastrarActionPerformed(evt);
@@ -72,6 +74,7 @@ public class FrmUsuarios extends javax.swing.JFrame {
         });
 
         LimparCampos.setText("Limpar Campos");
+        LimparCampos.setCursor(new java.awt.Cursor(java.awt.Cursor.HAND_CURSOR));
         LimparCampos.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 LimparCamposActionPerformed(evt);
@@ -79,6 +82,7 @@ public class FrmUsuarios extends javax.swing.JFrame {
         });
 
         Fechar2.setText("Fechar");
+        Fechar2.setCursor(new java.awt.Cursor(java.awt.Cursor.HAND_CURSOR));
         Fechar2.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 Fechar2ActionPerformed(evt);
@@ -94,21 +98,30 @@ public class FrmUsuarios extends javax.swing.JFrame {
 
         jLabel5.setText("Nome");
 
+        AbrirOS.setText("Abrir OS");
+        AbrirOS.setCursor(new java.awt.Cursor(java.awt.Cursor.HAND_CURSOR));
+        AbrirOS.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                AbrirOSActionPerformed(evt);
+            }
+        });
+
         javax.swing.GroupLayout jPanel2Layout = new javax.swing.GroupLayout(jPanel2);
         jPanel2.setLayout(jPanel2Layout);
         jPanel2Layout.setHorizontalGroup(
             jPanel2Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGap(0, 303, Short.MAX_VALUE)
+            .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, jPanel2Layout.createSequentialGroup()
+                .addContainerGap(120, Short.MAX_VALUE)
+                .addComponent(AbrirOS)
+                .addGap(18, 18, 18)
+                .addComponent(LimparCampos)
+                .addGap(18, 18, 18)
+                .addComponent(Fechar2)
+                .addContainerGap())
             .addGroup(jPanel2Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                 .addGroup(jPanel2Layout.createSequentialGroup()
                     .addContainerGap()
                     .addGroup(jPanel2Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                        .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, jPanel2Layout.createSequentialGroup()
-                            .addComponent(Cadastrar)
-                            .addGap(18, 18, 18)
-                            .addComponent(LimparCampos)
-                            .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                            .addComponent(Fechar2))
                         .addGroup(jPanel2Layout.createSequentialGroup()
                             .addGap(11, 11, 11)
                             .addGroup(jPanel2Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
@@ -119,12 +132,20 @@ public class FrmUsuarios extends javax.swing.JFrame {
                                 .addGroup(jPanel2Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING, false)
                                     .addComponent(frmCadSenhaUsuario, javax.swing.GroupLayout.Alignment.LEADING)
                                     .addComponent(frmCadCPFusuario, javax.swing.GroupLayout.Alignment.LEADING, javax.swing.GroupLayout.PREFERRED_SIZE, 156, javax.swing.GroupLayout.PREFERRED_SIZE)))
-                            .addGap(45, 45, 45)))
-                    .addContainerGap()))
+                            .addContainerGap(161, Short.MAX_VALUE))
+                        .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, jPanel2Layout.createSequentialGroup()
+                            .addComponent(Cadastrar)
+                            .addContainerGap(310, Short.MAX_VALUE)))))
         );
         jPanel2Layout.setVerticalGroup(
             jPanel2Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGap(0, 255, Short.MAX_VALUE)
+            .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, jPanel2Layout.createSequentialGroup()
+                .addContainerGap(221, Short.MAX_VALUE)
+                .addGroup(jPanel2Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
+                    .addComponent(LimparCampos)
+                    .addComponent(AbrirOS)
+                    .addComponent(Fechar2))
+                .addContainerGap())
             .addGroup(jPanel2Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                 .addGroup(jPanel2Layout.createSequentialGroup()
                     .addContainerGap()
@@ -140,10 +161,7 @@ public class FrmUsuarios extends javax.swing.JFrame {
                     .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
                     .addComponent(frmCadSenhaUsuario, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
                     .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 48, Short.MAX_VALUE)
-                    .addGroup(jPanel2Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
-                        .addComponent(Fechar2)
-                        .addComponent(Cadastrar)
-                        .addComponent(LimparCampos))
+                    .addComponent(Cadastrar)
                     .addContainerGap()))
         );
 
@@ -151,7 +169,7 @@ public class FrmUsuarios extends javax.swing.JFrame {
         getContentPane().setLayout(layout);
         layout.setHorizontalGroup(
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGroup(layout.createSequentialGroup()
+            .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, layout.createSequentialGroup()
                 .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
                 .addComponent(jPanel2, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
                 .addContainerGap())
@@ -234,6 +252,11 @@ public class FrmUsuarios extends javax.swing.JFrame {
         // TODO add your handling code here:
     }//GEN-LAST:event_frmCadSenhaUsuarioActionPerformed
 
+    private void AbrirOSActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_AbrirOSActionPerformed
+        FrmOS os = new FrmOS();
+        os.setVisible(true);
+    }//GEN-LAST:event_AbrirOSActionPerformed
+
     /**
      * @param args the command line arguments
      */
@@ -273,6 +296,7 @@ public class FrmUsuarios extends javax.swing.JFrame {
     }
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
+    private javax.swing.JButton AbrirOS;
     private javax.swing.JButton Cadastrar;
     private javax.swing.JButton Fechar2;
     private javax.swing.JButton LimparCampos;

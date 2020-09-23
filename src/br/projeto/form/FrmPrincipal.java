@@ -59,10 +59,11 @@ public class FrmPrincipal extends javax.swing.JFrame {
             }
         });
 
-        jMenuBar1.setCursor(new java.awt.Cursor(java.awt.Cursor.HAND_CURSOR));
+        jMenuBar1.setCursor(new java.awt.Cursor(java.awt.Cursor.DEFAULT_CURSOR));
         jMenuBar1.setFont(jMenuBar1.getFont());
 
         jMenu1.setText("Cadastros");
+        jMenu1.setCursor(new java.awt.Cursor(java.awt.Cursor.HAND_CURSOR));
         jMenu1.setFont(new java.awt.Font("Segoe UI", 0, 14)); // NOI18N
 
         mnCliente.setText("Cliente");
@@ -100,6 +101,7 @@ public class FrmPrincipal extends javax.swing.JFrame {
         jMenuBar1.add(jMenu1);
 
         jMenu2.setText("Serviços");
+        jMenu2.setCursor(new java.awt.Cursor(java.awt.Cursor.HAND_CURSOR));
         jMenu2.setFont(new java.awt.Font("Segoe UI", 0, 14)); // NOI18N
 
         mnNovaOS.setText("Abrir Nova OS");
@@ -130,6 +132,7 @@ public class FrmPrincipal extends javax.swing.JFrame {
 
         jMenuUsuario.setForeground(javax.swing.UIManager.getDefaults().getColor("MenuItem.disabledForeground"));
         jMenuUsuario.setText("Usuário");
+        jMenuUsuario.setCursor(new java.awt.Cursor(java.awt.Cursor.HAND_CURSOR));
         jMenuUsuario.setFont(new java.awt.Font("Segoe UI", 0, 14)); // NOI18N
 
         mnLogout.setText("Logout");

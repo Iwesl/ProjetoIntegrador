@@ -79,6 +79,7 @@ public class FrmPesquisar extends javax.swing.JFrame {
         jScrollPane1.setViewportView(jTable1);
 
         AbrirOS.setText("Abrir OS");
+        AbrirOS.setCursor(new java.awt.Cursor(java.awt.Cursor.HAND_CURSOR));
         AbrirOS.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 AbrirOSActionPerformed(evt);
@@ -87,6 +88,7 @@ public class FrmPesquisar extends javax.swing.JFrame {
 
         PesquisarTudo.setFont(new java.awt.Font("Tahoma", 1, 11)); // NOI18N
         PesquisarTudo.setText("Pesquisar");
+        PesquisarTudo.setCursor(new java.awt.Cursor(java.awt.Cursor.HAND_CURSOR));
         PesquisarTudo.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 PesquisarTudoActionPerformed(evt);
@@ -94,6 +96,7 @@ public class FrmPesquisar extends javax.swing.JFrame {
         });
 
         Fechar.setText("Fechar");
+        Fechar.setCursor(new java.awt.Cursor(java.awt.Cursor.HAND_CURSOR));
         Fechar.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 FecharActionPerformed(evt);
@@ -101,6 +104,7 @@ public class FrmPesquisar extends javax.swing.JFrame {
         });
 
         Cadastrar.setText("Cadastrar");
+        Cadastrar.setCursor(new java.awt.Cursor(java.awt.Cursor.HAND_CURSOR));
         Cadastrar.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 CadastrarActionPerformed(evt);
@@ -108,6 +112,7 @@ public class FrmPesquisar extends javax.swing.JFrame {
         });
 
         LimparCampos.setText("Limpar Campos");
+        LimparCampos.setCursor(new java.awt.Cursor(java.awt.Cursor.HAND_CURSOR));
         LimparCampos.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 LimparCamposActionPerformed(evt);
@@ -120,6 +125,7 @@ public class FrmPesquisar extends javax.swing.JFrame {
 
         PesquisarComVeiculo.setFont(new java.awt.Font("Tahoma", 1, 11)); // NOI18N
         PesquisarComVeiculo.setText("Pesquisar (com veículo)");
+        PesquisarComVeiculo.setCursor(new java.awt.Cursor(java.awt.Cursor.HAND_CURSOR));
         PesquisarComVeiculo.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 PesquisarComVeiculoActionPerformed(evt);

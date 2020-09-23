@@ -87,7 +87,7 @@ public class FrmOS extends javax.swing.JFrame {
         jScrollPane3 = new javax.swing.JScrollPane();
         frmDefeito = new javax.swing.JTextArea();
         jScrollPane4 = new javax.swing.JScrollPane();
-        frmObs1 = new javax.swing.JTextArea();
+        frmObs = new javax.swing.JTextArea();
         jLabel14 = new javax.swing.JLabel();
         frmStatus = new javax.swing.JComboBox<>();
         LimparCampos = new javax.swing.JButton();
@@ -107,6 +107,7 @@ public class FrmOS extends javax.swing.JFrame {
 
         AbrirOS.setFont(new java.awt.Font("Tahoma", 1, 11)); // NOI18N
         AbrirOS.setText("Abrir OS");
+        AbrirOS.setCursor(new java.awt.Cursor(java.awt.Cursor.HAND_CURSOR));
         AbrirOS.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 AbrirOSActionPerformed(evt);
@@ -117,6 +118,7 @@ public class FrmOS extends javax.swing.JFrame {
         jLabel1.setText("Cliente");
 
         Pesquisar.setText("Pesquisar");
+        Pesquisar.setCursor(new java.awt.Cursor(java.awt.Cursor.HAND_CURSOR));
         Pesquisar.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 PesquisarActionPerformed(evt);
@@ -131,6 +133,7 @@ public class FrmOS extends javax.swing.JFrame {
         });
 
         Cadastrar.setText("Cadastrar");
+        Cadastrar.setCursor(new java.awt.Cursor(java.awt.Cursor.HAND_CURSOR));
         Cadastrar.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 CadastrarActionPerformed(evt);
@@ -297,6 +300,7 @@ public class FrmOS extends javax.swing.JFrame {
         RemoverPecaOrcamento.setIcon(new javax.swing.ImageIcon(getClass().getResource("/br/projeto/assets/iconmonstr-x-mark-cinza.png"))); // NOI18N
         RemoverPecaOrcamento.setToolTipText("Remove ltens do orçamento");
         RemoverPecaOrcamento.setAlignmentX(0.5F);
+        RemoverPecaOrcamento.setCursor(new java.awt.Cursor(java.awt.Cursor.HAND_CURSOR));
         RemoverPecaOrcamento.setPressedIcon(new javax.swing.ImageIcon(getClass().getResource("/br/projeto/assets/iconmonstr-x-mark-vermelho.png"))); // NOI18N
         RemoverPecaOrcamento.setRolloverIcon(new javax.swing.ImageIcon(getClass().getResource("/br/projeto/assets/iconmonstr-x-mark-vermelho.png"))); // NOI18N
         RemoverPecaOrcamento.setRolloverSelectedIcon(new javax.swing.ImageIcon(getClass().getResource("/br/projeto/assets/iconmonstr-x-mark-vermelho.png"))); // NOI18N
@@ -311,6 +315,7 @@ public class FrmOS extends javax.swing.JFrame {
         AtualizaOrcamento.setIcon(new javax.swing.ImageIcon(getClass().getResource("/br/projeto/assets/checkverde.png"))); // NOI18N
         AtualizaOrcamento.setToolTipText("Atualiza o orçamento");
         AtualizaOrcamento.setAlignmentX(0.5F);
+        AtualizaOrcamento.setCursor(new java.awt.Cursor(java.awt.Cursor.HAND_CURSOR));
         AtualizaOrcamento.setPressedIcon(new javax.swing.ImageIcon(getClass().getResource("/br/projeto/assets/checkverde.png"))); // NOI18N
         AtualizaOrcamento.setRolloverIcon(new javax.swing.ImageIcon(getClass().getResource("/br/projeto/assets/checkverde.png"))); // NOI18N
         AtualizaOrcamento.setRolloverSelectedIcon(new javax.swing.ImageIcon(getClass().getResource("/br/projeto/assets/checkverde.png"))); // NOI18N
@@ -382,12 +387,12 @@ public class FrmOS extends javax.swing.JFrame {
         frmDefeito.setWrapStyleWord(true);
         jScrollPane3.setViewportView(frmDefeito);
 
-        frmObs1.setColumns(7);
-        frmObs1.setFont(new java.awt.Font("Monospaced", 0, 14)); // NOI18N
-        frmObs1.setLineWrap(true);
-        frmObs1.setRows(5);
-        frmObs1.setWrapStyleWord(true);
-        jScrollPane4.setViewportView(frmObs1);
+        frmObs.setColumns(7);
+        frmObs.setFont(new java.awt.Font("Monospaced", 0, 14)); // NOI18N
+        frmObs.setLineWrap(true);
+        frmObs.setRows(5);
+        frmObs.setWrapStyleWord(true);
+        jScrollPane4.setViewportView(frmObs);
 
         jLabel14.setFont(new java.awt.Font("Tahoma", 0, 12)); // NOI18N
         jLabel14.setText("Status da Ordem de Serviço:");
@@ -395,6 +400,7 @@ public class FrmOS extends javax.swing.JFrame {
         frmStatus.setFont(new java.awt.Font("Tahoma", 0, 12)); // NOI18N
         frmStatus.setMaximumRowCount(3);
         frmStatus.setModel(new javax.swing.DefaultComboBoxModel<>(new String[] { "AGUARDANDO", "FINALIZADA", "NÃO AUTORIZADA" }));
+        frmStatus.setCursor(new java.awt.Cursor(java.awt.Cursor.HAND_CURSOR));
         frmStatus.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 frmStatusActionPerformed(evt);
@@ -402,6 +408,7 @@ public class FrmOS extends javax.swing.JFrame {
         });
 
         LimparCampos.setText("Limpar Todos os Campos");
+        LimparCampos.setCursor(new java.awt.Cursor(java.awt.Cursor.HAND_CURSOR));
         LimparCampos.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 LimparCamposActionPerformed(evt);
@@ -410,6 +417,7 @@ public class FrmOS extends javax.swing.JFrame {
 
         InserePecas.setFont(new java.awt.Font("Tahoma", 0, 12)); // NOI18N
         InserePecas.setText("Inserir Peça no Orçamento");
+        InserePecas.setCursor(new java.awt.Cursor(java.awt.Cursor.HAND_CURSOR));
         InserePecas.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 InserePecasActionPerformed(evt);
@@ -419,6 +427,7 @@ public class FrmOS extends javax.swing.JFrame {
         LimparPecas.setFont(new java.awt.Font("Tahoma", 0, 12)); // NOI18N
         LimparPecas.setForeground(new java.awt.Color(51, 51, 51));
         LimparPecas.setText("Limpar Peças");
+        LimparPecas.setCursor(new java.awt.Cursor(java.awt.Cursor.HAND_CURSOR));
         LimparPecas.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 LimparPecasActionPerformed(evt);
@@ -430,6 +439,7 @@ public class FrmOS extends javax.swing.JFrame {
 
         Selecionar.setFont(new java.awt.Font("Tahoma", 0, 12)); // NOI18N
         Selecionar.setText("Selecionar");
+        Selecionar.setCursor(new java.awt.Cursor(java.awt.Cursor.HAND_CURSOR));
         Selecionar.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 SelecionarActionPerformed(evt);
@@ -438,6 +448,7 @@ public class FrmOS extends javax.swing.JFrame {
 
         ConsultaPecas.setFont(new java.awt.Font("Tahoma", 0, 12)); // NOI18N
         ConsultaPecas.setText("Consultar");
+        ConsultaPecas.setCursor(new java.awt.Cursor(java.awt.Cursor.HAND_CURSOR));
         ConsultaPecas.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 ConsultaPecasActionPerformed(evt);
@@ -471,74 +482,75 @@ public class FrmOS extends javax.swing.JFrame {
                     .addGroup(layout.createSequentialGroup()
                         .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                             .addGroup(layout.createSequentialGroup()
-                                .addComponent(Cadastrar)
-                                .addGap(18, 18, 18)
-                                .addComponent(AbrirOS)
-                                .addGap(18, 18, 18)
-                                .addComponent(Pesquisar)
-                                .addGap(18, 18, 18)
-                                .addComponent(LimparCampos)
-                                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                                .addComponent(Fechar))
-                            .addGroup(layout.createSequentialGroup()
-                                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING)
                                     .addGroup(layout.createSequentialGroup()
-                                        .addComponent(jLabel14)
-                                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
-                                        .addComponent(frmStatus, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                                        .addGap(111, 111, 111)
-                                        .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                                            .addComponent(jLabel6)
-                                            .addComponent(frmUsuario, javax.swing.GroupLayout.PREFERRED_SIZE, 270, javax.swing.GroupLayout.PREFERRED_SIZE)))
-                                    .addGroup(layout.createSequentialGroup()
-                                        .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING)
-                                            .addGroup(layout.createSequentialGroup()
-                                                .addComponent(jLabel11)
-                                                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                                                .addComponent(frmPlacaVeiculo, javax.swing.GroupLayout.PREFERRED_SIZE, 129, javax.swing.GroupLayout.PREFERRED_SIZE))
-                                            .addComponent(Selecionar))
-                                        .addGap(86, 86, 86)
-                                        .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                                            .addComponent(jLabel1, javax.swing.GroupLayout.Alignment.TRAILING)
-                                            .addComponent(jLabel12, javax.swing.GroupLayout.Alignment.TRAILING))
-                                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
-                                        .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
-                                            .addComponent(frmCliente)
-                                            .addComponent(frmModeloVeiculo, javax.swing.GroupLayout.DEFAULT_SIZE, 276, Short.MAX_VALUE))
-                                        .addGap(42, 42, 42)
-                                        .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING, false)
-                                            .addGroup(javax.swing.GroupLayout.Alignment.LEADING, layout.createSequentialGroup()
-                                                .addComponent(jLabel8)
-                                                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                                                .addComponent(frmCel1))
-                                            .addGroup(javax.swing.GroupLayout.Alignment.LEADING, layout.createSequentialGroup()
-                                                .addComponent(jLabel9)
-                                                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                                                .addComponent(frmCel2, javax.swing.GroupLayout.PREFERRED_SIZE, 120, javax.swing.GroupLayout.PREFERRED_SIZE))))
-                                    .addGroup(layout.createSequentialGroup()
-                                        .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING, false)
-                                            .addGroup(layout.createSequentialGroup()
-                                                .addComponent(frmPecas)
-                                                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                                                .addComponent(ConsultaPecas))
-                                            .addGroup(javax.swing.GroupLayout.Alignment.LEADING, layout.createSequentialGroup()
-                                                .addComponent(InserePecas)
-                                                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                                                .addComponent(LimparPecas))
-                                            .addComponent(jScrollPane1, javax.swing.GroupLayout.Alignment.LEADING, javax.swing.GroupLayout.PREFERRED_SIZE, 501, javax.swing.GroupLayout.PREFERRED_SIZE))
+                                        .addComponent(jLabel11)
                                         .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                                        .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                                            .addComponent(jLabel4)
-                                            .addComponent(jScrollPane4, javax.swing.GroupLayout.PREFERRED_SIZE, 410, javax.swing.GroupLayout.PREFERRED_SIZE))))
-                                .addGap(0, 0, Short.MAX_VALUE)))
-                        .addContainerGap())
+                                        .addComponent(frmPlacaVeiculo, javax.swing.GroupLayout.PREFERRED_SIZE, 129, javax.swing.GroupLayout.PREFERRED_SIZE))
+                                    .addComponent(Selecionar))
+                                .addGap(86, 86, 86)
+                                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                                    .addComponent(jLabel1, javax.swing.GroupLayout.Alignment.TRAILING)
+                                    .addComponent(jLabel12, javax.swing.GroupLayout.Alignment.TRAILING))
+                                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
+                                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
+                                    .addComponent(frmCliente)
+                                    .addComponent(frmModeloVeiculo, javax.swing.GroupLayout.DEFAULT_SIZE, 276, Short.MAX_VALUE))
+                                .addGap(42, 42, 42)
+                                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING, false)
+                                    .addGroup(javax.swing.GroupLayout.Alignment.LEADING, layout.createSequentialGroup()
+                                        .addComponent(jLabel8)
+                                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                                        .addComponent(frmCel1))
+                                    .addGroup(javax.swing.GroupLayout.Alignment.LEADING, layout.createSequentialGroup()
+                                        .addComponent(jLabel9)
+                                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                                        .addComponent(frmCel2, javax.swing.GroupLayout.PREFERRED_SIZE, 120, javax.swing.GroupLayout.PREFERRED_SIZE))))
+                            .addGroup(layout.createSequentialGroup()
+                                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING, false)
+                                    .addGroup(layout.createSequentialGroup()
+                                        .addComponent(frmPecas)
+                                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                                        .addComponent(ConsultaPecas))
+                                    .addGroup(javax.swing.GroupLayout.Alignment.LEADING, layout.createSequentialGroup()
+                                        .addComponent(InserePecas)
+                                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                                        .addComponent(LimparPecas))
+                                    .addComponent(jScrollPane1, javax.swing.GroupLayout.Alignment.LEADING, javax.swing.GroupLayout.PREFERRED_SIZE, 501, javax.swing.GroupLayout.PREFERRED_SIZE))
+                                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                                    .addComponent(jLabel4)
+                                    .addComponent(jScrollPane4, javax.swing.GroupLayout.PREFERRED_SIZE, 410, javax.swing.GroupLayout.PREFERRED_SIZE))))
+                        .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
                     .addGroup(layout.createSequentialGroup()
                         .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                             .addComponent(jLabel5)
                             .addComponent(jLabel13)
                             .addComponent(jScrollPane3, javax.swing.GroupLayout.PREFERRED_SIZE, 917, javax.swing.GroupLayout.PREFERRED_SIZE)
                             .addComponent(jPanel1, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
-                        .addGap(0, 0, Short.MAX_VALUE))))
+                        .addGap(0, 0, Short.MAX_VALUE))
+                    .addGroup(layout.createSequentialGroup()
+                        .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING)
+                            .addGroup(layout.createSequentialGroup()
+                                .addComponent(jLabel14)
+                                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
+                                .addComponent(frmStatus, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
+                            .addGroup(layout.createSequentialGroup()
+                                .addComponent(Cadastrar)
+                                .addGap(18, 18, 18)
+                                .addComponent(AbrirOS)
+                                .addGap(18, 18, 18)
+                                .addComponent(Pesquisar)
+                                .addGap(18, 18, 18)
+                                .addComponent(LimparCampos)))
+                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                        .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                            .addComponent(Fechar, javax.swing.GroupLayout.Alignment.TRAILING)
+                            .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, layout.createSequentialGroup()
+                                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                                    .addComponent(jLabel6)
+                                    .addComponent(frmUsuario, javax.swing.GroupLayout.PREFERRED_SIZE, 270, javax.swing.GroupLayout.PREFERRED_SIZE))
+                                .addGap(86, 86, 86))))))
         );
         layout.setVerticalGroup(
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
@@ -659,7 +671,7 @@ public class FrmOS extends javax.swing.JFrame {
         frmTotalObra.setText("");
         frmOrcamentoFinal.setText("");
         frmDefeito.setText("");
-        frmObs1.setText("");
+        frmObs.setText("");
         addFuncionario();
 
         DefaultTableModel modeloTabela = (DefaultTableModel) jTable1.getModel();
@@ -734,7 +746,7 @@ public class FrmOS extends javax.swing.JFrame {
     }//GEN-LAST:event_PesquisarActionPerformed
 
     private void AbrirOSActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_AbrirOSActionPerformed
-
+        abrirOrdemServico();
     }//GEN-LAST:event_AbrirOSActionPerformed
 
     /**
@@ -789,7 +801,7 @@ public class FrmOS extends javax.swing.JFrame {
     private javax.swing.JTextField frmCliente;
     private javax.swing.JTextArea frmDefeito;
     private javax.swing.JTextField frmModeloVeiculo;
-    private javax.swing.JTextArea frmObs1;
+    private javax.swing.JTextArea frmObs;
     private javax.swing.JFormattedTextField frmOrcamentoFinal;
     private javax.swing.JTextField frmPecas;
     private javax.swing.JTextField frmPlacaVeiculo;
@@ -825,7 +837,7 @@ public class FrmOS extends javax.swing.JFrame {
 
         if (frmModeloVeiculo.getText().isEmpty()
                 || frmDefeito.getText().isEmpty()
-                || frmObs1.getText().isEmpty()
+                || frmObs.getText().isEmpty()
                 || frmTotalPecas.getText().isEmpty()
                 || frmTotalObra.getText().isEmpty()
                 || frmOrcamentoFinal.getText().isEmpty()
@@ -852,6 +864,7 @@ public class FrmOS extends javax.swing.JFrame {
             }
 
             try {
+                os.setNumero_OS(+1);
                 os.setNomeUsuario_OS(nomeUsuario);
                 os.setIdUsuario_OS(idUsuario);
                 os.setNomeCliente_OS(nomeCliente);
@@ -859,32 +872,32 @@ public class FrmOS extends javax.swing.JFrame {
                 os.setNomePeca_OS(selectedNome);
                 os.setIdPeca_OS(selectedId);
                 os.setDataAbertura_OS(Date.valueOf(DataAtual));
-                if(verificaStatus(frmStatus.getSelectedItem().toString())){
-                    os.setDataFechamento_OS(Date.valueOf(DataAtual));
-                } else {
-                    os.setDataFechamento_OS(null);
+                if(verificaStatus(frmStatus.getSelectedItem().toString())){ // se o status estiver finalizado
+                    os.setDataFechamento_OS(Date.valueOf(DataAtual));      // define a data de fechamento
+                } else {                                                  // se não
+                    os.setDataFechamento_OS(null);                       // não define
                 }
-                
+                os.setDefeito_OS(frmDefeito.getText());
+                os.setObs_OS(frmObs.getText());
+                os.setValorTotal_OS(Double.parseDouble(frmOrcamentoFinal.getText()));
+                os.setStatus_OS(frmStatus.getSelectedItem().toString());
 
                 sDAO.inserir(os); // faz a inserção no banco de dados dos dados que agora estão nas variáveis
 
                 try {
-                    if (sDAO.verificaCliente(cl)) {
+                    if (sDAO.verificaOS(os)) {
                         JOptionPane.showMessageDialog(this, "Cadastro efetuado com sucesso!", "Cadastro de Clientes", JOptionPane.INFORMATION_MESSAGE);
                         // limpa os campos
-                        frmCPF.setText("");
-                        frmNome.setText("");
-                        frmEndereco.setText("");
-                        frmCel1.setText("");
-                        frmCel2.setText("");
-                        frmEntrada.setText("");
+                        LimparCampos.doClick();
                     }
                 } catch (SQLException ex) {
-                    JOptionPane.showMessageDialog(this, "Erro no processo!\n" + ex.getMessage(), "Cadastro de Clientes", JOptionPane.ERROR);
+                    os.setNumero_OS(-1);
+                    JOptionPane.showMessageDialog(this, "Erro no processo!\n" + ex.getMessage(), "Verificação de Ordem de Serviço", JOptionPane.ERROR);
                 }
 
             } catch (SQLException ex) {
-                JOptionPane.showMessageDialog(this, "Erro no processo!\n" + ex.getMessage(), "Cadastro de Clientes", JOptionPane.ERROR);
+                os.setNumero_OS(-1);
+                JOptionPane.showMessageDialog(this, "Erro no processo!\n" + ex.getMessage(), "Cadastro de Ordem de Serviço", JOptionPane.ERROR);
             }
         }
 
@@ -994,7 +1007,7 @@ public class FrmOS extends javax.swing.JFrame {
 
     private static double valorTotalPecas = 0;
     private static double maoDeObra = 100;
-    private static long orcamento = 0;
+    private static double orcamento = 0;
 
     public void atualizarOrcamento() {
 
@@ -1026,23 +1039,23 @@ public class FrmOS extends javax.swing.JFrame {
     }
 
     public final double totalPecas() {
-        for (int i = selectedQtd.size() - 1; i >= 0; i--) {
-            valorTotalPecas = selectedQtd.get(i) * selectedValor.get(i);
-        }
+        //for (int i = selectedQtd.size() - 1; i >= 0; i--) {
+            valorTotalPecas = selectedQtd * selectedValor;
+        //}
         return valorTotalPecas;
     }
 
     public final double totalObra() {
-        for (int i = selectedQtd.size() - 1; i >= 0; i--) {
-            for (int j = 0; j <= selectedQtd.get(i); j++) {
+        //for (int i = selectedQtd.size() - 1; i >= 0; i--) {
+            for (int j = 0; j <= selectedQtd; j++) {
                 maoDeObra *= 1.1;
             }
-        }
+        //}
         return maoDeObra;
     }
 
-    public final long totalOrcamento() {
-        orcamento = (long) (valorTotalPecas + maoDeObra);
+    public final double totalOrcamento() {
+        orcamento =  valorTotalPecas + maoDeObra;
         return orcamento;
     }
 

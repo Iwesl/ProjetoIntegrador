@@ -196,6 +196,7 @@ public class FrmLoginJPanel extends javax.swing.JDialog {
 
         TelaCadastro.setFont(new java.awt.Font("Tahoma", 0, 12)); // NOI18N
         TelaCadastro.setText("Cadastrar");
+        TelaCadastro.setCursor(new java.awt.Cursor(java.awt.Cursor.HAND_CURSOR));
         TelaCadastro.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 TelaCadastroActionPerformed(evt);
@@ -212,6 +213,7 @@ public class FrmLoginJPanel extends javax.swing.JDialog {
 
         confirma.setFont(new java.awt.Font("Tahoma", 1, 12)); // NOI18N
         confirma.setText("Logar");
+        confirma.setCursor(new java.awt.Cursor(java.awt.Cursor.HAND_CURSOR));
         confirma.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 confirmaActionPerformed(evt);
@@ -221,6 +223,7 @@ public class FrmLoginJPanel extends javax.swing.JDialog {
         fechar1.setFont(new java.awt.Font("Tahoma", 0, 12)); // NOI18N
         fechar1.setForeground(new java.awt.Color(51, 51, 51));
         fechar1.setText("Sair");
+        fechar1.setCursor(new java.awt.Cursor(java.awt.Cursor.HAND_CURSOR));
         fechar1.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 fechar1ActionPerformed(evt);
