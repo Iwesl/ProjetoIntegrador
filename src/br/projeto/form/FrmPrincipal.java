@@ -5,11 +5,8 @@
  */
 package br.projeto.form;
 
-import br.projeto.DAO.UsuarioDAO;
-import br.projeto.data.Usuario;
 import java.awt.GraphicsEnvironment;
 import java.awt.Window;
-import java.awt.event.WindowFocusListener;
 import javax.swing.JOptionPane;
 
 /**
@@ -24,8 +21,11 @@ public class FrmPrincipal extends javax.swing.JFrame {
     public FrmPrincipal() {
         initComponents();
         Login();
-        
-
+//        if (FrmLoginJPanel.isRs()) {
+//            for (Window w : Window.getWindows()) {
+//                GraphicsEnvironment.getLocalGraphicsEnvironment().getDefaultScreenDevice().setFullScreenWindow(w);
+//            }
+//        }
     }
 
     /**
@@ -48,7 +48,7 @@ public class FrmPrincipal extends javax.swing.JFrame {
         jMenuUsuario = new javax.swing.JMenu();
         mnLogout = new javax.swing.JMenuItem();
 
-        setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
+        setDefaultCloseOperation(javax.swing.WindowConstants.DO_NOTHING_ON_CLOSE);
         setBackground(new java.awt.Color(204, 204, 204));
         setCursor(new java.awt.Cursor(java.awt.Cursor.DEFAULT_CURSOR));
         setFocusTraversalPolicyProvider(true);
@@ -163,7 +163,13 @@ public class FrmPrincipal extends javax.swing.JFrame {
     }// </editor-fold>//GEN-END:initComponents
 
     private void formWindowClosing(java.awt.event.WindowEvent evt) {//GEN-FIRST:event_formWindowClosing
-        //JOptionPane.showConfirmDialog(this, evt, "ATENÇÃO\n\nVocê quer fechar esta aplicação?", JOptionPane.OK_CANCEL_OPTION, JOptionPane.QUESTION_MESSAGE);
+        if (JOptionPane.showConfirmDialog(this, "Você realmente deseja fechar esta aplicação?", "ATENÇÃO",
+                JOptionPane.OK_CANCEL_OPTION, JOptionPane.QUESTION_MESSAGE)
+                == JOptionPane.YES_OPTION) {
+            System.exit(0);
+        } else {
+            // não faz nada
+        }
     }//GEN-LAST:event_formWindowClosing
 
     private void mnPesquisarActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_mnPesquisarActionPerformed
@@ -246,7 +252,6 @@ public class FrmPrincipal extends javax.swing.JFrame {
         java.awt.EventQueue.invokeLater(new Runnable() {
             public void run() {
                 new FrmPrincipal().setVisible(true);
-                
             }
         });
     }
@@ -269,15 +274,8 @@ public final void Login() {
         FrmLoginJPanel l = new FrmLoginJPanel(this, true);
 
         while (!l.Logado()) {
-
             l.setVisible(true);
         }
         l.dispose();
-        if(!l.isActive()){
-//        for (Window w : Window.getWindows()) {
-//            GraphicsEnvironment.getLocalGraphicsEnvironment().getDefaultScreenDevice().setFullScreenWindow(w);
-//        }
-        }
-        
     }
 }
