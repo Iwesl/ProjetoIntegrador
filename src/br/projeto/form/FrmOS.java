@@ -46,6 +46,7 @@ public class FrmOS extends javax.swing.JFrame {
     public FrmOS() {
         initComponents();
         addFuncionario();
+        jLabelNumOs.setText(String.valueOf(getNumOS()+1)); // imprime na tela o número da OS atual
     }
 
     /**
@@ -101,6 +102,8 @@ public class FrmOS extends javax.swing.JFrame {
         frmCliente = new javax.swing.JTextField();
         frmModeloVeiculo = new javax.swing.JTextField();
         jLabel10 = new javax.swing.JLabel();
+        jLabel16 = new javax.swing.JLabel();
+        jLabelNumOs = new javax.swing.JLabel();
 
         setDefaultCloseOperation(javax.swing.WindowConstants.DISPOSE_ON_CLOSE);
         setFocusCycleRoot(false);
@@ -477,6 +480,12 @@ public class FrmOS extends javax.swing.JFrame {
         jLabel10.setForeground(new java.awt.Color(51, 51, 51));
         jLabel10.setText("(Opcional)");
 
+        jLabel16.setFont(new java.awt.Font("Tahoma", 0, 12)); // NOI18N
+        jLabel16.setText("Nº da OS:");
+
+        jLabelNumOs.setFont(new java.awt.Font("Tahoma", 1, 12)); // NOI18N
+        jLabelNumOs.setText("0");
+
         javax.swing.GroupLayout layout = new javax.swing.GroupLayout(getContentPane());
         getContentPane().setLayout(layout);
         layout.setHorizontalGroup(
@@ -556,7 +565,7 @@ public class FrmOS extends javax.swing.JFrame {
                                 .addComponent(Pesquisar)
                                 .addGap(18, 18, 18)
                                 .addComponent(LimparCampos)))
-                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                        .addGap(18, 18, 18)
                         .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                             .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, layout.createSequentialGroup()
                                 .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
@@ -564,6 +573,10 @@ public class FrmOS extends javax.swing.JFrame {
                                     .addComponent(frmUsuario, javax.swing.GroupLayout.PREFERRED_SIZE, 270, javax.swing.GroupLayout.PREFERRED_SIZE))
                                 .addGap(86, 86, 86))
                             .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, layout.createSequentialGroup()
+                                .addComponent(jLabel16)
+                                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                                .addComponent(jLabelNumOs)
+                                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
                                 .addComponent(Fechar)
                                 .addContainerGap())))))
         );
@@ -630,13 +643,15 @@ public class FrmOS extends javax.swing.JFrame {
                     .addComponent(frmUsuario, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
                     .addComponent(jLabel14)
                     .addComponent(frmStatus, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
-                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 63, Short.MAX_VALUE)
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 60, Short.MAX_VALUE)
                 .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
                     .addComponent(Fechar)
                     .addComponent(Pesquisar)
                     .addComponent(AbrirOS)
                     .addComponent(Cadastrar)
-                    .addComponent(LimparCampos))
+                    .addComponent(LimparCampos)
+                    .addComponent(jLabel16)
+                    .addComponent(jLabelNumOs))
                 .addGap(21, 21, 21))
         );
 
@@ -691,6 +706,7 @@ public class FrmOS extends javax.swing.JFrame {
         frmObs.setText("");
         addFuncionario();
         frmUsuario.setSelectedIndex(-1);
+        jLabelNumOs.setText(String.valueOf(getNumOS()+1));
 
         DefaultTableModel modeloTabela = (DefaultTableModel) jTable1.getModel();
         DefaultTableModel modeloTabela3 = (DefaultTableModel) jTable3.getModel();
@@ -835,6 +851,7 @@ public class FrmOS extends javax.swing.JFrame {
     private javax.swing.JLabel jLabel13;
     private javax.swing.JLabel jLabel14;
     private javax.swing.JLabel jLabel15;
+    private javax.swing.JLabel jLabel16;
     private javax.swing.JLabel jLabel2;
     private javax.swing.JLabel jLabel3;
     private javax.swing.JLabel jLabel4;
@@ -843,6 +860,7 @@ public class FrmOS extends javax.swing.JFrame {
     private javax.swing.JLabel jLabel7;
     private javax.swing.JLabel jLabel8;
     private javax.swing.JLabel jLabel9;
+    private javax.swing.JLabel jLabelNumOs;
     private javax.swing.JPanel jPanel1;
     private javax.swing.JScrollPane jScrollPane1;
     private javax.swing.JScrollPane jScrollPane3;
@@ -852,7 +870,7 @@ public class FrmOS extends javax.swing.JFrame {
     private javax.swing.JTable jTable3;
     // End of variables declaration//GEN-END:variables
     private final static LocalDate DataAtual = LocalDate.now();
-    
+
     public void abrirOrdemServico() {
         OS os = new OS();
         ServicoDAO sDAO = new ServicoDAO();
@@ -864,7 +882,7 @@ public class FrmOS extends javax.swing.JFrame {
                 || frmOrcamentoFinal.getText().isEmpty()
                 || jTable3.getSelectedRowCount() == -1
                 || frmStatus.getSelectedItem().equals(-1)
-                || frmUsuario.getSelectedItem().equals(-1)){
+                || frmUsuario.getSelectedItem().equals(-1)) {
             JOptionPane.showMessageDialog(this, "Complete todos os campos.", "Cadastro de Ordem de Serviço", JOptionPane.WARNING_MESSAGE);
         } else { // pega os dados dos campos e os coloca nas variáveis desejadas
 
@@ -887,7 +905,7 @@ public class FrmOS extends javax.swing.JFrame {
             }
 
             try {
-                os.setNumero_OS(+1);
+                os.setNumero_OS(getNumOS()+1);
                 os.setNomeUsuario_OS(nomeUsuario);
                 os.setIdUsuario_OS(idUsuario);
                 os.setNomeCliente_OS(nomeCliente);
@@ -895,7 +913,7 @@ public class FrmOS extends javax.swing.JFrame {
                 os.setNomePeca_OS(selectedNome);
                 os.setIdPeca_OS(selectedId);
                 os.setDataAbertura_OS(Date.valueOf(DataAtual));
-                if(verificaStatus(frmStatus.getSelectedItem().toString())){ // se o status estiver finalizado
+                if (verificaStatus(frmStatus.getSelectedItem().toString())) { // se o status estiver finalizado
                     os.setDataFechamento_OS(Date.valueOf(DataAtual));      // define a data de fechamento
                 } else {                                                  // se não
                     os.setDataFechamento_OS(null);                       // não define
@@ -927,13 +945,12 @@ public class FrmOS extends javax.swing.JFrame {
     }
 
     public static final boolean verificaStatus(String status) {
-        boolean res=false;
-        if(status=="FINALIZADA"){
-            res=true;
+        boolean res = false;
+        if (status == "FINALIZADA") {
+            res = true;
         }
         return res;
     }
-
 
     public void listaPecas() {
         try {
@@ -984,7 +1001,7 @@ public class FrmOS extends javax.swing.JFrame {
         } catch (SQLException ex) {
             JOptionPane.showMessageDialog(this, "Erro no processo!\n" + ex.getMessage(), "Consulta de Peças", JOptionPane.ERROR_MESSAGE);
         } catch (Exception ex) {
-            Logger.getLogger(FrmPrincipal.class.getName()).log(Level.SEVERE, null, ex);
+            Logger.getLogger(FrmOS.class.getName()).log(Level.SEVERE, null, ex);
         }
     }
 
@@ -1032,11 +1049,10 @@ public class FrmOS extends javax.swing.JFrame {
 
     public void atualizarOrcamento() {
 
-        Object[] dados = new Object[4]; // instancia os objetos. Cada objeto representa um atributo
+        Object[] dados = new Object[3]; // instancia os objetos. Cada objeto representa um atributo
         dados[0] = 0;
         dados[1] = 0;
         dados[2] = 0;
-        dados[3] = 0;
 
         frmTotalPecas.setValue(dados[0]);
         frmTotalObra.setValue(dados[1]);
@@ -1061,22 +1077,22 @@ public class FrmOS extends javax.swing.JFrame {
 
     public final double totalPecas() {
         //for (int i = selectedQtd.size() - 1; i >= 0; i--) {
-            valorTotalPecas = selectedQtd * selectedValor;
+        valorTotalPecas = selectedQtd * selectedValor;
         //}
         return valorTotalPecas;
     }
 
     public final double totalObra() {
         //for (int i = selectedQtd.size() - 1; i >= 0; i--) {
-            for (int j = 0; j <= selectedQtd; j++) {
-                maoDeObra *= 1.1;
-            }
+        for (int j = 0; j <= selectedQtd; j++) {
+            maoDeObra *= 1.1;
+        }
         //}
         return maoDeObra;
     }
 
     public final double totalOrcamento() {
-        orcamento =  valorTotalPecas + maoDeObra;
+        orcamento = valorTotalPecas + maoDeObra;
         return orcamento;
     }
 
@@ -1141,7 +1157,7 @@ public class FrmOS extends javax.swing.JFrame {
         } catch (SQLException ex) {
             JOptionPane.showMessageDialog(this, "Erro no processo!\n" + ex.getMessage(), "Consulta", JOptionPane.ERROR_MESSAGE);
         } catch (Exception ex) {
-            Logger.getLogger(FrmPrincipal.class.getName()).log(Level.SEVERE, null, ex);
+            Logger.getLogger(FrmOS.class.getName()).log(Level.SEVERE, null, ex);
         }
     }
 
@@ -1187,8 +1203,25 @@ public class FrmOS extends javax.swing.JFrame {
             } catch (SQLException ex) {
                 JOptionPane.showMessageDialog(this, "Erro no processo!\n" + ex.getMessage(), "Consultas", JOptionPane.ERROR_MESSAGE);
             } catch (Exception ex) {
-                Logger.getLogger(FrmPesquisar.class.getName()).log(Level.SEVERE, null, ex);
+                Logger.getLogger(FrmOS.class.getName()).log(Level.SEVERE, null, ex);
             }
         }
+    }
+
+    public final static int getNumOS() {
+        int num = 0;
+        try {
+            ServicoDAO sDAO = new ServicoDAO();
+            ArrayList<OS> os = sDAO.getNumOS();
+            
+            for (int i = 0; i < os.size(); i++) {
+                num = os.get(i).getNumero_OS();
+            }
+            
+        } catch (Exception ex) {
+                Logger.getLogger(FrmOS.class.getName()).log(Level.SEVERE, null, ex);
+            }
+
+        return num;
     }
 }
