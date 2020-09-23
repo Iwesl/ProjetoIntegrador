@@ -7,14 +7,18 @@ package br.projeto.form;
 
 import br.projeto.DAO.OrcamentoDAO;
 import br.projeto.DAO.PecaDAO;
+import br.projeto.DAO.ServicoDAO;
 import br.projeto.DAO.UsuarioDAO;
 import br.projeto.DAO.VeiculoDAO;
 import br.projeto.data.Cliente;
+import br.projeto.data.OS;
 import br.projeto.data.Peca;
 import br.projeto.data.Usuario;
 import br.projeto.data.Veiculo;
+import java.sql.Date;
 import java.sql.SQLException;
 import java.text.DateFormat;
+import java.time.LocalDate;
 import java.util.ArrayList;
 import java.util.Calendar;
 import java.util.logging.Level;
@@ -35,9 +39,6 @@ import javax.swing.table.TableModel;
  * @author Igor
  */
 public class FrmOS extends javax.swing.JFrame {
-
-    Calendar c = Calendar.getInstance();
-    DateFormat data = DateFormat.getDateInstance();
 
     /**
      * Creates new form FrmOS
@@ -71,7 +72,7 @@ public class FrmOS extends javax.swing.JFrame {
         jScrollPane1 = new javax.swing.JScrollPane();
         jTable1 = new javax.swing.JTable();
         jLabel6 = new javax.swing.JLabel();
-        frmAtendente = new javax.swing.JComboBox<>();
+        frmUsuario = new javax.swing.JComboBox<>();
         jPanel1 = new javax.swing.JPanel();
         frmTotalPecas = new javax.swing.JFormattedTextField();
         jLabel2 = new javax.swing.JLabel();
@@ -183,14 +184,14 @@ public class FrmOS extends javax.swing.JFrame {
 
             },
             new String [] {
-                "Nome da Peça", "Preço", "Quantidade"
+                "ID", "Nome da Peça", "Preço", "Quantidade"
             }
         ) {
             Class[] types = new Class [] {
-                java.lang.String.class, java.lang.Double.class, java.lang.Integer.class
+                java.lang.Integer.class, java.lang.String.class, java.lang.Double.class, java.lang.Integer.class
             };
             boolean[] canEdit = new boolean [] {
-                false, false, false
+                false, false, false, false
             };
 
             public Class getColumnClass(int columnIndex) {
@@ -211,10 +212,10 @@ public class FrmOS extends javax.swing.JFrame {
         jLabel6.setFont(new java.awt.Font("Tahoma", 0, 12)); // NOI18N
         jLabel6.setText("Atendente");
 
-        frmAtendente.setFont(new java.awt.Font("Tahoma", 0, 12)); // NOI18N
-        frmAtendente.setMaximumRowCount(3);
-        frmAtendente.setModel(new javax.swing.DefaultComboBoxModel<>(new String[] { "Item 1", "Item 2", "Item 3", "Item 4" }));
-        frmAtendente.setCursor(new java.awt.Cursor(java.awt.Cursor.HAND_CURSOR));
+        frmUsuario.setFont(new java.awt.Font("Tahoma", 0, 12)); // NOI18N
+        frmUsuario.setMaximumRowCount(3);
+        frmUsuario.setModel(new javax.swing.DefaultComboBoxModel<>(new String[] { "Item 1", "Item 2", "Item 3", "Item 4" }));
+        frmUsuario.setCursor(new java.awt.Cursor(java.awt.Cursor.HAND_CURSOR));
 
         jPanel1.setBackground(new java.awt.Color(255, 255, 204));
         jPanel1.setBorder(javax.swing.BorderFactory.createBevelBorder(javax.swing.border.BevelBorder.RAISED));
@@ -262,14 +263,14 @@ public class FrmOS extends javax.swing.JFrame {
 
             },
             new String [] {
-                "Nome da Peça", "Preço", "Quantidade"
+                "ID", "Nome da Peça", "Preço", "Quantidade"
             }
         ) {
             Class[] types = new Class [] {
-                java.lang.String.class, java.lang.Double.class, java.lang.Integer.class
+                java.lang.Integer.class, java.lang.String.class, java.lang.Double.class, java.lang.Integer.class
             };
             boolean[] canEdit = new boolean [] {
-                false, false, true
+                true, false, false, true
             };
 
             public Class getColumnClass(int columnIndex) {
@@ -378,7 +379,6 @@ public class FrmOS extends javax.swing.JFrame {
         frmDefeito.setFont(new java.awt.Font("Monospaced", 0, 14)); // NOI18N
         frmDefeito.setLineWrap(true);
         frmDefeito.setRows(5);
-        frmDefeito.setText("teste teste teste teste teste teste teste teste teste teste teste teste teste teste teste teste teste teste teste teste teste teste teste teste teste teste teste teste teste teste teste teste teste teste teste teste teste teste teste teste teste teste teste teste teste teste teste teste teste teste teste teste teste teste teste teste teste teste teste teste teste teste teste teste teste teste teste teste teste teste teste teste teste teste teste teste teste teste teste teste teste teste teste teste teste teste teste teste teste teste teste teste teste teste teste teste teste ");
         frmDefeito.setWrapStyleWord(true);
         jScrollPane3.setViewportView(frmDefeito);
 
@@ -386,7 +386,6 @@ public class FrmOS extends javax.swing.JFrame {
         frmObs1.setFont(new java.awt.Font("Monospaced", 0, 14)); // NOI18N
         frmObs1.setLineWrap(true);
         frmObs1.setRows(5);
-        frmObs1.setText("teste teste teste teste teste teste teste teste teste teste teste teste teste teste teste teste teste teste teste teste teste teste teste teste teste teste teste teste teste teste teste teste teste teste teste teste teste teste teste teste teste teste teste teste teste teste teste teste teste teste ");
         frmObs1.setWrapStyleWord(true);
         jScrollPane4.setViewportView(frmObs1);
 
@@ -490,7 +489,7 @@ public class FrmOS extends javax.swing.JFrame {
                                         .addGap(111, 111, 111)
                                         .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                                             .addComponent(jLabel6)
-                                            .addComponent(frmAtendente, javax.swing.GroupLayout.PREFERRED_SIZE, 270, javax.swing.GroupLayout.PREFERRED_SIZE)))
+                                            .addComponent(frmUsuario, javax.swing.GroupLayout.PREFERRED_SIZE, 270, javax.swing.GroupLayout.PREFERRED_SIZE)))
                                     .addGroup(layout.createSequentialGroup()
                                         .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING)
                                             .addGroup(layout.createSequentialGroup()
@@ -599,7 +598,7 @@ public class FrmOS extends javax.swing.JFrame {
                 .addComponent(jLabel6)
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
                 .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
-                    .addComponent(frmAtendente, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                    .addComponent(frmUsuario, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
                     .addComponent(jLabel14)
                     .addComponent(frmStatus, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 63, Short.MAX_VALUE)
@@ -638,7 +637,7 @@ public class FrmOS extends javax.swing.JFrame {
                 u.setVisible(true);
                 break;
             default:
-                // não faz nada
+            // não faz nada
         }
     }//GEN-LAST:event_CadastrarActionPerformed
 
@@ -651,8 +650,8 @@ public class FrmOS extends javax.swing.JFrame {
         frmCliente.setText("");
         frmCel1.setText("");
         frmCel2.setText("");
-        frmAtendente.setSelectedIndex(-1);
-        frmAtendente.removeAllItems();
+        frmUsuario.setSelectedIndex(-1);
+        frmUsuario.removeAllItems();
         frmModeloVeiculo.setText("");
         frmPecas.setText("");
         frmStatus.setSelectedIndex(-1);
@@ -773,18 +772,6 @@ public class FrmOS extends javax.swing.JFrame {
             }
         });
     }
-
-    public void calendario() {
-
-//        c.set(Calendar.YEAR, 1995);
-//        c.set(Calendar.MONTH, Calendar.MARCH);
-//        c.set(Calendar.DAY_OF_MONTH, 20);
-        System.out.println("Data/Hora atual: " + c.getTime());
-        System.out.println("Ano: " + c.get(Calendar.YEAR));
-        System.out.println("Mês: " + c.get(Calendar.MONTH));
-        System.out.println("Dia do Mês: " + c.get(Calendar.DAY_OF_MONTH));
-    }
-
     // Variables declaration - do not modify//GEN-BEGIN:variables
     private javax.swing.JButton AbrirOS;
     private javax.swing.JButton AtualizaOrcamento;
@@ -797,7 +784,6 @@ public class FrmOS extends javax.swing.JFrame {
     private javax.swing.JButton Pesquisar;
     private javax.swing.JButton RemoverPecaOrcamento;
     private javax.swing.JButton Selecionar;
-    private javax.swing.JComboBox<String> frmAtendente;
     private javax.swing.JFormattedTextField frmCel1;
     private javax.swing.JFormattedTextField frmCel2;
     private javax.swing.JTextField frmCliente;
@@ -810,6 +796,7 @@ public class FrmOS extends javax.swing.JFrame {
     private javax.swing.JComboBox<String> frmStatus;
     private javax.swing.JFormattedTextField frmTotalObra;
     private javax.swing.JFormattedTextField frmTotalPecas;
+    private javax.swing.JComboBox<String> frmUsuario;
     private javax.swing.JLabel jLabel1;
     private javax.swing.JLabel jLabel11;
     private javax.swing.JLabel jLabel12;
@@ -832,6 +819,86 @@ public class FrmOS extends javax.swing.JFrame {
     private javax.swing.JTable jTable1;
     private javax.swing.JTable jTable3;
     // End of variables declaration//GEN-END:variables
+    public void abrirOrdemServico() {
+        OS os = new OS();
+        ServicoDAO sDAO = new ServicoDAO();
+
+        if (frmModeloVeiculo.getText().isEmpty()
+                || frmDefeito.getText().isEmpty()
+                || frmObs1.getText().isEmpty()
+                || frmTotalPecas.getText().isEmpty()
+                || frmTotalObra.getText().isEmpty()
+                || frmOrcamentoFinal.getText().isEmpty()
+                || jTable3.getSelectedRowCount() == -1) {
+            JOptionPane.showMessageDialog(this, "Preencha todos os campos.", "Cadastro de Ordem de Serviço", JOptionPane.WARNING_MESSAGE);
+        } else { // pega os dados dos campos e os coloca nas variáveis desejadas
+
+            String stringUsr = frmUsuario.getSelectedItem().toString(); // pega o item selecionado do JComboBox e colona em uma String
+            String[] splitUsr = stringUsr.split("---"); // separa o ID do usuário e o nome do usuário em uma array
+            int idUsuario = Integer.parseInt(splitUsr[0]); // coloca o ID do cliente em uma variável int
+            String nomeUsuario = splitUsr[1];
+
+            String stringCl = frmCliente.getText(); // pega o item selecionado do JComboBox e colona em uma String
+            String[] splitCl = stringCl.split("---"); // separa o ID do usuário e o nome do usuário em uma array
+            int idCliente = Integer.parseInt(splitCl[0]); // coloca o ID do cliente em uma variável int
+            String nomeCliente = splitCl[1];
+
+            int[] selectedRow = jTable3.getSelectedRows();
+
+            for (int i = selectedRow.length - 1; i >= 0; i--) {
+                selectedId = (int) jTable3.getValueAt(jTable3.convertRowIndexToModel(selectedRow[i]), 0);
+                selectedNome = (String) jTable3.getValueAt(jTable3.convertRowIndexToModel(selectedRow[i]), 1);
+                selectedQtd = (int) jTable3.getValueAt(jTable3.convertRowIndexToModel(selectedRow[i]), 3);
+            }
+
+            try {
+                os.setNomeUsuario_OS(nomeUsuario);
+                os.setIdUsuario_OS(idUsuario);
+                os.setNomeCliente_OS(nomeCliente);
+                os.setIdCliente_OS(idCliente);
+                os.setNomePeca_OS(selectedNome);
+                os.setIdPeca_OS(selectedId);
+                os.setDataAbertura_OS(Date.valueOf(DataAtual));
+                if(verificaStatus(frmStatus.getSelectedItem().toString())){
+                    os.setDataFechamento_OS(Date.valueOf(DataAtual));
+                } else {
+                    os.setDataFechamento_OS(null);
+                }
+                
+
+                sDAO.inserir(os); // faz a inserção no banco de dados dos dados que agora estão nas variáveis
+
+                try {
+                    if (sDAO.verificaCliente(cl)) {
+                        JOptionPane.showMessageDialog(this, "Cadastro efetuado com sucesso!", "Cadastro de Clientes", JOptionPane.INFORMATION_MESSAGE);
+                        // limpa os campos
+                        frmCPF.setText("");
+                        frmNome.setText("");
+                        frmEndereco.setText("");
+                        frmCel1.setText("");
+                        frmCel2.setText("");
+                        frmEntrada.setText("");
+                    }
+                } catch (SQLException ex) {
+                    JOptionPane.showMessageDialog(this, "Erro no processo!\n" + ex.getMessage(), "Cadastro de Clientes", JOptionPane.ERROR);
+                }
+
+            } catch (SQLException ex) {
+                JOptionPane.showMessageDialog(this, "Erro no processo!\n" + ex.getMessage(), "Cadastro de Clientes", JOptionPane.ERROR);
+            }
+        }
+
+    }
+
+    public static final boolean verificaStatus(String status) {
+        boolean res=false;
+        if(status=="FINALIZADA"){
+            res=true;
+        }
+        return res;
+    }
+
+
     public void listaPecas() {
         try {
             PecaDAO pDAO = new PecaDAO();
@@ -849,10 +916,11 @@ public class FrmOS extends javax.swing.JFrame {
                 }
                 for (int i = 0; i < todasp.size(); i++) {
                     // loop que pega os dados e insere na tabela
-                    Object[] dados = new Object[4]; // instancia os objetos. Cada objeto representa um atributo
-                    dados[0] = todasp.get(i).getNome_pecas();
-                    dados[1] = todasp.get(i).getValor_pecas();
-                    dados[2] = todasp.get(i).getQuantidade_pecas();
+                    Object[] dados = new Object[3]; // instancia os objetos. Cada objeto representa um atributo
+                    dados[0] = todasp.get(i).getId_pecas();
+                    dados[1] = todasp.get(i).getNome_pecas();
+                    dados[2] = todasp.get(i).getValor_pecas();
+                    dados[3] = todasp.get(i).getQuantidade_pecas();
 
                     // pega os dados salvos do banco de dados (que estão nas variáveis) e os coloca nos objetos definidos
                     modeloTabela.addRow(dados); // insere uma linha nova a cada item novo encontrado na tabela do BD
@@ -867,10 +935,11 @@ public class FrmOS extends javax.swing.JFrame {
                 }
                 for (int i = 0; i < p.size(); i++) {
                     // loop que pega os dados e insere na tabela
-                    Object[] dados = new Object[4]; // instancia os objetos. Cada objeto representa um atributo
-                    dados[0] = p.get(i).getNome_pecas();
-                    dados[1] = p.get(i).getValor_pecas();
-                    dados[2] = p.get(i).getQuantidade_pecas();
+                    Object[] dados = new Object[3]; // instancia os objetos. Cada objeto representa um atributo
+                    dados[0] = p.get(i).getId_pecas();
+                    dados[1] = p.get(i).getNome_pecas();
+                    dados[2] = p.get(i).getValor_pecas();
+                    dados[3] = p.get(i).getQuantidade_pecas();
 
                     // pega os dados salvos do banco de dados (que estão nas variáveis) e os coloca nos objetos definidos
                     modeloTabela.addRow(dados); // insere uma linha nova a cada item novo encontrado na tabela do BD
@@ -886,6 +955,7 @@ public class FrmOS extends javax.swing.JFrame {
     public void addPecas() {
         DefaultTableModel modeloTabela3 = (DefaultTableModel) jTable3.getModel();
 
+        int selectedId = 0;
         String selectedNome = null;
         double selectedValor = 0;
         int selectedQtd = 0;
@@ -896,26 +966,31 @@ public class FrmOS extends javax.swing.JFrame {
         for (int i = selectedRow.length - 1; i >= 0; i--) {
 
             // loop para pegar os dados de cada linha na tabela
-            selectedNome = (String) jTable1.getValueAt(jTable1.convertRowIndexToModel(selectedRow[i]), 0);
-            selectedValor = (double) jTable1.getValueAt(jTable1.convertRowIndexToModel(selectedRow[i]), 1);
-            selectedQtd = (int) jTable1.getValueAt(jTable1.convertRowIndexToModel(selectedRow[i]), 2);
+            selectedId = (int) jTable1.getValueAt(jTable1.convertRowIndexToModel(selectedRow[i]), 0);
+            selectedNome = (String) jTable1.getValueAt(jTable1.convertRowIndexToModel(selectedRow[i]), 1);
+            selectedValor = (double) jTable1.getValueAt(jTable1.convertRowIndexToModel(selectedRow[i]), 2);
+            selectedQtd = (int) jTable1.getValueAt(jTable1.convertRowIndexToModel(selectedRow[i]), 3);
         }
 
         for (int i = 0; i < qtdLinhasSelecionadas; i++) {
 
             // loop que pega os dados e insere na tabela
             Object[] dados = new Object[3]; // instancia os objetos. Cada objeto representa um atributo
-            dados[0] = selectedNome;
-            dados[1] = selectedValor;
-            dados[2] = selectedQtd;
+            dados[0] = selectedId;
+            dados[1] = selectedNome;
+            dados[2] = selectedValor;
+            dados[3] = selectedQtd;
             modeloTabela3.addRow(dados); // insere uma linha nova a cada item novo encontrado na tabela do BD
         }
         //System.out.println("Nome " + selectedNome + "\nValor " + selectedValor + "\nQuantidade " + selectedQtd);
     }
 
-    private ArrayList<String> selectedNome;
-    private ArrayList<Double> selectedValor;
-    private ArrayList<Integer> selectedQtd;
+    private final static LocalDate DataAtual = LocalDate.now();
+    
+    private int selectedId;
+    private String selectedNome;
+    private double selectedValor;
+    private int selectedQtd;
 
     private static double valorTotalPecas = 0;
     private static double maoDeObra = 100;
@@ -927,6 +1002,7 @@ public class FrmOS extends javax.swing.JFrame {
         dados[0] = 0;
         dados[1] = 0;
         dados[2] = 0;
+        dados[3] = 0;
 
         frmTotalPecas.setValue(dados[0]);
         frmTotalObra.setValue(dados[1]);
@@ -937,9 +1013,9 @@ public class FrmOS extends javax.swing.JFrame {
 
         for (int i = selectedRow.length - 1; i >= 0; i--) {
 
-            selectedNome = (ArrayList<String>) jTable3.getValueAt(jTable3.convertRowIndexToModel(selectedRow[i]), 0);
-            selectedValor = (ArrayList<Double>) jTable3.getValueAt(jTable3.convertRowIndexToModel(selectedRow[i]), 1);
-            selectedQtd = (ArrayList<Integer>) jTable3.getValueAt(jTable3.convertRowIndexToModel(selectedRow[i]), 2);
+            selectedNome = (String) jTable3.getValueAt(jTable3.convertRowIndexToModel(selectedRow[i]), 1);
+            selectedValor = (double) jTable3.getValueAt(jTable3.convertRowIndexToModel(selectedRow[i]), 2);
+            selectedQtd = (int) jTable3.getValueAt(jTable3.convertRowIndexToModel(selectedRow[i]), 3);
 
             totalPecas();
             totalObra();
@@ -1014,7 +1090,7 @@ public class FrmOS extends javax.swing.JFrame {
 
     public final void addFuncionario() {
         UsuarioDAO uDAO = new UsuarioDAO();
-        frmAtendente.removeAllItems(); // remove todos os itens do JComboBox antes de inserir novos
+        frmUsuario.removeAllItems(); // remove todos os itens do JComboBox antes de inserir novos
         String nome;
         int id;
         try {
@@ -1025,7 +1101,7 @@ public class FrmOS extends javax.swing.JFrame {
                 nome = todosf.get(i).getNome_usuario(); // pega o nome do usuário
                 id = todosf.get(i).getId_usuario(); // pega o id do usuario
 
-                frmAtendente.addItem(id + "---" + nome.toUpperCase()); // insere uma linha nova a cada item novo encontrado na tabela do BD
+                frmUsuario.addItem(id + "---" + nome.toUpperCase()); // insere uma linha nova a cada item novo encontrado na tabela do BD
             }
         } catch (SQLException ex) {
             JOptionPane.showMessageDialog(this, "Erro no processo!\n" + ex.getMessage(), "Consulta", JOptionPane.ERROR_MESSAGE);
@@ -1035,45 +1111,49 @@ public class FrmOS extends javax.swing.JFrame {
     }
 
     public final void addClienteVeiculo() {
-        try {
-            VeiculoDAO vDAO = new VeiculoDAO(); // instancia a classe ProdutoDB()
-            ArrayList<Cliente> v = vDAO.consultaClienteOSPlaca(frmPlacaVeiculo.getText()); // coloca o método dentro da variável
+        if (frmPlacaVeiculo.getText().isEmpty()) {
+            JOptionPane.showMessageDialog(this, "Digite a placa do veículo.", "Consulta de OS", JOptionPane.WARNING_MESSAGE);
+        } else {
+            try {
+                VeiculoDAO vDAO = new VeiculoDAO(); // instancia a classe ProdutoDB()
+                ArrayList<Cliente> v = vDAO.consultaClienteOSPlaca(frmPlacaVeiculo.getText()); // coloca o método dentro da variável
 
-            frmCliente.setText("");
-            frmCel1.setText("");
-            frmCel2.setText("");
-            frmModeloVeiculo.setText("");
+                frmCliente.setText("");
+                frmCel1.setText("");
+                frmCel2.setText("");
+                frmModeloVeiculo.setText("");
 
-            int id;
-            String nomeCliente;
-            long celular1;
-            long celular2;
-            String modeloVeiculo;
+                int id;
+                String nomeCliente;
+                long celular1;
+                long celular2;
+                String modeloVeiculo;
 
-            for (int i = 0; i < v.size(); i++) {
-                // loop que pega os dados e insere na tabela
+                for (int i = 0; i < v.size(); i++) {
+                    // loop que pega os dados e insere na tabela
 
-                id = v.get(i).getId_cliente();
-                nomeCliente = v.get(i).getNome_cliente();
-                celular1 = v.get(i).getCelular1_cliente();
-                celular2 = v.get(i).getCelular2_cliente();
-                modeloVeiculo = v.get(i).getModelo_veiculo();
-                // pega os dados salvos do banco de dados (que estão nas variáveis) e os coloca nos objetos definidos
+                    id = v.get(i).getId_cliente();
+                    nomeCliente = v.get(i).getNome_cliente();
+                    celular1 = v.get(i).getCelular1_cliente();
+                    celular2 = v.get(i).getCelular2_cliente();
+                    modeloVeiculo = v.get(i).getModelo_veiculo();
+                    // pega os dados salvos do banco de dados (que estão nas variáveis) e os coloca nos objetos definidos
 
-                frmCliente.setText(id + "---" + nomeCliente);
-                frmCel1.setValue(celular1);
-                if (celular2 == 0) {
-                    frmCel2.setValue("");
-                } else {
-                    frmCel2.setValue(celular2);
+                    frmCliente.setText(id + "---" + nomeCliente);
+                    frmCel1.setValue(celular1);
+                    if (celular2 == 0) {
+                        frmCel2.setValue("");
+                    } else {
+                        frmCel2.setValue(celular2);
+                    }
+                    frmModeloVeiculo.setText(modeloVeiculo);
                 }
-                frmModeloVeiculo.setText(modeloVeiculo);
-            }
 
-        } catch (SQLException ex) {
-            JOptionPane.showMessageDialog(this, "Erro no processo!\n" + ex.getMessage(), "Consultas", JOptionPane.ERROR_MESSAGE);
-        } catch (Exception ex) {
-            Logger.getLogger(FrmPesquisar.class.getName()).log(Level.SEVERE, null, ex);
+            } catch (SQLException ex) {
+                JOptionPane.showMessageDialog(this, "Erro no processo!\n" + ex.getMessage(), "Consultas", JOptionPane.ERROR_MESSAGE);
+            } catch (Exception ex) {
+                Logger.getLogger(FrmPesquisar.class.getName()).log(Level.SEVERE, null, ex);
+            }
         }
     }
 }

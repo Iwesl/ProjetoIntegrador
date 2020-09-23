@@ -13,8 +13,67 @@ import javax.swing.JOptionPane;
 
 public class ServicoDAO {
 
-    public void incluir(OS os) {
+    public void inserir(OS os) throws SQLException {
+        final Conect C = new Conect(); // instancia o método de conexão
+        Connection conn = null; // cria uma nova variável de método Connection
+        PreparedStatement pstm = null; // cria uma nova variável de método PreparedStatement
+        
+        String sql = "INSERT INTO os(id_os , defeito_os, obs_os, status_os, data_abertura, data_fechamento, id_usuario, id_pecas, id_clientes) VALUES(?,?,?,?,?,?,?,?,?)";
 
+        try {
+            //Cria uma conexão com o banco
+            conn = C.createConnectionToMySQL();
+
+            //Cria um PreparedStatment, classe usada para executar a query
+            pstm = conn.prepareStatement(sql);
+            //pstm.setInt(1, user.getId());
+
+            pstm.setInt(1, os.getNumero_OS());
+
+            pstm.setString(2, os.getDefeito_OS());
+            
+            pstm.setString(3, os.getObs_OS());
+            
+            pstm.setString(4, os.getStatus_OS());
+            
+            pstm.setDate(5, os.getDataAbertura_OS());
+            
+            pstm.setDate(6, os.getDataFechamento_OS());
+            
+            pstm.setInt(7, os.getIdUsuario_OS());
+            
+            pstm.setInt(8, os.getIdPeca_OS());
+            
+            pstm.setInt(9, os.getIdCliente_OS());
+            
+            
+
+            //Executa a sql para inserção dos dados
+            pstm.execute();
+
+        } catch (SQLException ex) {
+            JOptionPane.showMessageDialog(null, "Falha no processo!\nErro: " + ex.getMessage(), "Cadastro de Ordem de Serviço", JOptionPane.ERROR_MESSAGE);
+
+        } catch (Exception ex) {
+            Logger.getLogger(UsuarioDAO.class.getName()).log(Level.SEVERE, null, ex);
+        } finally {
+
+            //Fecha as conexões
+            try {
+                if (pstm != null) {
+
+                    pstm.close();
+                }
+
+                if (conn != null) {
+                    conn.close();
+                }
+
+            } catch (SQLException ex) {
+            JOptionPane.showMessageDialog(null, "Falha no processo!\nErro: " + ex.getMessage(), "Cadastro de Ordem de Serviço", JOptionPane.ERROR_MESSAGE);
+
+            }
+        }
     }
 
     public void alterar(int Numero_OS) {

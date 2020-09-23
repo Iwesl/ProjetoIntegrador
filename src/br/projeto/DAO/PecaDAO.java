@@ -131,6 +131,7 @@ public class PecaDAO {
             while (rs.next()) {
                 // loop para pegar todos os itens da tabela
                 Peca p = new Peca();
+                p.setId_pecas(rs.getInt("id_pecas"));
                 p.setNome_pecas(rs.getString("nome_pecas"));
                 p.setQuantidade_pecas(rs.getInt("quantidade_pecas"));
                 p.setValor_pecas(rs.getDouble("valor_precas"));

@@ -227,9 +227,6 @@ public class FrmClientes extends javax.swing.JFrame {
                     JOptionPane.showMessageDialog(this, "Erro no processo!\n" + ex.getMessage(), "Cadastro de Clientes", JOptionPane.ERROR);
                 }
 
-                {
-
-                }
                 // limpa os campos
                 frmCPF.setText("");
                 frmNome.setText("");

@@ -5,7 +5,9 @@
  */
 package br.projeto.data;
 
-import java.util.Date;
+import java.sql.Date;
+
+
 
 
 /**
@@ -16,20 +18,17 @@ public class OS {
     
         private int Numero_OS;
 	private String Defeito_OS;
+	private String Obs_OS;
 	private String Status_OS;
 	private Date DataAbertura_OS;
 	private Date DataFechamento_OS;
         private String NomeUsuario_OS;
         private String NomeCliente_OS;
         private String NomePeca_OS;
+        private int IdUsuario_OS;
+        private int IdCliente_OS;
+        private int IdPeca_OS;
     
-    public static void main(String[] args) throws Exception {
-       
-    }
-
-    public void AbrirNovaOs() {
-
-    }    
 
     /**
      * @return the Numero_OS
@@ -102,6 +101,62 @@ public class OS {
     }
 
     /**
+     * @return the IdUsuario_OS
+     */
+    public int getIdUsuario_OS() {
+        return IdUsuario_OS;
+    }
+
+    /**
+     * @param IdUsuario_OS the IdUsuario_OS to set
+     */
+    public void setIdUsuario_OS(int IdUsuario_OS) {
+        this.IdUsuario_OS = IdUsuario_OS;
+    }
+
+    /**
+     * @return the IdCliente_OS
+     */
+    public int getIdCliente_OS() {
+        return IdCliente_OS;
+    }
+
+    /**
+     * @param IdCliente_OS the IdCliente_OS to set
+     */
+    public void setIdCliente_OS(int IdCliente_OS) {
+        this.IdCliente_OS = IdCliente_OS;
+    }
+
+    /**
+     * @return the IdPeca_OS
+     */
+    public int getIdPeca_OS() {
+        return IdPeca_OS;
+    }
+
+    /**
+     * @param IdPeca_OS the IdPeca_OS to set
+     */
+    public void setIdPeca_OS(int IdPeca_OS) {
+        this.IdPeca_OS = IdPeca_OS;
+    }
+
+    /**
+     * @return the NomeUsuario_OS
+     */
+    public String getNomeUsuario_OS() {
+        return NomeUsuario_OS;
+    }
+
+    /**
+     * @param NomeUsuario_OS the NomeUsuario_OS to set
+     */
+    public void setNomeUsuario_OS(String NomeUsuario_OS) {
+        this.NomeUsuario_OS = NomeUsuario_OS;
+    }
+
+    /**
      * @return the NomeCliente_OS
      */
     public String getNomeCliente_OS() {
@@ -130,16 +185,18 @@ public class OS {
     }
 
     /**
-     * @return the NomeUsuario_OS
+     * @return the Obs_OS
      */
-    public String getNomeUsuario_OS() {
-        return NomeUsuario_OS;
+    public String getObs_OS() {
+        return Obs_OS;
     }
 
     /**
-     * @param NomeUsuario_OS the NomeUsuario_OS to set
+     * @param Obs_OS the Obs_OS to set
      */
-    public void setNomeUsuario_OS(String NomeUsuario_OS) {
-        this.NomeUsuario_OS = NomeUsuario_OS;
+    public void setObs_OS(String Obs_OS) {
+        this.Obs_OS = Obs_OS;
     }
+
+   
 }

@@ -391,7 +391,7 @@ public void buscaTodasOsPorNome() {
                 // loop que pega os dados e insere na tabela
                 Object[] dados = new Object[7]; // instancia os objetos. Cada objeto representa um atributo 
                 dados[0] = cl.get(i).getNumero_OS();
-                dados[1] = cl.get(i).getNomeCliente_OS();
+                dados[1] = cl.get(i).getIdCliente_OS();
                 dados[3] = cl.get(i).getStatus_OS();
                 dados[4] = cl.get(i).getDefeito_OS();
                 dados[5] = cl.get(i).getDataAbertura_OS();
@@ -424,8 +424,8 @@ public void buscaTodasOsPlus() {
                 // loop que pega os dados e insere na tabela
                 Object[] dados = new Object[8]; // instancia os objetos. Cada objeto representa um atributo 
                 dados[0] = cl.get(i).getNumero_OS();
-                dados[1] = cl.get(i).getNomeCliente_OS();
-                dados[2] = cl.get(i).getNomeUsuario_OS();
+                dados[1] = cl.get(i).getIdCliente_OS();
+                dados[2] = cl.get(i).getIdUsuario_OS();
                 dados[3] = cl.get(i).getStatus_OS();
                 dados[4] = cl.get(i).getDefeito_OS();
                 dados[5] = cl.get(i).getDataAbertura_OS();
