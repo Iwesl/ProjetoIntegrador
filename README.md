@@ -1,3 +1,5 @@
+<i>Obs: este projeto foi apresentado e aceito pelo tutor Heitor, no dia 24/09/20</i>
+
 # ProjetoIntegrador
 
 <b>Situação do problema</b>
